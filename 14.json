@@ -1,0 +1,153 @@
+{
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers tokens to a recipient.",
+      "parameters": {
+        "transfer_to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "transferFrom": {
+      "description": "Transfers tokens from a sender to a recipient.",
+      "parameters": {
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_amount"
+      }
+    }
+  },
+  "other_functions": {
+    "approve": {
+      "description": "Approves a spender to transfer tokens on behalf of the owner.",
+      "parameters": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
+    },
+    "approveAndCall": {
+      "description": "Approves a spender and calls a function on the spender.",
+      "parameters": {
+        "spender": "_spender",
+        "amount": "_amount",
+        "extraData": "_extraData"
+      }
+    },
+    "changeController": {
+      "description": "Changes the controller of the contract.",
+      "parameters": {
+        "newController": "_newController"
+      }
+    },
+    "createCloneToken": {
+      "description": "Creates a clone token with specified parameters.",
+      "parameters": {
+        "cloneTokenName": "_cloneTokenName",
+        "cloneDecimalUnits": "_cloneDecimalUnits",
+        "cloneTokenSymbol": "_cloneTokenSymbol",
+        "snapshotBlock": "_snapshotBlock",
+        "transfersEnabled": "_transfersEnabled"
+      }
+    },
+    "destroyTokens": {
+      "description": "Destroys tokens from the owner's account.",
+      "parameters": {
+        "owner": "_owner",
+        "amount": "_amount"
+      }
+    },
+    "enableTransfers": {
+      "description": "Enables or disables token transfers.",
+      "parameters": {
+        "transfersEnabled": "_transfersEnabled"
+      }
+    },
+    "generateTokens": {
+      "description": "Generates new tokens for the owner.",
+      "parameters": {
+        "owner": "_owner",
+        "amount": "_amount"
+      }
+    },
+    "mint": {
+      "description": "Mints new tokens.",
+      "parameters": {
+        "dst": "_dst",
+        "amount": "_amount"
+      }
+    },
+    "permit": {
+      "description": "Permits a spender to transfer tokens on behalf of the owner.",
+      "parameters": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "amount": "_amount",
+        "deadline": "_deadline",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
+      }
+    },
+    "setMinter": {
+      "description": "Sets the address of the minter.",
+      "parameters": {
+        "minter": "_minter"
+      }
+    },
+    "delegate": {
+      "description": "Delegates voting power to a delegatee.",
+      "parameters": {
+        "delegatee": "_delegatee"
+      }
+    },
+    "delegateBySig": {
+      "description": "Delegates voting power by signature.",
+      "parameters": {
+        "delegatee": "_delegatee",
+        "nonce": "_nonce",
+        "expiry": "_expiry",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
+      }
+    },
+    "Approval": {
+      "description": "Emits when tokens are approved for a spender.",
+      "parameters": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "amount": "_amount"
+      }
+    },
+    "DelegateChanged": {
+      "description": "Emits when a delegate changes.",
+      "parameters": {
+        "delegator": "_delegator",
+        "fromDelegate": "_fromDelegate",
+        "toDelegate": "_toDelegate"
+      }
+    },
+    "DelegateVotesChanged": {
+      "description": "Emits when delegate votes change.",
+      "parameters": {
+        "delegate": "_delegate",
+        "previousBalance": "_previousBalance",
+        "newBalance": "_newBalance"
+      }
+    },
+    "MinterChanged": {
+      "description": "Emits when the minter is changed.",
+      "parameters": {
+        "minter": "_minter",
+        "newMinter": "_newMinter"
+      }
+    },
+    "Transfer": {
+      "description": "Emits when tokens are transferred.",
+      "parameters": {
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_amount"
+      }
+    }
+  }
+}

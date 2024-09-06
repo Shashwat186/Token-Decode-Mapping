@@ -1,0 +1,426 @@
+{
+  "transfer_functions": [
+    {
+      "name": "transfer",
+      "description": "Transfers `amount` tokens from the caller to `transfer_to`.",
+      "parameters": {
+        "transfer_to": "_to",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "transferFrom",
+      "description": "Transfers `amount` tokens from `transfer_from` to `transfer_to`.",
+      "parameters": {
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_amount"
+      }
+    }
+  ],
+  "other_functions": [
+    {
+      "name": "DEFAULT_ADMIN_ROLE",
+      "description": "Returns the default admin role.",
+      "parameters": {}
+    },
+    {
+      "name": "DOMAIN_SEPARATOR",
+      "description": "Returns the EIP712 domain separator.",
+      "parameters": {}
+    },
+    {
+      "name": "MAX_COOLDOWN_DURATION",
+      "description": "Returns the maximum cooldown duration.",
+      "parameters": {}
+    },
+    {
+      "name": "acceptAdmin",
+      "description": "Accepts the admin role.",
+      "parameters": {}
+    },
+    {
+      "name": "addToBlacklist",
+      "description": "Adds `target` to the blacklist.",
+      "parameters": {
+        "target": "_target",
+        "isFullBlacklisting": "_isFullBlacklisting"
+      }
+    },
+    {
+      "name": "allowance",
+      "description": "Returns the remaining number of tokens that `spender` is allowed to spend on behalf of `owner`.",
+      "parameters": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    {
+      "name": "approve",
+      "description": "Approves `spender` to spend `amount` tokens.",
+      "parameters": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "asset",
+      "description": "Returns the address of the asset.",
+      "parameters": {}
+    },
+    {
+      "name": "balanceOf",
+      "description": "Returns the balance of `account`.",
+      "parameters": {
+        "account": "_account"
+      }
+    },
+    {
+      "name": "convertToAssets",
+      "description": "Converts `shares` to assets.",
+      "parameters": {
+        "shares": "_shares"
+      }
+    },
+    {
+      "name": "convertToShares",
+      "description": "Converts `assets` to shares.",
+      "parameters": {
+        "assets": "_assets"
+      }
+    },
+    {
+      "name": "cooldownAssets",
+      "description": "Converts `assets` to shares with cooldown.",
+      "parameters": {
+        "assets": "_assets"
+      }
+    },
+    {
+      "name": "cooldownDuration",
+      "description": "Returns the cooldown duration.",
+      "parameters": {}
+    },
+    {
+      "name": "cooldownShares",
+      "description": "Converts `shares` to assets with cooldown.",
+      "parameters": {
+        "shares": "_shares"
+      }
+    },
+    {
+      "name": "cooldowns",
+      "description": "Returns cooldown data for `account`.",
+      "parameters": {
+        "account": "_account"
+      }
+    },
+    {
+      "name": "decimals",
+      "description": "Returns the number of decimals.",
+      "parameters": {}
+    },
+    {
+      "name": "decreaseAllowance",
+      "description": "Decreases the allowance of `spender` by `subtractedValue`.",
+      "parameters": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
+    {
+      "name": "deposit",
+      "description": "Deposits `assets` into the contract and returns the number of shares issued.",
+      "parameters": {
+        "assets": "_assets",
+        "receiver": "_receiver"
+      }
+    },
+    {
+      "name": "eip712Domain",
+      "description": "Returns the EIP712 domain parameters.",
+      "parameters": {}
+    },
+    {
+      "name": "getRoleAdmin",
+      "description": "Returns the admin role of `role`.",
+      "parameters": {
+        "role": "_role"
+      }
+    },
+    {
+      "name": "getUnvestedAmount",
+      "description": "Returns the unvested amount.",
+      "parameters": {}
+    },
+    {
+      "name": "grantRole",
+      "description": "Grants `role` to `account`.",
+      "parameters": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    {
+      "name": "hasRole",
+      "description": "Checks if `account` has `role`.",
+      "parameters": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    {
+      "name": "increaseAllowance",
+      "description": "Increases the allowance of `spender` by `addedValue`.",
+      "parameters": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    {
+      "name": "lastDistributionTimestamp",
+      "description": "Returns the timestamp of the last distribution.",
+      "parameters": {}
+    },
+    {
+      "name": "maxDeposit",
+      "description": "Returns the maximum deposit amount for `account`.",
+      "parameters": {
+        "account": "_account"
+      }
+    },
+    {
+      "name": "maxMint",
+      "description": "Returns the maximum mint amount for `account`.",
+      "parameters": {
+        "account": "_account"
+      }
+    },
+    {
+      "name": "maxRedeem",
+      "description": "Returns the maximum redeem amount for `owner`.",
+      "parameters": {
+        "owner": "_owner"
+      }
+    },
+    {
+      "name": "maxWithdraw",
+      "description": "Returns the maximum withdraw amount for `owner`.",
+      "parameters": {
+        "owner": "_owner"
+      }
+    },
+    {
+      "name": "mint",
+      "description": "Mints `shares` for `receiver` and returns the amount of assets minted.",
+      "parameters": {
+        "shares": "_shares",
+        "receiver": "_receiver"
+      }
+    },
+    {
+      "name": "name",
+      "description": "Returns the name of the token.",
+      "parameters": {}
+    },
+    {
+      "name": "nonces",
+      "description": "Returns the nonce for `owner`.",
+      "parameters": {
+        "owner": "_owner"
+      }
+    },
+    {
+      "name": "owner",
+      "description": "Returns the owner address.",
+      "parameters": {}
+    },
+    {
+      "name": "permit",
+      "description": "Permits `spender` to spend `value` on behalf of `owner` until `deadline`.",
+      "parameters": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value",
+        "deadline": "_deadline",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
+      }
+    },
+    {
+      "name": "previewDeposit",
+      "description": "Returns the amount of shares that would be issued for `assets`.",
+      "parameters": {
+        "assets": "_assets"
+      }
+    },
+    {
+      "name": "previewMint",
+      "description": "Returns the amount of assets that would be required for `shares`.",
+      "parameters": {
+        "shares": "_shares"
+      }
+    },
+    {
+      "name": "previewRedeem",
+      "description": "Returns the amount of assets that would be received for `shares`.",
+      "parameters": {
+        "shares": "_shares"
+      }
+    },
+    {
+      "name": "previewWithdraw",
+      "description": "Returns the amount of shares that would be issued for `assets`.",
+      "parameters": {
+        "assets": "_assets"
+      }
+    },
+    {
+      "name": "redeem",
+      "description": "Redeems `shares` for `assets` for `receiver` and `_owner`.",
+      "parameters": {
+        "shares": "_shares",
+        "receiver": "_receiver",
+        "owner": "_owner"
+      }
+    },
+    {
+      "name": "redistributeLockedAmount",
+      "description": "Redistributes locked amounts from `transfer_from` to `transfer_to`.",
+      "parameters": {
+        "transfer_from": "_from",
+        "transfer_to": "_to"
+      }
+    },
+    {
+      "name": "removeFromBlacklist",
+      "description": "Removes `target` from the blacklist.",
+      "parameters": {
+        "target": "_target",
+        "isFullBlacklisting": "_isFullBlacklisting"
+      }
+    },
+    {
+      "name": "renounceRole",
+      "description": "Renounces `role` for `account`.",
+      "parameters": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    {
+      "name": "rescueTokens",
+      "description": "Rescues `amount` of `token` and sends it to `transfer_to`.",
+      "parameters": {
+        "token": "_token",
+        "amount": "_amount",
+        "transfer_to": "_to"
+      }
+    },
+    {
+      "name": "revokeRole",
+      "description": "Revokes `role` from `account`.",
+      "parameters": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    {
+      "name": "setCooldownDuration",
+      "description": "Sets the cooldown duration to `newDuration`.",
+      "parameters": {
+        "newDuration": "_newDuration"
+      }
+    },
+    {
+      "name": "setMaxDeposit",
+      "description": "Sets the maximum deposit amount for `address` to `maxDeposit`.",
+      "parameters": {
+        "address": "_address",
+        "maxDeposit": "_maxDeposit"
+      }
+    },
+    {
+      "name": "setMaxMint",
+      "description": "Sets the maximum mint amount for `address` to `maxMint`.",
+      "parameters": {
+        "address": "_address",
+        "maxMint": "_maxMint"
+      }
+    },
+    {
+      "name": "setMaxRedeem",
+      "description": "Sets the maximum redeem amount for `address` to `maxRedeem`.",
+      "parameters": {
+        "address": "_address",
+        "maxRedeem": "_maxRedeem"
+      }
+    },
+    {
+      "name": "setMaxWithdraw",
+      "description": "Sets the maximum withdraw amount for `address` to `maxWithdraw`.",
+      "parameters": {
+        "address": "_address",
+        "maxWithdraw": "_maxWithdraw"
+      }
+    },
+    {
+      "name": "setName",
+      "description": "Sets the name of the token to `newName`.",
+      "parameters": {
+        "newName": "_newName"
+      }
+    },
+    {
+      "name": "setSymbol",
+      "description": "Sets the symbol of the token to `newSymbol`.",
+      "parameters": {
+        "newSymbol": "_newSymbol"
+      }
+    },
+    {
+      "name": "setToken",
+      "description": "Sets the token to `newToken`.",
+      "parameters": {
+        "newToken": "_newToken"
+      }
+    },
+    {
+      "name": "symbol",
+      "description": "Returns the symbol of the token.",
+      "parameters": {}
+    },
+    {
+      "name": "toggleBlacklist",
+      "description": "Toggles the blacklist status of `target`.",
+      "parameters": {
+        "target": "_target"
+      }
+    },
+    {
+      "name": "totalAssets",
+      "description": "Returns the total assets.",
+      "parameters": {}
+    },
+    {
+      "name": "totalSupply",
+      "description": "Returns the total supply of the token.",
+      "parameters": {}
+    },
+    {
+      "name": "updateUnvestedAmount",
+      "description": "Updates the unvested amount.",
+      "parameters": {}
+    },
+    {
+      "name": "withdraw",
+      "description": "Withdraws `assets` and returns the amount of shares burnt.",
+      "parameters": {
+        "assets": "_assets",
+        "receiver": "_receiver",
+        "owner": "_owner"
+      }
+    }
+  ]
+}

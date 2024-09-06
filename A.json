@@ -1,0 +1,200 @@
+{
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "fields": {
+        "transfer_to": "_to",
+        "amount": "_value"
+      }
+    },
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "fields": {
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_value"
+      }
+    },
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account multiple times, up to the amount specified.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_value"
+      }
+    }
+  },
+  "other_functions": {
+    "allowance": {
+      "description": "Returns the remaining number of tokens that a spender is allowed to withdraw from the owner’s account.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    "balanceOf": {
+      "description": "Returns the balance of a specified address.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "burn": {
+      "description": "Burns tokens from a specified address, reducing the total supply.",
+      "fields": {
+        "account": "_account",
+        "amount": "_amount"
+      }
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places the token uses.",
+      "fields": {}
+    },
+    "mint": {
+      "description": "Mints new tokens for a specified address, increasing the total supply.",
+      "fields": {
+        "account": "_account",
+        "amount": "_amount"
+      }
+    },
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "owner": {
+      "description": "Returns the address of the current owner of the contract.",
+      "fields": {}
+    },
+    "renounceOwnership": {
+      "description": "Renounces ownership of the contract, transferring it to the zero address.",
+      "fields": {}
+    },
+    "setDecimals": {
+      "description": "Sets the number of decimal places for the token.",
+      "fields": {
+        "newDecimals": "_newDecimals"
+      }
+    },
+    "setName": {
+      "description": "Sets a new name for the token.",
+      "fields": {
+        "newName": "_newName"
+      }
+    },
+    "setSymbol": {
+      "description": "Sets a new symbol for the token.",
+      "fields": {
+        "newSymbol": "_newSymbol"
+      }
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of the tokens.",
+      "fields": {}
+    },
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to a new address.",
+      "fields": {
+        "newOwner": "_newOwner"
+      }
+    }
+  },
+  "errors": {
+    "ERC20InsufficientAllowance": {
+      "description": "Thrown when an allowance is insufficient.",
+      "fields": {
+        "spender": "_spender",
+        "allowance": "_allowance",
+        "needed": "_needed"
+      }
+    },
+    "ERC20InsufficientBalance": {
+      "description": "Thrown when an address’s balance is insufficient.",
+      "fields": {
+        "sender": "_sender",
+        "balance": "_balance",
+        "needed": "_needed"
+      }
+    },
+    "ERC20InvalidApprover": {
+      "description": "Thrown when an invalid approver address is provided.",
+      "fields": {
+        "approver": "_approver"
+      }
+    },
+    "ERC20InvalidReceiver": {
+      "description": "Thrown when an invalid receiver address is provided.",
+      "fields": {
+        "receiver": "_receiver"
+      }
+    },
+    "ERC20InvalidSender": {
+      "description": "Thrown when an invalid sender address is provided.",
+      "fields": {
+        "sender": "_sender"
+      }
+    },
+    "ERC20InvalidSpender": {
+      "description": "Thrown when an invalid spender address is provided.",
+      "fields": {
+        "spender": "_spender"
+      }
+    },
+    "OwnableInvalidOwner": {
+      "description": "Thrown when an invalid owner address is provided.",
+      "fields": {
+        "owner": "_owner"
+      }
+    },
+    "OwnableUnauthorizedAccount": {
+      "description": "Thrown when an unauthorized account is provided.",
+      "fields": {
+        "account": "_account"
+      }
+    }
+  },
+  "events": {
+    "Approval": {
+      "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value"
+      }
+    },
+    "OwnershipTransferred": {
+      "description": "Emitted when ownership of the contract is transferred to a new address.",
+      "fields": {
+        "previousOwner": "_previousOwner",
+        "newOwner": "_newOwner"
+      }
+    },
+    "SetDecimals": {
+      "description": "Emitted when the number of decimal places for the token is changed.",
+      "fields": {
+        "precision": "_precision"
+      }
+    },
+    "SetName": {
+      "description": "Emitted when the token name is changed.",
+      "fields": {
+        "name": "_name"
+      }
+    },
+    "SetSymbol": {
+      "description": "Emitted when the token symbol is changed.",
+      "fields": {
+        "symbol": "_symbol"
+      }
+    },
+    "Transfer": {
+      "description": "Emitted when tokens are transferred from one address to another.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "transfer_functions": [],
+  "other_functions": [
+    {
+      "name": "constructor",
+      "description": "Initializes the contract with `_implementation` and `_data`.",
+      "parameters": {
+        "implementation": "_to",
+        "data": "_data"
+      }
+    },
+    {
+      "name": "AdminChanged",
+      "description": "Event triggered when the admin is changed from `previousAdmin` to `newAdmin`.",
+      "parameters": {
+        "previousAdmin": "_from",
+        "newAdmin": "_to"
+      }
+    },
+    {
+      "name": "BeaconUpgraded",
+      "description": "Event triggered when the beacon is upgraded.",
+      "parameters": {
+        "beacon": "_to"
+      }
+    },
+    {
+      "name": "Upgraded",
+      "description": "Event triggered when the implementation is upgraded.",
+      "parameters": {
+        "implementation": "_to"
+      }
+    },
+    {
+      "name": "fallback",
+      "description": "Fallback function that is called when a non-existent function is invoked or Ether is sent.",
+      "parameters": {}
+    },
+    {
+      "name": "receive",
+      "description": "Receive function that is called when Ether is sent to the contract.",
+      "parameters": {}
+    }
+  ]
+}

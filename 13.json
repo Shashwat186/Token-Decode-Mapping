@@ -1,0 +1,188 @@
+{
+    "transfer_functions": {
+      "transfer": {
+        "description": "Transfers tokens to a recipient.",
+        "parameters": {
+          "transfer_to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from a sender to a recipient.",
+        "parameters": {
+          "transfer_from": "_from",
+          "transfer_to": "_to",
+          "amount": "_amount"
+        }
+      }
+    },
+    "other_functions": {
+      "approve": {
+        "description": "Approves a spender to transfer tokens on behalf of the owner.",
+        "parameters": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "approveAndCall": {
+        "description": "Approves a spender and calls a function on the spender.",
+        "parameters": {
+          "spender": "_spender",
+          "amount": "_amount",
+          "extraData": "_extraData"
+        }
+      },
+      "changeController": {
+        "description": "Changes the controller of the contract.",
+        "parameters": {
+          "newController": "_newController"
+        }
+      },
+      "createCloneToken": {
+        "description": "Creates a clone token with specified parameters.",
+        "parameters": {
+          "cloneTokenName": "_cloneTokenName",
+          "cloneDecimalUnits": "_cloneDecimalUnits",
+          "cloneTokenSymbol": "_cloneTokenSymbol",
+          "snapshotBlock": "_snapshotBlock",
+          "transfersEnabled": "_transfersEnabled"
+        }
+      },
+      "destroyTokens": {
+        "description": "Destroys tokens from the owner's account.",
+        "parameters": {
+          "owner": "_owner",
+          "amount": "_amount"
+        }
+      },
+      "enableTransfers": {
+        "description": "Enables or disables token transfers.",
+        "parameters": {
+          "transfersEnabled": "_transfersEnabled"
+        }
+      },
+      "generateTokens": {
+        "description": "Generates new tokens for the owner.",
+        "parameters": {
+          "owner": "_owner",
+          "amount": "_amount"
+        }
+      },
+      "pull": {
+        "description": "Pulls tokens from the specified address.",
+        "parameters": {
+          "address": "_usr",
+          "amount": "_amount"
+        }
+      },
+      "push": {
+        "description": "Pushes tokens to the specified address.",
+        "parameters": {
+          "address": "_usr",
+          "amount": "_amount"
+        }
+      },
+      "rely": {
+        "description": "Grants permission to an address.",
+        "parameters": {
+          "address": "_guy"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the balance of an account.",
+        "parameters": {
+          "owner": "_owner"
+        }
+      },
+      "balanceOfAt": {
+        "description": "Returns the balance of an account at a specific block.",
+        "parameters": {
+          "owner": "_owner",
+          "blockNumber": "_blockNumber"
+        }
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "parameters": {}
+      },
+      "totalSupplyAt": {
+        "description": "Returns the total supply of tokens at a specific block.",
+        "parameters": {
+          "blockNumber": "_blockNumber"
+        }
+      },
+      "transfersEnabled": {
+        "description": "Returns whether transfers are enabled.",
+        "parameters": {}
+      },
+      "parentToken": {
+        "description": "Returns the address of the parent token.",
+        "parameters": {}
+      },
+      "parentSnapShotBlock": {
+        "description": "Returns the snapshot block of the parent token.",
+        "parameters": {}
+      },
+      "tokenFactory": {
+        "description": "Returns the address of the token factory.",
+        "parameters": {}
+      },
+      "controller": {
+        "description": "Returns the address of the controller.",
+        "parameters": {}
+      },
+      "version": {
+        "description": "Returns the version of the contract.",
+        "parameters": {}
+      },
+      "LogNote": {
+        "description": "Emits logs with arbitrary data.",
+        "parameters": {
+          "sig": "_sig",
+          "user": "_usr",
+          "arg1": "_arg1",
+          "arg2": "_arg2",
+          "data": "_data"
+        }
+      },
+      "ClaimedTokens": {
+        "description": "Emits when tokens are claimed.",
+        "parameters": {
+          "token": "_token",
+          "controller": "_controller",
+          "amount": "_amount"
+        }
+      },
+      "Transfer": {
+        "description": "Emits when tokens are transferred.",
+        "parameters": {
+          "transfer_from": "_from",
+          "transfer_to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "NewCloneToken": {
+        "description": "Emits when a new clone token is created.",
+        "parameters": {
+          "cloneToken": "_cloneToken",
+          "snapshotBlock": "_snapshotBlock"
+        }
+      },
+      "Approval": {
+        "description": "Emits when tokens are approved for a spender.",
+        "parameters": {
+          "transfer_from": "_owner",
+          "transfer_to": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "ControlTransferred": {
+        "description": "Emits when control is transferred to a new address.",
+        "parameters": {
+          "previousControler": "_previousControler",
+          "newController": "_newController"
+        }
+      }
+    }
+  }
+  

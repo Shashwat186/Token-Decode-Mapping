@@ -1,0 +1,82 @@
+{
+  "transfer_functions": {
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_value"
+      }
+    },
+    "transfer": {
+      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "fields": {
+        "transfer_to": "_to",
+        "amount": "_value"
+      }
+    },
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "fields": {
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_value"
+      }
+    }
+  },
+  "other_functions": {
+    "withdrawEther": {
+      "description": "Allows the contract owner to withdraw Ether from the contract.",
+      "fields": {}
+    },
+    "burn": {
+      "description": "Burns a specified amount of tokens, reducing the total supply.",
+      "fields": {
+        "amount": "_value"
+      }
+    },
+    "unfreeze": {
+      "description": "Unfreezes a specified amount of tokens.",
+      "fields": {
+        "amount": "_value"
+      }
+    },
+    "freeze": {
+      "description": "Freezes a specified amount of tokens.",
+      "fields": {
+        "amount": "_value"
+      }
+    }
+  },
+  "errors": {},
+  "events": {
+    "Transfer": {
+      "description": "Emitted when tokens are transferred from one address to another.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
+      }
+    },
+    "Burn": {
+      "description": "Emitted when tokens are burned.",
+      "fields": {
+        "from": "_from",
+        "value": "_value"
+      }
+    },
+    "Freeze": {
+      "description": "Emitted when tokens are frozen.",
+      "fields": {
+        "from": "_from",
+        "value": "_value"
+      }
+    },
+    "Unfreeze": {
+      "description": "Emitted when tokens are unfrozen.",
+      "fields": {
+        "from": "_from",
+        "value": "_value"
+      }
+    }
+  }
+}

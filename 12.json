@@ -1,0 +1,186 @@
+{
+  "transfer_functions": [
+    {
+      "name": "transfer",
+      "description": "Transfers tokens to a recipient.",
+      "parameters": {
+        "transfer_to": "_to",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "transferFrom",
+      "description": "Transfers tokens from a sender to a recipient.",
+      "parameters": {
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "move",
+      "description": "Moves tokens from one address to another.",
+      "parameters": {
+        "transfer_from": "_src",
+        "transfer_to": "_dst",
+        "amount": "_amount"
+      }
+    }
+  ],
+  "other_functions": [
+    {
+      "name": "approve",
+      "description": "Approves a spender to transfer tokens on behalf of the owner.",
+      "parameters": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "burn",
+      "description": "Burns tokens from the owner's account.",
+      "parameters": {
+        "owner": "_usr",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "deny",
+      "description": "Denies access to a particular address.",
+      "parameters": {
+        "address": "_guy"
+      }
+    },
+    {
+      "name": "mint",
+      "description": "Mints new tokens to the specified address.",
+      "parameters": {
+        "recipient": "_usr",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "permit",
+      "description": "Permits a spender to transfer tokens from an owner's account.",
+      "parameters": {
+        "holder": "_holder",
+        "spender": "_spender",
+        "nonce": "_nonce",
+        "expiry": "_expiry",
+        "allowed": "_allowed",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
+      }
+    },
+    {
+      "name": "pull",
+      "description": "Pulls tokens from the specified address.",
+      "parameters": {
+        "address": "_usr",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "push",
+      "description": "Pushes tokens to the specified address.",
+      "parameters": {
+        "address": "_usr",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "rely",
+      "description": "Grants permission to an address.",
+      "parameters": {
+        "address": "_guy"
+      }
+    },
+    {
+      "name": "DOMAIN_SEPARATOR",
+      "description": "Returns the domain separator used in EIP-712.",
+      "parameters": {}
+    },
+    {
+      "name": "PERMIT_TYPEHASH",
+      "description": "Returns the typehash for the permit.",
+      "parameters": {}
+    },
+    {
+      "name": "allowance",
+      "description": "Returns the remaining number of tokens that a spender is allowed to spend.",
+      "parameters": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    {
+      "name": "balanceOf",
+      "description": "Returns the balance of an account.",
+      "parameters": {
+        "owner": "_owner"
+      }
+    },
+    {
+      "name": "decimals",
+      "description": "Returns the number of decimals used by the token.",
+      "parameters": {}
+    },
+    {
+      "name": "name",
+      "description": "Returns the name of the token.",
+      "parameters": {}
+    },
+    {
+      "name": "symbol",
+      "description": "Returns the symbol of the token.",
+      "parameters": {}
+    },
+    {
+      "name": "totalSupply",
+      "description": "Returns the total supply of tokens.",
+      "parameters": {}
+    },
+    {
+      "name": "version",
+      "description": "Returns the version of the contract.",
+      "parameters": {}
+    },
+    {
+      "name": "wards",
+      "description": "Returns the wards of the contract.",
+      "parameters": {
+        "address": "_address"
+      }
+    },
+    {
+      "name": "LogNote",
+      "description": "Emits logs with arbitrary data.",
+      "parameters": {
+        "sig": "_sig",
+        "user": "_usr",
+        "arg1": "_arg1",
+        "arg2": "_arg2",
+        "data": "_data"
+      }
+    },
+    {
+      "name": "Approval",
+      "description": "Emits when tokens are approved for a spender.",
+      "parameters": {
+        "transfer_from": "_src",
+        "transfer_to": "_guy",
+        "amount": "_wad"
+      }
+    },
+    {
+      "name": "Transfer",
+      "description": "Emits when tokens are transferred.",
+      "parameters": {
+        "transfer_from": "_src",
+        "transfer_to": "_dst",
+        "amount": "_wad"
+      }
+    }
+  ]
+}

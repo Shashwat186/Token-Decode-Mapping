@@ -1,0 +1,156 @@
+{
+  "transfer_functions": {
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_value"
+      }
+    },
+    "transfer": {
+      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "fields": {
+        "transfer_to": "_to",
+        "amount": "_value"
+      }
+    },
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "fields": {
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_value"
+      }
+    }
+  },
+  "other_functions": {
+    "deprecate": {
+      "description": "Marks the contract as deprecated and sets a new address.",
+      "fields": {
+        "upgradedAddress": "_upgradedAddress"
+      }
+    },
+    "addBlackList": {
+      "description": "Adds an address to the blacklist.",
+      "fields": {
+        "evilUser": "_evilUser"
+      }
+    },
+    "removeBlackList": {
+      "description": "Removes an address from the blacklist.",
+      "fields": {
+        "clearedUser": "_clearedUser"
+      }
+    },
+    "destroyBlackFunds": {
+      "description": "Destroys the blacklisted funds of a user.",
+      "fields": {
+        "blackListedUser": "_blackListedUser"
+      }
+    },
+    "setParams": {
+      "description": "Sets the fee basis points and maximum fee.",
+      "fields": {
+        "basisPoints": "_newBasisPoints",
+        "maxFee": "_newMaxFee"
+      }
+    },
+    "issue": {
+      "description": "Issues new tokens to the caller’s account.",
+      "fields": {
+        "amount": "_amount"
+      }
+    },
+    "redeem": {
+      "description": "Redeems tokens from the caller’s account.",
+      "fields": {
+        "amount": "_amount"
+      }
+    },
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to a new address.",
+      "fields": {
+        "newOwner": "_newOwner"
+      }
+    },
+    "pause": {
+      "description": "Pauses all token transfers.",
+      "fields": {}
+    },
+    "unpause": {
+      "description": "Unpauses all token transfers.",
+      "fields": {}
+    }
+  },
+  "errors": {},
+  "events": {
+    "Issue": {
+      "description": "Emitted when new tokens are issued.",
+      "fields": {
+        "amount": "_amount"
+      }
+    },
+    "Redeem": {
+      "description": "Emitted when tokens are redeemed.",
+      "fields": {
+        "amount": "_amount"
+      }
+    },
+    "Deprecate": {
+      "description": "Emitted when the contract is deprecated.",
+      "fields": {
+        "newAddress": "_newAddress"
+      }
+    },
+    "Params": {
+      "description": "Emitted when the fee parameters are updated.",
+      "fields": {
+        "feeBasisPoints": "_feeBasisPoints",
+        "maxFee": "_maxFee"
+      }
+    },
+    "DestroyedBlackFunds": {
+      "description": "Emitted when blacklisted funds are destroyed.",
+      "fields": {
+        "blackListedUser": "_blackListedUser",
+        "balance": "_balance"
+      }
+    },
+    "AddedBlackList": {
+      "description": "Emitted when an address is added to the blacklist.",
+      "fields": {
+        "user": "_user"
+      }
+    },
+    "RemovedBlackList": {
+      "description": "Emitted when an address is removed from the blacklist.",
+      "fields": {
+        "user": "_user"
+      }
+    },
+    "Approval": {
+      "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value"
+      }
+    },
+    "Transfer": {
+      "description": "Emitted when tokens are transferred from one address to another.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
+      }
+    },
+    "Pause": {
+      "description": "Emitted when the contract is paused.",
+      "fields": {}
+    },
+    "Unpause": {
+      "description": "Emitted when the contract is unpaused.",
+      "fields": {}
+    }
+  }
+}

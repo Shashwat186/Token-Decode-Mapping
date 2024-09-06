@@ -1,0 +1,124 @@
+{
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers _value tokens to the address _to.",
+      "parameters": {
+        "transfer_to": "_to",
+        "amount": "_value"
+      }
+    },
+    "transferFrom": {
+      "description": "Transfers _value tokens from address _from to address _to.",
+      "parameters": {
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_value"
+      }
+    },
+    "approve": {
+      "description": "Approves _spender to spend _value tokens on behalf of the caller.",
+      "parameters": {
+        "approve_spender": "_spender",
+        "amount": "_value"
+      }
+    },
+    "increaseApproval": {
+      "description": "Increases the allowance of _spender by _addedValue.",
+      "parameters": {
+        "increaseApproval_spender": "_spender",
+        "amount": "_addedValue"
+      }
+    },
+    "decreaseApproval": {
+      "description": "Decreases the allowance of _spender by _subtractedValue.",
+      "parameters": {
+        "decreaseApproval_spender": "_spender",
+        "amount": "_subtractedValue"
+      }
+    },
+    "mint": {
+      "description": "Mints _amount tokens and assigns them to address _to.",
+      "parameters": {
+        "mint_to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "burn": {
+      "description": "Burns _value tokens from the caller's account.",
+      "parameters": {
+        "amount": "_value"
+      }
+    }
+  },
+  "other_functions": {
+    "name": {
+      "description": "Returns the name of the token.",
+      "parameters": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "parameters": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places used by the token.",
+      "parameters": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "parameters": {}
+    },
+    "balanceOf": {
+      "description": "Returns the balance of tokens held by address _owner.",
+      "parameters": {
+        "balanceOf_owner": "_owner"
+      }
+    },
+    "allowance": {
+      "description": "Returns the amount of tokens that _spender is allowed to spend on behalf of _owner.",
+      "parameters": {
+        "allowance_owner": "_owner",
+        "allowance_spender": "_spender"
+      }
+    },
+    "paused": {
+      "description": "Returns true if the contract is paused, false otherwise.",
+      "parameters": {}
+    },
+    "mintingFinished": {
+      "description": "Returns true if minting is finished, false otherwise.",
+      "parameters": {}
+    },
+    "claimOwnership": {
+      "description": "Claims ownership of the contract.",
+      "parameters": {}
+    },
+    "renounceOwnership": {
+      "description": "Renounces ownership of the contract.",
+      "parameters": {}
+    },
+    "finishMinting": {
+      "description": "Finishes minting process.",
+      "parameters": {}
+    },
+    "pause": {
+      "description": "Pauses the contract.",
+      "parameters": {}
+    },
+    "unpause": {
+      "description": "Unpauses the contract.",
+      "parameters": {}
+    },
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to a new owner.",
+      "parameters": {
+        "transferOwnership_newOwner": "newOwner"
+      }
+    },
+    "reclaimToken": {
+      "description": "Reclaims tokens sent to this contract.",
+      "parameters": {
+        "reclaimToken_token": "_token"
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers `amount` of tokens to the `transfer_to` address.",
+      "parameters": {
+        "transfer_to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "transferFrom": {
+      "description": "Transfers `amount` of tokens from `transfer_from` to `transfer_to`.",
+      "parameters": {
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "transferToNear": {
+      "description": "Transfers `_amount` of tokens to a Near receiver account identified by `_nearReceiverAccountId`.",
+      "parameters": {
+        "amount": "_amount",
+        "nearReceiverAccountId": "_to"
+      }
+    }
+  },
+  "other_functions": {
+    "admin": {
+      "description": "Returns the address of the admin.",
+      "parameters": {}
+    },
+    "adminDelegatecall": {
+      "description": "Performs a delegate call to `target` with `data`.",
+      "parameters": {
+        "target": "_to",
+        "data": "_data"
+      }
+    },
+    "adminPause": {
+      "description": "Pauses the contract with specified flags.",
+      "parameters": {
+        "flags": "_amount"
+      }
+    },
+    "adminReceiveEth": {
+      "description": "Allows the admin to receive Ether.",
+      "parameters": {}
+    },
+    "adminSendEth": {
+      "description": "Sends Ether to the `destination` address.",
+      "parameters": {
+        "destination": "_to",
+        "amount": "_amount"
+      }
+    },
+    "adminSstore": {
+      "description": "Stores `value` with `key`.",
+      "parameters": {
+        "key": "_amount",
+        "value": "_amount"
+      }
+    },
+    "allowance": {
+      "description": "Returns the amount of tokens that `transfer_to` is allowed to spend on behalf of `transfer_from`.",
+      "parameters": {
+        "transfer_from": "_from",
+        "transfer_to": "_to"
+      }
+    },
+    "approve": {
+      "description": "Approves `transfer_to` to spend `amount` tokens.",
+      "parameters": {
+        "transfer_to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "balanceOf": {
+      "description": "Returns the token balance of the `transfer_to` address.",
+      "parameters": {
+        "transfer_to": "_to"
+      }
+    },
+    "decimals": {
+      "description": "Returns the number of decimals used for token representation.",
+      "parameters": {}
+    },
+    "decreaseAllowance": {
+      "description": "Decreases the allowance of `transfer_to` by `subtractedValue`.",
+      "parameters": {
+        "transfer_to": "_to",
+        "subtractedValue": "_amount"
+      }
+    },
+    "finaliseNearToEthTransfer": {
+      "description": "Finalises the Near to Eth transfer using `proofData` and `proofBlockHeight`.",
+      "parameters": {
+        "proofData": "_data",
+        "proofBlockHeight": "_amount"
+      }
+    },
+    "increaseAllowance": {
+      "description": "Increases the allowance of `transfer_to` by `addedValue`.",
+      "parameters": {
+        "transfer_to": "_to",
+        "addedValue": "_amount"
+      }
+    },
+    "minBlockAcceptanceHeight": {
+      "description": "Returns the minimum block acceptance height.",
+      "parameters": {}
+    },
+    "name": {
+      "description": "Returns the name of the token.",
+      "parameters": {}
+    },
+    "nearConnector": {
+      "description": "Returns the Near connector data.",
+      "parameters": {}
+    },
+    "paused": {
+      "description": "Returns the paused flags.",
+      "parameters": {}
+    },
+    "prover": {
+      "description": "Returns the address of the prover.",
+      "parameters": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "parameters": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "parameters": {}
+    },
+    "usedProofs": {
+      "description": "Returns whether the proof with given `bytes32` has been used.",
+      "parameters": {
+        "bytes32": "_data"
+      }
+    }
+  }
+}

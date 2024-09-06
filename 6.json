@@ -1,0 +1,207 @@
+{
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers `amount` tokens from the caller to the specified `recipient`.",
+      "fields": {
+        "recipient": "_recipient",
+        "amount": "_amount"
+      }
+    },
+    "transferFrom": {
+      "description": "Transfers `amount` tokens from `sender` to `recipient` on behalf of `sender`.",
+      "fields": {
+        "sender": "_sender",
+        "recipient": "_recipient",
+        "amount": "_amount"
+      }
+    }
+  },
+  "other_functions": {
+    "allowBurn": {
+      "description": "Returns whether burning tokens is allowed.",
+      "fields": {}
+    },
+    "allowance": {
+      "description": "Returns the amount of tokens that `spender` is allowed to spend on behalf of `owner`.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    "approve": {
+      "description": "Approves `spender` to spend `amount` tokens on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
+    },
+    "balanceOf": {
+      "description": "Returns the balance of `account`.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "burn": {
+      "description": "Burns `amount` tokens from the specified `addr`.",
+      "fields": {
+        "amount": "_amount",
+        "addr": "_addr"
+      }
+    },
+    "burnFrom": {
+      "description": "Burns `amount` tokens from `account`'s balance.",
+      "fields": {
+        "account": "_account",
+        "amount": "_amount",
+        "addr": "_addr"
+      }
+    },
+    "checkSignature": {
+      "description": "Checks the validity of `sig` for the given `digest`.",
+      "fields": {
+        "digest": "_digest",
+        "sig": "_sig"
+      }
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places used in the token's representation.",
+      "fields": {}
+    },
+    "decreaseAllowance": {
+      "description": "Decreases the allowance of `spender` by `subtractedValue`.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
+    "finishedVotings": {
+      "description": "Checks if the votings are finished for a given `bytes32` value.",
+      "fields": {
+        "value": "_value"
+      }
+    },
+    "getFullOracleSet": {
+      "description": "Returns the full list of oracle addresses.",
+      "fields": {}
+    },
+    "getNewBurnStatusId": {
+      "description": "Returns the identifier for the new burn status using `newBurnStatus` and `nonce`.",
+      "fields": {
+        "newBurnStatus": "_newBurnStatus",
+        "nonce": "_nonce"
+      }
+    },
+    "getNewSetId": {
+      "description": "Returns the identifier for a new oracle set using `oracleSetHash` and `set`.",
+      "fields": {
+        "oracleSetHash": "_oracleSetHash",
+        "set": "_set"
+      }
+    },
+    "getSwapDataId": {
+      "description": "Returns the identifier for swap data using `data`.",
+      "fields": {
+        "data": "_data"
+      }
+    },
+    "increaseAllowance": {
+      "description": "Increases the allowance of `spender` by `addedValue`.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    "isOracle": {
+      "description": "Checks if an address is an oracle.",
+      "fields": {
+        "address": "_address"
+      }
+    },
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "oraclesSet": {
+      "description": "Returns the oracle set for a given `uint256` value.",
+      "fields": {
+        "value": "_value"
+      }
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "voteForMinting": {
+      "description": "Submits a vote for minting using `data` and `signatures`.",
+      "fields": {
+        "data": "_data",
+        "signatures": "_signatures"
+      }
+    },
+    "voteForNewOracleSet": {
+      "description": "Submits a vote for a new oracle set using `oracleSetHash`, `newOracles`, and `signatures`.",
+      "fields": {
+        "oracleSetHash": "_oracleSetHash",
+        "newOracles": "_newOracles",
+        "signatures": "_signatures"
+      }
+    },
+    "voteForSwitchBurn": {
+      "description": "Submits a vote for switching the burn status using `newBurnStatus`, `nonce`, and `signatures`.",
+      "fields": {
+        "newBurnStatus": "_newBurnStatus",
+        "nonce": "_nonce",
+        "signatures": "_signatures"
+      }
+    }
+  },
+  "events": {
+    "Approval": {
+      "description": "Emitted when an approval is made for a `spender` by `owner`.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value"
+      }
+    },
+    "NewOracleSet": {
+      "description": "Emitted when a new set of oracles is created.",
+      "fields": {
+        "oracleSetHash": "_oracleSetHash",
+        "newOracles": "_newOracles"
+      }
+    },
+    "SwapEthToTon": {
+      "description": "Emitted when ETH is swapped to TON.",
+      "fields": {
+        "from": "_from",
+        "to_wc": "_to_wc",
+        "to_addr_hash": "_to_addr_hash",
+        "value": "_value"
+      }
+    },
+    "SwapTonToEth": {
+      "description": "Emitted when TON is swapped to ETH.",
+      "fields": {
+        "workchain": "_workchain",
+        "ton_address_hash": "_ton_address_hash",
+        "ton_tx_hash": "_ton_tx_hash",
+        "lt": "_lt",
+        "to": "_to",
+        "value": "_value"
+      }
+    },
+    "Transfer": {
+      "description": "Emitted when tokens are transferred from `from` to `to`.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
+      }
+    }
+  }
+}

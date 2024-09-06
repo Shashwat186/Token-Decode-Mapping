@@ -1,0 +1,187 @@
+{
+  "transfer_functions": [
+    {
+      "name": "transfer",
+      "description": "Transfers tokens to a recipient.",
+      "parameters": {
+        "transfer_to": "_recipient",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "transferFrom",
+      "description": "Transfers tokens from a sender to a recipient.",
+      "parameters": {
+        "transfer_from": "_sender",
+        "transfer_to": "_recipient",
+        "amount": "_amount"
+      }
+    }
+  ],
+  "other_functions": [
+    {
+      "name": "allowBurn",
+      "description": "Allows burning of tokens.",
+      "parameters": {}
+    },
+    {
+      "name": "allowance",
+      "description": "Returns the remaining number of tokens that a spender is allowed to spend.",
+      "parameters": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    {
+      "name": "approve",
+      "description": "Approves a spender to transfer tokens on behalf of the owner.",
+      "parameters": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
+    },
+    {
+      "name": "balanceOf",
+      "description": "Returns the balance of an account.",
+      "parameters": {
+        "account": "_account"
+      }
+    },
+    {
+      "name": "burn",
+      "description": "Burns a specified amount of tokens.",
+      "parameters": {
+        "amount": "_amount",
+        "addr": "_addr"
+      }
+    },
+    {
+      "name": "burnFrom",
+      "description": "Burns tokens from a specified account.",
+      "parameters": {
+        "transfer_from": "_account",
+        "amount": "_amount",
+        "addr": "_addr"
+      }
+    },
+    {
+      "name": "checkSignature",
+      "description": "Checks the validity of a signature.",
+      "parameters": {
+        "digest": "_digest",
+        "sig": "_sig"
+      }
+    },
+    {
+      "name": "decimals",
+      "description": "Returns the number of decimals used by the token.",
+      "parameters": {}
+    },
+    {
+      "name": "decreaseAllowance",
+      "description": "Decreases the allowance of a spender.",
+      "parameters": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
+    {
+      "name": "finishedVotings",
+      "description": "Returns the voting status for a digest.",
+      "parameters": {
+        "digest": "_digest"
+      }
+    },
+    {
+      "name": "getFullOracleSet",
+      "description": "Returns the full oracle set.",
+      "parameters": {}
+    },
+    {
+      "name": "getNewBurnStatusId",
+      "description": "Returns the new burn status ID.",
+      "parameters": {
+        "newBurnStatus": "_newBurnStatus",
+        "nonce": "_nonce"
+      }
+    },
+    {
+      "name": "getNewSetId",
+      "description": "Returns the ID of the new oracle set.",
+      "parameters": {
+        "oracleSetHash": "_oracleSetHash",
+        "set": "_set"
+      }
+    },
+    {
+      "name": "getSwapDataId",
+      "description": "Returns the swap data ID for a given swap.",
+      "parameters": {
+        "data": "_data"
+      }
+    },
+    {
+      "name": "increaseAllowance",
+      "description": "Increases the allowance of a spender.",
+      "parameters": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    {
+      "name": "isOracle",
+      "description": "Checks if an address is an oracle.",
+      "parameters": {
+        "address": "_address"
+      }
+    },
+    {
+      "name": "name",
+      "description": "Returns the name of the token.",
+      "parameters": {}
+    },
+    {
+      "name": "oraclesSet",
+      "description": "Returns the oracle set for a specific index.",
+      "parameters": {
+        "index": "_index"
+      }
+    },
+    {
+      "name": "symbol",
+      "description": "Returns the symbol of the token.",
+      "parameters": {}
+    },
+    {
+      "name": "totalSupply",
+      "description": "Returns the total supply of the token.",
+      "parameters": {}
+    },
+    {
+      "name": "voteForMinting",
+      "description": "Votes for minting tokens based on swap data.",
+      "parameters": {
+        "data": "_data",
+        "signatures": "_signatures"
+      }
+    },
+    {
+      "name": "voteForNewOracleSet",
+      "description": "Votes for a new oracle set.",
+      "parameters": {
+        "oracleSetHash": "_oracleSetHash",
+        "newOracles": "_newOracles",
+        "signatures": "_signatures"
+      }
+    },
+    {
+      "name": "voteForSwitchBurn",
+      "description": "Votes for switching the burn status.",
+      "parameters": {
+        "newBurnStatus": "_newBurnStatus",
+        "nonce": "_nonce",
+        "signatures": "_signatures"
+      }
+    }
+  ]
+}
