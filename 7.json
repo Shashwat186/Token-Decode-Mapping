@@ -1,14 +1,21 @@
 {
   "transfer_functions": {
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_value"
+      }
+    },
     "transfer": {
-      "description": "Transfers `amount` tokens from the caller to the specified `recipient`.",
+      "description": "Transfers tokens directly from the caller’s address to another address.",
       "fields": {
         "transfer_to": "_recipient",
         "amount": "_amount"
       }
     },
     "transferFrom": {
-      "description": "Transfers `amount` tokens from `sender` to `recipient` on behalf of `sender`.",
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
       "fields": {
         "transfer_from": "_sender",
         "transfer_to": "_recipient",
@@ -17,145 +24,97 @@
     }
   },
   "other_functions": {
-    "allowBurn": {
-      "description": "Checks if burning tokens is allowed.",
-      "fields": {}
-    },
     "allowance": {
-      "description": "Returns the amount of tokens that `spender` is allowed to spend on behalf of `owner`.",
+      "description": "Returns the remaining number of tokens that the spender is allowed to spend on behalf of the owner.",
       "fields": {
         "owner": "_owner",
         "spender": "_spender"
       }
     },
-    "approve": {
-      "description": "Approves `spender` to spend `amount` tokens on behalf of the caller.",
-      "fields": {
-        "spender": "_spender",
-        "amount": "_amount"
-      }
-    },
     "balanceOf": {
-      "description": "Returns the balance of `account`.",
+      "description": "Returns the amount of tokens owned by the account.",
       "fields": {
         "account": "_account"
       }
     },
-    "burn": {
-      "description": "Burns `amount` tokens from the specified `addr`.",
-      "fields": {
-        "amount": "_amount",
-        "burn_from": "_addr"
-      }
-    },
-    "burnFrom": {
-      "description": "Burns `amount` tokens from `account`'s balance.",
-      "fields": {
-        "burn_from": "_account",
-        "amount": "_amount",
-        "addr": "_addr"
-      }
-    },
-    "checkSignature": {
-      "description": "Checks the validity of `sig` for the given `digest`.",
-      "fields": {
-        "digest": "_digest",
-        "signature": "_sig"
-      }
-    },
-    "decimals": {
-      "description": "Returns the number of decimal places used in the token's representation.",
-      "fields": {}
-    },
     "decreaseAllowance": {
-      "description": "Decreases the allowance of `spender` by `subtractedValue`.",
+      "description": "Decreases the allowance granted to a spender.",
       "fields": {
         "spender": "_spender",
         "subtractedValue": "_subtractedValue"
       }
     },
-    "finishedVotings": {
-      "description": "Checks if the votings are finished for a given `value`.",
-      "fields": {
-        "value": "_value"
-      }
-    },
-    "getFullOracleSet": {
-      "description": "Returns the full list of oracle addresses.",
-      "fields": {}
-    },
-    "getNewBurnStatusId": {
-      "description": "Returns the identifier for the new burn status using `newBurnStatus` and `nonce`.",
-      "fields": {
-        "newBurnStatus": "_newBurnStatus",
-        "nonce": "_nonce"
-      }
-    },
-    "getNewSetId": {
-      "description": "Returns the identifier for a new oracle set using `oracleSetHash` and `set`.",
-      "fields": {
-        "oracleSetHash": "_oracleSetHash",
-        "set": "_set"
-      }
-    },
-    "getSwapDataId": {
-      "description": "Returns the identifier for swap data using `data`.",
-      "fields": {
-        "data": "_data"
-      }
-    },
     "increaseAllowance": {
-      "description": "Increases the allowance of `spender` by `addedValue`.",
+      "description": "Increases the allowance granted to a spender.",
       "fields": {
         "spender": "_spender",
         "addedValue": "_addedValue"
       }
     },
-    "isOracle": {
-      "description": "Checks if an address is an oracle.",
+    "getStETHByWstETH": {
+      "description": "Converts wstETH amount to stETH amount.",
       "fields": {
-        "address": "_address"
+        "wstETHAmount": "_wstETHAmount"
+      }
+    },
+    "getWstETHByStETH": {
+      "description": "Converts stETH amount to wstETH amount.",
+      "fields": {
+        "stETHAmount": "_stETHAmount"
       }
     },
     "name": {
       "description": "Returns the name of the token.",
       "fields": {}
     },
-    "oraclesSet": {
-      "description": "Returns the oracle set for a given `value`.",
+    "nonces": {
+      "description": "Returns the current nonce for the given address.",
       "fields": {
-        "value": "_value"
+        "owner": "_owner"
       }
+    },
+    "permit": {
+      "description": "Sets approval for a spender via signature.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value",
+        "deadline": "_deadline",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
+      }
+    },
+    "stETH": {
+      "description": "Returns the address of the stETH contract.",
+      "fields": {}
+    },
+    "stEthPerToken": {
+      "description": "Returns the amount of stETH per token.",
+      "fields": {}
     },
     "symbol": {
       "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "tokensPerStEth": {
+      "description": "Returns the amount of tokens per stETH.",
       "fields": {}
     },
     "totalSupply": {
       "description": "Returns the total supply of tokens.",
       "fields": {}
     },
-    "voteForMinting": {
-      "description": "Submits a vote for minting using `data` and `signatures`.",
+    "unwrap": {
+      "description": "Unwraps wstETH to stETH.",
       "fields": {
-        "data": "_data",
-        "signatures": "_signatures"
+        "wstETHAmount": "_wstETHAmount"
       }
     },
-    "voteForNewOracleSet": {
-      "description": "Submits a vote for a new oracle set using `oracleSetHash`, `newOracles`, and `signatures`.",
+    "wrap": {
+      "description": "Wraps stETH to wstETH.",
       "fields": {
-        "oracleSetHash": "_oracleSetHash",
-        "newOracles": "_newOracles",
-        "signatures": "_signatures"
-      }
-    },
-    "voteForSwitchBurn": {
-      "description": "Submits a vote for switching the burn status using `newBurnStatus`, `nonce`, and `signatures`.",
-      "fields": {
-        "newBurnStatus": "_newBurnStatus",
-        "nonce": "_nonce",
-        "signatures": "_signatures"
+        "stETHAmount": "_stETHAmount"
       }
     }
   }

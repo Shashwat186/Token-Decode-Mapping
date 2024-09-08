@@ -1,0 +1,80 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "parameters": {
+          "_spender": "_spender",
+          "_amount": "_amount"
+        },
+        "description": "Approves the passed address to spend the specified amount of tokens on behalf of the owner."
+      },
+      "transferFrom": {
+        "parameters": {
+          "_from": "_from",
+          "_to": "_to",
+          "_amount": "_amount"
+        },
+        "description": "Transfers tokens from one address to another using the allowance mechanism."
+      },
+      "transfer": {
+        "parameters": {
+          "_to": "_to",
+          "_amount": "_amount"
+        },
+        "description": "Transfers tokens to a specified address."
+      }
+    },
+    "other_functions": {
+      "setOwner": {
+        "parameters": {
+          "_newOwner": "_newOwner"
+        },
+        "description": "Transfers ownership of the contract to a new owner."
+      },
+      "seal": {
+        "parameters": {},
+        "description": "Seals the contract, disabling certain functions."
+      },
+      "offerBonus": {
+        "parameters": {
+          "_bonus": "_bonus"
+        },
+        "description": "Offers a bonus to specified participants."
+      },
+      "mint": {
+        "parameters": {
+          "_owner": "_owner",
+          "_amount": "_amount",
+          "_isRaw": "_isRaw",
+          "timestamp": "timestamp"
+        },
+        "description": "Mints new tokens and assigns them to an owner."
+      },
+      "approveAndCall": {
+        "parameters": {
+          "_spender": "_spender",
+          "_value": "_value",
+          "_extraData": "_extraData"
+        },
+        "description": "Approves a spender and notifies the contract in a single transaction."
+      }
+    },
+    "events": {
+      "Transfer": {
+        "indexed_parameters": {
+          "_from": "_from",
+          "_to": "_to",
+          "_value": "_value"
+        },
+        "description": "Emitted when tokens are transferred from one account to another."
+      },
+      "Approval": {
+        "indexed_parameters": {
+          "_owner": "_owner",
+          "_spender": "_spender",
+          "_value": "_value"
+        },
+        "description": "Emitted when an owner approves a spender."
+      }
+    }
+  }
+  

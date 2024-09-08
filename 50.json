@@ -1,0 +1,13 @@
+{
+    "constructor": {
+      "parameters": {
+        "contractLogic": "contractLogic"
+      },
+      "description": "Constructor function that initializes the contract with the given logic address."
+    },
+    "fallback": {
+      "parameters": {},
+      "description": "Fallback function to handle any calls to the contract that do not match existing functions."
+    }
+  }
+  

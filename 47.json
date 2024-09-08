@@ -1,0 +1,434 @@
+{
+    "constructor": {
+      "inputs": {
+        "_governance": "_address",
+        "_cliffTimestamp": "_uint256",
+        "_tranche1VestingPeriod": "_uint256",
+        "_tranche2VestingPeriod": "_uint256",
+        "_seedVestingPeriod": "_uint256"
+      },
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    "events": {
+      "Approval": {
+        "indexed_parameters": {
+          "owner": "_address",
+          "spender": "_address",
+          "amount": "_uint256"
+        },
+        "description": "Emitted when an owner approves a spender."
+      },
+      "CliffTimestampUpdate": {
+        "parameters": {
+          "newTimestamp": "_uint256"
+        },
+        "description": "Emitted when the cliff timestamp is updated."
+      },
+      "DelegateChanged": {
+        "indexed_parameters": {
+          "delegator": "_address",
+          "fromDelegate": "_address",
+          "toDelegate": "_address"
+        },
+        "description": "Emitted when the delegation changes."
+      },
+      "DelegateVotesChanged": {
+        "indexed_parameters": {
+          "delegate": "_address",
+          "previousBalance": "_uint256",
+          "newBalance": "_uint256"
+        },
+        "description": "Emitted when the votes of a delegate change."
+      },
+      "RoleAdminChanged": {
+        "indexed_parameters": {
+          "role": "_bytes32",
+          "previousAdminRole": "_bytes32",
+          "newAdminRole": "_bytes32"
+        },
+        "description": "Emitted when a role's admin role changes."
+      },
+      "RoleGranted": {
+        "indexed_parameters": {
+          "role": "_bytes32",
+          "account": "_address",
+          "sender": "_address"
+        },
+        "description": "Emitted when a role is granted to an account."
+      },
+      "RoleRevoked": {
+        "indexed_parameters": {
+          "role": "_bytes32",
+          "account": "_address",
+          "sender": "_address"
+        },
+        "description": "Emitted when a role is revoked from an account."
+      },
+      "Transfer": {
+        "indexed_parameters": {
+          "from": "_address",
+          "to": "_address",
+          "amount": "_uint256"
+        },
+        "description": "Emitted when tokens are transferred from one account to another."
+      },
+      "TransferEnabled": {
+        "parameters": {
+          "account": "_address"
+        },
+        "description": "Emitted when transfer is enabled."
+      }
+    },
+    "functions": {
+      "DEFAULT_ADMIN_ROLE": {
+        "outputs": {
+          "": "_bytes32"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "DELEGATION_TYPEHASH": {
+        "outputs": {
+          "": "_bytes32"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "DOMAIN_TYPEHASH": {
+        "outputs": {
+          "": "_bytes32"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "MINTER_ROLE": {
+        "outputs": {
+          "": "_bytes32"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "TIMELOCK_UPDATE_ROLE": {
+        "outputs": {
+          "": "_bytes32"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "TRANSFER_ROLE": {
+        "outputs": {
+          "": "_bytes32"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "allowance": {
+        "inputs": {
+          "owner": "_address",
+          "spender": "_address"
+        },
+        "outputs": {
+          "": "_uint256"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "approve": {
+        "inputs": {
+          "spender": "_address",
+          "rawAmount": "_uint256"
+        },
+        "outputs": {
+          "": "_bool"
+        },
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "balanceOf": {
+        "inputs": {
+          "account": "_address"
+        },
+        "outputs": {
+          "": "_uint256"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "checkpoints": {
+        "inputs": {
+          "address": "_address",
+          "fromBlock": "_uint32"
+        },
+        "outputs": {
+          "fromBlock": "_uint32",
+          "votes": "_uint96"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "cliffTimestamp": {
+        "outputs": {
+          "": "_uint256"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "decimals": {
+        "outputs": {
+          "": "_uint8"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "delegate": {
+        "inputs": {
+          "delegatee": "_address"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "delegateBySig": {
+        "inputs": {
+          "delegatee": "_address",
+          "nonce": "_uint256",
+          "expiry": "_uint256",
+          "v": "_uint8",
+          "r": "_bytes32",
+          "s": "_bytes32"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "delegates": {
+        "inputs": {
+          "": "_address"
+        },
+        "outputs": {
+          "": "_address"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "enableTransfer": {
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "getCurrentVotes": {
+        "inputs": {
+          "account": "_address"
+        },
+        "outputs": {
+          "": "_uint96"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "getFreedBalance": {
+        "inputs": {
+          "account": "_address"
+        },
+        "outputs": {
+          "": "_uint256"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "getPriorVotes": {
+        "inputs": {
+          "account": "_address",
+          "blockNumber": "_uint256"
+        },
+        "outputs": {
+          "": "_uint96"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "getRoleAdmin": {
+        "inputs": {
+          "role": "_bytes32"
+        },
+        "outputs": {
+          "": "_bytes32"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "getVestedBalance": {
+        "inputs": {
+          "account": "_address"
+        },
+        "outputs": {
+          "": "_uint256",
+          "": "_uint256"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "grantRole": {
+        "inputs": {
+          "role": "_bytes32",
+          "account": "_address"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "hasRole": {
+        "inputs": {
+          "role": "_bytes32",
+          "account": "_address"
+        },
+        "outputs": {
+          "": "_bool"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "mint": {
+        "inputs": {
+          "account": "_address",
+          "rawAmount": "_uint256"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "name": {
+        "outputs": {
+          "": "_string"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "nonces": {
+        "inputs": {
+          "": "_address"
+        },
+        "outputs": {
+          "": "_uint256"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "numCheckpoints": {
+        "inputs": {
+          "": "_address"
+        },
+        "outputs": {
+          "": "_uint32"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "passedAllVestingPeriods": {
+        "outputs": {
+          "": "_bool"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "passedCliff": {
+        "outputs": {
+          "": "_bool"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "renounceRole": {
+        "inputs": {
+          "role": "_bytes32",
+          "account": "_address"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "revokeRole": {
+        "inputs": {
+          "role": "_bytes32",
+          "account": "_address"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "setCliffTimestamp": {
+        "inputs": {
+          "timestamp": "_uint256"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "setGovernance": {
+        "inputs": {
+          "newGovernance": "_address"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "setRoleAdmin": {
+        "inputs": {
+          "role": "_bytes32",
+          "adminRole": "_bytes32"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "symbol": {
+        "outputs": {
+          "": "_string"
+        },
+        "stateMutability": "view",
+        "type": "function"
+      },
+      "transfer": {
+        "inputs": {
+          "recipient": "_address",
+          "rawAmount": "_uint256"
+        },
+        "outputs": {
+          "": "_bool"
+        },
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "transferFrom": {
+        "inputs": {
+          "sender": "_address",
+          "recipient": "_address",
+          "rawAmount": "_uint256"
+        },
+        "outputs": {
+          "": "_bool"
+        },
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "updateRoleAdmin": {
+        "inputs": {
+          "role": "_bytes32",
+          "adminRole": "_bytes32"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      "upgrade": {
+        "inputs": {
+          "newImplementation": "_address"
+        },
+        "outputs": {},
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    }
+  }
+  

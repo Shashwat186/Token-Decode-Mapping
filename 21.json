@@ -1,0 +1,73 @@
+{
+    "constructor": {
+      "description": "Initializes the contract with `logic`, `admin_`, and `data`.",
+      "fields": {
+        "logic": "_logic",
+        "admin": "_admin",
+        "data": "_data"
+      }
+    },
+    "events": {
+      "AdminChanged": {
+        "description": "Emitted when the admin is changed from `previousAdmin` to `newAdmin`.",
+        "fields": {
+          "previousAdmin": "_previousAdmin",
+          "newAdmin": "_newAdmin"
+        }
+      },
+      "BeaconUpgraded": {
+        "description": "Emitted when the beacon address is upgraded to `beacon`.",
+        "fields": {
+          "beacon": "_beacon"
+        }
+      },
+      "Upgraded": {
+        "description": "Emitted when the implementation address is upgraded to `implementation`.",
+        "fields": {
+          "implementation": "_implementation"
+        }
+      }
+    },
+    "functions": {
+      "admin": {
+        "description": "Returns the current admin address.",
+        "fields": {
+          "admin": "_admin"
+        }
+      },
+      "changeAdmin": {
+        "description": "Changes the admin address to `newAdmin`.",
+        "fields": {
+          "newAdmin": "_newAdmin"
+        }
+      },
+      "implementation": {
+        "description": "Returns the current implementation address.",
+        "fields": {
+          "implementation": "_implementation"
+        }
+      },
+      "upgradeTo": {
+        "description": "Upgrades the implementation address to `newImplementation`.",
+        "fields": {
+          "newImplementation": "_newImplementation"
+        }
+      },
+      "upgradeToAndCall": {
+        "description": "Upgrades the implementation address to `newImplementation` and executes `data`.",
+        "fields": {
+          "newImplementation": "_newImplementation",
+          "data": "_data"
+        }
+      }
+    },
+    "fallback": {
+      "description": "Fallback function to handle calls and Ether transfers.",
+      "fields": {}
+    },
+    "receive": {
+      "description": "Receive function to handle incoming Ether transfers.",
+      "fields": {}
+    }
+  }
+  

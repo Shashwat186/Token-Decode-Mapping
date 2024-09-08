@@ -1,0 +1,184 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "parameters": {
+          "spender": "_spender",
+          "amount": "_amount"
+        },
+        "description": "Approves the spender to spend a specified amount of tokens on behalf of the owner."
+      },
+      "transfer": {
+        "parameters": {
+          "recipient": "_recipient",
+          "amount": "_amount"
+        },
+        "description": "Transfers tokens from the caller's account to the specified recipient."
+      },
+      "transferFrom": {
+        "parameters": {
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        },
+        "description": "Transfers tokens from one address to another using the allowance mechanism."
+      },
+      "increaseAllowance": {
+        "parameters": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        },
+        "description": "Increases the allowance granted to a spender by the caller."
+      },
+      "decreaseAllowance": {
+        "parameters": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        },
+        "description": "Decreases the allowance granted to a spender by the caller."
+      },
+      "mint": {
+        "parameters": {
+          "user": "_user",
+          "amount": "_amount"
+        },
+        "description": "Mints new tokens and assigns them to the user."
+      },
+      "burn": {
+        "parameters": {
+          "amount": "_amount"
+        },
+        "description": "Burns a specified amount of tokens from the caller's account."
+      },
+      "burnFrom": {
+        "parameters": {
+          "account": "_account",
+          "amount": "_amount"
+        },
+        "description": "Burns a specified amount of tokens from a specific account."
+      },
+      "setDenom": {
+        "parameters": {
+          "denom": "_denom"
+        },
+        "description": "Sets the token denomination."
+      }
+    },
+    "other_functions": {
+      "allowance": {
+        "parameters": {
+          "owner": "_owner",
+          "spender": "_spender"
+        },
+        "description": "Returns the remaining amount of tokens that the spender can spend on behalf of the owner."
+      },
+      "balanceOf": {
+        "parameters": {
+          "account": "_account"
+        },
+        "description": "Returns the balance of tokens held by the specified account."
+      },
+      "decimals": {
+        "parameters": {},
+        "description": "Returns the number of decimal places used to get the user representation of the token."
+      },
+      "cosmosDenom": {
+        "parameters": {},
+        "description": "Returns the Cosmos denomination of the token."
+      },
+      "name": {
+        "parameters": {},
+        "description": "Returns the name of the token."
+      },
+      "symbol": {
+        "parameters": {},
+        "description": "Returns the symbol of the token."
+      },
+      "totalSupply": {
+        "parameters": {},
+        "description": "Returns the total supply of tokens."
+      },
+      "getRoleAdmin": {
+        "parameters": {
+          "role": "_role"
+        },
+        "description": "Returns the admin role associated with the specified role."
+      },
+      "grantRole": {
+        "parameters": {
+          "role": "_role",
+          "account": "_account"
+        },
+        "description": "Grants a role to an account."
+      },
+      "hasRole": {
+        "parameters": {
+          "role": "_role",
+          "account": "_account"
+        },
+        "description": "Checks if an account has a specified role."
+      },
+      "renounceRole": {
+        "parameters": {
+          "role": "_role",
+          "account": "_account"
+        },
+        "description": "Renounces a role for an account."
+      },
+      "revokeRole": {
+        "parameters": {
+          "role": "_role",
+          "account": "_account"
+        },
+        "description": "Revokes a role from an account."
+      },
+      "supportsInterface": {
+        "parameters": {
+          "interfaceId": "_interfaceId"
+        },
+        "description": "Checks if the contract supports a specified interface."
+      }
+    },
+    "events": {
+      "Approval": {
+        "indexed_parameters": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        },
+        "description": "Emitted when an owner approves a spender."
+      },
+      "RoleAdminChanged": {
+        "indexed_parameters": {
+          "role": "_role",
+          "previousAdminRole": "_previousAdminRole",
+          "newAdminRole": "_newAdminRole"
+        },
+        "description": "Emitted when a role's admin role is changed."
+      },
+      "RoleGranted": {
+        "indexed_parameters": {
+          "role": "_role",
+          "account": "_account",
+          "sender": "_sender"
+        },
+        "description": "Emitted when a role is granted to an account."
+      },
+      "RoleRevoked": {
+        "indexed_parameters": {
+          "role": "_role",
+          "account": "_account",
+          "sender": "_sender"
+        },
+        "description": "Emitted when a role is revoked from an account."
+      },
+      "Transfer": {
+        "indexed_parameters": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        },
+        "description": "Emitted when tokens are transferred from one account to another."
+      }
+    }
+  }
+  

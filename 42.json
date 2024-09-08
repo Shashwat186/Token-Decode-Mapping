@@ -1,0 +1,46 @@
+{
+    "constructor": {
+      "parameters": {
+        "_logic": "_logic",
+        "admin_": "_admin",
+        "data": "_data"
+      },
+      "description": "Initializes the contract with the implementation logic address, admin address, and any initialization data."
+    },
+    "transfer_functions": {},
+    "other_functions": {
+      "fallback": {
+        "parameters": {},
+        "description": "Fallback function to receive Ether and handle unexpected function calls."
+      },
+      "receive": {
+        "parameters": {},
+        "description": "Receive function to handle incoming Ether transfers."
+      }
+    },
+    "events": {
+      "AdminChanged": {
+        "indexed_parameters": {},
+        "non_indexed_parameters": {
+          "previousAdmin": "_previousAdmin",
+          "newAdmin": "_newAdmin"
+        },
+        "description": "Emitted when the admin address is changed."
+      },
+      "BeaconUpgraded": {
+        "indexed_parameters": {
+          "beacon": "_beacon"
+        },
+        "non_indexed_parameters": {},
+        "description": "Emitted when the beacon address is upgraded."
+      },
+      "Upgraded": {
+        "indexed_parameters": {
+          "implementation": "_implementation"
+        },
+        "non_indexed_parameters": {},
+        "description": "Emitted when the implementation address is upgraded."
+      }
+    }
+  }
+  

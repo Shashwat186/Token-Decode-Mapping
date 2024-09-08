@@ -1,68 +1,66 @@
 {
-  "transfer_functions": [
-    {
-      "name": "transfer",
-      "description": "Transfers tokens to a recipient.",
-      "parameters": {
-        "transfer_to": "_to",
-        "amount": "_amount"
-      }
-    },
-    {
-      "name": "transferFrom",
-      "description": "Transfers tokens from a sender to a recipient.",
-      "parameters": {
-        "transfer_from": "_from",
-        "transfer_to": "_to",
-        "amount": "_amount"
-      }
-    },
-    {
-      "name": "move",
-      "description": "Moves tokens from one address to another.",
-      "parameters": {
-        "transfer_from": "_src",
-        "transfer_to": "_dst",
-        "amount": "_amount"
-      }
-    }
-  ],
-  "other_functions": [
-    {
-      "name": "approve",
-      "description": "Approves a spender to transfer tokens on behalf of the owner.",
-      "parameters": {
+  "transfer_functions": {
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "fields": {
         "spender": "_spender",
-        "amount": "_amount"
+        "value": "_value"
       }
     },
-    {
-      "name": "burn",
-      "description": "Burns tokens from the owner's account.",
-      "parameters": {
-        "owner": "_usr",
-        "amount": "_amount"
+    "transfer": {
+      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "fields": {
+        "to": "_to",
+        "value": "_value"
       }
     },
-    {
-      "name": "deny",
-      "description": "Denies access to a particular address.",
-      "parameters": {
-        "address": "_guy"
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
       }
     },
-    {
-      "name": "mint",
-      "description": "Mints new tokens to the specified address.",
-      "parameters": {
-        "recipient": "_usr",
-        "amount": "_amount"
+    "burn": {
+      "description": "Burns a specific amount of tokens from the caller’s account.",
+      "fields": {
+        "user": "_usr",
+        "value": "_value"
       }
     },
-    {
-      "name": "permit",
-      "description": "Permits a spender to transfer tokens from an owner's account.",
-      "parameters": {
+    "mint": {
+      "description": "Mints a specific amount of tokens to the caller’s account.",
+      "fields": {
+        "user": "_usr",
+        "value": "_value"
+      }
+    },
+    "move": {
+      "description": "Moves tokens from one address to another.",
+      "fields": {
+        "src": "_src",
+        "dst": "_dst",
+        "value": "_value"
+      }
+    },
+    "pull": {
+      "description": "Pulls tokens from a specific address to the caller’s account.",
+      "fields": {
+        "user": "_usr",
+        "value": "_value"
+      }
+    },
+    "push": {
+      "description": "Pushes tokens from the caller’s account to a specific address.",
+      "fields": {
+        "user": "_usr",
+        "value": "_value"
+      }
+    },
+    "permit": {
+      "description": "Permits a spender to withdraw from the caller’s account up to the specified amount.",
+      "fields": {
         "holder": "_holder",
         "spender": "_spender",
         "nonce": "_nonce",
@@ -73,114 +71,106 @@
         "s": "_s"
       }
     },
-    {
-      "name": "pull",
-      "description": "Pulls tokens from the specified address.",
-      "parameters": {
-        "address": "_usr",
-        "amount": "_amount"
+    "deny": {
+      "description": "Denies permission for a specific address.",
+      "fields": {
+        "guy": "_guy"
       }
     },
-    {
-      "name": "push",
-      "description": "Pushes tokens to the specified address.",
-      "parameters": {
-        "address": "_usr",
-        "amount": "_amount"
+    "rely": {
+      "description": "Grants permission to a specific address.",
+      "fields": {
+        "guy": "_guy"
+      }
+    }
+  },
+  "other_functions": {
+    "balanceOf": {
+      "description": "Returns the amount of tokens owned by the account.",
+      "fields": {
+        "address": "_address"
       }
     },
-    {
-      "name": "rely",
-      "description": "Grants permission to an address.",
-      "parameters": {
-        "address": "_guy"
-      }
+    "decimals": {
+      "description": "Returns the number of decimals used to get its user representation.",
+      "fields": {}
     },
-    {
-      "name": "DOMAIN_SEPARATOR",
-      "description": "Returns the domain separator used in EIP-712.",
-      "parameters": {}
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
     },
-    {
-      "name": "PERMIT_TYPEHASH",
-      "description": "Returns the typehash for the permit.",
-      "parameters": {}
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
     },
-    {
-      "name": "allowance",
-      "description": "Returns the remaining number of tokens that a spender is allowed to spend.",
-      "parameters": {
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "allowance": {
+      "description": "Returns the remaining number of tokens that the spender is allowed to spend on behalf of the owner.",
+      "fields": {
         "owner": "_owner",
         "spender": "_spender"
       }
     },
-    {
-      "name": "balanceOf",
-      "description": "Returns the balance of an account.",
-      "parameters": {
-        "owner": "_owner"
-      }
+    "DOMAIN_SEPARATOR": {
+      "description": "Returns the domain separator for EIP712.",
+      "fields": {}
     },
-    {
-      "name": "decimals",
-      "description": "Returns the number of decimals used by the token.",
-      "parameters": {}
+    "PERMIT_TYPEHASH": {
+      "description": "Returns the type hash for the permit function.",
+      "fields": {}
     },
-    {
-      "name": "name",
-      "description": "Returns the name of the token.",
-      "parameters": {}
-    },
-    {
-      "name": "symbol",
-      "description": "Returns the symbol of the token.",
-      "parameters": {}
-    },
-    {
-      "name": "totalSupply",
-      "description": "Returns the total supply of tokens.",
-      "parameters": {}
-    },
-    {
-      "name": "version",
-      "description": "Returns the version of the contract.",
-      "parameters": {}
-    },
-    {
-      "name": "wards",
-      "description": "Returns the wards of the contract.",
-      "parameters": {
+    "nonces": {
+      "description": "Returns the current nonce for an address.",
+      "fields": {
         "address": "_address"
       }
     },
-    {
-      "name": "LogNote",
-      "description": "Emits logs with arbitrary data.",
-      "parameters": {
+    "version": {
+      "description": "Returns the version of the contract.",
+      "fields": {}
+    },
+    "wards": {
+      "description": "Returns the number of wards assigned to an address.",
+      "fields": {
+        "address": "_address"
+      }
+    }
+  },
+  "events": {
+    "Approval": {
+      "description": "Triggered when approval is granted to a spender.",
+      "fields": {
+        "src": "_src",
+        "spender": "_spender",
+        "value": "_value"
+      }
+    },
+    "LogNote": {
+      "description": "Triggered for internal logging with arbitrary data.",
+      "fields": {
         "sig": "_sig",
-        "user": "_usr",
+        "usr": "_usr",
         "arg1": "_arg1",
         "arg2": "_arg2",
         "data": "_data"
       }
     },
-    {
-      "name": "Approval",
-      "description": "Emits when tokens are approved for a spender.",
-      "parameters": {
-        "transfer_from": "_src",
-        "transfer_to": "_guy",
-        "amount": "_wad"
-      }
-    },
-    {
-      "name": "Transfer",
-      "description": "Emits when tokens are transferred.",
-      "parameters": {
-        "transfer_from": "_src",
-        "transfer_to": "_dst",
-        "amount": "_wad"
+    "Transfer": {
+      "description": "Triggered when tokens are transferred.",
+      "fields": {
+        "src": "_src",
+        "dst": "_dst",
+        "value": "_value"
       }
     }
-  ]
+  },
+  "constructor": {
+    "description": "Constructor for initializing the contract with chain ID.",
+    "fields": {
+      "chainId": "_chainId_"
+    }
+  }
 }

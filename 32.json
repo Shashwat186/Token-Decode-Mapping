@@ -1,0 +1,150 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller's account multiple times, up to the value amount.",
+        "fields": {
+          "spender": "_spender",
+          "value": "_value"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another address.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens from the caller's account to another address.",
+        "fields": {
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the amount of tokens that an owner allowed to a spender.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the amount of tokens that an owner allowed to a spender.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        }
+      }
+    },
+    "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract with a name, symbol, decimals, and total supply.",
+        "fields": {
+          "name": "_name",
+          "symbol": "_symbol",
+          "decimals": "_decimals",
+          "totalSupply": "_totalSupply"
+        }
+      },
+      "pause": {
+        "description": "Pauses all token transfers.",
+        "fields": {}
+      },
+      "unpause": {
+        "description": "Unpauses all token transfers.",
+        "fields": {}
+      },
+      "addPauser": {
+        "description": "Adds an address as a pauser.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "renouncePauser": {
+        "description": "Renounces the pauser role of the caller.",
+        "fields": {}
+      },
+      "isPauser": {
+        "description": "Checks if an address is a pauser.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "admin": {
+        "description": "Returns the address of the current admin.",
+        "fields": {
+          "admin_": "_admin_"
+        }
+      },
+      "changeAdmin": {
+        "description": "Changes the admin of the contract.",
+        "fields": {
+          "newAdmin": "_newAdmin"
+        }
+      },
+      "implementation": {
+        "description": "Returns the address of the current implementation.",
+        "fields": {
+          "implementation_": "_implementation_"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the balance of an account.",
+        "fields": {
+          "owner": "_owner"
+        }
+      },
+      "allowance": {
+        "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of an owner.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender"
+        }
+      }
+    },
+    "errors": {},
+    "events": {
+      "Paused": {
+        "description": "Emitted when the contract is paused.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "Unpaused": {
+        "description": "Emitted when the contract is unpaused.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "PauserAdded": {
+        "description": "Emitted when a pauser is added.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "PauserRemoved": {
+        "description": "Emitted when a pauser is removed.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one address to another.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "Approval": {
+        "description": "Emitted when a spender is approved to withdraw from an owner's account.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        }
+      }
+    }
+  }
+  

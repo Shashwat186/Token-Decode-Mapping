@@ -1,0 +1,281 @@
+{
+    "constructor": {
+      "description": "Initializes the contract.",
+      "fields": {
+        "migration": "_migration",
+        "emissionManager": "_emissionManager",
+        "protocolCouncil": "_protocolCouncil",
+        "emergencyCouncil": "_emergencyCouncil"
+      }
+    },
+    "events": {
+      "Approval": {
+        "description": "Emitted when `spender` is approved to spend `value` on behalf of `owner`.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        }
+      },
+      "EIP712DomainChanged": {
+        "description": "Emitted when the EIP712 domain separator is changed.",
+        "fields": {}
+      },
+      "MintCapUpdated": {
+        "description": "Emitted when the minting cap is updated from `oldCap` to `newCap`.",
+        "fields": {
+          "oldCap": "_oldCap",
+          "newCap": "_newCap"
+        }
+      },
+      "Permit2AllowanceUpdated": {
+        "description": "Emitted when the Permit2 allowance is updated with `enabled` status.",
+        "fields": {
+          "enabled": "_enabled"
+        }
+      },
+      "RoleAdminChanged": {
+        "description": "Emitted when the admin role of `role` is changed from `previousAdminRole` to `newAdminRole`.",
+        "fields": {
+          "role": "_role",
+          "previousAdminRole": "_previousAdminRole",
+          "newAdminRole": "_newAdminRole"
+        }
+      },
+      "RoleGranted": {
+        "description": "Emitted when `role` is granted to `account` by `sender`.",
+        "fields": {
+          "role": "_role",
+          "account": "_account",
+          "sender": "_sender"
+        }
+      },
+      "RoleRevoked": {
+        "description": "Emitted when `role` is revoked from `account` by `sender`.",
+        "fields": {
+          "role": "_role",
+          "account": "_account",
+          "sender": "_sender"
+        }
+      },
+      "Transfer": {
+        "description": "Emitted when `value` is transferred from `from` to `to`.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      }
+    },
+    "transfer_functions": {
+      "transfer": {
+        "description": "Transfers `amount` of tokens from the caller's account to `to`.",
+        "fields": {
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers `amount` of tokens from `from` to `to`, using the allowance mechanism.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "amount": "_amount"
+        }
+      }
+    },
+    "other_functions": {
+      "allowance": {
+        "description": "Returns the remaining number of tokens that `spender` is allowed to spend on behalf of `owner`.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender"
+        }
+      },
+      "approve": {
+        "description": "Sets the allowance of `spender` to `amount` on behalf of the caller.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the balance of `account`.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "decimals": {
+        "description": "Returns the number of decimals used for token representation.",
+        "fields": {}
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the allowance of `spender` by `subtractedValue`.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        }
+      },
+      "eip712Domain": {
+        "description": "Returns the EIP712 domain separator components.",
+        "fields": {
+          "fields": "_fields",
+          "name": "_name",
+          "version": "_version",
+          "chainId": "_chainId",
+          "verifyingContract": "_verifyingContract",
+          "salt": "_salt",
+          "extensions": "_extensions"
+        }
+      },
+      "getRoleAdmin": {
+        "description": "Returns the admin role of `role`.",
+        "fields": {
+          "role": "_role"
+        }
+      },
+      "getRoleMember": {
+        "description": "Returns the address of the member at `index` for `role`.",
+        "fields": {
+          "role": "_role",
+          "index": "_index"
+        }
+      },
+      "getRoleMemberCount": {
+        "description": "Returns the number of members for `role`.",
+        "fields": {
+          "role": "_role"
+        }
+      },
+      "grantRole": {
+        "description": "Grants `role` to `account`.",
+        "fields": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "hasRole": {
+        "description": "Checks if `account` has `role`.",
+        "fields": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the allowance of `spender` by `addedValue`.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
+      },
+      "lastMint": {
+        "description": "Returns the timestamp of the last mint operation.",
+        "fields": {}
+      },
+      "mint": {
+        "description": "Mints `amount` of tokens to `to`.",
+        "fields": {
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "mintPerSecondCap": {
+        "description": "Returns the cap on the amount of tokens that can be minted per second.",
+        "fields": {}
+      },
+      "name": {
+        "description": "Returns the name of the token.",
+        "fields": {}
+      },
+      "nonces": {
+        "description": "Returns the current nonce for `owner`.",
+        "fields": {
+          "owner": "_owner"
+        }
+      },
+      "permit": {
+        "description": "Allows `spender` to spend `value` on behalf of `owner` with the provided `permit` parameters.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value",
+          "deadline": "_deadline",
+          "v": "_v",
+          "r": "_r",
+          "s": "_s"
+        }
+      },
+      "permit2Enabled": {
+        "description": "Returns if Permit2 functionality is enabled.",
+        "fields": {}
+      },
+      "renounceRole": {
+        "description": "Renounces `role` for `account`.",
+        "fields": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "revokeRole": {
+        "description": "Revokes `role` from `account`.",
+        "fields": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "supportsInterface": {
+        "description": "Checks if the contract supports `interfaceId`.",
+        "fields": {
+          "interfaceId": "_interfaceId"
+        }
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
+        "fields": {}
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of the token.",
+        "fields": {}
+      },
+      "updateMintCap": {
+        "description": "Updates the minting cap to `newCap`.",
+        "fields": {
+          "newCap": "_newCap"
+        }
+      },
+      "updatePermit2Allowance": {
+        "description": "Updates Permit2 allowance with `enabled` status.",
+        "fields": {
+          "enabled": "_enabled"
+        }
+      },
+      "version": {
+        "description": "Returns the version of the contract.",
+        "fields": {}
+      }
+    },
+    "errors": {
+      "InvalidAddress": {
+        "description": "Thrown when an invalid address is provided.",
+        "fields": {}
+      },
+      "InvalidShortString": {
+        "description": "Thrown when a provided string is too short.",
+        "fields": {}
+      },
+      "MaxMintExceeded": {
+        "description": "Thrown when the mint requested exceeds the maximum allowed.",
+        "fields": {
+          "maxMint": "_maxMint",
+          "mintRequested": "_mintRequested"
+        }
+      },
+      "StringTooLong": {
+        "description": "Thrown when a provided string is too long.",
+        "fields": {
+          "str": "_str"
+        }
+      }
+    }
+  }
+  

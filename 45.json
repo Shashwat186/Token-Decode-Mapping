@@ -1,0 +1,184 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "parameters": {
+          "spender": "_spender",
+          "amount": "_amount"
+        },
+        "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
+      },
+      "transferFrom": {
+        "parameters": {
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        },
+        "description": "Transfers tokens from one address to another using the allowance mechanism."
+      },
+      "transfer": {
+        "parameters": {
+          "recipient": "_recipient",
+          "amount": "_amount"
+        },
+        "description": "Transfers tokens from the caller's account to the specified address."
+      },
+      "burn": {
+        "parameters": {
+          "amount": "_amount"
+        },
+        "description": "Burns a specified amount of tokens from the caller's account."
+      },
+      "burnFrom": {
+        "parameters": {
+          "account": "_account",
+          "amount": "_amount"
+        },
+        "description": "Burns a specified amount of tokens from a given account, using the allowance mechanism."
+      },
+      "decreaseAllowance": {
+        "parameters": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        },
+        "description": "Decreases the amount of tokens that a spender is allowed to withdraw from the caller's account."
+      },
+      "increaseAllowance": {
+        "parameters": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        },
+        "description": "Increases the amount of tokens that a spender is allowed to withdraw from the caller's account."
+      },
+      "updateBlacklister": {
+        "parameters": {
+          "newBlacklister": "_newBlacklister"
+        },
+        "description": "Updates the address of the blacklister."
+      },
+      "blacklist": {
+        "parameters": {
+          "account": "_account"
+        },
+        "description": "Blacklists a specified account."
+      },
+      "unBlacklist": {
+        "parameters": {
+          "account": "_account"
+        },
+        "description": "Removes an account from the blacklist."
+      },
+      "transferOwnership": {
+        "parameters": {
+          "newOwner": "_newOwner"
+        },
+        "description": "Transfers ownership of the contract to a new address."
+      },
+      "renounceOwnership": {
+        "parameters": {},
+        "description": "Renounces ownership of the contract."
+      }
+    },
+    "other_functions": {
+      "allowance": {
+        "parameters": {
+          "owner": "_owner",
+          "spender": "_spender"
+        },
+        "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the owner's account."
+      },
+      "balanceOf": {
+        "parameters": {
+          "account": "_account"
+        },
+        "description": "Returns the balance of tokens held by the specified address."
+      },
+      "blacklister": {
+        "parameters": {},
+        "description": "Returns the address of the blacklister."
+      },
+      "isBlacklisted": {
+        "parameters": {
+          "account": "_account"
+        },
+        "description": "Checks if the specified account is blacklisted."
+      },
+      "decimals": {
+        "parameters": {},
+        "description": "Returns the number of decimal places used to represent the token."
+      },
+      "name": {
+        "parameters": {},
+        "description": "Returns the name of the token."
+      },
+      "owner": {
+        "parameters": {},
+        "description": "Returns the current owner of the contract."
+      },
+      "symbol": {
+        "parameters": {},
+        "description": "Returns the symbol of the token."
+      },
+      "totalSupply": {
+        "parameters": {},
+        "description": "Returns the total supply of tokens."
+      }
+    },
+    "events": {
+      "Approval": {
+        "indexed_parameters": {
+          "owner": "owner",
+          "spender": "spender"
+        },
+        "non_indexed_parameters": {
+          "value": "value"
+        },
+        "description": "Emitted when an owner approves a spender."
+      },
+      "Blacklisted": {
+        "indexed_parameters": {
+          "_account": "_account"
+        },
+        "non_indexed_parameters": {},
+        "description": "Emitted when an account is blacklisted."
+      },
+      "BlacklisterChanged": {
+        "indexed_parameters": {
+          "newBlacklister": "newBlacklister"
+        },
+        "non_indexed_parameters": {},
+        "description": "Emitted when the blacklister is changed."
+      },
+      "OwnershipTransferred": {
+        "indexed_parameters": {
+          "previousOwner": "previousOwner",
+          "newOwner": "newOwner"
+        },
+        "non_indexed_parameters": {},
+        "description": "Emitted when ownership of the contract is transferred."
+      },
+      "Transfer": {
+        "indexed_parameters": {
+          "from": "from",
+          "to": "to"
+        },
+        "non_indexed_parameters": {
+          "value": "value"
+        },
+        "description": "Emitted when tokens are transferred from one address to another."
+      },
+      "UnBlacklisted": {
+        "indexed_parameters": {
+          "_account": "_account"
+        },
+        "non_indexed_parameters": {},
+        "description": "Emitted when an account is removed from the blacklist."
+      }
+    },
+    "constructor": {
+      "parameters": {
+        "initialSupply": "_initialSupply"
+      },
+      "description": "Initializes the contract with an initial supply of tokens."
+    }
+  }
+  

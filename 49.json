@@ -1,0 +1,247 @@
+{
+    "constructor": {
+      "inputs": {
+        "name_": "_name",
+        "symbol_": "_symbol"
+      }
+    },
+    "events": {
+      "Approval": {
+        "indexed_parameters": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        },
+        "description": "Emitted when an owner approves a spender."
+      },
+      "MetaTransactionExecuted": {
+        "indexed_parameters": {
+          "userAddress": "_userAddress",
+          "relayerAddress": "_relayerAddress",
+          "functionSignature": "_functionSignature"
+        },
+        "description": "Emitted when a meta transaction is executed."
+      },
+      "RoleAdminChanged": {
+        "indexed_parameters": {
+          "role": "_role",
+          "previousAdminRole": "_previousAdminRole",
+          "newAdminRole": "_newAdminRole"
+        },
+        "description": "Emitted when the admin role of a specific role is changed."
+      },
+      "RoleGranted": {
+        "indexed_parameters": {
+          "role": "_role",
+          "account": "_account",
+          "sender": "_sender"
+        },
+        "description": "Emitted when a role is granted to an account."
+      },
+      "RoleRevoked": {
+        "indexed_parameters": {
+          "role": "_role",
+          "account": "_account",
+          "sender": "_sender"
+        },
+        "description": "Emitted when a role is revoked from an account."
+      },
+      "Transfer": {
+        "indexed_parameters": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        },
+        "description": "Emitted when tokens are transferred from one account to another."
+      }
+    },
+    "functions": {
+      "DEFAULT_ADMIN_ROLE": {
+        "outputs": {
+          "defaultAdminRole": "_defaultAdminRole"
+        }
+      },
+      "ERC712_VERSION": {
+        "outputs": {
+          "erc712Version": "_erc712Version"
+        }
+      },
+      "PREDICATE_ROLE": {
+        "outputs": {
+          "predicateRole": "_predicateRole"
+        }
+      },
+      "allowance": {
+        "inputs": {
+          "owner": "_owner",
+          "spender": "_spender"
+        },
+        "outputs": {
+          "allowance": "_allowance"
+        }
+      },
+      "approve": {
+        "inputs": {
+          "spender": "_spender",
+          "amount": "_amount"
+        },
+        "outputs": {
+          "success": "_success"
+        }
+      },
+      "balanceOf": {
+        "inputs": {
+          "account": "_account"
+        },
+        "outputs": {
+          "balance": "_balance"
+        }
+      },
+      "decimals": {
+        "outputs": {
+          "decimals": "_decimals"
+        }
+      },
+      "decreaseAllowance": {
+        "inputs": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        },
+        "outputs": {
+          "success": "_success"
+        }
+      },
+      "executeMetaTransaction": {
+        "inputs": {
+          "userAddress": "_userAddress",
+          "functionSignature": "_functionSignature",
+          "sigR": "_sigR",
+          "sigS": "_sigS",
+          "sigV": "_sigV"
+        },
+        "outputs": {
+          "result": "_result"
+        }
+      },
+      "getChainId": {
+        "outputs": {
+          "chainId": "_chainId"
+        }
+      },
+      "getDomainSeperator": {
+        "outputs": {
+          "domainSeparator": "_domainSeparator"
+        }
+      },
+      "getNonce": {
+        "inputs": {
+          "user": "_user"
+        },
+        "outputs": {
+          "nonce": "_nonce"
+        }
+      },
+      "getRoleAdmin": {
+        "inputs": {
+          "role": "_role"
+        },
+        "outputs": {
+          "roleAdmin": "_roleAdmin"
+        }
+      },
+      "getRoleMember": {
+        "inputs": {
+          "role": "_role",
+          "index": "_index"
+        },
+        "outputs": {
+          "roleMember": "_roleMember"
+        }
+      },
+      "getRoleMemberCount": {
+        "inputs": {
+          "role": "_role"
+        },
+        "outputs": {
+          "roleMemberCount": "_roleMemberCount"
+        }
+      },
+      "grantRole": {
+        "inputs": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "hasRole": {
+        "inputs": {
+          "role": "_role",
+          "account": "_account"
+        },
+        "outputs": {
+          "hasRole": "_hasRole"
+        }
+      },
+      "increaseAllowance": {
+        "inputs": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        },
+        "outputs": {
+          "success": "_success"
+        }
+      },
+      "mint": {
+        "inputs": {
+          "user": "_user",
+          "amount": "_amount"
+        }
+      },
+      "name": {
+        "outputs": {
+          "name": "_name"
+        }
+      },
+      "renounceRole": {
+        "inputs": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "revokeRole": {
+        "inputs": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "symbol": {
+        "outputs": {
+          "symbol": "_symbol"
+        }
+      },
+      "totalSupply": {
+        "outputs": {
+          "totalSupply": "_totalSupply"
+        }
+      },
+      "transfer": {
+        "inputs": {
+          "recipient": "_recipient",
+          "amount": "_amount"
+        },
+        "outputs": {
+          "success": "_success"
+        }
+      },
+      "transferFrom": {
+        "inputs": {
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        },
+        "outputs": {
+          "success": "_success"
+        }
+      }
+    }
+  }
+  

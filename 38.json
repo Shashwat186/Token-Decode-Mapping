@@ -1,0 +1,177 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "parameters": {
+          "guy": "_guy",
+          "wad": "_wad"
+        },
+        "description": "Approves the specified address to spend a specified amount of tokens."
+      },
+      "transferFrom": {
+        "parameters": {
+          "src": "_src",
+          "dst": "_dst",
+          "wad": "_wad"
+        },
+        "description": "Transfers tokens from one address to another using the allowance mechanism."
+      },
+      "mint": {
+        "parameters": {
+          "guy": "_guy",
+          "wad": "_wad"
+        },
+        "description": "Mints a specified amount of tokens and assigns them to the specified address."
+      },
+      "burn": {
+        "parameters": {
+          "wad": "_wad"
+        },
+        "description": "Burns a specified amount of tokens from the caller's account."
+      },
+      "transfer": {
+        "parameters": {
+          "dst": "_dst",
+          "wad": "_wad"
+        },
+        "description": "Transfers tokens from the caller's account to the specified address."
+      },
+      "push": {
+        "parameters": {
+          "dst": "_dst",
+          "wad": "_wad"
+        },
+        "description": "Pushes tokens from the caller's account to the specified address."
+      },
+      "move": {
+        "parameters": {
+          "src": "_src",
+          "dst": "_dst",
+          "wad": "_wad"
+        },
+        "description": "Moves tokens from one address to another."
+      },
+      "stop": {
+        "parameters": {},
+        "description": "Stops all functionality of the contract."
+      },
+      "start": {
+        "parameters": {},
+        "description": "Starts the contract functionality."
+      },
+      "setName": {
+        "parameters": {
+          "name_": "_name_"
+        },
+        "description": "Sets the name of the token."
+      },
+      "setOwner": {
+        "parameters": {
+          "owner_": "_owner_"
+        },
+        "description": "Sets the owner of the contract."
+      },
+      "setAuthority": {
+        "parameters": {
+          "authority_": "_authority_"
+        },
+        "description": "Sets the authority address."
+      }
+    },
+    "other_functions": {
+      "balanceOf": {
+        "parameters": {
+          "src": "_src"
+        },
+        "description": "Returns the balance of tokens held by the specified address."
+      },
+      "allowance": {
+        "parameters": {
+          "src": "_src",
+          "guy": "_guy"
+        },
+        "description": "Returns the remaining amount of tokens that the specified address can spend on behalf of the owner."
+      },
+      "decimals": {
+        "parameters": {},
+        "description": "Returns the number of decimal places used to represent the token."
+      },
+      "name": {
+        "parameters": {},
+        "description": "Returns the name of the token."
+      },
+      "symbol": {
+        "parameters": {},
+        "description": "Returns the symbol of the token."
+      },
+      "totalSupply": {
+        "parameters": {},
+        "description": "Returns the total supply of tokens."
+      },
+      "stopped": {
+        "parameters": {},
+        "description": "Returns whether the contract is stopped."
+      },
+      "authority": {
+        "parameters": {},
+        "description": "Returns the address of the authority."
+      },
+      "owner": {
+        "parameters": {},
+        "description": "Returns the address of the owner."
+      }
+    },
+    "events": {
+      "Mint": {
+        "indexed_parameters": {
+          "guy": "_guy",
+          "wad": "_wad"
+        },
+        "description": "Emitted when tokens are minted."
+      },
+      "Burn": {
+        "indexed_parameters": {
+          "guy": "_guy",
+          "wad": "_wad"
+        },
+        "description": "Emitted when tokens are burned."
+      },
+      "LogSetAuthority": {
+        "indexed_parameters": {
+          "authority": "_authority"
+        },
+        "description": "Emitted when the authority address is set."
+      },
+      "LogSetOwner": {
+        "indexed_parameters": {
+          "owner": "_owner"
+        },
+        "description": "Emitted when the owner address is set."
+      },
+      "LogNote": {
+        "indexed_parameters": {
+          "sig": "_sig",
+          "guy": "_guy",
+          "foo": "_foo",
+          "bar": "_bar"
+        },
+        "description": "Emitted when a note is logged."
+      },
+      "Transfer": {
+        "indexed_parameters": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        },
+        "description": "Emitted when tokens are transferred from one address to another."
+      },
+      "Approval": {
+        "indexed_parameters": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        },
+        "description": "Emitted when an owner approves a spender."
+      }
+    }
+  }
+  

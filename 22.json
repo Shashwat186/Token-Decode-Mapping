@@ -1,0 +1,63 @@
+{
+    "constructor": {
+      "description": "Initializes the contract.",
+      "fields": {}
+    },
+    "events": {
+      "ProxyOwnershipTransferred": {
+        "description": "Emitted when the proxy ownership is transferred from `previousOwner` to `newOwner`.",
+        "fields": {
+          "previousOwner": "_previousOwner",
+          "newOwner": "_newOwner"
+        }
+      },
+      "Upgraded": {
+        "description": "Emitted when the implementation address is upgraded to `implementation`.",
+        "fields": {
+          "implementation": "_implementation"
+        }
+      }
+    },
+    "functions": {
+      "proxyOwner": {
+        "description": "Returns the current proxy owner address.",
+        "fields": {
+          "owner": "_owner"
+        }
+      },
+      "upgradeTo": {
+        "description": "Upgrades the implementation address to `implementation`.",
+        "fields": {
+          "implementation": "_implementation"
+        }
+      },
+      "upgradeToAndCall": {
+        "description": "Upgrades the implementation address to `implementation` and executes `data`.",
+        "fields": {
+          "implementation": "_implementation",
+          "data": "_data"
+        }
+      },
+      "implementation": {
+        "description": "Returns the current implementation address.",
+        "fields": {
+          "impl": "_impl"
+        }
+      },
+      "transferProxyOwnership": {
+        "description": "Transfers proxy ownership to `newOwner`.",
+        "fields": {
+          "newOwner": "_newOwner"
+        }
+      }
+    },
+    "fallback": {
+      "description": "Fallback function to handle calls and Ether transfers.",
+      "fields": {}
+    },
+    "receive": {
+      "description": "Receive function to handle incoming Ether transfers.",
+      "fields": {}
+    }
+  }
+  

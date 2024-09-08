@@ -1,153 +1,155 @@
 {
   "transfer_functions": {
-    "transfer": {
-      "description": "Transfers tokens to a recipient.",
-      "parameters": {
-        "transfer_to": "_to",
-        "amount": "_amount"
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "fields": {
+        "spender": "_spender",
+        "rawAmount": "_amount"
       }
     },
     "transferFrom": {
-      "description": "Transfers tokens from a sender to a recipient.",
-      "parameters": {
-        "transfer_from": "_from",
-        "transfer_to": "_to",
-        "amount": "_amount"
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "fields": {
+        "src": "_from",
+        "dst": "_to",
+        "rawAmount": "_amount"
+      }
+    },
+    "mint": {
+      "description": "Generates new tokens and assigns them to the specified address.",
+      "fields": {
+        "dst": "_owner",
+        "rawAmount": "_amount"
+      }
+    },
+    "destroyTokens": {
+      "description": "Destroys a specified amount of tokens from the caller’s account.",
+      "fields": {
+        "owner": "_owner",
+        "rawAmount": "_amount"
+      }
+    },
+    "approveAndCall": {
+      "description": "Approves a spender and calls a contract with the additional data.",
+      "fields": {
+        "spender": "_spender",
+        "rawAmount": "_amount",
+        "extraData": "_extraData"
+      }
+    },
+    "setMinter": {
+      "description": "Sets a new minter address.",
+      "fields": {
+        "minter_": "_minter"
       }
     }
   },
   "other_functions": {
-    "approve": {
-      "description": "Approves a spender to transfer tokens on behalf of the owner.",
-      "parameters": {
-        "spender": "_spender",
-        "amount": "_amount"
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimals used to get its user representation.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the balance of an account.",
+      "fields": {
+        "account": "_owner"
       }
     },
-    "approveAndCall": {
-      "description": "Approves a spender and calls a function on the spender.",
-      "parameters": {
-        "spender": "_spender",
-        "amount": "_amount",
-        "extraData": "_extraData"
-      }
-    },
-    "changeController": {
-      "description": "Changes the controller of the contract.",
-      "parameters": {
-        "newController": "_newController"
-      }
-    },
-    "createCloneToken": {
-      "description": "Creates a clone token with specified parameters.",
-      "parameters": {
-        "cloneTokenName": "_cloneTokenName",
-        "cloneDecimalUnits": "_cloneDecimalUnits",
-        "cloneTokenSymbol": "_cloneTokenSymbol",
-        "snapshotBlock": "_snapshotBlock",
-        "transfersEnabled": "_transfersEnabled"
-      }
-    },
-    "destroyTokens": {
-      "description": "Destroys tokens from the owner's account.",
-      "parameters": {
+    "allowance": {
+      "description": "Returns the remaining number of tokens that the spender is allowed to spend on behalf of the owner.",
+      "fields": {
         "owner": "_owner",
-        "amount": "_amount"
+        "spender": "_spender"
       }
     },
-    "enableTransfers": {
-      "description": "Enables or disables token transfers.",
-      "parameters": {
-        "transfersEnabled": "_transfersEnabled"
+    "minter": {
+      "description": "Returns the address of the minter.",
+      "fields": {}
+    },
+    "mintCap": {
+      "description": "Returns the mint cap.",
+      "fields": {}
+    },
+    "mintingAllowedAfter": {
+      "description": "Returns the timestamp after which minting is allowed.",
+      "fields": {}
+    },
+    "getCurrentVotes": {
+      "description": "Returns the current votes of an account.",
+      "fields": {
+        "account": "_account"
       }
     },
-    "generateTokens": {
-      "description": "Generates new tokens for the owner.",
-      "parameters": {
-        "owner": "_owner",
-        "amount": "_amount"
+    "getPriorVotes": {
+      "description": "Returns the prior votes of an account at a specific block number.",
+      "fields": {
+        "account": "_account",
+        "blockNumber": "_blockNumber"
       }
-    },
-    "mint": {
-      "description": "Mints new tokens.",
-      "parameters": {
-        "dst": "_dst",
-        "amount": "_amount"
-      }
-    },
-    "permit": {
-      "description": "Permits a spender to transfer tokens on behalf of the owner.",
-      "parameters": {
-        "owner": "_owner",
-        "spender": "_spender",
-        "amount": "_amount",
-        "deadline": "_deadline",
-        "v": "_v",
-        "r": "_r",
-        "s": "_s"
-      }
-    },
-    "setMinter": {
-      "description": "Sets the address of the minter.",
-      "parameters": {
-        "minter": "_minter"
-      }
-    },
-    "delegate": {
-      "description": "Delegates voting power to a delegatee.",
-      "parameters": {
-        "delegatee": "_delegatee"
-      }
-    },
-    "delegateBySig": {
-      "description": "Delegates voting power by signature.",
-      "parameters": {
-        "delegatee": "_delegatee",
-        "nonce": "_nonce",
-        "expiry": "_expiry",
-        "v": "_v",
-        "r": "_r",
-        "s": "_s"
-      }
-    },
+    }
+  },
+  "events": {
     "Approval": {
-      "description": "Emits when tokens are approved for a spender.",
-      "parameters": {
+      "description": "Triggered when approval is granted to a spender.",
+      "fields": {
         "owner": "_owner",
         "spender": "_spender",
         "amount": "_amount"
+      }
+    },
+    "Transfer": {
+      "description": "Triggered when tokens are transferred.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "MinterChanged": {
+      "description": "Triggered when the minter address is changed.",
+      "fields": {
+        "minter": "_minter",
+        "newMinter": "_newMinter"
       }
     },
     "DelegateChanged": {
-      "description": "Emits when a delegate changes.",
-      "parameters": {
+      "description": "Triggered when a delegate is changed.",
+      "fields": {
         "delegator": "_delegator",
         "fromDelegate": "_fromDelegate",
         "toDelegate": "_toDelegate"
       }
     },
     "DelegateVotesChanged": {
-      "description": "Emits when delegate votes change.",
-      "parameters": {
+      "description": "Triggered when the votes of a delegate change.",
+      "fields": {
         "delegate": "_delegate",
         "previousBalance": "_previousBalance",
         "newBalance": "_newBalance"
       }
-    },
-    "MinterChanged": {
-      "description": "Emits when the minter is changed.",
-      "parameters": {
-        "minter": "_minter",
-        "newMinter": "_newMinter"
-      }
-    },
-    "Transfer": {
-      "description": "Emits when tokens are transferred.",
-      "parameters": {
-        "transfer_from": "_from",
-        "transfer_to": "_to",
-        "amount": "_amount"
-      }
     }
+  },
+  "constructor": {
+    "description": "Constructor for initializing the contract with the token factory and initial owner.",
+    "fields": {
+      "tokenFactory": "_tokenFactory",
+      "initialOwner": "_initialOwner"
+    }
+  },
+  "fallback": {
+    "description": "Fallback function to accept ETH.",
+    "fields": {}
   }
 }

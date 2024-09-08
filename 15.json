@@ -1,142 +1,187 @@
 {
   "transfer_functions": {
-    "transfer": {
-      "description": "Transfers `amount` of tokens to the `transfer_to` address.",
-      "parameters": {
-        "transfer_to": "_to",
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "fields": {
+        "spender": "_spender",
         "amount": "_amount"
       }
     },
     "transferFrom": {
-      "description": "Transfers `amount` of tokens from `transfer_from` to `transfer_to`.",
-      "parameters": {
-        "transfer_from": "_from",
-        "transfer_to": "_to",
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "transfer": {
+      "description": "Transfers tokens from the caller’s account to the specified recipient.",
+      "fields": {
+        "recipient": "_recipient",
         "amount": "_amount"
       }
     },
     "transferToNear": {
-      "description": "Transfers `_amount` of tokens to a Near receiver account identified by `_nearReceiverAccountId`.",
-      "parameters": {
+      "description": "Initiates a transfer of tokens to a NEAR account.",
+      "fields": {
         "amount": "_amount",
-        "nearReceiverAccountId": "_to"
+        "nearReceiverAccountId": "_nearReceiverAccountId"
+      }
+    },
+    "finaliseNearToEthTransfer": {
+      "description": "Finalizes a transfer of tokens from NEAR to Ethereum after proof verification.",
+      "fields": {
+        "proofData": "_proofData",
+        "proofBlockHeight": "_proofBlockHeight"
       }
     }
   },
   "other_functions": {
     "admin": {
       "description": "Returns the address of the admin.",
-      "parameters": {}
+      "fields": {}
     },
     "adminDelegatecall": {
-      "description": "Performs a delegate call to `target` with `data`.",
-      "parameters": {
-        "target": "_to",
+      "description": "Allows the admin to perform delegate calls.",
+      "fields": {
+        "target": "_target",
         "data": "_data"
       }
     },
     "adminPause": {
-      "description": "Pauses the contract with specified flags.",
-      "parameters": {
-        "flags": "_amount"
+      "description": "Pauses the contract operations based on flags.",
+      "fields": {
+        "flags": "_flags"
       }
     },
     "adminReceiveEth": {
-      "description": "Allows the admin to receive Ether.",
-      "parameters": {}
+      "description": "Allows the contract to receive ETH.",
+      "fields": {}
     },
     "adminSendEth": {
-      "description": "Sends Ether to the `destination` address.",
-      "parameters": {
-        "destination": "_to",
+      "description": "Allows the admin to send ETH to a specified address.",
+      "fields": {
+        "destination": "_destination",
         "amount": "_amount"
       }
     },
     "adminSstore": {
-      "description": "Stores `value` with `key`.",
-      "parameters": {
-        "key": "_amount",
-        "value": "_amount"
+      "description": "Allows the admin to store values in the contract.",
+      "fields": {
+        "key": "_key",
+        "value": "_value"
       }
     },
     "allowance": {
-      "description": "Returns the amount of tokens that `transfer_to` is allowed to spend on behalf of `transfer_from`.",
-      "parameters": {
-        "transfer_from": "_from",
-        "transfer_to": "_to"
-      }
-    },
-    "approve": {
-      "description": "Approves `transfer_to` to spend `amount` tokens.",
-      "parameters": {
-        "transfer_to": "_to",
-        "amount": "_amount"
+      "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
       }
     },
     "balanceOf": {
-      "description": "Returns the token balance of the `transfer_to` address.",
-      "parameters": {
-        "transfer_to": "_to"
+      "description": "Returns the balance of a specified address.",
+      "fields": {
+        "account": "_account"
       }
     },
     "decimals": {
-      "description": "Returns the number of decimals used for token representation.",
-      "parameters": {}
-    },
-    "decreaseAllowance": {
-      "description": "Decreases the allowance of `transfer_to` by `subtractedValue`.",
-      "parameters": {
-        "transfer_to": "_to",
-        "subtractedValue": "_amount"
-      }
-    },
-    "finaliseNearToEthTransfer": {
-      "description": "Finalises the Near to Eth transfer using `proofData` and `proofBlockHeight`.",
-      "parameters": {
-        "proofData": "_data",
-        "proofBlockHeight": "_amount"
-      }
+      "description": "Returns the number of decimals used to get the user representation of the token.",
+      "fields": {}
     },
     "increaseAllowance": {
-      "description": "Increases the allowance of `transfer_to` by `addedValue`.",
-      "parameters": {
-        "transfer_to": "_to",
-        "addedValue": "_amount"
+      "description": "Increases the allowance of a spender.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    "decreaseAllowance": {
+      "description": "Decreases the allowance of a spender.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
       }
     },
     "minBlockAcceptanceHeight": {
-      "description": "Returns the minimum block acceptance height.",
-      "parameters": {}
+      "description": "Returns the minimum block height for acceptance.",
+      "fields": {}
     },
     "name": {
       "description": "Returns the name of the token.",
-      "parameters": {}
+      "fields": {}
     },
     "nearConnector": {
-      "description": "Returns the Near connector data.",
-      "parameters": {}
+      "description": "Returns the NEAR connector details.",
+      "fields": {}
     },
     "paused": {
-      "description": "Returns the paused flags.",
-      "parameters": {}
+      "description": "Returns the paused status flags of the contract.",
+      "fields": {}
     },
     "prover": {
-      "description": "Returns the address of the prover.",
-      "parameters": {}
+      "description": "Returns the address of the prover contract.",
+      "fields": {}
     },
     "symbol": {
       "description": "Returns the symbol of the token.",
-      "parameters": {}
+      "fields": {}
     },
     "totalSupply": {
       "description": "Returns the total supply of tokens.",
-      "parameters": {}
-    },
-    "usedProofs": {
-      "description": "Returns whether the proof with given `bytes32` has been used.",
-      "parameters": {
-        "bytes32": "_data"
+      "fields": {}
+    }
+  },
+  "events": {
+    "Approval": {
+      "description": "Triggered when approval is granted to a spender.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value"
       }
+    },
+    "ConsumedProof": {
+      "description": "Triggered when a proof is consumed.",
+      "fields": {
+        "receiptId": "_receiptId"
+      }
+    },
+    "NearToEthTransferFinalised": {
+      "description": "Triggered when a NEAR to ETH transfer is finalized.",
+      "fields": {
+        "amount": "_amount",
+        "recipient": "_recipient"
+      }
+    },
+    "Transfer": {
+      "description": "Triggered when tokens are transferred.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
+      }
+    },
+    "TransferToNearInitiated": {
+      "description": "Triggered when a transfer to NEAR is initiated.",
+      "fields": {
+        "sender": "_sender",
+        "amount": "_amount",
+        "accountId": "_accountId"
+      }
+    }
+  },
+  "constructor": {
+    "description": "Constructor for initializing the contract with token parameters.",
+    "fields": {
+      "tokenName": "_tokenName",
+      "tokenSymbol": "_tokenSymbol",
+      "nearConnector": "_nearConnector",
+      "prover": "_prover",
+      "minBlockAcceptanceHeight": "_minBlockAcceptanceHeight",
+      "admin": "_admin",
+      "pausedFlags": "_pausedFlags"
     }
   }
 }

@@ -1,56 +1,160 @@
 {
-  "transfer_functions": {},
+  "transfer_functions": {
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_value"
+      }
+    },
+    "transfer": {
+      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "fields": {
+        "transfer_to": "_to",
+        "amount": "_value"
+      }
+    },
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "fields": {
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_value"
+      }
+    }
+  },
   "other_functions": {
-    "upgradeTo": {
-      "description": "Upgrades the contract to a new implementation.",
-      "fields": {
-        "newImplementation": "_newImplementation"
-      }
-    },
-    "upgradeToAndCall": {
-      "description": "Upgrades the contract to a new implementation and then calls a function on the new implementation with provided data.",
-      "fields": {
-        "newImplementation": "_newImplementation",
-        "data": "_data"
-      }
-    },
-    "implementation": {
-      "description": "Returns the address of the current implementation contract.",
-      "fields": {}
-    },
-    "changeAdmin": {
-      "description": "Changes the admin address of the contract.",
-      "fields": {
-        "newAdmin": "_newAdmin"
-      }
-    },
-    "admin": {
-      "description": "Returns the address of the current admin.",
-      "fields": {}
-    },
     "constructor": {
-      "description": "Initializes the contract with the given implementation address.",
+      "description": "Initializes the contract with the given initial values.",
       "fields": {
-        "implementation": "_implementation"
+        "initialName": "_initialName",
+        "initialSymbol": "_initialSymbol",
+        "initSupply": "_initSupply",
+        "initialDecimals": "_initialDecimals"
       }
     },
-    "fallback": {
-      "description": "Fallback function that allows the contract to receive ether.",
+    "allowance": {
+      "description": "Returns the remaining number of tokens that a spender is allowed to withdraw.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "fields": {
+        "spender": "_spender",
+        "value": "_value"
+      }
+    },
+    "balanceOf": {
+      "description": "Returns the token balance of a given address.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "burn": {
+      "description": "Burns a specified amount of tokens.",
+      "fields": {
+        "amount": "_amount"
+      }
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places for the token.",
       "fields": {}
+    },
+    "mint": {
+      "description": "Mints a specified amount of tokens.",
+      "fields": {
+        "account": "_account",
+        "amount": "_amount"
+      }
+    },
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "owner": {
+      "description": "Returns the address of the contract owner.",
+      "fields": {}
+    },
+    "renounceOwnership": {
+      "description": "Renounces ownership of the contract.",
+      "fields": {}
+    },
+    "setDecimals": {
+      "description": "Sets a new number of decimal places for the token.",
+      "fields": {
+        "newDecimals": "_newDecimals"
+      }
+    },
+    "setName": {
+      "description": "Sets a new name for the token.",
+      "fields": {
+        "newName": "_newName"
+      }
+    },
+    "setSymbol": {
+      "description": "Sets a new symbol for the token.",
+      "fields": {
+        "newSymbol": "_newSymbol"
+      }
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to a new address.",
+      "fields": {
+        "newOwner": "_newOwner"
+      }
     }
   },
   "events": {
-    "AdminChanged": {
-      "description": "Emitted when the admin address is changed.",
+    "Approval": {
+      "description": "Emitted when an approval is made for a spender.",
       "fields": {
-        "previousAdmin": "_previousAdmin",
-        "newAdmin": "_newAdmin"
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value"
       }
     },
-    "Upgraded": {
-      "description": "Emitted when the contract is upgraded to a new implementation.",
+    "OwnershipTransferred": {
+      "description": "Emitted when ownership is transferred to a new address.",
       "fields": {
-        "implementation": "_implementation"
+        "previousOwner": "_previousOwner",
+        "newOwner": "_newOwner"
+      }
+    },
+    "SetDecimals": {
+      "description": "Emitted when the decimals of the token are set.",
+      "fields": {
+        "precision": "_precision"
+      }
+    },
+    "SetName": {
+      "description": "Emitted when the name of the token is set.",
+      "fields": {
+        "name": "_name"
+      }
+    },
+    "SetSymbol": {
+      "description": "Emitted when the symbol of the token is set.",
+      "fields": {
+        "symbol": "_symbol"
+      }
+    },
+    "Transfer": {
+      "description": "Emitted when tokens are transferred.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
       }
     }
   }

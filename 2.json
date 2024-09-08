@@ -24,12 +24,26 @@
     }
   },
   "other_functions": {
-    "withdrawEther": {
-      "description": "Allows the contract owner to withdraw Ether from the contract.",
+    "name": {
+      "description": "Returns the name of the token.",
       "fields": {}
     },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places for the token.",
+      "fields": {}
+    },
+    "withdrawEther": {
+      "description": "Withdraws Ether from the contract.",
+      "fields": {
+        "amount": "amount"
+      }
+    },
     "burn": {
-      "description": "Burns a specified amount of tokens, reducing the total supply.",
+      "description": "Burns a specified amount of tokens.",
       "fields": {
         "amount": "_value"
       }
@@ -40,17 +54,35 @@
         "amount": "_value"
       }
     },
+    "balanceOf": {
+      "description": "Returns the token balance of a given address.",
+      "fields": {
+        "address": ""
+      }
+    },
+    "owner": {
+      "description": "Returns the address of the contract owner.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
     "freeze": {
       "description": "Freezes a specified amount of tokens.",
       "fields": {
         "amount": "_value"
       }
-    }
-  },
-  "errors": {},
-  "events": {
+    },
+    "allowance": {
+      "description": "Returns the remaining number of tokens that a spender is allowed to withdraw.",
+      "fields": {
+        "owner": "",
+        "spender": ""
+      }
+    },
     "Transfer": {
-      "description": "Emitted when tokens are transferred from one address to another.",
+      "description": "Emitted when tokens are transferred.",
       "fields": {
         "from": "_from",
         "to": "_to",

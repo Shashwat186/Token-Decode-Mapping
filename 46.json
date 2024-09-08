@@ -1,0 +1,72 @@
+{
+    "transfer_functions": {
+      "changeAdmin": {
+        "parameters": {
+          "newAdmin": "newAdmin"
+        },
+        "description": "Changes the admin of the contract to the new address."
+      },
+      "upgradeTo": {
+        "parameters": {
+          "newImplementation": "newImplementation"
+        },
+        "description": "Upgrades the contract to a new implementation address."
+      },
+      "upgradeToAndCall": {
+        "parameters": {
+          "newImplementation": "newImplementation",
+          "data": "data"
+        },
+        "description": "Upgrades the contract to a new implementation address and executes the provided data."
+      }
+    },
+    "other_functions": {
+      "admin": {
+        "parameters": {},
+        "description": "Returns the current admin of the contract."
+      },
+      "implementation": {
+        "parameters": {},
+        "description": "Returns the current implementation address of the contract."
+      }
+    },
+    "events": {
+      "AdminChanged": {
+        "indexed_parameters": {},
+        "non_indexed_parameters": {
+          "previousAdmin": "previousAdmin",
+          "newAdmin": "newAdmin"
+        },
+        "description": "Emitted when the admin of the contract is changed."
+      },
+      "BeaconUpgraded": {
+        "indexed_parameters": {
+          "beacon": "beacon"
+        },
+        "non_indexed_parameters": {},
+        "description": "Emitted when the beacon address is upgraded."
+      },
+      "Upgraded": {
+        "indexed_parameters": {
+          "implementation": "implementation"
+        },
+        "non_indexed_parameters": {},
+        "description": "Emitted when the implementation address is upgraded."
+      }
+    },
+    "constructor": {
+      "parameters": {
+        "_logic": "_logic",
+        "admin_": "admin_",
+        "_data": "_data"
+      },
+      "description": "Initializes the contract with the logic address, admin address, and optional initialization data."
+    },
+    "fallback": {
+      "description": "Fallback function to handle calls that don't match any other function signature."
+    },
+    "receive": {
+      "description": "Receive function to handle incoming Ether transfers."
+    }
+  }
+  

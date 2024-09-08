@@ -1,123 +1,123 @@
 {
   "transfer_functions": {
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_value"
+      }
+    },
     "transfer": {
-      "description": "Transfers _value tokens to the address _to.",
-      "parameters": {
+      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "fields": {
         "transfer_to": "_to",
         "amount": "_value"
       }
     },
     "transferFrom": {
-      "description": "Transfers _value tokens from address _from to address _to.",
-      "parameters": {
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "fields": {
         "transfer_from": "_from",
         "transfer_to": "_to",
-        "amount": "_value"
-      }
-    },
-    "approve": {
-      "description": "Approves _spender to spend _value tokens on behalf of the caller.",
-      "parameters": {
-        "approve_spender": "_spender",
-        "amount": "_value"
-      }
-    },
-    "increaseApproval": {
-      "description": "Increases the allowance of _spender by _addedValue.",
-      "parameters": {
-        "increaseApproval_spender": "_spender",
-        "amount": "_addedValue"
-      }
-    },
-    "decreaseApproval": {
-      "description": "Decreases the allowance of _spender by _subtractedValue.",
-      "parameters": {
-        "decreaseApproval_spender": "_spender",
-        "amount": "_subtractedValue"
-      }
-    },
-    "mint": {
-      "description": "Mints _amount tokens and assigns them to address _to.",
-      "parameters": {
-        "mint_to": "_to",
-        "amount": "_amount"
-      }
-    },
-    "burn": {
-      "description": "Burns _value tokens from the caller's account.",
-      "parameters": {
         "amount": "_value"
       }
     }
   },
   "other_functions": {
+    "balanceOf": {
+      "description": "Returns the amount of tokens owned by the account.",
+      "fields": {
+        "account": "_owner"
+      }
+    },
+    "decimals": {
+      "description": "Returns the number of decimals used to get its user representation.",
+      "fields": {}
+    },
     "name": {
       "description": "Returns the name of the token.",
-      "parameters": {}
+      "fields": {}
     },
     "symbol": {
       "description": "Returns the symbol of the token.",
-      "parameters": {}
-    },
-    "decimals": {
-      "description": "Returns the number of decimal places used by the token.",
-      "parameters": {}
+      "fields": {}
     },
     "totalSupply": {
       "description": "Returns the total supply of tokens.",
-      "parameters": {}
-    },
-    "balanceOf": {
-      "description": "Returns the balance of tokens held by address _owner.",
-      "parameters": {
-        "balanceOf_owner": "_owner"
-      }
+      "fields": {}
     },
     "allowance": {
-      "description": "Returns the amount of tokens that _spender is allowed to spend on behalf of _owner.",
-      "parameters": {
-        "allowance_owner": "_owner",
-        "allowance_spender": "_spender"
+      "description": "Returns the remaining number of tokens that the spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
       }
     },
-    "paused": {
-      "description": "Returns true if the contract is paused, false otherwise.",
-      "parameters": {}
-    },
     "mintingFinished": {
-      "description": "Returns true if minting is finished, false otherwise.",
-      "parameters": {}
+      "description": "Returns whether minting has finished.",
+      "fields": {}
     },
-    "claimOwnership": {
-      "description": "Claims ownership of the contract.",
-      "parameters": {}
+    "paused": {
+      "description": "Returns whether the contract is paused.",
+      "fields": {}
     },
-    "renounceOwnership": {
-      "description": "Renounces ownership of the contract.",
-      "parameters": {}
+    "pendingOwner": {
+      "description": "Returns the address of the pending owner.",
+      "fields": {}
     },
-    "finishMinting": {
-      "description": "Finishes minting process.",
-      "parameters": {}
-    },
-    "pause": {
-      "description": "Pauses the contract.",
-      "parameters": {}
+    "reclaimToken": {
+      "description": "Reclaims tokens sent to the contract address.",
+      "fields": {
+        "token": "_token"
+      }
     },
     "unpause": {
       "description": "Unpauses the contract.",
-      "parameters": {}
+      "fields": {}
     },
-    "transferOwnership": {
-      "description": "Transfers ownership of the contract to a new owner.",
-      "parameters": {
-        "transferOwnership_newOwner": "newOwner"
+    "mint": {
+      "description": "Mints new tokens and sends them to the specified address.",
+      "fields": {
+        "to": "_to",
+        "amount": "_amount"
       }
     },
-    "reclaimToken": {
-      "description": "Reclaims tokens sent to this contract.",
-      "parameters": {
-        "reclaimToken_token": "_token"
+    "burn": {
+      "description": "Burns tokens from the caller’s account.",
+      "fields": {
+        "value": "_value"
+      }
+    },
+    "claimOwnership": {
+      "description": "Claims ownership of the contract.",
+      "fields": {}
+    },
+    "finishMinting": {
+      "description": "Finishes minting.",
+      "fields": {}
+    },
+    "pause": {
+      "description": "Pauses the contract.",
+      "fields": {}
+    },
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to a new address.",
+      "fields": {
+        "newOwner": "_newOwner"
+      }
+    },
+    "decreaseApproval": {
+      "description": "Decreases the allowance granted to a spender.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
+    "increaseApproval": {
+      "description": "Increases the allowance granted to a spender.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
       }
     }
   }

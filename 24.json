@@ -1,0 +1,149 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_value"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "fields": {
+          "transfer_to": "_to",
+          "amount": "_value"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "fields": {
+          "transfer_from": "_from",
+          "transfer_to": "_to",
+          "amount": "_value"
+        }
+      }
+    },
+    "other_functions": {
+      "setTransferAgent": {
+        "description": "Sets a transfer agent with the specified address and state.",
+        "fields": {
+          "transfer_agent": "addr",
+          "state": "state"
+        }
+      },
+      "setReleaseAgent": {
+        "description": "Sets the release agent with the specified address.",
+        "fields": {
+          "release_agent": "addr"
+        }
+      },
+      "setUpgradeAgent": {
+        "description": "Sets the upgrade agent with the specified address.",
+        "fields": {
+          "upgrade_agent": "agent"
+        }
+      },
+      "setUpgradeMaster": {
+        "description": "Sets the upgrade master with the specified address.",
+        "fields": {
+          "upgrade_master": "master"
+        }
+      },
+      "mint": {
+        "description": "Mints new tokens to the specified address.",
+        "fields": {
+          "recipient": "_to",
+          "amount": "_amount"
+        }
+      },
+      "finishMinting": {
+        "description": "Finishes the minting process.",
+        "fields": {}
+      },
+      "releaseTokenTransfer": {
+        "description": "Releases token transfer restrictions.",
+        "fields": {}
+      },
+      "upgrade": {
+        "description": "Upgrades the contract to a new version.",
+        "fields": {
+          "value": "value"
+        }
+      },
+      "renounceOwnership": {
+        "description": "Renounces ownership of the contract.",
+        "fields": {}
+      },
+      "transferOwnership": {
+        "description": "Transfers ownership of the contract to a new address.",
+        "fields": {
+          "newOwner": "_newOwner"
+        }
+      }
+    },
+    "errors": {},
+    "events": {
+      "UpdatedTokenInformation": {
+        "description": "Emitted when the token information is updated.",
+        "fields": {
+          "newName": "newName",
+          "newSymbol": "newSymbol"
+        }
+      },
+      "Upgrade": {
+        "description": "Emitted when an upgrade is made.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "UpgradeAgentSet": {
+        "description": "Emitted when the upgrade agent is set.",
+        "fields": {
+          "agent": "agent"
+        }
+      },
+      "Mint": {
+        "description": "Emitted when new tokens are minted.",
+        "fields": {
+          "to": "to",
+          "amount": "amount"
+        }
+      },
+      "MintFinished": {
+        "description": "Emitted when minting is finished.",
+        "fields": {}
+      },
+      "OwnershipRenounced": {
+        "description": "Emitted when ownership is renounced.",
+        "fields": {
+          "previousOwner": "previousOwner"
+        }
+      },
+      "OwnershipTransferred": {
+        "description": "Emitted when ownership is transferred.",
+        "fields": {
+          "previousOwner": "previousOwner",
+          "newOwner": "newOwner"
+        }
+      },
+      "Approval": {
+        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+        "fields": {
+          "owner": "owner",
+          "spender": "spender",
+          "value": "value"
+        }
+      },
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one address to another.",
+        "fields": {
+          "from": "from",
+          "to": "to",
+          "value": "value"
+        }
+      }
+    }
+  }
+  

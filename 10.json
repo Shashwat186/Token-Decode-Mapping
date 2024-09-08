@@ -1,187 +1,106 @@
 {
-  "transfer_functions": [
-    {
-      "name": "transfer",
-      "description": "Transfers tokens to a recipient.",
-      "parameters": {
-        "transfer_to": "_recipient",
+  "transfer_functions": {
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_value"
+      }
+    },
+    "transfer": {
+      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "fields": {
+        "transfer_to": "_to",
         "amount": "_amount"
       }
     },
-    {
-      "name": "transferFrom",
-      "description": "Transfers tokens from a sender to a recipient.",
-      "parameters": {
-        "transfer_from": "_sender",
-        "transfer_to": "_recipient",
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "fields": {
+        "transfer_from": "_to",
+        "transfer_to": "_from",
         "amount": "_amount"
+      }
+    },
+    "increaseAllowance": {
+      "description": "Increases the amount of tokens that a spender is allowed to withdraw.",
+      "fields": {
+        "spender": "_spender",
+        "added_value": "_addedValue"
+      }
+    },
+    "decreaseAllowance": {
+      "description": "Decreases the amount of tokens that a spender is allowed to withdraw.",
+      "fields": {
+        "spender": "_spender",
+        "subtracted_value": "_subtractedValue"
+      }
+    },
+    "burn": {
+      "description": "Burns tokens from the caller’s account.",
+      "fields": {
+        "amount": "_value"
       }
     }
-  ],
-  "other_functions": [
-    {
-      "name": "allowBurn",
-      "description": "Allows burning of tokens.",
-      "parameters": {}
-    },
-    {
-      "name": "allowance",
-      "description": "Returns the remaining number of tokens that a spender is allowed to spend.",
-      "parameters": {
-        "owner": "_owner",
-        "spender": "_spender"
-      }
-    },
-    {
-      "name": "approve",
-      "description": "Approves a spender to transfer tokens on behalf of the owner.",
-      "parameters": {
-        "spender": "_spender",
-        "amount": "_amount"
-      }
-    },
-    {
-      "name": "balanceOf",
-      "description": "Returns the balance of an account.",
-      "parameters": {
+  },
+  "other_functions": {
+    "balanceOf": {
+      "description": "Returns the amount of tokens owned by the account.",
+      "fields": {
         "account": "_account"
       }
     },
-    {
-      "name": "burn",
-      "description": "Burns a specified amount of tokens.",
-      "parameters": {
-        "amount": "_amount",
-        "addr": "_addr"
-      }
+    "decimals": {
+      "description": "Returns the number of decimals used to get its user representation.",
+      "fields": {}
     },
-    {
-      "name": "burnFrom",
-      "description": "Burns tokens from a specified account.",
-      "parameters": {
-        "transfer_from": "_account",
-        "amount": "_amount",
-        "addr": "_addr"
-      }
-    },
-    {
-      "name": "checkSignature",
-      "description": "Checks the validity of a signature.",
-      "parameters": {
-        "digest": "_digest",
-        "sig": "_sig"
-      }
-    },
-    {
-      "name": "decimals",
-      "description": "Returns the number of decimals used by the token.",
-      "parameters": {}
-    },
-    {
-      "name": "decreaseAllowance",
-      "description": "Decreases the allowance of a spender.",
-      "parameters": {
-        "spender": "_spender",
-        "subtractedValue": "_subtractedValue"
-      }
-    },
-    {
-      "name": "finishedVotings",
-      "description": "Returns the voting status for a digest.",
-      "parameters": {
-        "digest": "_digest"
-      }
-    },
-    {
-      "name": "getFullOracleSet",
-      "description": "Returns the full oracle set.",
-      "parameters": {}
-    },
-    {
-      "name": "getNewBurnStatusId",
-      "description": "Returns the new burn status ID.",
-      "parameters": {
-        "newBurnStatus": "_newBurnStatus",
-        "nonce": "_nonce"
-      }
-    },
-    {
-      "name": "getNewSetId",
-      "description": "Returns the ID of the new oracle set.",
-      "parameters": {
-        "oracleSetHash": "_oracleSetHash",
-        "set": "_set"
-      }
-    },
-    {
-      "name": "getSwapDataId",
-      "description": "Returns the swap data ID for a given swap.",
-      "parameters": {
-        "data": "_data"
-      }
-    },
-    {
-      "name": "increaseAllowance",
-      "description": "Increases the allowance of a spender.",
-      "parameters": {
-        "spender": "_spender",
-        "addedValue": "_addedValue"
-      }
-    },
-    {
-      "name": "isOracle",
-      "description": "Checks if an address is an oracle.",
-      "parameters": {
-        "address": "_address"
-      }
-    },
-    {
-      "name": "name",
+    "name": {
       "description": "Returns the name of the token.",
-      "parameters": {}
+      "fields": {}
     },
-    {
-      "name": "oraclesSet",
-      "description": "Returns the oracle set for a specific index.",
-      "parameters": {
-        "index": "_index"
-      }
-    },
-    {
-      "name": "symbol",
+    "symbol": {
       "description": "Returns the symbol of the token.",
-      "parameters": {}
+      "fields": {}
     },
-    {
-      "name": "totalSupply",
-      "description": "Returns the total supply of the token.",
-      "parameters": {}
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
     },
-    {
-      "name": "voteForMinting",
-      "description": "Votes for minting tokens based on swap data.",
-      "parameters": {
-        "data": "_data",
-        "signatures": "_signatures"
-      }
-    },
-    {
-      "name": "voteForNewOracleSet",
-      "description": "Votes for a new oracle set.",
-      "parameters": {
-        "oracleSetHash": "_oracleSetHash",
-        "newOracles": "_newOracles",
-        "signatures": "_signatures"
-      }
-    },
-    {
-      "name": "voteForSwitchBurn",
-      "description": "Votes for switching the burn status.",
-      "parameters": {
-        "newBurnStatus": "_newBurnStatus",
-        "nonce": "_nonce",
-        "signatures": "_signatures"
+    "allowance": {
+      "description": "Returns the remaining number of tokens that the spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
       }
     }
-  ]
+  },
+  "constructor": {
+    "description": "Constructor for initializing the contract.",
+    "fields": {
+      "name": "_name",
+      "symbol": "_symbol",
+      "decimals": "_decimals",
+      "totalSupply": "_totalSupply",
+      "feeReceiver": "_feeReceiver",
+      "tokenOwnerAddress": "_tokenOwnerAddress"
+    }
+  },
+  "events": {
+    "Transfer": {
+      "description": "Triggered when tokens are transferred.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
+      }
+    },
+    "Approval": {
+      "description": "Triggered when approval is granted to a spender.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value"
+      }
+    }
+  }
 }
