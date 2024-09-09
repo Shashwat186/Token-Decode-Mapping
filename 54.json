@@ -1,0 +1,164 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the specified amount.",
+        "fields": {
+          "spender": "The address allowed to spend tokens",
+          "amount": "The maximum amount allowed to be spent"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "fields": {
+          "transfer_to": "The recipient address",
+          "amount": "The amount of tokens to transfer"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "fields": {
+          "transfer_from": "The address from which tokens are being transferred",
+          "transfer_to": "The recipient address",
+          "amount": "The amount of tokens to transfer"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the allowance granted to a spender by a specified value.",
+        "fields": {
+          "spender": "The address allowed to spend tokens",
+          "addedValue": "The amount by which the allowance is increased"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the allowance granted to a spender by a specified value.",
+        "fields": {
+          "spender": "The address allowed to spend tokens",
+          "subtractedValue": "The amount by which the allowance is decreased"
+        }
+      }
+    },
+    "other_functions": {
+      "mint": {
+        "description": "Mints new tokens to the specified user address.",
+        "fields": {
+          "user": "The address to which tokens will be minted",
+          "amount": "The amount of tokens to mint"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the balance of tokens for a specified account.",
+        "fields": {
+          "account": "The address to query the balance of"
+        }
+      },
+      "getNonce": {
+        "description": "Returns the current nonce of a user.",
+        "fields": {
+          "user": "The address to get the nonce for"
+        }
+      },
+      "decimals": {
+        "description": "Returns the number of decimals used by the token.",
+        "fields": {}
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
+      },
+      "hasRole": {
+        "description": "Checks if a specified account has a specific role.",
+        "fields": {
+          "role": "The role identifier",
+          "account": "The address of the account to check"
+        }
+      },
+      "grantRole": {
+        "description": "Grants a specific role to an account.",
+        "fields": {
+          "role": "The role identifier",
+          "account": "The address of the account to grant the role"
+        }
+      },
+      "revokeRole": {
+        "description": "Revokes a specific role from an account.",
+        "fields": {
+          "role": "The role identifier",
+          "account": "The address of the account to revoke the role"
+        }
+      },
+      "renounceRole": {
+        "description": "Allows an account to renounce a role it holds.",
+        "fields": {
+          "role": "The role identifier",
+          "account": "The address of the account renouncing the role"
+        }
+      },
+      "executeMetaTransaction": {
+        "description": "Executes a meta-transaction on behalf of the user.",
+        "fields": {
+          "userAddress": "The address of the user",
+          "functionSignature": "The function signature to be executed",
+          "sigR": "Part of the signature",
+          "sigS": "Part of the signature",
+          "sigV": "The recovery id of the signature"
+        }
+      },
+      "getChainId": {
+        "description": "Returns the current chain ID.",
+        "fields": {}
+      },
+      "getDomainSeperator": {
+        "description": "Returns the domain separator for EIP-712 signing.",
+        "fields": {}
+      }
+    },
+      "Approval": {
+        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+        "fields": {
+          "owner": "The address of the token owner",
+          "spender": "The address approved to spend tokens",
+          "value": "The amount approved"
+        }
+      },
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one address to another.",
+        "fields": {
+          "from": "The address from which tokens are sent",
+          "to": "The address to which tokens are sent",
+          "value": "The amount of tokens transferred"
+        }
+      },
+      "MetaTransactionExecuted": {
+        "description": "Emitted when a meta-transaction is executed.",
+        "fields": {
+          "userAddress": "The address of the user",
+          "relayerAddress": "The address of the relayer",
+          "functionSignature": "The executed function"
+        }
+      },
+      "RoleGranted": {
+        "description": "Emitted when a role is granted to an account.",
+        "fields": {
+          "role": "The role identifier",
+          "account": "The address of the account granted the role",
+          "sender": "The address that granted the role"
+        }
+      },
+      "RoleRevoked": {
+        "description": "Emitted when a role is revoked from an account.",
+        "fields": {
+          "role": "The role identifier",
+          "account": "The address of the account the role is revoked from",
+          "sender": "The address that revoked the role"
+        }
+      },
+      "RoleAdminChanged": {
+        "description": "Emitted when the admin role is changed.",
+        "fields": {
+          "role": "The role identifier",
+          "previousAdminRole": "The previous admin role",
+          "newAdminRole": "The new admin role"
+        }
+      }
+    }
+  

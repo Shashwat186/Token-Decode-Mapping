@@ -1,0 +1,148 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_value"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "fields": {
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      }
+    },
+    "other_functions": {
+      "acceptOwnership": {
+        "description": "Accepts ownership of the contract from the nominated owner.",
+        "fields": {}
+      },
+      "nominateNewOwner": {
+        "description": "Nominate a new owner for the contract.",
+        "fields": {
+          "newOwner": "_owner"
+        }
+      },
+      "setTarget": {
+        "description": "Sets the target address.",
+        "fields": {
+          "target": "_target"
+        }
+      },
+      "setUseDELEGATECALL": {
+        "description": "Sets whether DELEGATECALL should be used.",
+        "fields": {
+          "value": "_value"
+        }
+      },
+      "useDELEGATECALL": {
+        "description": "Checks if DELEGATECALL is used.",
+        "fields": {}
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of the token.",
+        "fields": {}
+      },
+      "decimals": {
+        "description": "Returns the number of decimals used by the token.",
+        "fields": {}
+      },
+      "name": {
+        "description": "Returns the name of the token.",
+        "fields": {}
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
+        "fields": {}
+      },
+      "balanceOf": {
+        "description": "Returns the balance of a given account.",
+        "fields": {
+          "owner": "_owner"
+        }
+      },
+      "owner": {
+        "description": "Returns the address of the contract owner.",
+        "fields": {}
+      },
+      "nominatedOwner": {
+        "description": "Returns the address of the nominated owner.",
+        "fields": {}
+      },
+      "target": {
+        "description": "Returns the target address.",
+        "fields": {}
+      },
+      "allowance": {
+        "description": "Returns the amount of tokens that a spender is allowed to withdraw from the owner.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender"
+        }
+      },
+      "_emit": {
+        "description": "Emits an event with the given call data and topics.",
+        "fields": {
+          "callData": "_callData",
+          "numTopics": "_numTopics",
+          "topic1": "_topic1",
+          "topic2": "_topic2",
+          "topic3": "_topic3",
+          "topic4": "_topic4"
+        }
+      },
+      "acceptOwnership": {
+        "description": "Accepts ownership of the contract from the nominated owner.",
+        "fields": {}
+      }
+    },
+    "events": {
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one address to another.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "Approval": {
+        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        }
+      },
+      "TargetUpdated": {
+        "description": "Emitted when the target address is updated.",
+        "fields": {
+          "newTarget": "_newTarget"
+        }
+      },
+      "OwnerNominated": {
+        "description": "Emitted when a new owner is nominated.",
+        "fields": {
+          "newOwner": "_newOwner"
+        }
+      },
+      "OwnerChanged": {
+        "description": "Emitted when the contract ownership is changed.",
+        "fields": {
+          "oldOwner": "_oldOwner",
+          "newOwner": "_newOwner"
+        }
+      }
+    }
+  }
+  

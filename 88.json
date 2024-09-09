@@ -1,0 +1,21 @@
+{
+    "transfer_functions": {},
+    "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract with a beacon address and optional initialization data.",
+        "fields": {
+          "beacon": "_beacon",
+          "data": "_data"
+        }
+      },
+      "fallback": {
+        "description": "Fallback function to handle calls that do not match any function signature.",
+        "fields": {}
+      },
+      "receive": {
+        "description": "Receive function to handle incoming Ether transfers.",
+        "fields": {}
+      }
+    }
+  }
+  

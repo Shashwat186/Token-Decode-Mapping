@@ -1,0 +1,128 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_value"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "fields": {
+          "transfer_to": "_to",
+          "amount": "_value"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "fields": {
+          "transfer_from": "_from",
+          "transfer_to": "_to",
+          "amount": "_value"
+        }
+      }
+    },
+    "other_functions": {
+      "setOwner": {
+        "description": "Sets a new owner for the contract.",
+        "fields": {
+          "newOwner": "_new"
+        }
+      },
+      "confirmOwnership": {
+        "description": "Confirms the ownership transfer to the new owner.",
+        "fields": {}
+      },
+      "decreaseApproval": {
+        "description": "Decreases the amount of allowance a spender has.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_value"
+        }
+      },
+      "increaseApproval": {
+        "description": "Increases the amount of allowance a spender has.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_value"
+        }
+      },
+      "transferERC20Token": {
+        "description": "Transfers ERC20 tokens from the contract to a specified address.",
+        "fields": {
+          "token": "_token",
+          "to": "_to",
+          "amount": "_value"
+        }
+      },
+      "withdrawAdvisersTokens": {
+        "description": "Withdraws tokens allocated to advisers.",
+        "fields": {
+          "to": "_to",
+          "amountWithDecimals": "_amountWithDecimals"
+        }
+      },
+      "withdrawTeamTokens": {
+        "description": "Withdraws tokens allocated to the team.",
+        "fields": {
+          "to": "_to",
+          "amountWithDecimals": "_amountWithDecimals"
+        }
+      },
+      "withdrawOverdraftTokens": {
+        "description": "Withdraws overdraft tokens.",
+        "fields": {
+          "to": "_to",
+          "amountWithDecimals": "_amountWithDecimals"
+        }
+      },
+      "withdrawCommunityTokens": {
+        "description": "Withdraws community tokens.",
+        "fields": {
+          "to": "_to",
+          "amountWithDecimals": "_amountWithDecimals"
+        }
+      },
+      "distributeInvestorsTokens": {
+        "description": "Distributes tokens to investors.",
+        "fields": {
+          "to": "_to",
+          "amountWithDecimals": "_amountWithDecimals"
+        }
+      }
+    },
+    "events": {
+      "NewOwner": {
+        "description": "Emitted when the ownership of the contract changes.",
+        "fields": {
+          "old": "_old",
+          "current": "_current"
+        }
+      },
+      "NewPotentialOwner": {
+        "description": "Emitted when a potential new owner is set.",
+        "fields": {
+          "old": "_old",
+          "potential": "_potential"
+        }
+      },
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one address to another.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "Approval": {
+        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        }
+      }
+    }
+  }
+  

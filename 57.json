@@ -1,0 +1,42 @@
+{
+    "transfer_functions": {},
+    "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract with the given beacon address and optional initialization data.",
+        "fields": {
+          "beacon": "beacon",
+          "data": "data"
+        }
+      },
+      "fallback": {
+        "description": "A fallback function that is called when no other function matches. Can receive Ether.",
+        "fields": {}
+      },
+      "receive": {
+        "description": "A receive function that is called when the contract receives Ether without any data.",
+        "fields": {}
+      }
+    },
+      "AdminChanged": {
+        "description": "Emitted when the contract's admin changes.",
+        "fields": {
+          "previousAdmin": "previousAdmin",
+          "newAdmin": "newAdmin"
+        }
+      },
+      "BeaconUpgraded": {
+        "description": "Emitted when the beacon is upgraded.",
+        "fields": {
+          "beacon": "beacon"
+        }
+      },
+      "Upgraded": {
+        "description": "Emitted when the contract's implementation is upgraded.",
+        "fields": {
+          "implementation": "implementation"
+        }
+      }
+ }
+    
+
+  

@@ -1,0 +1,64 @@
+{
+    "transfer_functions": {},
+    "other_functions": {
+      "proxyOwner": {
+        "description": "Returns the current owner of the proxy contract.",
+        "fields": {}
+      },
+      "pendingProxyOwner": {
+        "description": "Returns the address of the pending new owner of the proxy contract.",
+        "fields": {}
+      },
+      "upgradeTo": {
+        "description": "Upgrades the proxy to a new implementation address.",
+        "fields": {
+          "implementation": "_implementation"
+        }
+      },
+      "implementation": {
+        "description": "Returns the current implementation address of the proxy contract.",
+        "fields": {}
+      },
+      "claimProxyOwnership": {
+        "description": "Claims ownership of the proxy contract if the caller is the pending owner.",
+        "fields": {}
+      },
+      "transferProxyOwnership": {
+        "description": "Transfers ownership of the proxy contract to a new address.",
+        "fields": {
+          "newOwner": "_newOwner"
+        }
+      },
+      "constructor": {
+        "description": "Initializes the proxy contract.",
+        "fields": {}
+      },
+      "fallback": {
+        "description": "Fallback function to handle Ether transfers.",
+        "fields": {}
+      }
+    },
+    
+      "ProxyOwnershipTransferred": {
+        "description": "Emitted when ownership of the proxy contract is transferred.",
+        "fields": {
+          "previousOwner": "_previousOwner",
+          "newOwner": "_newOwner"
+        }
+      },
+      "NewPendingOwner": {
+        "description": "Emitted when a new pending owner is set.",
+        "fields": {
+          "currentOwner": "_currentOwner",
+          "pendingOwner": "_pendingOwner"
+        }
+      },
+      "Upgraded": {
+        "description": "Emitted when the proxy contract is upgraded to a new implementation.",
+        "fields": {
+          "implementation": "_implementation"
+        }
+      }
+    }
+  
+  

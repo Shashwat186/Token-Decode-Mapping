@@ -1,0 +1,98 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_value"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "fields": {
+          "transfer_to": "_to",
+          "amount": "_value"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "fields": {
+          "transfer_from": "_from",
+          "transfer_to": "_to",
+          "amount": "_value"
+        }
+      }
+    },
+    "other_functions": {
+      "name": {
+        "description": "Returns the name of the token.",
+        "fields": {}
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
+      },
+      "decimals": {
+        "description": "Returns the number of decimals used by the token.",
+        "fields": {}
+      },
+      "burn": {
+        "description": "Burns a specified amount of tokens from the caller’s account.",
+        "fields": {
+          "amount": "_value"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the balance of a specified address.",
+        "fields": {
+          "account": ""
+        }
+      },
+      "burnFrom": {
+        "description": "Burns a specified amount of tokens from another address's account.",
+        "fields": {
+          "account": "_from",
+          "amount": "_value"
+        }
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
+        "fields": {}
+      },
+      "approveAndCall": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified and then calls the specified contract.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_value",
+          "extraData": "_extraData"
+        }
+      },
+      "allowance": {
+        "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of an owner.",
+        "fields": {
+          "owner": "",
+          "spender": ""
+        }
+      },
+      "constructor": {
+        "description": "Constructor function that initializes the contract.",
+        "fields": {}
+      },
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one address to another.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "Burn": {
+        "description": "Emitted when tokens are burned from the caller’s account.",
+        "fields": {
+          "from": "_from",
+          "value": "_value"
+        }
+      }
+    }
+  }
+  

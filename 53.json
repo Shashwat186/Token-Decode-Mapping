@@ -1,0 +1,242 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "fields": {
+          "spender": "address",
+          "amount": "uint256"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "fields": {
+          "transfer_to": "address",
+          "amount": "uint256"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "fields": {
+          "transfer_from": "address",
+          "transfer_to": "address",
+          "amount": "uint256"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the allowance granted to a spender by the caller.",
+        "fields": {
+          "spender": "address",
+          "addedValue": "uint256"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the allowance granted to a spender by the caller.",
+        "fields": {
+          "spender": "address",
+          "subtractedValue": "uint256"
+        }
+      }
+    },
+    "other_functions": {
+      "balanceOf": {
+        "description": "Returns the account balance of another account.",
+        "fields": {
+          "account": "address"
+        }
+      },
+      "allowance": {
+        "description": "Returns the amount that a spender is allowed to withdraw from an owner.",
+        "fields": {
+          "owner": "address",
+          "spender": "address"
+        }
+      },
+      "mint": {
+        "description": "Mints new tokens to a specified account.",
+        "fields": {
+          "account": "address",
+          "amount": "uint256"
+        }
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
+      },
+      "name": {
+        "description": "Returns the name of the token.",
+        "fields": {}
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
+        "fields": {}
+      },
+      "decimals": {
+        "description": "Returns the number of decimals used by the token.",
+        "fields": {}
+      },
+      "checkpoints": {
+        "description": "Gets the checkpoint for a given account at a given position.",
+        "fields": {
+          "account": "address",
+          "pos": "uint32"
+        }
+      },
+      "numCheckpoints": {
+        "description": "Returns the number of checkpoints for a given account.",
+        "fields": {
+          "account": "address"
+        }
+      },
+      "delegate": {
+        "description": "Delegates the caller's votes to another account.",
+        "fields": {
+          "delegatee": "address"
+        }
+      },
+      "delegates": {
+        "description": "Returns the address delegated to by an account.",
+        "fields": {
+          "account": "address"
+        }
+      },
+      "getVotes": {
+        "description": "Returns the current number of votes for an account.",
+        "fields": {
+          "account": "address"
+        }
+      },
+      "getPastVotes": {
+        "description": "Gets the number of votes for an account at a specific block number.",
+        "fields": {
+          "account": "address",
+          "blockNumber": "uint256"
+        }
+      },
+      "getPastTotalSupply": {
+        "description": "Gets the total supply of tokens at a specific block number.",
+        "fields": {
+          "blockNumber": "uint256"
+        }
+      },
+      "grantRole": {
+        "description": "Grants a role to an account.",
+        "fields": {
+          "role": "bytes32",
+          "account": "address"
+        }
+      },
+      "revokeRole": {
+        "description": "Revokes a role from an account.",
+        "fields": {
+          "role": "bytes32",
+          "account": "address"
+        }
+      },
+      "renounceRole": {
+        "description": "Allows an account to renounce a role.",
+        "fields": {
+          "role": "bytes32",
+          "account": "address"
+        }
+      },
+      "getRoleAdmin": {
+        "description": "Returns the admin role that controls a specific role.",
+        "fields": {
+          "role": "bytes32"
+        }
+      },
+      "supportsInterface": {
+        "description": "Checks if the contract supports a specific interface.",
+        "fields": {
+          "interfaceId": "bytes4"
+        }
+      },
+      "DOMAIN_SEPARATOR": {
+        "description": "Returns the EIP-712 domain separator.",
+        "fields": {}
+      },
+      "DEFAULT_ADMIN_ROLE": {
+        "description": "Returns the default admin role.",
+        "fields": {}
+      },
+      "MINTER_ROLE": {
+        "description": "Returns the minter role.",
+        "fields": {}
+      },
+      "nonces": {
+        "description": "Returns the current nonce for an owner account.",
+        "fields": {
+          "owner": "address"
+        }
+      },
+      "permit": {
+        "description": "Approves tokens using a signature, according to EIP-2612.",
+        "fields": {
+          "owner": "address",
+          "spender": "address",
+          "value": "uint256",
+          "deadline": "uint256",
+          "v": "uint8",
+          "r": "bytes32",
+          "s": "bytes32"
+        }
+      }
+    },
+      "Approval": {
+        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+        "fields": {
+          "owner": "address",
+          "spender": "address",
+          "value": "uint256"
+        }
+      },
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one address to another.",
+        "fields": {
+          "from": "address",
+          "to": "address",
+          "value": "uint256"
+        }
+      },
+      "DelegateChanged": {
+        "description": "Emitted when an account changes its delegate.",
+        "fields": {
+          "delegator": "address",
+          "fromDelegate": "address",
+          "toDelegate": "address"
+        }
+      },
+      "DelegateVotesChanged": {
+        "description": "Emitted when the votes of a delegate account change.",
+        "fields": {
+          "delegate": "address",
+          "previousBalance": "uint256",
+          "newBalance": "uint256"
+        }
+      },
+      "RoleAdminChanged": {
+        "description": "Emitted when the admin role for a role changes.",
+        "fields": {
+          "role": "bytes32",
+          "previousAdminRole": "bytes32",
+          "newAdminRole": "bytes32"
+        }
+      },
+      "RoleGranted": {
+        "description": "Emitted when a role is granted to an account.",
+        "fields": {
+          "role": "bytes32",
+          "account": "address",
+          "sender": "address"
+        }
+      },
+      "RoleRevoked": {
+        "description": "Emitted when a role is revoked from an account.",
+        "fields": {
+          "role": "bytes32",
+          "account": "address",
+          "sender": "address"
+        }
+      }
+    }
+  

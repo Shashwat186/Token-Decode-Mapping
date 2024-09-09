@@ -1,0 +1,48 @@
+{
+    "transfer_functions": {
+      "fallback": {
+        "description": "A fallback function that is triggered when the contract receives ether without data.",
+        "fields": {}
+      }
+    },
+    "other_functions": {
+      "proxyType": {
+        "description": "Returns the type of the proxy.",
+        "fields": {}
+      },
+      "isDepositable": {
+        "description": "Returns whether the contract is depositable.",
+        "fields": {}
+      },
+      "implementation": {
+        "description": "Returns the address of the implementation contract.",
+        "fields": {}
+      },
+      "appId": {
+        "description": "Returns the application ID.",
+        "fields": {}
+      },
+      "kernel": {
+        "description": "Returns the address of the kernel contract.",
+        "fields": {}
+      },
+      "constructor": {
+        "description": "Initializes the contract with the specified kernel address, application ID, and initialization payload.",
+        "fields": {
+          "_kernel": "_kernel",
+          "_appId": "_appId",
+          "_initializePayload": "_initializePayload"
+        }
+      }
+    },
+    "events": {
+      "ProxyDeposit": {
+        "description": "Emitted when a deposit is made to the proxy.",
+        "fields": {
+          "sender": "_sender",
+          "value": "_value"
+        }
+      }
+    }
+  }
+  

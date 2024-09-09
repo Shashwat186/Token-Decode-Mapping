@@ -1,0 +1,437 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "fields": {
+          "transfer_to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "fields": {
+          "transfer_from": "_from",
+          "transfer_to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the allowance for a spender.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
+      }
+    },
+    "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract with the address of the layer zero endpoint.",
+        "fields": {
+          "lzEndpoint": "_lzEndpoint"
+        }
+      },
+      "callOnOFTReceived": {
+        "description": "Handles the receipt of a call on OFT.",
+        "fields": {
+          "srcChainId": "_srcChainId",
+          "srcAddress": "_srcAddress",
+          "nonce": "_nonce",
+          "from": "_from",
+          "to": "_to",
+          "amount": "_amount",
+          "payload": "_payload",
+          "gasForCall": "_gasForCall"
+        }
+      },
+      "estimateSendAndCallFee": {
+        "description": "Estimates the fee for sending and calling on the destination chain.",
+        "fields": {
+          "dstChainId": "_dstChainId",
+          "toAddress": "_toAddress",
+          "amount": "_amount",
+          "payload": "_payload",
+          "dstGasForCall": "_dstGasForCall",
+          "useZro": "_useZro",
+          "adapterParams": "_adapterParams"
+        }
+      },
+      "estimateSendFee": {
+        "description": "Estimates the fee for sending tokens to the destination chain.",
+        "fields": {
+          "dstChainId": "_dstChainId",
+          "toAddress": "_toAddress",
+          "amount": "_amount",
+          "useZro": "_useZro",
+          "adapterParams": "_adapterParams"
+        }
+      },
+      "forceResumeReceive": {
+        "description": "Forces the contract to resume receiving messages from a specific source chain.",
+        "fields": {
+          "srcChainId": "_srcChainId",
+          "srcAddress": "_srcAddress"
+        }
+      },
+      "setPrecrime": {
+        "description": "Sets the precrime address for the contract.",
+        "fields": {
+          "precrime": "_precrime"
+        }
+      },
+      "setReceiveVersion": {
+        "description": "Sets the version for receiving messages.",
+        "fields": {
+          "version": "_version"
+        }
+      },
+      "setSendVersion": {
+        "description": "Sets the version for sending messages.",
+        "fields": {
+          "version": "_version"
+        }
+      },
+      "setTrustedRemote": {
+        "description": "Sets the trusted remote address for a given source chain ID.",
+        "fields": {
+          "srcChainId": "_srcChainId",
+          "path": "_path"
+        }
+      },
+      "setTrustedRemoteAddress": {
+        "description": "Sets the trusted remote address for a given remote chain ID.",
+        "fields": {
+          "remoteChainId": "_remoteChainId",
+          "remoteAddress": "_remoteAddress"
+        }
+      },
+      "setUseCustomAdapterParams": {
+        "description": "Sets whether to use custom adapter parameters.",
+        "fields": {
+          "useCustomAdapterParams": "_useCustomAdapterParams"
+        }
+      },
+      "setWhitelist": {
+        "description": "Sets or unsets a whitelist status for an address.",
+        "fields": {
+          "addr": "_addr",
+          "isWhitelist": "_isWhitelist"
+        }
+      },
+      "setFeeBp": {
+        "description": "Sets the fee basis points for a specific destination chain.",
+        "fields": {
+          "dstChainId": "_dstChainId",
+          "enabled": "_enabled",
+          "feeBp": "_feeBp"
+        }
+      },
+      "setDefaultFeeBp": {
+        "description": "Sets the default fee basis points.",
+        "fields": {
+          "feeBp": "_feeBp"
+        }
+      },
+      "setFeeOwner": {
+        "description": "Sets the address that owns the fee.",
+        "fields": {
+          "feeOwner": "_feeOwner"
+        }
+      },
+      "setInboundCap": {
+        "description": "Sets the inbound cap for a specific chain ID.",
+        "fields": {
+          "chainId": "_chainId",
+          "cap": "_cap"
+        }
+      },
+      "setOutboundCap": {
+        "description": "Sets the outbound cap for a specific chain ID.",
+        "fields": {
+          "chainId": "_chainId",
+          "cap": "_cap"
+        }
+      },
+      "setMinDstGas": {
+        "description": "Sets the minimum gas required for a specific destination chain and packet type.",
+        "fields": {
+          "dstChainId": "_dstChainId",
+          "packetType": "_packetType",
+          "minGas": "_minGas"
+        }
+      },
+      "setOperator": {
+        "description": "Sets the operator address.",
+        "fields": {
+          "newOperator": "_newOperator"
+        }
+      },
+      "pause": {
+        "description": "Pauses the contract, preventing certain actions.",
+        "fields": {}
+      },
+      "unpause": {
+        "description": "Unpauses the contract, resuming normal operations.",
+        "fields": {}
+      },
+      "transferOwnership": {
+        "description": "Transfers ownership of the contract to a new address.",
+        "fields": {
+          "newOwner": "_newOwner"
+        }
+      },
+      "circulatingSupply": {
+        "description": "Returns the current circulating supply of tokens.",
+        "fields": {}
+      },
+      "decimals": {
+        "description": "Returns the number of decimal places used by the token.",
+        "fields": {}
+      },
+      "defaultFeeBp": {
+        "description": "Returns the default fee basis points.",
+        "fields": {}
+      },
+      "feeOwner": {
+        "description": "Returns the address that owns the fee.",
+        "fields": {}
+      },
+      "sharedDecimals": {
+        "description": "Returns the number of decimal places used by the token.",
+        "fields": {}
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
+        "fields": {}
+      },
+      "token": {
+        "description": "Returns the token address.",
+        "fields": {}
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
+      },
+      "useCustomAdapterParams": {
+        "description": "Checks if custom adapter parameters are used.",
+        "fields": {}
+      },
+      "whitelist": {
+        "description": "Checks if an address is whitelisted.",
+        "fields": {
+          "address": "_address"
+        }
+      },
+      "supportsInterface": {
+        "description": "Checks if the contract implements a given interface.",
+        "fields": {
+          "interfaceId": "_interfaceId"
+        }
+      },
+      "chainIdToFeeBps": {
+        "description": "Returns the fee basis points for a specific chain ID.",
+        "fields": {
+          "chainId": "_chainId"
+        }
+      },
+      "chainIdToInboundCap": {
+        "description": "Returns the inbound cap for a specific chain ID.",
+        "fields": {
+          "chainId": "_chainId"
+        }
+      },
+      "chainIdToLastReceivedTimestamp": {
+        "description": "Returns the last received timestamp for a specific chain ID.",
+        "fields": {
+          "chainId": "_chainId"
+        }
+      },
+      "chainIdToLastSentTimestamp": {
+        "description": "Returns the last sent timestamp for a specific chain ID.",
+        "fields": {
+          "chainId": "_chainId"
+        }
+      },
+      "chainIdToOutboundCap": {
+        "description": "Returns the outbound cap for a specific chain ID.",
+        "fields": {
+          "chainId": "_chainId"
+        }
+      },
+      "chainIdToReceivedTokenAmount": {
+        "description": "Returns the received token amount for a specific chain ID.",
+        "fields": {
+          "chainId": "_chainId"
+        }
+      },
+      "chainIdToSentTokenAmount": {
+        "description": "Returns the sent token amount for a specific chain ID.",
+        "fields": {
+          "chainId": "_chainId"
+        }
+      },
+      "failedMessages": {
+        "description": "Returns the failed messages for a specific chain ID and bytes.",
+        "fields": {
+          "chainId": "_chainId",
+          "data": "_data",
+          "nonce": "_nonce"
+        }
+      },
+      "allowance": {
+        "description": "Returns the remaining allowance for a spender.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the balance of a specific address.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the allowance for a spender.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        }
+      },
+      "amountsForCall": {
+        "description": "Returns amounts for call.",
+        "fields": {
+          "chainId": "_chainId",
+          "data": "_data",
+          "nonce": "_nonce"
+        }
+      },
+      "getConfig": {
+        "description": "Returns the configuration for a given version, chain ID, and config type.",
+        "fields": {
+          "version": "_version",
+          "chainId": "_chainId",
+          "configType": "_configType"
+        }
+      },
+      "getTrustedRemoteAddress": {
+        "description": "Returns the trusted remote address for a given remote chain ID.",
+        "fields": {
+          "remoteChainId": "_remoteChainId"
+        }
+      },
+      "isTrustedRemote": {
+        "description": "Checks if a given source chain ID and address are trusted.",
+        "fields": {
+          "srcChainId": "_srcChainId",
+          "srcAddress": "_srcAddress"
+        }
+      },
+      "lzEndpoint": {
+        "description": "Returns the address of the LayerZero endpoint.",
+        "fields": {}
+      },
+      "lzReceive": {
+        "description": "Handles the receipt of LayerZero messages.",
+        "fields": {
+          "srcChainId": "_srcChainId",
+          "srcAddress": "_srcAddress",
+          "nonce": "_nonce",
+          "payload": "_payload"
+        }
+      },
+      "minDstGasLookup": {
+        "description": "Returns the minimum destination gas for a given source and destination chain IDs.",
+        "fields": {
+          "srcChainId": "_srcChainId",
+          "dstChainId": "_dstChainId"
+        }
+      },
+      "name": {
+        "description": "Returns the name of the token.",
+        "fields": {}
+      },
+      "nonblockingLzReceive": {
+        "description": "Handles the receipt of LayerZero messages without blocking.",
+        "fields": {
+          "srcChainId": "_srcChainId",
+          "srcAddress": "_srcAddress",
+          "nonce": "_nonce",
+          "payload": "_payload"
+        }
+      },
+      "owner": {
+        "description": "Returns the address of the contract owner.",
+        "fields": {}
+      },
+      "paused": {
+        "description": "Returns the paused status of the contract.",
+        "fields": {}
+      },
+      "precrime": {
+        "description": "Returns the address of the precrime contract.",
+        "fields": {}
+      },
+      "quoteOFTFee": {
+        "description": "Quotes the fee for OFT based on destination chain ID and amount.",
+        "fields": {
+          "dstChainId": "_dstChainId",
+          "amount": "_amount"
+        }
+      },
+      "renounceOwnership": {
+        "description": "Renounces ownership of the contract.",
+        "fields": {}
+      },
+      "retryMessage": {
+        "description": "Retries a failed message.",
+        "fields": {
+          "srcChainId": "_srcChainId",
+          "srcAddress": "_srcAddress",
+          "nonce": "_nonce",
+          "payload": "_payload"
+        }
+      },
+      "sendAndCall": {
+        "description": "Sends tokens and makes a call on the destination chain.",
+        "fields": {
+          "from": "_from",
+          "dstChainId": "_dstChainId",
+          "toAddress": "_toAddress",
+          "amount": "_amount",
+          "minAmount": "_minAmount",
+          "payload": "_payload",
+          "dstGasForCall": "_dstGasForCall",
+          "callParams": "_callParams"
+        }
+      },
+      "sendFrom": {
+        "description": "Sends tokens from the sender’s address to the destination chain.",
+        "fields": {
+          "from": "_from",
+          "dstChainId": "_dstChainId",
+          "toAddress": "_toAddress",
+          "amount": "_amount",
+          "minAmount": "_minAmount",
+          "callParams": "_callParams"
+        }
+      },
+      "setConfig": {
+        "description": "Sets the configuration for a given version, chain ID, and config type.",
+        "fields": {
+          "version": "_version",
+          "chainId": "_chainId",
+          "configType": "_configType",
+          "config": "_config"
+        }
+      }
+    
+    }
+  }
+  

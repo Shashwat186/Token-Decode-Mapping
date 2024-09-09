@@ -1,0 +1,173 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_value"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "fields": {
+          "transfer_to": "_to",
+          "amount": "_value"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "fields": {
+          "transfer_from": "_from",
+          "transfer_to": "_to",
+          "amount": "_value"
+        }
+      }
+    },
+    "other_functions": {
+      "update_mining_parameters": {
+        "description": "Updates mining parameters such as time, rate, and supply.",
+        "fields": {
+          "time": "_time",
+          "rate": "_rate",
+          "supply": "_supply"
+        }
+      },
+      "start_epoch_time_write": {
+        "description": "Returns the start epoch time.",
+        "fields": {}
+      },
+      "future_epoch_time_write": {
+        "description": "Returns the future epoch time.",
+        "fields": {}
+      },
+      "available_supply": {
+        "description": "Returns the available supply.",
+        "fields": {}
+      },
+      "mintable_in_timeframe": {
+        "description": "Returns the amount mintable in a given timeframe.",
+        "fields": {
+          "start": "_start",
+          "end": "_end"
+        }
+      },
+      "set_minter": {
+        "description": "Sets the minter address.",
+        "fields": {
+          "minter": "_minter"
+        }
+      },
+      "set_admin": {
+        "description": "Sets the admin address.",
+        "fields": {
+          "admin": "_admin"
+        }
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
+      },
+      "allowance": {
+        "description": "Returns the remaining amount that a spender can spend from the owner's account.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender"
+        }
+      },
+      "mint": {
+        "description": "Mints new tokens and assigns them to the specified address.",
+        "fields": {
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "burn": {
+        "description": "Burns a specified amount of tokens.",
+        "fields": {
+          "value": "_value"
+        }
+      },
+      "set_name": {
+        "description": "Sets the name and symbol of the token.",
+        "fields": {
+          "name": "_name",
+          "symbol": "_symbol"
+        }
+      },
+      "name": {
+        "description": "Returns the name of the token.",
+        "fields": {}
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
+        "fields": {}
+      },
+      "decimals": {
+        "description": "Returns the number of decimals used for displaying token amounts.",
+        "fields": {}
+      },
+      "balanceOf": {
+        "description": "Returns the token balance of a specified address.",
+        "fields": {
+          "address": "arg0"
+        }
+      },
+      "minter": {
+        "description": "Returns the address of the current minter.",
+        "fields": {}
+      },
+      "admin": {
+        "description": "Returns the address of the current admin.",
+        "fields": {}
+      },
+      "mining_epoch": {
+        "description": "Returns the current mining epoch.",
+        "fields": {}
+      },
+      "start_epoch_time": {
+        "description": "Returns the start epoch time.",
+        "fields": {}
+      },
+      "rate": {
+        "description": "Returns the current rate.",
+        "fields": {}
+      },
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one address to another.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "Approval": {
+        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        }
+      },
+      "UpdateMiningParameters": {
+        "description": "Emitted when mining parameters are updated.",
+        "fields": {
+          "time": "_time",
+          "rate": "_rate",
+          "supply": "_supply"
+        }
+      },
+      "SetMinter": {
+        "description": "Emitted when the minter address is set.",
+        "fields": {
+          "minter": "_minter"
+        }
+      },
+      "SetAdmin": {
+        "description": "Emitted when the admin address is set.",
+        "fields": {
+          "admin": "_admin"
+        }
+      }
+    }
+  }
+  

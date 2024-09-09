@@ -1,0 +1,149 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "fields": {
+          "recipient": "_to",
+          "amount": "_amount"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "fields": {
+          "sender": "_from",
+          "recipient": "_to",
+          "amount": "_amount"
+        }
+      }
+    },
+    "other_functions": {
+      "addToWhitelist": {
+        "description": "Adds an address to the whitelist with a specified limit.",
+        "fields": {
+          "address": "_address",
+          "limit": "_limit"
+        }
+      },
+      "removeFromWhitelist": {
+        "description": "Removes an address from the whitelist.",
+        "fields": {
+          "address": "_address"
+        }
+      },
+      "burn": {
+        "description": "Burns a specified amount of tokens from the caller’s account.",
+        "fields": {
+          "amount": "_amount"
+        }
+      },
+      "burnFrom": {
+        "description": "Burns a specified amount of tokens from a specified address.",
+        "fields": {
+          "account": "_account",
+          "amount": "_amount"
+        }
+      },
+      "depositETH": {
+        "description": "Deposits ETH into the contract.",
+        "fields": {}
+      },
+      "depositUSDC": {
+        "description": "Deposits USDC into the contract.",
+        "fields": {
+          "amount": "_amount"
+        }
+      },
+      "depositUSDT": {
+        "description": "Deposits USDT into the contract.",
+        "fields": {
+          "amount": "_amount"
+        }
+      },
+      "forceReleaseStaking": {
+        "description": "Forces the release of staking based on the specified release type.",
+        "fields": {
+          "forceReleaseType": "_forceReleaseType"
+        }
+      },
+      "prepareDistribution": {
+        "description": "Prepares the distribution for a specified round.",
+        "fields": {
+          "round": "_round"
+        }
+      },
+      "prepareDistributionPrecise": {
+        "description": "Prepares the distribution for a specified round with precise price limits.",
+        "fields": {
+          "round": "_round",
+          "botPriceLimit": "_botPriceLimit",
+          "topPriceLimit": "_topPriceLimit"
+        }
+      },
+      "launchProduct": {
+        "description": "Launches the product.",
+        "fields": {}
+      },
+      "updateAndGetCurrentPrice": {
+        "description": "Updates and retrieves the current price.",
+        "fields": {}
+      },
+      "setDEXEFeed": {
+        "description": "Sets the DEXE price feed address.",
+        "fields": {
+          "address": "_address"
+        }
+      },
+      "setETHFeed": {
+        "description": "Sets the ETH price feed address.",
+        "fields": {
+          "address": "_address"
+        }
+      },
+      "setTreasury": {
+        "description": "Sets the treasury address.",
+        "fields": {
+          "address": "_address"
+        }
+      },
+      "setUSDCTokenAddress": {
+        "description": "Sets the USDC token address.",
+        "fields": {
+          "address": "_address"
+        }
+      },
+      "setUSDTFeed": {
+        "description": "Sets the USDT price feed address.",
+        "fields": {
+          "address": "_address"
+        }
+      },
+      "setUSDTTokenAddress": {
+        "description": "Sets the USDT token address.",
+        "fields": {
+          "address": "_address"
+        }
+      },
+      "transferOwnership": {
+        "description": "Transfers ownership of the contract to a new address.",
+        "fields": {
+          "newOwner": "_newOwner"
+        }
+      },
+      "withdrawLocked": {
+        "description": "Withdraws locked tokens from the contract to a specified address.",
+        "fields": {
+          "token": "_token",
+          "receiver": "_receiver",
+          "amount": "_amount"
+        }
+      }
+    }
+  }
+  

@@ -149,7 +149,6 @@
       "description": "Emitted when the contract is unpaused.",
       "fields": {}
     }
-  },
-  "errors": {}
+  }
 }
 
