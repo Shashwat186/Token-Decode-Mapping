@@ -98,9 +98,7 @@
         "account": "_account",
         "blockNumber": "_blockNumber"
       }
-    }
-  },
-  "events": {
+    },
     "Approval": {
       "description": "Triggered when approval is granted to a spender.",
       "fields": {

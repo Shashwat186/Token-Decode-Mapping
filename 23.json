@@ -254,7 +254,6 @@
         "fields": {}
       }
     },
-    "errors": {
       "InvalidAddress": {
         "description": "Thrown when an invalid address is provided.",
         "fields": {}
@@ -276,6 +275,5 @@
           "str": "_str"
         }
       }
-    }
-  }
+}
   

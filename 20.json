@@ -1,62 +1,157 @@
 {
-  "constructor": {
-    "description": "Initializes the contract.",
-    "fields": {}
-  },
-  "events": {
-    "ProxyOwnershipTransferred": {
-      "description": "Emitted when the proxy ownership is transferred.",
+  "transfer_functions": {
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
       "fields": {
-        "previousOwner": "_previousOwner",
-        "newOwner": "_newOwner"
+        "spender": "_spender",
+        "amount": "_amount"
       }
     },
-    "Upgraded": {
-      "description": "Emitted when the implementation address is upgraded.",
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
       "fields": {
-        "implementation": "_implementation"
+        "from": "_from",
+        "to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "transfer": {
+      "description": "Transfers tokens from the caller’s account to the specified recipient.",
+      "fields": {
+        "to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "mint": {
+      "description": "Mints new tokens and assigns them to the specified address.",
+      "fields": {
+        "to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "burn": {
+      "description": "Burns tokens from the caller’s account.",
+      "fields": {
+        "amount": "_amount"
+      }
+    },
+    "burnFrom": {
+      "description": "Burns tokens from a specified address.",
+      "fields": {
+        "account": "_account",
+        "amount": "_amount"
       }
     }
   },
-  "functions": {
-    "proxyOwner": {
-      "description": "Returns the current owner of the proxy.",
+  "other_functions": {
+    "DOMAIN_SEPARATOR": {
+      "description": "Returns the EIP712 domain separator.",
+      "fields": {}
+    },
+    "acceptOwnership": {
+      "description": "Accepts ownership of the contract.",
+      "fields": {}
+    },
+    "allowance": {
+      "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    "balanceOf": {
+      "description": "Returns the balance of a specified address.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "decimals": {
+      "description": "Returns the number of decimals used to get the user representation of the token.",
+      "fields": {}
+    },
+    "decreaseAllowance": {
+      "description": "Decreases the allowance of a spender.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
+    "eip712Domain": {
+      "description": "Returns the EIP712 domain details.",
+      "fields": {
+        "fields": "_fields",
+        "name": "_name",
+        "version": "_version",
+        "chainId": "_chainId",
+        "verifyingContract": "_verifyingContract",
+        "salt": "_salt",
+        "extensions": "_extensions"
+      }
+    },
+    "increaseAllowance": {
+      "description": "Increases the allowance of a spender.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    "minter": {
+      "description": "Returns the address of the minter.",
+      "fields": {}
+    },
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "nonces": {
+      "description": "Returns the nonce of the specified address.",
       "fields": {
         "owner": "_owner"
       }
     },
-    "upgradeTo": {
-      "description": "Upgrades the implementation address to `implementation`.",
+    "owner": {
+      "description": "Returns the address of the owner.",
+      "fields": {}
+    },
+    "pendingOwner": {
+      "description": "Returns the address of the pending owner.",
+      "fields": {}
+    },
+    "permit": {
+      "description": "Allows to permit a spender to spend tokens on behalf of the owner with EIP-2612.",
       "fields": {
-        "implementation": "_implementation"
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value",
+        "deadline": "_deadline",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
       }
     },
-    "upgradeToAndCall": {
-      "description": "Upgrades the implementation address to `implementation` and executes `data`.",
+    "renounceOwnership": {
+      "description": "Renounces ownership of the contract.",
+      "fields": {}
+    },
+    "setMinter": {
+      "description": "Sets the minter address.",
       "fields": {
-        "implementation": "_implementation",
-        "data": "_data"
+        "newMinter": "_newMinter"
       }
     },
-    "implementation": {
-      "description": "Returns the current implementation address.",
-      "fields": {
-        "impl": "_impl"
-      }
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
     },
-    "transferProxyOwnership": {
-      "description": "Transfers ownership of the proxy to `newOwner`.",
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "transferOwnership": {
+      "description": "Transfers ownership to a new address.",
       "fields": {
         "newOwner": "_newOwner"
       }
     }
-  },
-  "fallback": {
-    "description": "Fallback function to handle calls and Ether transfers.",
-    "fields": {}
-  },
-  "receive": {
-    "description": "Receive function to handle incoming Ether transfers.",
-    "fields": {}
   }
 }

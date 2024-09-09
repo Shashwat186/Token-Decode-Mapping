@@ -58,7 +58,6 @@
         "description": "Approves a spender and notifies the contract in a single transaction."
       }
     },
-    "events": {
       "Transfer": {
         "indexed_parameters": {
           "_from": "_from",
@@ -75,6 +74,5 @@
         },
         "description": "Emitted when an owner approves a spender."
       }
-    }
-  }
+}
   

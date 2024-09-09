@@ -164,7 +164,6 @@
         },
         "description": "Emitted when tokens are transferred from one address to another."
       },
-      "Approval": {
         "indexed_parameters": {
           "owner": "_owner",
           "spender": "_spender",
@@ -173,5 +172,5 @@
         "description": "Emitted when an owner approves a spender."
       }
     }
-  }
+  
   

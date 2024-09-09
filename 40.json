@@ -1,0 +1,185 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "parameters": {
+          "spender": "_spender",
+          "amount": "_amount"
+        },
+        "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
+      },
+      "transfer": {
+        "parameters": {
+          "recipient": "_recipient",
+          "amount": "_amount"
+        },
+        "description": "Transfers tokens from the caller's account to the specified address."
+      },
+      "transferFrom": {
+        "parameters": {
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        },
+        "description": "Transfers tokens from one address to another using the allowance mechanism."
+      },
+      "decreaseAllowance": {
+        "parameters": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        },
+        "description": "Decreases the allowance of a spender."
+      },
+      "increaseAllowance": {
+        "parameters": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        },
+        "description": "Increases the allowance of a spender."
+      },
+      "burn": {
+        "parameters": {
+          "rethAmount": "_rethAmount"
+        },
+        "description": "Burns a specified amount of rETH tokens."
+      },
+      "mint": {
+        "parameters": {
+          "ethAmount": "_ethAmount",
+          "to": "_to"
+        },
+        "description": "Mints a specified amount of tokens based on the provided ETH amount."
+      },
+      "depositExcess": {
+        "parameters": {},
+        "description": "Allows for depositing excess funds into the contract."
+      },
+      "depositExcessCollateral": {
+        "parameters": {},
+        "description": "Deposits excess collateral into the contract."
+      }
+    },
+    "other_functions": {
+      "allowance": {
+        "parameters": {
+          "owner": "_owner",
+          "spender": "_spender"
+        },
+        "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the owner's account."
+      },
+      "balanceOf": {
+        "parameters": {
+          "account": "_account"
+        },
+        "description": "Returns the balance of tokens held by the specified address."
+      },
+      "decimals": {
+        "parameters": {},
+        "description": "Returns the number of decimal places used to represent the token."
+      },
+      "getCollateralRate": {
+        "parameters": {},
+        "description": "Returns the current collateral rate."
+      },
+      "getEthValue": {
+        "parameters": {
+          "rethAmount": "_rethAmount"
+        },
+        "description": "Returns the ETH value of the specified rETH amount."
+      },
+      "getExchangeRate": {
+        "parameters": {},
+        "description": "Returns the current exchange rate."
+      },
+      "getRethValue": {
+        "parameters": {
+          "ethAmount": "_ethAmount"
+        },
+        "description": "Returns the rETH value of the specified ETH amount."
+      },
+      "getTotalCollateral": {
+        "parameters": {},
+        "description": "Returns the total amount of collateral."
+      },
+      "name": {
+        "parameters": {},
+        "description": "Returns the name of the token."
+      },
+      "symbol": {
+        "parameters": {},
+        "description": "Returns the symbol of the token."
+      },
+      "totalSupply": {
+        "parameters": {},
+        "description": "Returns the total supply of tokens."
+      },
+      "version": {
+        "parameters": {},
+        "description": "Returns the version of the contract."
+      }
+    },
+    "events": {
+      "Approval": {
+        "indexed_parameters": {
+          "owner": "_owner",
+          "spender": "_spender"
+        },
+        "non_indexed_parameters": {
+          "value": "_value"
+        },
+        "description": "Emitted when an owner approves a spender."
+      },
+      "EtherDeposited": {
+        "indexed_parameters": {
+          "from": "_from"
+        },
+        "non_indexed_parameters": {
+          "amount": "_amount",
+          "time": "_time"
+        },
+        "description": "Emitted when ether is deposited into the contract."
+      },
+      "TokensBurned": {
+        "indexed_parameters": {
+          "from": "_from"
+        },
+        "non_indexed_parameters": {
+          "amount": "_amount",
+          "ethAmount": "_ethAmount",
+          "time": "_time"
+        },
+        "description": "Emitted when tokens are burned."
+      },
+      "TokensMinted": {
+        "indexed_parameters": {
+          "to": "_to"
+        },
+        "non_indexed_parameters": {
+          "amount": "_amount",
+          "ethAmount": "_ethAmount",
+          "time": "_time"
+        },
+        "description": "Emitted when tokens are minted."
+      },
+      "Transfer": {
+        "indexed_parameters": {
+          "from": "_from",
+          "to": "_to"
+        },
+        "non_indexed_parameters": {
+          "value": "_value"
+        },
+        "description": "Emitted when tokens are transferred from one address to another."
+      }
+    },
+    "constructor": {
+      "parameters": {
+        "rocketStorageAddress": "_rocketStorageAddress"
+      },
+      "description": "Initializes the contract with the RocketStorageInterface address."
+    },
+    "receive": {
+      "parameters": {},
+      "description": "Fallback function to accept ETH transfers."
+    }
+  }
+  

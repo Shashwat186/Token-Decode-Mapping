@@ -1,0 +1,169 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "parameters": {
+          "spender": "_spender",
+          "value": "_value"
+        },
+        "description": "Approves the spender to spend a specified amount of tokens on behalf of the owner."
+      },
+      "transfer": {
+        "parameters": {
+          "to": "_to",
+          "value": "_value"
+        },
+        "description": "Transfers tokens from the caller's account to the specified recipient."
+      },
+      "transferFrom": {
+        "parameters": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        },
+        "description": "Transfers tokens from one address to another using the allowance mechanism."
+      },
+      "increaseAllowance": {
+        "parameters": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        },
+        "description": "Increases the allowance granted to a spender by the caller."
+      },
+      "decreaseAllowance": {
+        "parameters": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        },
+        "description": "Decreases the allowance granted to a spender by the caller."
+      },
+      "transferOwnership": {
+        "parameters": {
+          "newOwner": "_newOwner"
+        },
+        "description": "Transfers ownership of the contract to a new owner."
+      }
+    },
+    "other_functions": {
+      "allowance": {
+        "parameters": {
+          "user": "_user",
+          "spender": "_spender"
+        },
+        "description": "Returns the remaining amount of tokens that the spender can spend on behalf of the user."
+      },
+      "balanceOf": {
+        "parameters": {
+          "user": "_user"
+        },
+        "description": "Returns the balance of tokens held by the specified user."
+      },
+      "blacklistAccount": {
+        "parameters": {
+          "account": "_account",
+          "sign": "_sign"
+        },
+        "description": "Adds or removes an account from the blacklist."
+      },
+      "burn": {
+        "parameters": {
+          "amount": "_amount"
+        },
+        "description": "Destroys a specified amount of tokens."
+      },
+      "decimals": {
+        "parameters": {},
+        "description": "Returns the number of decimal places used to get the user representation of the token."
+      },
+      "destroyBlackFunds": {
+        "parameters": {
+          "_blackListedUser": "_blackListedUser"
+        },
+        "description": "Destroys the tokens of a blacklisted user."
+      },
+      "isBlacklisted": {
+        "parameters": {
+          "_maker": "_maker"
+        },
+        "description": "Checks if an address is blacklisted."
+      },
+      "isOwner": {
+        "parameters": {
+          "userAddress": "_userAddress"
+        },
+        "description": "Checks if the specified address is the owner."
+      },
+      "name": {
+        "parameters": {},
+        "description": "Returns the name of the token."
+      },
+      "owner": {
+        "parameters": {},
+        "description": "Returns the address of the contract owner."
+      },
+      "pause": {
+        "parameters": {},
+        "description": "Pauses the contract."
+      },
+      "paused": {
+        "parameters": {},
+        "description": "Returns whether the contract is paused."
+      },
+      "renounceOwnership": {
+        "parameters": {},
+        "description": "Renounces ownership of the contract."
+      },
+      "symbol": {
+        "parameters": {},
+        "description": "Returns the symbol of the token."
+      },
+      "totalSupply": {
+        "parameters": {},
+        "description": "Returns the total supply of tokens."
+      },
+      "unpause": {
+        "parameters": {},
+        "description": "Unpauses the contract."
+      }
+    },
+    "events": {
+      "Approval": {
+        "indexed_parameters": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        },
+        "description": "Emitted when an owner approves a spender."
+      },
+      "DestroyedBlackFunds": {
+        "indexed_parameters": {
+          "blackListedUser": "_blackListedUser",
+          "balance": "_balance"
+        },
+        "description": "Emitted when a blacklisted user's funds are destroyed."
+      },
+      "OwnershipTransferred": {
+        "indexed_parameters": {
+          "previousOwner": "_previousOwner",
+          "newOwner": "_newOwner"
+        },
+        "description": "Emitted when ownership is transferred from one account to another."
+      },
+      "Pause": {
+        "indexed_parameters": {},
+        "description": "Emitted when the contract is paused."
+      },
+      "Transfer": {
+        "indexed_parameters": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        },
+        "description": "Emitted when tokens are transferred from one account to another."
+      },
+      "Unpause": {
+        "indexed_parameters": {},
+        "description": "Emitted when the contract is unpaused."
+      }
+    }
+  }
+  

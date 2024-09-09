@@ -103,8 +103,6 @@
         }
       }
     },
-    "errors": {},
-    "events": {
       "Paused": {
         "description": "Emitted when the contract is paused.",
         "fields": {
@@ -145,6 +143,6 @@
           "value": "_value"
         }
       }
-    }
-  }
+}
+  
   

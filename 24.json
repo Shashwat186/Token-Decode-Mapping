@@ -81,7 +81,6 @@
         }
       }
     },
-    "errors": {},
     "events": {
       "UpdatedTokenInformation": {
         "description": "Emitted when the token information is updated.",

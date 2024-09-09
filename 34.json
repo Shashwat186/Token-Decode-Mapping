@@ -1,179 +1,85 @@
 {
-    "transfer_functions": {
-      "approve": {
-        "parameters": {
-          "spender": "_spender",
-          "amount": "_amount"
-        },
-        "description": "Approves the spender to spend a specified amount of tokens on behalf of the owner."
+  "transfer_functions": {
+    "approve": {
+      "parameters": {
+        "spender": "_spender",
+        "amount": "_amount"
       },
-      "transfer": {
-        "parameters": {
-          "recipient": "_recipient",
-          "amount": "_amount"
-        },
-        "description": "Transfers tokens from the caller's account to the specified recipient."
-      },
-      "transferFrom": {
-        "parameters": {
-          "sender": "_sender",
-          "recipient": "_recipient",
-          "amount": "_amount"
-        },
-        "description": "Transfers tokens from one address to another using the allowance mechanism."
-      },
-      "increaseAllowance": {
-        "parameters": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
-        },
-        "description": "Increases the allowance granted to a spender by the caller."
-      },
-      "decreaseAllowance": {
-        "parameters": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
-        },
-        "description": "Decreases the allowance granted to a spender by the caller."
-      }
+      "description": "Approves the spender to spend a specified amount of tokens on behalf of the owner."
     },
-    "other_functions": {
-      "allowance": {
-        "parameters": {
-          "owner": "_owner",
-          "spender": "_spender"
-        },
-        "description": "Returns the remaining amount of tokens that the spender can spend on behalf of the owner."
+    "transfer": {
+      "parameters": {
+        "recipient": "_recipient",
+        "amount": "_amount"
       },
-      "balanceOf": {
-        "parameters": {
-          "account": "_account"
-        },
-        "description": "Returns the balance of tokens held by the specified account."
-      },
-      "decimals": {
-        "parameters": {},
-        "description": "Returns the number of decimal places used to get the user representation of the token."
-      },
-      "name": {
-        "parameters": {},
-        "description": "Returns the name of the token."
-      },
-      "symbol": {
-        "parameters": {},
-        "description": "Returns the symbol of the token."
-      },
-      "totalSupply": {
-        "parameters": {},
-        "description": "Returns the total supply of tokens."
-      }
+      "description": "Transfers tokens from the caller's account to the specified recipient."
     },
-    "events": {
-      "Transfer": {
-        "indexed_parameters": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        },
-        "description": "Emitted when tokens are transferred from one account to another."
+    "transferFrom": {
+      "parameters": {
+        "sender": "_sender",
+        "recipient": "_recipient",
+        "amount": "_amount"
       },
-      "Approval": {
-        "indexed_parameters": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
-        },
-        "description": "Emitted when an owner approves a spender."
-      }
+      "description": "Transfers tokens from one address to another using the allowance mechanism."
+    },
+    "increaseAllowance": {
+      "parameters": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      },
+      "description": "Increases the allowance granted to a spender by the caller."
+    },
+    "decreaseAllowance": {
+      "parameters": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      },
+      "description": "Decreases the allowance granted to a spender by the caller."
     }
-  }
-  {
-    "transfer_functions": {
-      "approve": {
-        "parameters": {
-          "spender": "_spender",
-          "amount": "_amount"
-        },
-        "description": "Approves the spender to spend a specified amount of tokens on behalf of the owner."
+  },
+  "other_functions": {
+    "allowance": {
+      "parameters": {
+        "owner": "_owner",
+        "spender": "_spender"
       },
-      "transfer": {
-        "parameters": {
-          "recipient": "_recipient",
-          "amount": "_amount"
-        },
-        "description": "Transfers tokens from the caller's account to the specified recipient."
-      },
-      "transferFrom": {
-        "parameters": {
-          "sender": "_sender",
-          "recipient": "_recipient",
-          "amount": "_amount"
-        },
-        "description": "Transfers tokens from one address to another using the allowance mechanism."
-      },
-      "increaseAllowance": {
-        "parameters": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
-        },
-        "description": "Increases the allowance granted to a spender by the caller."
-      },
-      "decreaseAllowance": {
-        "parameters": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
-        },
-        "description": "Decreases the allowance granted to a spender by the caller."
-      }
+      "description": "Returns the remaining amount of tokens that the spender can spend on behalf of the owner."
     },
-    "other_functions": {
-      "allowance": {
-        "parameters": {
-          "owner": "_owner",
-          "spender": "_spender"
-        },
-        "description": "Returns the remaining amount of tokens that the spender can spend on behalf of the owner."
+    "balanceOf": {
+      "parameters": {
+        "account": "_account"
       },
-      "balanceOf": {
-        "parameters": {
-          "account": "_account"
-        },
-        "description": "Returns the balance of tokens held by the specified account."
-      },
-      "decimals": {
-        "parameters": {},
-        "description": "Returns the number of decimal places used to get the user representation of the token."
-      },
-      "name": {
-        "parameters": {},
-        "description": "Returns the name of the token."
-      },
-      "symbol": {
-        "parameters": {},
-        "description": "Returns the symbol of the token."
-      },
-      "totalSupply": {
-        "parameters": {},
-        "description": "Returns the total supply of tokens."
-      }
+      "description": "Returns the balance of tokens held by the specified account."
     },
-    "events": {
-      "Transfer": {
-        "indexed_parameters": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        },
-        "description": "Emitted when tokens are transferred from one account to another."
+    "decimals": {
+      "parameters": {},
+      "description": "Returns the number of decimal places used to get the user representation of the token."
+    },
+    "name": {
+      "parameters": {},
+      "description": "Returns the name of the token."
+    },
+    "symbol": {
+      "parameters": {},
+      "description": "Returns the symbol of the token."
+    },
+    "totalSupply": {
+      "parameters": {},
+      "description": "Returns the total supply of tokens."
+    },
+    "Transfer": {
+      "indexed_parameters": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
       },
-      "Approval": {
-        "indexed_parameters": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
-        },
-        "description": "Emitted when an owner approves a spender."
-      }
+      "description": "Emitted when tokens are transferred from one account to another."
+    },
+      "indexed_parameters": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value"
+      },
+      "description": "Emitted when an owner approves a spender."
     }
-  }
-    
+}

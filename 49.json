@@ -1,247 +1,165 @@
 {
-    "constructor": {
+  "transfer_functions": {
+    "approve": {
+      "parameters": {
+        "spender": "address",
+        "rawAmount": "uint256"
+      },
+      "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
+    },
+    "transfer": {
+      "parameters": {
+        "dst": "address",
+        "rawAmount": "uint256"
+      },
+      "description": "Transfers tokens from the caller's account to the specified address."
+    },
+    "transferFrom": {
+      "parameters": {
+        "src": "address",
+        "dst": "address",
+        "rawAmount": "uint256"
+      },
+      "description": "Transfers tokens from one address to another using the allowance mechanism."
+    },
+    "generateTokens": {
+      "parameters": {
+        "account": "address",
+        "rawAmount": "uint256"
+      },
+      "description": "Mints new tokens and adds them to the specified account's balance."
+    },
+    "destroyTokens": {
+      "parameters": {
+        "account": "address",
+        "rawAmount": "uint256"
+      },
+      "description": "Destroys tokens from the specified account, reducing the total supply."
+    },
+    "approveAndCall": {
+      "parameters": {
+        "spender": "address",
+        "rawAmount": "uint256",
+        "extraData": "bytes"
+      },
+      "description": "Approves a spender and calls a specified function on the spender contract with the provided data."
+    },
+    "enableTransfers": {
+      "parameters": {
+        "transfersEnabled": "bool"
+      },
+      "description": "Enables or disables token transfers."
+    }
+  },
+  "other_functions": {
+    "name": {
+      "parameters": {},
+      "description": "Returns the name of the token."
+    },
+    "creationBlock": {
+      "parameters": {},
+      "description": "Returns the block number at which the token was created."
+    },
+    "totalSupply": {
+      "parameters": {},
+      "description": "Returns the total supply of tokens."
+    },
+    "decimals": {
+      "parameters": {},
+      "description": "Returns the number of decimal places used to represent the token."
+    },
+    "changeController": {
+      "parameters": {
+        "newController": "address"
+      },
+      "description": "Changes the controller address."
+    },
+    "balanceOf": {
+      "parameters": {
+        "owner": "address"
+      },
+      "description": "Returns the balance of tokens held by the specified address."
+    },
+    "balanceOfAt": {
+      "parameters": {
+        "owner": "address",
+        "blockNumber": "uint256"
+      },
+      "description": "Returns the balance of tokens held by the specified address at a particular block number."
+    },
+    "version": {
+      "parameters": {},
+      "description": "Returns the version of the token contract."
+    },
+    "createCloneToken": {
+      "parameters": {
+        "cloneTokenName": "string",
+        "cloneDecimalUnits": "uint8",
+        "cloneTokenSymbol": "string",
+        "snapshotBlock": "uint256",
+        "transfersEnabled": "bool"
+      },
+      "description": "Creates a clone of the token with specified parameters and returns the address of the new token."
+    },
+    "parentToken": {
+      "parameters": {},
+      "description": "Returns the address of the parent token."
+    },
+    "parentSnapShotBlock": {
+      "parameters": {},
+      "description": "Returns the snapshot block number of the parent token."
+    },
+    "tokenFactory": {
+      "parameters": {},
+      "description": "Returns the address of the token factory."
+    },
+    "controller": {
+      "parameters": {},
+      "description": "Returns the address of the current controller."
+    },
+    "claimTokens": {
+      "parameters": {
+        "token": "address"
+      },
+      "description": "Claims tokens for the specified token address."
+    },
+    "allowance": {
+      "parameters": {
+        "owner": "address",
+        "spender": "address"
+      },
+      "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the owner's balance."
+    }
+  },
+    "ClaimedTokens": {
       "inputs": {
-        "name_": "_name",
-        "symbol_": "_symbol"
-      }
+        "token": "address",
+        "controller": "address",
+        "amount": "uint256"
+      },
+      "description": "Emitted when tokens are claimed."
     },
-    "events": {
-      "Approval": {
-        "indexed_parameters": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
-        },
-        "description": "Emitted when an owner approves a spender."
+    "Transfer": {
+      "inputs": {
+        "from": "address",
+        "to": "address",
+        "amount": "uint256"
       },
-      "MetaTransactionExecuted": {
-        "indexed_parameters": {
-          "userAddress": "_userAddress",
-          "relayerAddress": "_relayerAddress",
-          "functionSignature": "_functionSignature"
-        },
-        "description": "Emitted when a meta transaction is executed."
-      },
-      "RoleAdminChanged": {
-        "indexed_parameters": {
-          "role": "_role",
-          "previousAdminRole": "_previousAdminRole",
-          "newAdminRole": "_newAdminRole"
-        },
-        "description": "Emitted when the admin role of a specific role is changed."
-      },
-      "RoleGranted": {
-        "indexed_parameters": {
-          "role": "_role",
-          "account": "_account",
-          "sender": "_sender"
-        },
-        "description": "Emitted when a role is granted to an account."
-      },
-      "RoleRevoked": {
-        "indexed_parameters": {
-          "role": "_role",
-          "account": "_account",
-          "sender": "_sender"
-        },
-        "description": "Emitted when a role is revoked from an account."
-      },
-      "Transfer": {
-        "indexed_parameters": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        },
-        "description": "Emitted when tokens are transferred from one account to another."
-      }
+      "description": "Emitted when tokens are transferred from one address to another."
     },
-    "functions": {
-      "DEFAULT_ADMIN_ROLE": {
-        "outputs": {
-          "defaultAdminRole": "_defaultAdminRole"
-        }
+    "NewCloneToken": {
+      "inputs": {
+        "cloneToken": "address",
+        "snapshotBlock": "uint256"
       },
-      "ERC712_VERSION": {
-        "outputs": {
-          "erc712Version": "_erc712Version"
-        }
+      "description": "Emitted when a new clone token is created."
+    },
+    "Approval": {
+      "inputs": {
+        "owner": "address",
+        "spender": "address",
+        "amount": "uint256"
       },
-      "PREDICATE_ROLE": {
-        "outputs": {
-          "predicateRole": "_predicateRole"
-        }
-      },
-      "allowance": {
-        "inputs": {
-          "owner": "_owner",
-          "spender": "_spender"
-        },
-        "outputs": {
-          "allowance": "_allowance"
-        }
-      },
-      "approve": {
-        "inputs": {
-          "spender": "_spender",
-          "amount": "_amount"
-        },
-        "outputs": {
-          "success": "_success"
-        }
-      },
-      "balanceOf": {
-        "inputs": {
-          "account": "_account"
-        },
-        "outputs": {
-          "balance": "_balance"
-        }
-      },
-      "decimals": {
-        "outputs": {
-          "decimals": "_decimals"
-        }
-      },
-      "decreaseAllowance": {
-        "inputs": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
-        },
-        "outputs": {
-          "success": "_success"
-        }
-      },
-      "executeMetaTransaction": {
-        "inputs": {
-          "userAddress": "_userAddress",
-          "functionSignature": "_functionSignature",
-          "sigR": "_sigR",
-          "sigS": "_sigS",
-          "sigV": "_sigV"
-        },
-        "outputs": {
-          "result": "_result"
-        }
-      },
-      "getChainId": {
-        "outputs": {
-          "chainId": "_chainId"
-        }
-      },
-      "getDomainSeperator": {
-        "outputs": {
-          "domainSeparator": "_domainSeparator"
-        }
-      },
-      "getNonce": {
-        "inputs": {
-          "user": "_user"
-        },
-        "outputs": {
-          "nonce": "_nonce"
-        }
-      },
-      "getRoleAdmin": {
-        "inputs": {
-          "role": "_role"
-        },
-        "outputs": {
-          "roleAdmin": "_roleAdmin"
-        }
-      },
-      "getRoleMember": {
-        "inputs": {
-          "role": "_role",
-          "index": "_index"
-        },
-        "outputs": {
-          "roleMember": "_roleMember"
-        }
-      },
-      "getRoleMemberCount": {
-        "inputs": {
-          "role": "_role"
-        },
-        "outputs": {
-          "roleMemberCount": "_roleMemberCount"
-        }
-      },
-      "grantRole": {
-        "inputs": {
-          "role": "_role",
-          "account": "_account"
-        }
-      },
-      "hasRole": {
-        "inputs": {
-          "role": "_role",
-          "account": "_account"
-        },
-        "outputs": {
-          "hasRole": "_hasRole"
-        }
-      },
-      "increaseAllowance": {
-        "inputs": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
-        },
-        "outputs": {
-          "success": "_success"
-        }
-      },
-      "mint": {
-        "inputs": {
-          "user": "_user",
-          "amount": "_amount"
-        }
-      },
-      "name": {
-        "outputs": {
-          "name": "_name"
-        }
-      },
-      "renounceRole": {
-        "inputs": {
-          "role": "_role",
-          "account": "_account"
-        }
-      },
-      "revokeRole": {
-        "inputs": {
-          "role": "_role",
-          "account": "_account"
-        }
-      },
-      "symbol": {
-        "outputs": {
-          "symbol": "_symbol"
-        }
-      },
-      "totalSupply": {
-        "outputs": {
-          "totalSupply": "_totalSupply"
-        }
-      },
-      "transfer": {
-        "inputs": {
-          "recipient": "_recipient",
-          "amount": "_amount"
-        },
-        "outputs": {
-          "success": "_success"
-        }
-      },
-      "transferFrom": {
-        "inputs": {
-          "sender": "_sender",
-          "recipient": "_recipient",
-          "amount": "_amount"
-        },
-        "outputs": {
-          "success": "_success"
-        }
-      }
+      "description": "Emitted when an allowance is set for a spender."
     }
   }
-  

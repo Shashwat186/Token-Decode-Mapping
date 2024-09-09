@@ -72,21 +72,20 @@
         "owner": "_owner",
         "spender": "_spender"
       }
+    },
+    "constructor": {
+      "description": "Constructor for initializing the contract.",
+      "fields": {
+        "name": "_name",
+        "symbol": "_symbol",
+        "decimals": "_decimals",
+        "totalSupply": "_totalSupply",
+        "feeReceiver": "_feeReceiver",
+        "tokenOwnerAddress": "_tokenOwnerAddress"
+      }
     }
   },
-  "constructor": {
-    "description": "Constructor for initializing the contract.",
-    "fields": {
-      "name": "_name",
-      "symbol": "_symbol",
-      "decimals": "_decimals",
-      "totalSupply": "_totalSupply",
-      "feeReceiver": "_feeReceiver",
-      "tokenOwnerAddress": "_tokenOwnerAddress"
-    }
-  },
-  "events": {
-    "Transfer": {
+     "Transfer": {
       "description": "Triggered when tokens are transferred.",
       "fields": {
         "from": "_from",
@@ -102,5 +101,5 @@
         "value": "_value"
       }
     }
-  }
 }
+

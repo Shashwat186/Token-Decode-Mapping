@@ -1,0 +1,45 @@
+{
+    "transfer_functions": {},
+    "other_functions": {
+      "proxyType": {
+        "description": "Returns the type of the proxy.",
+        "fields": {
+          "proxyTypeId": "_proxyTypeId"
+        }
+      },
+      "isDepositable": {
+        "description": "Returns whether the proxy is depositable.",
+        "fields": {}
+      },
+      "implementation": {
+        "description": "Returns the address of the implementation contract.",
+        "fields": {}
+      },
+      "appId": {
+        "description": "Returns the application ID associated with the proxy.",
+        "fields": {
+          "appId": "_appId"
+        }
+      },
+      "kernel": {
+        "description": "Returns the address of the kernel contract.",
+        "fields": {}
+      },
+      "constructor": {
+        "description": "Initializes the proxy with kernel, appId, and initialize payload.",
+        "fields": {
+          "_kernel": "_kernel",
+          "_appId": "_appId",
+          "_initializePayload": "_initializePayload"
+        },
+        "ProxyDeposit": {
+        "description": "Emitted when a deposit is made to the proxy.",
+        "fields": {
+          "sender": "_sender",
+          "value": "_value"
+        }
+      }
+      }
+    }
+  }
+  

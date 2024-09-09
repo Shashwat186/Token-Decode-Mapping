@@ -83,7 +83,6 @@
         "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the owner's account."
       }
     },
-    "events": {
       "Approval": {
         "indexed_parameters": {
           "owner": "owner",
@@ -103,13 +102,13 @@
           "value": "value"
         },
         "description": "Emitted when tokens are transferred from one address to another."
-      }
-    },
-    "constructor": {
+      },
+      "constructor": {
       "parameters": {
         "_crowdsale": "_crowdsale"
       },
       "description": "Initializes the contract with the address of the crowdsale."
     }
   }
+
   

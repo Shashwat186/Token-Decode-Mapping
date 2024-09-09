@@ -80,10 +80,7 @@
     "unpause": {
       "description": "Unpauses all token transfers.",
       "fields": {}
-    }
-  },
-  "errors": {},
-  "events": {
+    },
     "Issue": {
       "description": "Emitted when new tokens are issued.",
       "fields": {
@@ -152,5 +149,7 @@
       "description": "Emitted when the contract is unpaused.",
       "fields": {}
     }
-  }
+  },
+  "errors": {}
 }
+

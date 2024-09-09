@@ -113,9 +113,7 @@
       "fields": {
         "newOwner": "_newOwner"
       }
-    }
-  },
-  "events": {
+    },
     "Approval": {
       "description": "Emitted when an approval is made for a spender.",
       "fields": {

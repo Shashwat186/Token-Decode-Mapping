@@ -138,7 +138,6 @@
         "description": "Checks if the contract supports a specified interface."
       }
     },
-    "events": {
       "Approval": {
         "indexed_parameters": {
           "owner": "_owner",
@@ -171,7 +170,6 @@
         },
         "description": "Emitted when a role is revoked from an account."
       },
-      "Transfer": {
         "indexed_parameters": {
           "from": "_from",
           "to": "_to",
@@ -179,6 +177,6 @@
         },
         "description": "Emitted when tokens are transferred from one account to another."
       }
-    }
-  }
+  
+  
   

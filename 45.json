@@ -123,7 +123,6 @@
         "description": "Returns the total supply of tokens."
       }
     },
-    "events": {
       "Approval": {
         "indexed_parameters": {
           "owner": "owner",
@@ -172,13 +171,12 @@
         },
         "non_indexed_parameters": {},
         "description": "Emitted when an account is removed from the blacklist."
-      }
-    },
+      },
     "constructor": {
       "parameters": {
         "initialSupply": "_initialSupply"
       },
       "description": "Initializes the contract with an initial supply of tokens."
-    }
-  }
+}
+}
   

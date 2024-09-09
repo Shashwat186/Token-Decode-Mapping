@@ -1,0 +1,58 @@
+{
+  "transfer_functions": {
+    "upgradeTo": {
+      "description": "Upgrades the contract to a new implementation.",
+      "fields": {
+        "newImplementation": "_newImplementation"
+      }
+    },
+    "upgradeToAndCall": {
+      "description": "Upgrades the contract to a new implementation and calls a function on the new implementation.",
+      "fields": {
+        "newImplementation": "_newImplementation",
+        "data": "_data"
+      }
+    },
+    "changeAdmin": {
+      "description": "Changes the admin of the contract.",
+      "fields": {
+        "newAdmin": "_newAdmin"
+      }
+    }
+  },
+  "other_functions": {
+    "admin": {
+      "description": "Returns the address of the current admin.",
+      "fields": {}
+    },
+    "implementation": {
+      "description": "Returns the address of the current implementation.",
+      "fields": {}
+    },
+    "constructor": {
+      "description": "Initializes the contract with an implementation address and initialization data.",
+      "fields": {
+        "_implementation": "_implementation",
+        "_data": "_data"
+      }
+    },
+    "fallback": {
+      "description": "Fallback function to receive Ether.",
+      "fields": {}
+    },
+      "AdminChanged": {
+        "description": "Emitted when the admin of the contract is changed.",
+        "fields": {
+          "previousAdmin": "_previousAdmin",
+          "newAdmin": "_newAdmin"
+        }
+      },
+      "Upgraded": {
+        "description": "Emitted when the contract is upgraded to a new implementation.",
+        "fields": {
+          "implementation": "_implementation"
+        }
+      }
+    }
+  }
+

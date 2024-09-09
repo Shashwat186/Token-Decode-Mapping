@@ -1,234 +1,158 @@
 {
-    "transfer_functions": {
-      "approve": {
-        "parameters": {
-          "spender": "_spender",
-          "amount": "_amount"
-        },
-        "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
-      },
-      "transferFrom": {
-        "parameters": {
-          "sender": "_sender",
-          "recipient": "_recipient",
-          "amount": "_amount"
-        },
-        "description": "Transfers tokens from one address to another using the allowance mechanism."
-      },
-      "transfer": {
-        "parameters": {
-          "recipient": "_recipient",
-          "amount": "_amount"
-        },
-        "description": "Transfers tokens from the caller's account to the specified address."
-      },
-      "decreaseAllowance": {
-        "parameters": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
-        },
-        "description": "Decreases the allowance of a spender."
-      },
-      "increaseAllowance": {
-        "parameters": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
-        },
-        "description": "Increases the allowance of a spender."
-      }
-    },
-    "other_functions": {
-      "allowance": {
-        "parameters": {
-          "owner": "_owner",
-          "spender": "_spender"
-        },
-        "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the owner's account."
-      },
-      "balanceOf": {
-        "parameters": {
-          "account": "_account"
-        },
-        "description": "Returns the balance of tokens held by the specified address."
-      },
-      "decimals": {
-        "parameters": {},
-        "description": "Returns the number of decimal places used to represent the token."
-      },
-      "name": {
-        "parameters": {},
-        "description": "Returns the name of the token."
-      },
-      "symbol": {
-        "parameters": {},
-        "description": "Returns the symbol of the token."
-      },
-      "totalSupply": {
-        "parameters": {},
-        "description": "Returns the total supply of tokens."
-      },
-      "checkpoints": {
-        "parameters": {
-          "account": "_account",
-          "blockNumber": "_blockNumber"
-        },
-        "description": "Returns the checkpoint information (block number and votes) for an account at a specific block number."
-      },
-      "delegates": {
-        "parameters": {
-          "account": "_account"
-        },
-        "description": "Returns the delegate address for a specified account."
-      },
-      "getVotesAtBlock": {
-        "parameters": {
-          "account": "_account",
-          "blockNumber": "_blockNumber"
-        },
-        "description": "Returns the number of votes an account had at a specific block number."
-      },
-      "nonces": {
-        "parameters": {
-          "account": "_account"
-        },
-        "description": "Returns the nonce for a specific account, used in delegation."
-      },
-      "numCheckpoints": {
-        "parameters": {
-          "account": "_account"
-        },
-        "description": "Returns the number of checkpoints for a specific account."
-      },
-      "taxHandler": {
-        "parameters": {},
-        "description": "Returns the address of the tax handler contract."
-      },
-      "treasuryHandler": {
-        "parameters": {},
-        "description": "Returns the address of the treasury handler contract."
-      },
-      "DOMAIN_TYPEHASH": {
-        "parameters": {},
-        "description": "Returns the DOMAIN_TYPEHASH for EIP-712."
-      },
-      "DELEGATION_TYPEHASH": {
-        "parameters": {},
-        "description": "Returns the DELEGATION_TYPEHASH for EIP-712."
-      }
-    },
-    "transfer_functions": {
-      "delegate": {
-        "parameters": {
-          "delegatee": "_delegatee"
-        },
-        "description": "Delegates voting power to a specified address."
-      },
-      "delegateBySig": {
-        "parameters": {
-          "delegatee": "_delegatee",
-          "nonce": "_nonce",
-          "expiry": "_expiry",
-          "v": "_v",
-          "r": "_r",
-          "s": "_s"
-        },
-        "description": "Delegates voting power by signature."
-      },
-      "setTaxHandler": {
-        "parameters": {
-          "taxHandlerAddress": "_taxHandlerAddress"
-        },
-        "description": "Sets a new address for the tax handler."
-      },
-      "setTreasuryHandler": {
-        "parameters": {
-          "treasuryHandlerAddress": "_treasuryHandlerAddress"
-        },
-        "description": "Sets a new address for the treasury handler."
-      },
-      "renounceOwnership": {
-        "parameters": {},
-        "description": "Renounces ownership of the contract."
-      },
-      "transferOwnership": {
-        "parameters": {
-          "newOwner": "_newOwner"
-        },
-        "description": "Transfers ownership of the contract to a new address."
-      }
-    },
-    "events": {
-      "Approval": {
-        "indexed_parameters": {
-          "owner": "_owner",
-          "spender": "_spender"
-        },
-        "non_indexed_parameters": {
-          "value": "_value"
-        },
-        "description": "Emitted when an owner approves a spender."
-      },
-      "Transfer": {
-        "indexed_parameters": {
-          "from": "_from",
-          "to": "_to"
-        },
-        "non_indexed_parameters": {
-          "value": "_value"
-        },
-        "description": "Emitted when tokens are transferred from one address to another."
-      },
-      "DelegateChanged": {
-        "indexed_parameters": {},
-        "non_indexed_parameters": {
-          "delegator": "_delegator",
-          "currentDelegate": "_currentDelegate",
-          "newDelegate": "_newDelegate"
-        },
-        "description": "Emitted when a delegator changes their delegate."
-      },
-      "DelegateVotesChanged": {
-        "indexed_parameters": {},
-        "non_indexed_parameters": {
-          "delegatee": "_delegatee",
-          "oldVotes": "_oldVotes",
-          "newVotes": "_newVotes"
-        },
-        "description": "Emitted when the number of votes for a delegate changes."
-      },
-      "OwnershipTransferred": {
-        "indexed_parameters": {
-          "previousOwner": "_previousOwner",
-          "newOwner": "_newOwner"
-        },
-        "non_indexed_parameters": {},
-        "description": "Emitted when ownership of the contract is transferred."
-      },
-      "TaxHandlerChanged": {
-        "indexed_parameters": {
-          "oldAddress": "_oldAddress",
-          "newAddress": "_newAddress"
-        },
-        "non_indexed_parameters": {},
-        "description": "Emitted when the tax handler address is changed."
-      },
-      "TreasuryHandlerChanged": {
-        "indexed_parameters": {
-          "oldAddress": "_oldAddress",
-          "newAddress": "_newAddress"
-        },
-        "non_indexed_parameters": {},
-        "description": "Emitted when the treasury handler address is changed."
-      }
-    },
-    "constructor": {
+  "transfer_functions": {
+    "approve": {
       "parameters": {
-        "name_": "_name",
-        "symbol_": "_symbol",
-        "taxHandlerAddress": "_taxHandlerAddress",
+        "spender": "_spender",
+        "amount": "_amount"
+      },
+      "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
+    },
+    "transferFrom": {
+      "parameters": {
+        "sender": "_sender",
+        "recipient": "_recipient",
+        "amount": "_amount"
+      },
+      "description": "Transfers tokens from one address to another using the allowance mechanism."
+    },
+    "transfer": {
+      "parameters": {
+        "recipient": "_recipient",
+        "amount": "_amount"
+      },
+      "description": "Transfers tokens from the caller's account to the specified address."
+    },
+    "decreaseAllowance": {
+      "parameters": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      },
+      "description": "Decreases the allowance of a spender."
+    },
+    "increaseAllowance": {
+      "parameters": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      },
+      "description": "Increases the allowance of a spender."
+    },
+    "delegate": {
+      "parameters": {
+        "delegatee": "_delegatee"
+      },
+      "description": "Delegates voting power to a specified address."
+    },
+    "delegateBySig": {
+      "parameters": {
+        "delegatee": "_delegatee",
+        "nonce": "_nonce",
+        "expiry": "_expiry",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
+      },
+      "description": "Delegates voting power by signature."
+    },
+    "setTaxHandler": {
+      "parameters": {
+        "taxHandlerAddress": "_taxHandlerAddress"
+      },
+      "description": "Sets a new address for the tax handler."
+    },
+    "setTreasuryHandler": {
+      "parameters": {
         "treasuryHandlerAddress": "_treasuryHandlerAddress"
       },
-      "description": "Initializes the contract with the token's name, symbol, tax handler address, and treasury handler address."
+      "description": "Sets a new address for the treasury handler."
+    },
+    "renounceOwnership": {
+      "parameters": {},
+      "description": "Renounces ownership of the contract."
+    },
+    "transferOwnership": {
+      "parameters": {
+        "newOwner": "_newOwner"
+      },
+      "description": "Transfers ownership of the contract to a new address."
+    }
+  },
+  "other_functions": {
+    "allowance": {
+      "parameters": {
+        "owner": "_owner",
+        "spender": "_spender"
+      },
+      "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the owner's account."
+    },
+    "balanceOf": {
+      "parameters": {
+        "account": "_account"
+      },
+      "description": "Returns the balance of tokens held by the specified address."
+    },
+    "decimals": {
+      "parameters": {},
+      "description": "Returns the number of decimal places used to represent the token."
+    },
+    "name": {
+      "parameters": {},
+      "description": "Returns the name of the token."
+    },
+    "symbol": {
+      "parameters": {},
+      "description": "Returns the symbol of the token."
+    },
+    "totalSupply": {
+      "parameters": {},
+      "description": "Returns the total supply of tokens."
+    },
+    "checkpoints": {
+      "parameters": {
+        "account": "_account",
+        "blockNumber": "_blockNumber"
+      },
+      "description": "Returns the checkpoint information (block number and votes) for an account at a specific block number."
+    },
+    "delegates": {
+      "parameters": {
+        "account": "_account"
+      },
+      "description": "Returns the delegate address for a specified account."
+    },
+    "getVotesAtBlock": {
+      "parameters": {
+        "account": "_account",
+        "blockNumber": "_blockNumber"
+      },
+      "description": "Returns the number of votes an account had at a specific block number."
+    },
+    "nonces": {
+      "parameters": {
+        "account": "_account"
+      },
+      "description": "Returns the nonce for a specific account, used in delegation."
+    },
+    "numCheckpoints": {
+      "parameters": {
+        "account": "_account"
+      },
+      "description": "Returns the number of checkpoints for a specific account."
+    },
+    "taxHandler": {
+      "parameters": {},
+      "description": "Returns the address of the tax handler contract."
+    },
+    "treasuryHandler": {
+      "parameters": {},
+      "description": "Returns the address of the treasury handler contract."
+    },
+    "DOMAIN_TYPEHASH": {
+      "parameters": {},
+      "description": "Returns the DOMAIN_TYPEHASH for EIP-712."
+    },
+    "DELEGATION_TYPEHASH": {
+      "parameters": {},
+      "description": "Returns the DELEGATION_TYPEHASH for EIP-712."
     }
   }
-  
+}

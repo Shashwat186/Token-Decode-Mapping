@@ -1,434 +1,237 @@
 {
-    "constructor": {
-      "inputs": {
-        "_governance": "_address",
-        "_cliffTimestamp": "_uint256",
-        "_tranche1VestingPeriod": "_uint256",
-        "_tranche2VestingPeriod": "_uint256",
-        "_seedVestingPeriod": "_uint256"
+  "transfer_functions": {
+    "approve": {
+      "parameters": {
+        "spender": "address",
+        "rawAmount": "uint256"
       },
-      "stateMutability": "nonpayable",
-      "type": "constructor"
+      "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
     },
-    "events": {
-      "Approval": {
-        "indexed_parameters": {
-          "owner": "_address",
-          "spender": "_address",
-          "amount": "_uint256"
-        },
-        "description": "Emitted when an owner approves a spender."
+    "transfer": {
+      "parameters": {
+        "dst": "address",
+        "rawAmount": "uint256"
       },
-      "CliffTimestampUpdate": {
-        "parameters": {
-          "newTimestamp": "_uint256"
-        },
-        "description": "Emitted when the cliff timestamp is updated."
-      },
-      "DelegateChanged": {
-        "indexed_parameters": {
-          "delegator": "_address",
-          "fromDelegate": "_address",
-          "toDelegate": "_address"
-        },
-        "description": "Emitted when the delegation changes."
-      },
-      "DelegateVotesChanged": {
-        "indexed_parameters": {
-          "delegate": "_address",
-          "previousBalance": "_uint256",
-          "newBalance": "_uint256"
-        },
-        "description": "Emitted when the votes of a delegate change."
-      },
-      "RoleAdminChanged": {
-        "indexed_parameters": {
-          "role": "_bytes32",
-          "previousAdminRole": "_bytes32",
-          "newAdminRole": "_bytes32"
-        },
-        "description": "Emitted when a role's admin role changes."
-      },
-      "RoleGranted": {
-        "indexed_parameters": {
-          "role": "_bytes32",
-          "account": "_address",
-          "sender": "_address"
-        },
-        "description": "Emitted when a role is granted to an account."
-      },
-      "RoleRevoked": {
-        "indexed_parameters": {
-          "role": "_bytes32",
-          "account": "_address",
-          "sender": "_address"
-        },
-        "description": "Emitted when a role is revoked from an account."
-      },
-      "Transfer": {
-        "indexed_parameters": {
-          "from": "_address",
-          "to": "_address",
-          "amount": "_uint256"
-        },
-        "description": "Emitted when tokens are transferred from one account to another."
-      },
-      "TransferEnabled": {
-        "parameters": {
-          "account": "_address"
-        },
-        "description": "Emitted when transfer is enabled."
-      }
+      "description": "Transfers tokens from the caller's account to the specified address."
     },
-    "functions": {
-      "DEFAULT_ADMIN_ROLE": {
-        "outputs": {
-          "": "_bytes32"
-        },
-        "stateMutability": "view",
-        "type": "function"
+    "transferFrom": {
+      "parameters": {
+        "src": "address",
+        "dst": "address",
+        "rawAmount": "uint256"
       },
-      "DELEGATION_TYPEHASH": {
-        "outputs": {
-          "": "_bytes32"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Transfers tokens from one address to another using the allowance mechanism."
+    },
+    "mint": {
+      "parameters": {
+        "account": "address",
+        "rawAmount": "uint256"
       },
-      "DOMAIN_TYPEHASH": {
-        "outputs": {
-          "": "_bytes32"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Mints new tokens and adds them to the specified account's balance."
+    },
+    "enableTransfer": {
+      "parameters": {},
+      "description": "Enables token transfers."
+    },
+    "updateTrancheBalance": {
+      "parameters": {
+        "beneficiary": "address",
+        "rawAmount": "uint256",
+        "investorType": "enum IOndo.InvestorType"
       },
-      "MINTER_ROLE": {
-        "outputs": {
-          "": "_bytes32"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Updates the tranche balance for a specified beneficiary."
+    }
+  },
+  "other_functions": {
+    "DEFAULT_ADMIN_ROLE": {
+      "parameters": {},
+      "description": "Returns the default admin role identifier."
+    },
+    "DELEGATION_TYPEHASH": {
+      "parameters": {},
+      "description": "Returns the type hash for delegation."
+    },
+    "DOMAIN_TYPEHASH": {
+      "parameters": {},
+      "description": "Returns the domain type hash."
+    },
+    "MINTER_ROLE": {
+      "parameters": {},
+      "description": "Returns the minter role identifier."
+    },
+    "TIMELOCK_UPDATE_ROLE": {
+      "parameters": {},
+      "description": "Returns the timelock update role identifier."
+    },
+    "TRANSFER_ROLE": {
+      "parameters": {},
+      "description": "Returns the transfer role identifier."
+    },
+    "allowance": {
+      "parameters": {
+        "account": "address",
+        "spender": "address"
       },
-      "TIMELOCK_UPDATE_ROLE": {
-        "outputs": {
-          "": "_bytes32"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the account's balance."
+    },
+    "balanceOf": {
+      "parameters": {
+        "account": "address"
       },
-      "TRANSFER_ROLE": {
-        "outputs": {
-          "": "_bytes32"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Returns the balance of tokens held by the specified address."
+    },
+    "checkpoints": {
+      "parameters": {
+        "address": "address",
+        "uint32": "uint32"
       },
-      "allowance": {
-        "inputs": {
-          "owner": "_address",
-          "spender": "_address"
-        },
-        "outputs": {
-          "": "_uint256"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Returns the checkpoint information for the specified address."
+    },
+    "cliffTimestamp": {
+      "parameters": {},
+      "description": "Returns the cliff timestamp."
+    },
+    "decimals": {
+      "parameters": {},
+      "description": "Returns the number of decimal places used to represent the token."
+    },
+    "delegate": {
+      "parameters": {
+        "delegatee": "address"
       },
-      "approve": {
-        "inputs": {
-          "spender": "_address",
-          "rawAmount": "_uint256"
-        },
-        "outputs": {
-          "": "_bool"
-        },
-        "stateMutability": "nonpayable",
-        "type": "function"
+      "description": "Delegates votes to the specified address."
+    },
+    "delegateBySig": {
+      "parameters": {
+        "delegatee": "address",
+        "nonce": "uint256",
+        "expiry": "uint256",
+        "v": "uint8",
+        "r": "bytes32",
+        "s": "bytes32"
       },
-      "balanceOf": {
-        "inputs": {
-          "account": "_address"
-        },
-        "outputs": {
-          "": "_uint256"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Delegates votes by signature."
+    },
+    "delegates": {
+      "parameters": {
+        "address": "address"
       },
-      "checkpoints": {
-        "inputs": {
-          "address": "_address",
-          "fromBlock": "_uint32"
-        },
-        "outputs": {
-          "fromBlock": "_uint32",
-          "votes": "_uint96"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Returns the delegate address for the specified address."
+    },
+    "getCurrentVotes": {
+      "parameters": {
+        "account": "address"
       },
-      "cliffTimestamp": {
-        "outputs": {
-          "": "_uint256"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Returns the current vote count for the specified address."
+    },
+    "getFreedBalance": {
+      "parameters": {
+        "account": "address"
       },
-      "decimals": {
-        "outputs": {
-          "": "_uint8"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Returns the freed balance for the specified address."
+    },
+    "getPriorVotes": {
+      "parameters": {
+        "account": "address",
+        "blockNumber": "uint256"
       },
-      "delegate": {
-        "inputs": {
-          "delegatee": "_address"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
+      "description": "Returns the prior vote count for the specified address at the specified block number."
+    },
+    "getRoleAdmin": {
+      "parameters": {
+        "role": "bytes32"
       },
-      "delegateBySig": {
-        "inputs": {
-          "delegatee": "_address",
-          "nonce": "_uint256",
-          "expiry": "_uint256",
-          "v": "_uint8",
-          "r": "_bytes32",
-          "s": "_bytes32"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
+      "description": "Returns the admin role for the specified role."
+    },
+    "getVestedBalance": {
+      "parameters": {
+        "account": "address"
       },
-      "delegates": {
-        "inputs": {
-          "": "_address"
-        },
-        "outputs": {
-          "": "_address"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Returns the vested balance for the specified address."
+    },
+    "grantRole": {
+      "parameters": {
+        "role": "bytes32",
+        "account": "address"
       },
-      "enableTransfer": {
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
+      "description": "Grants the specified role to the specified account."
+    },
+    "hasRole": {
+      "parameters": {
+        "role": "bytes32",
+        "account": "address"
       },
-      "getCurrentVotes": {
-        "inputs": {
-          "account": "_address"
-        },
-        "outputs": {
-          "": "_uint96"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Checks if the specified account has the specified role."
+    },
+    "name": {
+      "parameters": {},
+      "description": "Returns the name of the token."
+    },
+    "nonces": {
+      "parameters": {
+        "address": "address"
       },
-      "getFreedBalance": {
-        "inputs": {
-          "account": "_address"
-        },
-        "outputs": {
-          "": "_uint256"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Returns the nonce for the specified address."
+    },
+    "numCheckpoints": {
+      "parameters": {
+        "address": "address"
       },
-      "getPriorVotes": {
-        "inputs": {
-          "account": "_address",
-          "blockNumber": "_uint256"
-        },
-        "outputs": {
-          "": "_uint96"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Returns the number of checkpoints for the specified address."
+    },
+    "passedAllVestingPeriods": {
+      "parameters": {},
+      "description": "Checks if all vesting periods have passed."
+    },
+    "passedCliff": {
+      "parameters": {},
+      "description": "Checks if the cliff period has passed."
+    },
+    "renounceRole": {
+      "parameters": {
+        "role": "bytes32",
+        "account": "address"
       },
-      "getRoleAdmin": {
-        "inputs": {
-          "role": "_bytes32"
-        },
-        "outputs": {
-          "": "_bytes32"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Renounces the specified role for the specified account."
+    },
+    "revokeRole": {
+      "parameters": {
+        "role": "bytes32",
+        "account": "address"
       },
-      "getVestedBalance": {
-        "inputs": {
-          "account": "_address"
-        },
-        "outputs": {
-          "": "_uint256",
-          "": "_uint256"
-        },
-        "stateMutability": "view",
-        "type": "function"
+      "description": "Revokes the specified role from the specified account."
+    },
+    "seedVestingPeriod": {
+      "parameters": {},
+      "description": "Returns the seed vesting period."
+    },
+    "supportsInterface": {
+      "parameters": {
+        "interfaceId": "bytes4"
       },
-      "grantRole": {
-        "inputs": {
-          "role": "_bytes32",
-          "account": "_address"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
+      "description": "Checks if the contract supports the specified interface."
+    },
+    "symbol": {
+      "parameters": {},
+      "description": "Returns the symbol of the token."
+    },
+    "totalSupply": {
+      "parameters": {},
+      "description": "Returns the total supply of tokens."
+    },
+    "tranche1VestingPeriod": {
+      "parameters": {},
+      "description": "Returns the tranche 1 vesting period."
+    },
+    "tranche2VestingPeriod": {
+      "parameters": {},
+      "description": "Returns the tranche 2 vesting period."
+    },
+    "updateCliffTimestamp": {
+      "parameters": {
+        "newTimestamp": "uint256"
       },
-      "hasRole": {
-        "inputs": {
-          "role": "_bytes32",
-          "account": "_address"
-        },
-        "outputs": {
-          "": "_bool"
-        },
-        "stateMutability": "view",
-        "type": "function"
-      },
-      "mint": {
-        "inputs": {
-          "account": "_address",
-          "rawAmount": "_uint256"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      "name": {
-        "outputs": {
-          "": "_string"
-        },
-        "stateMutability": "view",
-        "type": "function"
-      },
-      "nonces": {
-        "inputs": {
-          "": "_address"
-        },
-        "outputs": {
-          "": "_uint256"
-        },
-        "stateMutability": "view",
-        "type": "function"
-      },
-      "numCheckpoints": {
-        "inputs": {
-          "": "_address"
-        },
-        "outputs": {
-          "": "_uint32"
-        },
-        "stateMutability": "view",
-        "type": "function"
-      },
-      "passedAllVestingPeriods": {
-        "outputs": {
-          "": "_bool"
-        },
-        "stateMutability": "view",
-        "type": "function"
-      },
-      "passedCliff": {
-        "outputs": {
-          "": "_bool"
-        },
-        "stateMutability": "view",
-        "type": "function"
-      },
-      "renounceRole": {
-        "inputs": {
-          "role": "_bytes32",
-          "account": "_address"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      "revokeRole": {
-        "inputs": {
-          "role": "_bytes32",
-          "account": "_address"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      "setCliffTimestamp": {
-        "inputs": {
-          "timestamp": "_uint256"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      "setGovernance": {
-        "inputs": {
-          "newGovernance": "_address"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      "setRoleAdmin": {
-        "inputs": {
-          "role": "_bytes32",
-          "adminRole": "_bytes32"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      "symbol": {
-        "outputs": {
-          "": "_string"
-        },
-        "stateMutability": "view",
-        "type": "function"
-      },
-      "transfer": {
-        "inputs": {
-          "recipient": "_address",
-          "rawAmount": "_uint256"
-        },
-        "outputs": {
-          "": "_bool"
-        },
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      "transferFrom": {
-        "inputs": {
-          "sender": "_address",
-          "recipient": "_address",
-          "rawAmount": "_uint256"
-        },
-        "outputs": {
-          "": "_bool"
-        },
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      "updateRoleAdmin": {
-        "inputs": {
-          "role": "_bytes32",
-          "adminRole": "_bytes32"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      "upgrade": {
-        "inputs": {
-          "newImplementation": "_address"
-        },
-        "outputs": {},
-        "stateMutability": "nonpayable",
-        "type": "function"
-      }
+      "description": "Updates the cliff timestamp."
     }
   }
-  
+}

@@ -1,13 +1,4 @@
 {
-    "constructor": {
-      "parameters": {
-        "_logic": "_logic",
-        "admin_": "_admin",
-        "data": "_data"
-      },
-      "description": "Initializes the contract with the implementation logic address, admin address, and any initialization data."
-    },
-    "transfer_functions": {},
     "other_functions": {
       "fallback": {
         "parameters": {},
@@ -18,7 +9,6 @@
         "description": "Receive function to handle incoming Ether transfers."
       }
     },
-    "events": {
       "AdminChanged": {
         "indexed_parameters": {},
         "non_indexed_parameters": {
@@ -42,5 +32,5 @@
         "description": "Emitted when the implementation address is upgraded."
       }
     }
-  }
+
   

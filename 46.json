@@ -30,7 +30,6 @@
         "description": "Returns the current implementation address of the contract."
       }
     },
-    "events": {
       "AdminChanged": {
         "indexed_parameters": {},
         "non_indexed_parameters": {
@@ -52,8 +51,7 @@
         },
         "non_indexed_parameters": {},
         "description": "Emitted when the implementation address is upgraded."
-      }
-    },
+      },
     "constructor": {
       "parameters": {
         "_logic": "_logic",
@@ -67,6 +65,5 @@
     },
     "receive": {
       "description": "Receive function to handle incoming Ether transfers."
-    }
   }
-  
+}

@@ -124,9 +124,7 @@
     "controller": {
       "description": "Returns the address of the controller.",
       "fields": {}
-    }
-  },
-  "events": {
+    },
     "ClaimedTokens": {
       "description": "Triggered when tokens are claimed.",
       "fields": {

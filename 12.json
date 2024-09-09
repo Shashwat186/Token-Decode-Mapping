@@ -137,9 +137,7 @@
       "fields": {
         "address": "_address"
       }
-    }
-  },
-  "events": {
+    },
     "Approval": {
       "description": "Triggered when approval is granted to a spender.",
       "fields": {
