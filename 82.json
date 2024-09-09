@@ -103,7 +103,7 @@
       }
     }
   },
-  "events": {
+ 
     "Burn": {
       "description": "Emitted when tokens are burned.",
       "fields": {
@@ -146,4 +146,4 @@
       }
     }
   }
-}
+

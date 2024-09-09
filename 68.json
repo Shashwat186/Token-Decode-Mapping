@@ -90,7 +90,6 @@
         }
       }
     },
-    "events": {
       "Mint": {
         "description": "Emitted when new tokens are minted.",
         "fields": {
@@ -134,5 +133,4 @@
         }
       }
     }
-  }
   

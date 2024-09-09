@@ -92,7 +92,6 @@
         }
       }
     },
-    "events": {
       "NewOwner": {
         "description": "Emitted when the ownership of the contract changes.",
         "fields": {
@@ -124,5 +123,4 @@
         }
       }
     }
-  }
   

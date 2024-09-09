@@ -102,12 +102,6 @@
           "topic4": "_topic4"
         }
       },
-      "acceptOwnership": {
-        "description": "Accepts ownership of the contract from the nominated owner.",
-        "fields": {}
-      }
-    },
-    "events": {
       "Transfer": {
         "description": "Emitted when tokens are transferred from one address to another.",
         "fields": {

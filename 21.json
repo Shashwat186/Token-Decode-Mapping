@@ -7,7 +7,6 @@
         "data": "_data"
       }
     },
-    "events": {
       "AdminChanged": {
         "description": "Emitted when the admin is changed from `previousAdmin` to `newAdmin`.",
         "fields": {
@@ -26,8 +25,7 @@
         "fields": {
           "implementation": "_implementation"
         }
-      }
-    },
+      },
     "functions": {
       "admin": {
         "description": "Returns the current admin address.",
@@ -68,6 +66,6 @@
     "receive": {
       "description": "Receive function to handle incoming Ether transfers.",
       "fields": {}
-    }
-  }
+}
+}
   

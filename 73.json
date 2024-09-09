@@ -125,12 +125,7 @@
         "fields": {
           "newOperator": "_newOperator"
         }
-      },
-      "setPrecrime": {
-        "description": "Sets the precrime address.",
-        "fields": {
-          "precrime": "_precrime"
-        }
+      
       },
       "pause": {
         "description": "Pauses the contract, preventing certain actions.",
@@ -146,45 +141,7 @@
           "srcChainId": "_srcChainId",
           "srcAddress": "_srcAddress"
         }
-      },
-      "setReceiveVersion": {
-        "description": "Sets the version for receiving messages.",
-        "fields": {
-          "version": "_version"
-        }
-      },
-      "setSendVersion": {
-        "description": "Sets the version for sending messages.",
-        "fields": {
-          "version": "_version"
-        }
-      },
-      "setTrustedRemote": {
-        "description": "Sets the trusted remote address for a given source chain ID.",
-        "fields": {
-          "srcChainId": "_srcChainId",
-          "path": "_path"
-        }
-      },
-      "setTrustedRemoteAddress": {
-        "description": "Sets the trusted remote address for a given remote chain ID.",
-        "fields": {
-          "remoteChainId": "_remoteChainId",
-          "remoteAddress": "_remoteAddress"
-        }
-      },
-      "setUseCustomAdapterParams": {
-        "description": "Sets whether to use custom adapter parameters.",
-        "fields": {
-          "useCustomAdapterParams": "_useCustomAdapterParams"
-        }
-      },
-      "setWhitelist": {
-        "description": "Sets or unsets a whitelist status for an address.",
-        "fields": {
-          "addr": "_addr",
-          "isWhitelist": "_isWhitelist"
-        }
+    
       },
       "sharedDecimals": {
         "description": "Returns the number of decimal places used by the token.",

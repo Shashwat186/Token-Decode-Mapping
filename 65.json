@@ -17,7 +17,7 @@
         "fields": {}
       }
     },
-    "events": {
+    
       "AdminChanged": {
         "description": "Emitted when the admin of the contract is changed.",
         "fields": {
@@ -38,5 +38,5 @@
         }
       }
     }
-  }
+
   

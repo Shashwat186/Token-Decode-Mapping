@@ -1,0 +1,173 @@
+{
+    "transfer_functions": {
+      "approve": {
+        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_value"
+        }
+      },
+      "transfer": {
+        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "fields": {
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the amount of tokens that a spender is allowed to spend.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the amount of tokens that a spender is allowed to spend.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        }
+      }
+    },
+    "other_functions": {
+      "DOMAIN_SEPARATOR": {
+        "description": "Returns the domain separator used in permit signatures.",
+        "fields": {}
+      },
+      "addLockups": {
+        "description": "Adds addresses to the lockups list.",
+        "fields": {
+          "lockups": "_lockups"
+        }
+      },
+      "allowance": {
+        "description": "Returns the amount of tokens that a spender is allowed to withdraw from the owner's account.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the balance of tokens for a given address.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "checkpoints": {
+        "description": "Returns the checkpoint data for an address at a specific position.",
+        "fields": {
+          "account": "_account",
+          "pos": "_pos"
+        }
+      },
+      "decimals": {
+        "description": "Returns the number of decimal places used in token amounts.",
+        "fields": {}
+      },
+      "delegate": {
+        "description": "Delegates votes to a specific address.",
+        "fields": {
+          "delegatee": "_delegatee"
+        }
+      },
+      "delegateBySig": {
+        "description": "Delegates votes to a specific address using a signature.",
+        "fields": {
+          "delegatee": "_delegatee",
+          "nonce": "_nonce",
+          "expiry": "_expiry",
+          "v": "_v",
+          "r": "_r",
+          "s": "_s"
+        }
+      },
+      "delegates": {
+        "description": "Returns the delegate address for a given account.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "getPastTotalSupply": {
+        "description": "Returns the total supply of tokens at a specific block number.",
+        "fields": {
+          "blockNumber": "_blockNumber"
+        }
+      },
+      "getPastVotes": {
+        "description": "Returns the number of votes for an account at a specific block number.",
+        "fields": {
+          "account": "_account",
+          "blockNumber": "_blockNumber"
+        }
+      },
+      "getVotes": {
+        "description": "Returns the current number of votes for an account.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "lockups": {
+        "description": "Returns the list of lockup addresses.",
+        "fields": {}
+      },
+      "name": {
+        "description": "Returns the name of the token.",
+        "fields": {}
+      },
+      "nonces": {
+        "description": "Returns the nonce used for permit signatures for an address.",
+        "fields": {
+          "owner": "_owner"
+        }
+      },
+      "numCheckpoints": {
+        "description": "Returns the number of checkpoints for an account.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "owner": {
+        "description": "Returns the address of the current owner of the contract.",
+        "fields": {}
+      },
+      "permit": {
+        "description": "Allows a spender to withdraw tokens from an owner's account using a permit signature.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value",
+          "deadline": "_deadline",
+          "v": "_v",
+          "r": "_r",
+          "s": "_s"
+        }
+      },
+      "renounceOwnership": {
+        "description": "Renounces ownership of the contract.",
+        "fields": {}
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
+        "fields": {}
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
+      },
+      "transferOwnership": {
+        "description": "Transfers ownership of the contract to a new address.",
+        "fields": {
+          "newOwner": "_newOwner"
+        }
+      }
+    }
+  }
+  

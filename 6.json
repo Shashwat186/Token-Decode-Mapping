@@ -1,206 +1,154 @@
 {
   "transfer_functions": {
-    "transfer": {
-      "description": "Transfers `amount` tokens from the caller to the specified `recipient`.",
+    "approve": {
+      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
       "fields": {
-        "recipient": "_recipient",
-        "amount": "_amount"
+        "spender": "_spender",
+        "amount": "_value"
+      }
+    },
+    "transfer": {
+      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "fields": {
+        "transfer_to": "_to",
+        "amount": "_value"
       }
     },
     "transferFrom": {
-      "description": "Transfers `amount` tokens from `sender` to `recipient` on behalf of `sender`.",
+      "description": "Transfers tokens from one address to another on behalf of the sender.",
       "fields": {
-        "sender": "_sender",
-        "recipient": "_recipient",
-        "amount": "_amount"
+        "transfer_from": "_from",
+        "transfer_to": "_to",
+        "amount": "_value"
       }
     }
   },
   "other_functions": {
-    "allowBurn": {
-      "description": "Returns whether burning tokens is allowed.",
-      "fields": {}
-    },
-    "allowance": {
-      "description": "Returns the amount of tokens that `spender` is allowed to spend on behalf of `owner`.",
+    "deprecate": {
+      "description": "Marks the contract as deprecated and sets a new address.",
       "fields": {
-        "owner": "_owner",
-        "spender": "_spender"
+        "upgradedAddress": "_upgradedAddress"
       }
     },
-    "approve": {
-      "description": "Approves `spender` to spend `amount` tokens on behalf of the caller.",
+    "addBlackList": {
+      "description": "Adds an address to the blacklist.",
       "fields": {
-        "spender": "_spender",
+        "evilUser": "_evilUser"
+      }
+    },
+    "removeBlackList": {
+      "description": "Removes an address from the blacklist.",
+      "fields": {
+        "clearedUser": "_clearedUser"
+      }
+    },
+    "destroyBlackFunds": {
+      "description": "Destroys the blacklisted funds of a user.",
+      "fields": {
+        "blackListedUser": "_blackListedUser"
+      }
+    },
+    "setParams": {
+      "description": "Sets the fee basis points and maximum fee.",
+      "fields": {
+        "basisPoints": "_newBasisPoints",
+        "maxFee": "_newMaxFee"
+      }
+    },
+    "issue": {
+      "description": "Issues new tokens to the caller’s account.",
+      "fields": {
         "amount": "_amount"
       }
     },
-    "balanceOf": {
-      "description": "Returns the balance of `account`.",
+    "redeem": {
+      "description": "Redeems tokens from the caller’s account.",
       "fields": {
-        "account": "_account"
+        "amount": "_amount"
       }
     },
-    "burn": {
-      "description": "Burns `amount` tokens from the specified `addr`.",
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to a new address.",
       "fields": {
-        "amount": "_amount",
-        "addr": "_addr"
+        "newOwner": "_newOwner"
       }
     },
-    "burnFrom": {
-      "description": "Burns `amount` tokens from `account`'s balance.",
-      "fields": {
-        "account": "_account",
-        "amount": "_amount",
-        "addr": "_addr"
-      }
-    },
-    "checkSignature": {
-      "description": "Checks the validity of `sig` for the given `digest`.",
-      "fields": {
-        "digest": "_digest",
-        "sig": "_sig"
-      }
-    },
-    "decimals": {
-      "description": "Returns the number of decimal places used in the token's representation.",
+    "pause": {
+      "description": "Pauses all token transfers.",
       "fields": {}
     },
-    "decreaseAllowance": {
-      "description": "Decreases the allowance of `spender` by `subtractedValue`.",
-      "fields": {
-        "spender": "_spender",
-        "subtractedValue": "_subtractedValue"
-      }
-    },
-    "finishedVotings": {
-      "description": "Checks if the votings are finished for a given `bytes32` value.",
-      "fields": {
-        "value": "_value"
-      }
-    },
-    "getFullOracleSet": {
-      "description": "Returns the full list of oracle addresses.",
+    "unpause": {
+      "description": "Unpauses all token transfers.",
       "fields": {}
     },
-    "getNewBurnStatusId": {
-      "description": "Returns the identifier for the new burn status using `newBurnStatus` and `nonce`.",
-      "fields": {
-        "newBurnStatus": "_newBurnStatus",
-        "nonce": "_nonce"
-      }
-    },
-    "getNewSetId": {
-      "description": "Returns the identifier for a new oracle set using `oracleSetHash` and `set`.",
-      "fields": {
-        "oracleSetHash": "_oracleSetHash",
-        "set": "_set"
-      }
-    },
-    "getSwapDataId": {
-      "description": "Returns the identifier for swap data using `data`.",
-      "fields": {
-        "data": "_data"
-      }
-    },
-    "increaseAllowance": {
-      "description": "Increases the allowance of `spender` by `addedValue`.",
-      "fields": {
-        "spender": "_spender",
-        "addedValue": "_addedValue"
-      }
-    },
-    "isOracle": {
-      "description": "Checks if an address is an oracle.",
-      "fields": {
-        "address": "_address"
-      }
-    },
-    "name": {
-      "description": "Returns the name of the token.",
-      "fields": {}
-    },
-    "oraclesSet": {
-      "description": "Returns the oracle set for a given `uint256` value.",
-      "fields": {
-        "value": "_value"
-      }
-    },
-    "symbol": {
-      "description": "Returns the symbol of the token.",
-      "fields": {}
-    },
-    "totalSupply": {
-      "description": "Returns the total supply of tokens.",
-      "fields": {}
-    },
-    "voteForMinting": {
-      "description": "Submits a vote for minting using `data` and `signatures`.",
-      "fields": {
-        "data": "_data",
-        "signatures": "_signatures"
-      }
-    },
-    "voteForNewOracleSet": {
-      "description": "Submits a vote for a new oracle set using `oracleSetHash`, `newOracles`, and `signatures`.",
-      "fields": {
-        "oracleSetHash": "_oracleSetHash",
-        "newOracles": "_newOracles",
-        "signatures": "_signatures"
-      }
-    },
-    "voteForSwitchBurn": {
-      "description": "Submits a vote for switching the burn status using `newBurnStatus`, `nonce`, and `signatures`.",
-      "fields": {
-        "newBurnStatus": "_newBurnStatus",
-        "nonce": "_nonce",
-        "signatures": "_signatures"
-      }
-    }
-  },
-  "events": {
-    "Approval": {
-      "description": "Emitted when an approval is made for a `spender` by `owner`.",
-      "fields": {
-        "owner": "_owner",
-        "spender": "_spender",
-        "value": "_value"
-      }
-    },
-    "NewOracleSet": {
-      "description": "Emitted when a new set of oracles is created.",
-      "fields": {
-        "oracleSetHash": "_oracleSetHash",
-        "newOracles": "_newOracles"
-      }
-    },
-    "SwapEthToTon": {
-      "description": "Emitted when ETH is swapped to TON.",
-      "fields": {
-        "from": "_from",
-        "to_wc": "_to_wc",
-        "to_addr_hash": "_to_addr_hash",
-        "value": "_value"
-      }
-    },
-    "SwapTonToEth": {
-      "description": "Emitted when TON is swapped to ETH.",
-      "fields": {
-        "workchain": "_workchain",
-        "ton_address_hash": "_ton_address_hash",
-        "ton_tx_hash": "_ton_tx_hash",
-        "lt": "_lt",
-        "to": "_to",
-        "value": "_value"
-      }
-    },
-    "Transfer": {
-      "description": "Emitted when tokens are transferred from `from` to `to`.",
-      "fields": {
-        "from": "_from",
-        "to": "_to",
-        "value": "_value"
+    "events": {
+      "Issue": {
+        "description": "Emitted when new tokens are issued.",
+        "fields": {
+          "amount": "_amount"
+        }
+      },
+      "Redeem": {
+        "description": "Emitted when tokens are redeemed.",
+        "fields": {
+          "amount": "_amount"
+        }
+      },
+      "Deprecate": {
+        "description": "Emitted when the contract is deprecated.",
+        "fields": {
+          "newAddress": "_newAddress"
+        }
+      },
+      "Params": {
+        "description": "Emitted when the fee parameters are updated.",
+        "fields": {
+          "feeBasisPoints": "_feeBasisPoints",
+          "maxFee": "_maxFee"
+        }
+      },
+      "DestroyedBlackFunds": {
+        "description": "Emitted when blacklisted funds are destroyed.",
+        "fields": {
+          "blackListedUser": "_blackListedUser",
+          "balance": "_balance"
+        }
+      },
+      "AddedBlackList": {
+        "description": "Emitted when an address is added to the blacklist.",
+        "fields": {
+          "user": "_user"
+        }
+      },
+      "RemovedBlackList": {
+        "description": "Emitted when an address is removed from the blacklist.",
+        "fields": {
+          "user": "_user"
+        }
+      },
+      "Approval": {
+        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        }
+      },
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one address to another.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "Pause": {
+        "description": "Emitted when the contract is paused.",
+        "fields": {}
+      },
+      "Unpause": {
+        "description": "Emitted when the contract is unpaused.",
+        "fields": {}
       }
     }
   }

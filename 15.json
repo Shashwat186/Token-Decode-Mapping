@@ -133,7 +133,6 @@
       "fields": {}
     }
   },
-  "events": {
     "Approval": {
       "description": "Triggered when approval is granted to a spender.",
       "fields": {
@@ -170,8 +169,7 @@
         "amount": "_amount",
         "accountId": "_accountId"
       }
-    }
-  },
+    },
   "constructor": {
     "description": "Constructor for initializing the contract with token parameters.",
     "fields": {
@@ -183,5 +181,6 @@
       "admin": "_admin",
       "pausedFlags": "_pausedFlags"
     }
-  }
 }
+}
+
