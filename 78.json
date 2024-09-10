@@ -1,147 +1,295 @@
 {
     "transfer_functions": {
+      "transfer": {
+        "description": "Transfers `value` amount of tokens from the caller's account to the `to` account.",
+        "fields": {
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers `value` amount of tokens from `from` account to `to` account using the allowance mechanism.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
       "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "description": "Sets the `amount` of tokens that `spender` is allowed to spend on behalf of the caller.",
         "fields": {
           "spender": "_spender",
           "amount": "_amount"
         }
       },
-      "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+      "increaseAllowance": {
+        "description": "Increases the `amount` of tokens that `spender` is allowed to spend on behalf of the caller.",
         "fields": {
-          "recipient": "_to",
-          "amount": "_amount"
+          "spender": "_spender",
+          "addedValue": "_addedValue"
         }
       },
-      "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "decreaseAllowance": {
+        "description": "Decreases the `amount` of tokens that `spender` is allowed to spend on behalf of the caller.",
         "fields": {
-          "sender": "_from",
-          "recipient": "_to",
-          "amount": "_amount"
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
         }
       }
     },
     "other_functions": {
-      "addToWhitelist": {
-        "description": "Adds an address to the whitelist with a specified limit.",
+      "constructor": {
+        "description": "Initializes the contract with the given implementation address.",
         "fields": {
-          "address": "_address",
-          "limit": "_limit"
+          "_lzEndpoint": "_lzEndpoint"
         }
       },
-      "removeFromWhitelist": {
-        "description": "Removes an address from the whitelist.",
-        "fields": {
-          "address": "_address"
-        }
-      },
-      "burn": {
-        "description": "Burns a specified amount of tokens from the caller’s account.",
-        "fields": {
-          "amount": "_amount"
-        }
-      },
-      "burnFrom": {
-        "description": "Burns a specified amount of tokens from a specified address.",
-        "fields": {
-          "account": "_account",
-          "amount": "_amount"
-        }
-      },
-      "depositETH": {
-        "description": "Deposits ETH into the contract.",
+      "name": {
+        "description": "Returns the name of the token.",
         "fields": {}
       },
-      "depositUSDC": {
-        "description": "Deposits USDC into the contract.",
-        "fields": {
-          "amount": "_amount"
-        }
-      },
-      "depositUSDT": {
-        "description": "Deposits USDT into the contract.",
-        "fields": {
-          "amount": "_amount"
-        }
-      },
-      "forceReleaseStaking": {
-        "description": "Forces the release of staking based on the specified release type.",
-        "fields": {
-          "forceReleaseType": "_forceReleaseType"
-        }
-      },
-      "prepareDistribution": {
-        "description": "Prepares the distribution for a specified round.",
-        "fields": {
-          "round": "_round"
-        }
-      },
-      "prepareDistributionPrecise": {
-        "description": "Prepares the distribution for a specified round with precise price limits.",
-        "fields": {
-          "round": "_round",
-          "botPriceLimit": "_botPriceLimit",
-          "topPriceLimit": "_topPriceLimit"
-        }
-      },
-      "launchProduct": {
-        "description": "Launches the product.",
+      "symbol": {
+        "description": "Returns the symbol of the token.",
         "fields": {}
       },
-      "updateAndGetCurrentPrice": {
-        "description": "Updates and retrieves the current price.",
+      "decimals": {
+        "description": "Returns the number of decimals the token uses.",
         "fields": {}
       },
-      "setDEXEFeed": {
-        "description": "Sets the DEXE price feed address.",
+      "balanceOf": {
+        "description": "Returns the balance of the `account`.",
         "fields": {
-          "address": "_address"
+          "account": "_account"
         }
       },
-      "setETHFeed": {
-        "description": "Sets the ETH price feed address.",
+      "allowance": {
+        "description": "Returns the remaining number of tokens that `spender` is allowed to spend on behalf of `owner`.",
         "fields": {
-          "address": "_address"
+          "owner": "_owner",
+          "spender": "_spender"
         }
       },
-      "setTreasury": {
-        "description": "Sets the treasury address.",
+      "circulatingSupply": {
+        "description": "Returns the total supply of the token currently in circulation.",
+        "fields": {}
+      },
+      "feeOwner": {
+        "description": "Returns the current fee owner address.",
+        "fields": {}
+      },
+      "paused": {
+        "description": "Returns whether the contract is paused or not.",
+        "fields": {}
+      },
+      "precrime": {
+        "description": "Returns the address of the precrime contract.",
+        "fields": {}
+      },
+      "lzEndpoint": {
+        "description": "Returns the address of the LayerZero endpoint.",
+        "fields": {}
+      },
+      "getTrustedRemoteAddress": {
+        "description": "Returns the trusted remote address for a specific chain.",
         "fields": {
-          "address": "_address"
+          "_remoteChainId": "_remoteChainId"
         }
       },
-      "setUSDCTokenAddress": {
-        "description": "Sets the USDC token address.",
+      "isTrustedRemote": {
+        "description": "Returns whether the remote chain is trusted.",
         "fields": {
-          "address": "_address"
+          "_remoteChainId": "_remoteChainId"
         }
       },
-      "setUSDTFeed": {
-        "description": "Sets the USDT price feed address.",
+      "quoteOFTFee": {
+        "description": "Returns the fee amount for OFT.",
         "fields": {
-          "address": "_address"
+          "_amount": "_amount"
         }
       },
-      "setUSDTTokenAddress": {
-        "description": "Sets the USDT token address.",
+      "renounceOwnership": {
+        "description": "Renounces ownership of the contract.",
+        "fields": {}
+      },
+      "retryMessage": {
+        "description": "Retries a failed message.",
         "fields": {
-          "address": "_address"
+          "_srcChainId": "_srcChainId",
+          "_srcAddress": "_srcAddress",
+          "_nonce": "_nonce",
+          "_payload": "_payload"
         }
+      },
+      "sendAndCall": {
+        "description": "Sends tokens and performs a callback.",
+        "fields": {
+          "_from": "_from",
+          "_dstChainId": "_dstChainId",
+          "_toAddress": "_toAddress",
+          "_amount": "_amount",
+          "_minAmount": "_minAmount",
+          "_payload": "_payload",
+          "_dstGasForCall": "_dstGasForCall",
+          "_callParams": {
+            "refundAddress": "_refundAddress",
+            "zroPaymentAddress": "_zroPaymentAddress",
+            "adapterParams": "_adapterParams"
+          }
+        }
+      },
+      "sendFrom": {
+        "description": "Sends tokens from a specified address.",
+        "fields": {
+          "_from": "_from",
+          "_dstChainId": "_dstChainId",
+          "_toAddress": "_toAddress",
+          "_amount": "_amount",
+          "_minAmount": "_minAmount",
+          "_callParams": {
+            "refundAddress": "_refundAddress",
+            "zroPaymentAddress": "_zroPaymentAddress",
+            "adapterParams": "_adapterParams"
+          }
+        }
+      },
+      "setConfig": {
+        "description": "Sets the configuration for a specific chain.",
+        "fields": {
+          "_version": "_version",
+          "_chainId": "_chainId",
+          "_configType": "_configType",
+          "_config": "_config"
+        }
+      },
+      "setDefaultFeeBp": {
+        "description": "Sets the default fee basis points.",
+        "fields": {
+          "_feeBp": "_feeBp"
+        }
+      },
+      "setFeeBp": {
+        "description": "Sets the fee basis points for a specific chain.",
+        "fields": {
+          "_dstChainId": "_dstChainId",
+          "_enabled": "_enabled",
+          "_feeBp": "_feeBp"
+        }
+      },
+      "setFeeOwner": {
+        "description": "Sets the fee owner address.",
+        "fields": {
+          "_feeOwner": "_feeOwner"
+        }
+      },
+      "setInboundCap": {
+        "description": "Sets the inbound cap for a specific chain.",
+        "fields": {
+          "chainId": "_chainId",
+          "cap": "_cap"
+        }
+      },
+      "setMinDstGas": {
+        "description": "Sets the minimum destination gas for a specific chain and packet type.",
+        "fields": {
+          "_dstChainId": "_dstChainId",
+          "_packetType": "_packetType",
+          "_minGas": "_minGas"
+        }
+      },
+      "setOutboundCap": {
+        "description": "Sets the outbound cap for a specific chain.",
+        "fields": {
+          "chainId": "_chainId",
+          "cap": "_cap"
+        }
+      },
+      "setPrecrime": {
+        "description": "Sets the address of the precrime contract.",
+        "fields": {
+          "_precrime": "_precrime"
+        }
+      },
+      "setReceiveVersion": {
+        "description": "Sets the receive version for the contract.",
+        "fields": {
+          "_version": "_version"
+        }
+      },
+      "setSendVersion": {
+        "description": "Sets the send version for the contract.",
+        "fields": {
+          "_version": "_version"
+        }
+      },
+      "setTrustedRemote": {
+        "description": "Sets the trusted remote address for a specific chain.",
+        "fields": {
+          "_srcChainId": "_srcChainId",
+          "_path": "_path"
+        }
+      },
+      "setTrustedRemoteAddress": {
+        "description": "Sets the trusted remote address for a specific chain.",
+        "fields": {
+          "_remoteChainId": "_remoteChainId",
+          "_remoteAddress": "_remoteAddress"
+        }
+      },
+      "setUseCustomAdapterParams": {
+        "description": "Sets whether to use custom adapter parameters.",
+        "fields": {
+          "_useCustomAdapterParams": "_useCustomAdapterParams"
+        }
+      },
+      "setWhitelist": {
+        "description": "Sets the whitelist status for an address.",
+        "fields": {
+          "addr": "_addr",
+          "isWhitelist": "_isWhitelist"
+        }
+      },
+      "sharedDecimals": {
+        "description": "Returns the shared decimals used in the contract.",
+        "fields": {}
+      },
+      "supportsInterface": {
+        "description": "Returns whether the contract supports a specific interface.",
+        "fields": {
+          "interfaceId": "_interfaceId"
+        }
+      },
+      "token": {
+        "description": "Returns the address of the token.",
+        "fields": {}
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
       },
       "transferOwnership": {
-        "description": "Transfers ownership of the contract to a new address.",
+        "description": "Transfers ownership of the contract.",
         "fields": {
           "newOwner": "_newOwner"
         }
       },
-      "withdrawLocked": {
-        "description": "Withdraws locked tokens from the contract to a specified address.",
+      "trustedRemoteLookup": {
+        "description": "Returns the trusted remote address for a specific chain.",
         "fields": {
-          "token": "_token",
-          "receiver": "_receiver",
-          "amount": "_amount"
+          "chainId": "_chainId"
+        }
+      },
+      "unpause": {
+        "description": "Unpauses the contract.",
+        "fields": {}
+      },
+      "useCustomAdapterParams": {
+        "description": "Returns whether custom adapter parameters are used.",
+        "fields": {}
+      },
+      "whitelist": {
+        "description": "Returns the whitelist status for an address.",
+        "fields": {
+          "addr": "_addr"
         }
       }
     }

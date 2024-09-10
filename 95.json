@@ -1,86 +1,116 @@
 {
     "transfer_functions": {
       "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "description": "Sets the amount of tokens that an owner allows a spender to use.",
         "fields": {
           "spender": "_spender",
-          "amount": "_value"
+          "amount": "_amount"
         }
       },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers tokens from the caller's account to the recipient.",
         "fields": {
-          "recipient": "_to",
-          "amount": "_value"
+          "recipient": "_recipient",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers tokens from one account to another, using the allowance mechanism.",
         "fields": {
-          "sender": "_from",
-          "recipient": "_to",
-          "amount": "_value"
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
         }
       }
     },
     "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract with the given parameters.",
+        "fields": {
+          "_name": "_name",
+          "_symbol": "_symbol",
+          "_tokenDecimals": "_tokenDecimals",
+          "_cosmosDenom": "_cosmosDenom"
+        }
+      },
+      "DEFAULT_ADMIN_ROLE": {
+        "description": "Returns the default admin role.",
+        "fields": {}
+      },
+      "MINTER_ROLE": {
+        "description": "Returns the minter role.",
+        "fields": {}
+      },
+      "allowance": {
+        "description": "Returns the remaining number of tokens that the spender is allowed to spend on behalf of the owner.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the balance of the specified address.",
+        "fields": {
+          "account": "_account"
+        }
+      },
       "burn": {
-        "description": "Burns a specified amount of tokens from the caller’s address.",
+        "description": "Burns a specified amount of tokens from the caller's account.",
         "fields": {
           "amount": "_amount"
         }
       },
       "burnFrom": {
-        "description": "Burns a specified amount of tokens from an address, using the allowance mechanism.",
+        "description": "Burns a specified amount of tokens from a given account.",
         "fields": {
           "account": "_account",
           "amount": "_amount"
         }
       },
       "cosmosDenom": {
-        "description": "Returns the current Cosmos denomination.",
+        "description": "Returns the Cosmos denomination of the token.",
         "fields": {}
       },
       "decimals": {
-        "description": "Returns the number of decimals used in the token.",
+        "description": "Returns the number of decimal places used by the token.",
         "fields": {}
       },
       "decreaseAllowance": {
-        "description": "Decreases the allowance of a spender by a specified amount.",
+        "description": "Decreases the amount of tokens that an owner allows a spender to use.",
         "fields": {
           "spender": "_spender",
-          "subtractedValue": "_value"
+          "subtractedValue": "_subtractedValue"
         }
       },
       "getRoleAdmin": {
-        "description": "Returns the admin role that controls a specified role.",
+        "description": "Returns the admin role that controls the specified role.",
         "fields": {
           "role": "_role"
         }
       },
       "grantRole": {
-        "description": "Grants a specified role to an account.",
+        "description": "Grants a role to a specified account.",
         "fields": {
           "role": "_role",
           "account": "_account"
         }
       },
       "hasRole": {
-        "description": "Checks if an account has a specified role.",
+        "description": "Checks if an account has a specific role.",
         "fields": {
           "role": "_role",
           "account": "_account"
         }
       },
       "increaseAllowance": {
-        "description": "Increases the allowance of a spender by a specified amount.",
+        "description": "Increases the amount of tokens that an owner allows a spender to use.",
         "fields": {
           "spender": "_spender",
-          "addedValue": "_value"
+          "addedValue": "_addedValue"
         }
       },
       "mint": {
-        "description": "Mints new tokens and assigns them to an account.",
+        "description": "Mints a specified amount of tokens to a given account.",
         "fields": {
           "user": "_user",
           "amount": "_amount"
@@ -91,27 +121,27 @@
         "fields": {}
       },
       "renounceRole": {
-        "description": "Renounces a specified role from an account.",
+        "description": "Renounces a role held by the caller.",
         "fields": {
           "role": "_role",
           "account": "_account"
         }
       },
       "revokeRole": {
-        "description": "Revokes a specified role from an account.",
+        "description": "Revokes a role from a specified account.",
         "fields": {
           "role": "_role",
           "account": "_account"
         }
       },
       "setDenom": {
-        "description": "Sets the Cosmos denomination.",
+        "description": "Sets the Cosmos denomination of the token.",
         "fields": {
           "denom": "_denom"
         }
       },
       "supportsInterface": {
-        "description": "Checks if the contract implements a specified interface.",
+        "description": "Checks if the contract supports a specific interface.",
         "fields": {
           "interfaceId": "_interfaceId"
         }

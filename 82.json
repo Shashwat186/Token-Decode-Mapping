@@ -1,136 +1,137 @@
 {
   "transfer_functions": {
-    "approve": {
-      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-      "fields": {
-        "spender": "_spender",
-        "amount": "_value"
-      }
-    },
     "transfer": {
-      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "description": "Transfers `amount` tokens from the caller's account to `recipient`.",
       "fields": {
-        "transfer_to": "_to",
-        "amount": "_value"
+        "recipient": "_recipient",
+        "amount": "_amount"
       }
     },
     "transferFrom": {
-      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "description": "Transfers `amount` tokens from `sender` to `recipient` using the caller's allowance.",
       "fields": {
-        "transfer_from": "_from",
-        "transfer_to": "_to",
-        "amount": "_value"
+        "sender": "_sender",
+        "recipient": "_recipient",
+        "amount": "_amount"
+      }
+    },
+    "approve": {
+      "description": "Sets `amount` as the allowance of `spender` over the caller's tokens.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
+    },
+    "increaseAllowance": {
+      "description": "Increases the allowance of `spender` by `addedValue`.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    "decreaseAllowance": {
+      "description": "Decreases the allowance of `spender` by `subtractedValue`.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
       }
     }
   },
   "other_functions": {
-    "mintingFinished": {
-      "description": "Returns true if minting is finished, false otherwise.",
+    "constructor": {
+      "description": "Initializes the contract with the given name, symbol, decimals, and capacity.",
+      "fields": {
+        "name": "_name",
+        "symbol": "_symbol",
+        "decimals": "_decimals",
+        "capacity": "_capacity"
+      }
+    },
+    "cap": {
+      "description": "Returns the maximum token supply.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the balance of `account`.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
       "fields": {}
     },
     "name": {
       "description": "Returns the name of the token.",
       "fields": {}
     },
-    "totalSupply": {
-      "description": "Returns the total supply of tokens.",
+    "symbol": {
+      "description": "Returns the symbol of the token.",
       "fields": {}
     },
     "decimals": {
       "description": "Returns the number of decimals used for the token.",
       "fields": {}
     },
-    "mint": {
-      "description": "Mints new tokens to the specified address.",
+    "domainSeparator": {
+      "description": "Returns the domain separator used in EIP-712.",
+      "fields": {}
+    },
+    "nonces": {
+      "description": "Returns the nonce of `address`.",
       "fields": {
-        "to": "_to",
+        "address": "_address"
+      }
+    },
+    "depositAddress": {
+      "description": "Returns the deposit address associated with a given `salt`.",
+      "fields": {
+        "salt": "_salt"
+      }
+    },
+    "mint": {
+      "description": "Mints `amount` new tokens and assigns them to the caller's account.",
+      "fields": {
         "amount": "_amount"
       }
     },
     "burn": {
-      "description": "Burns a specified amount of tokens.",
+      "description": "Burns tokens from the caller's account using the provided `salt`.",
       "fields": {
+        "salt": "_salt"
+      }
+    },
+    "burnFrom": {
+      "description": "Burns `amount` tokens from `account`'s balance.",
+      "fields": {
+        "account": "_account",
         "amount": "_amount"
       }
     },
-    "version": {
-      "description": "Returns the version of the token contract.",
-      "fields": {}
-    },
-    "decreaseApproval": {
-      "description": "Decreases the allowance of a spender.",
+    "permit": {
+      "description": "Sets allowance using a permit signature.",
       "fields": {
+        "issuer": "_issuer",
         "spender": "_spender",
-        "subtractedValue": "_subtractedValue"
-      }
-    },
-    "balanceOf": {
-      "description": "Returns the balance of a specified address.",
-      "fields": {
-        "owner": "_owner"
-      }
-    },
-    "finishMinting": {
-      "description": "Finishes the minting process.",
-      "fields": {}
-    },
-    "owner": {
-      "description": "Returns the address of the contract owner.",
-      "fields": {}
-    },
-    "symbol": {
-      "description": "Returns the symbol of the token.",
-      "fields": {}
-    },
-    "increaseApproval": {
-      "description": "Increases the allowance of a spender.",
-      "fields": {
-        "spender": "_spender",
-        "addedValue": "_addedValue"
-      }
-    },
-    "allowance": {
-      "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the owner.",
-      "fields": {
-        "owner": "_owner",
-        "spender": "_spender"
+        "value": "_value",
+        "deadline": "_deadline",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
       }
     },
     "transferOwnership": {
-      "description": "Transfers ownership of the contract to a new address.",
+      "description": "Transfers ownership of the contract to `newOwner`.",
       "fields": {
         "newOwner": "_newOwner"
       }
-    }
-  },
- 
-    "Burn": {
-      "description": "Emitted when tokens are burned.",
-      "fields": {
-        "burner": "_burner",
-        "value": "_value"
-      }
     },
-    "Mint": {
-      "description": "Emitted when new tokens are minted.",
-      "fields": {
-        "to": "_to",
-        "amount": "_amount"
-      }
-    },
-    "MintFinished": {
-      "description": "Emitted when the minting process is finished.",
+    "owner": {
+      "description": "Returns the current owner of the contract.",
       "fields": {}
     },
-    "OwnershipTransferred": {
-      "description": "Emitted when the ownership of the contract is transferred.",
-      "fields": {
-        "previousOwner": "_previousOwner",
-        "newOwner": "_newOwner"
-      }
-    },
     "Approval": {
-      "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+      "description": "Emitted when `spender` is approved to spend `value` tokens on behalf of `owner`.",
       "fields": {
         "owner": "_owner",
         "spender": "_spender",
@@ -138,12 +139,51 @@
       }
     },
     "Transfer": {
-      "description": "Emitted when tokens are transferred from one address to another.",
+      "description": "Emitted when `amount` tokens are transferred from `from` to `to`.",
       "fields": {
         "from": "_from",
         "to": "_to",
         "value": "_value"
       }
+    },
+    "OwnershipTransferred": {
+      "description": "Emitted when ownership of the contract is transferred from `previousOwner` to `newOwner`.",
+      "fields": {
+        "previousOwner": "_previousOwner",
+        "newOwner": "_newOwner"
+      }
+    },
+    "CapExceeded": {
+      "description": "Emitted when an operation exceeds the token cap.",
+      "fields": {}
+    },
+    "InvalidAccount": {
+      "description": "Emitted when an invalid account is used.",
+      "fields": {}
+    },
+    "InvalidOwner": {
+      "description": "Emitted when an invalid owner is referenced.",
+      "fields": {}
+    },
+    "InvalidS": {
+      "description": "Emitted when an invalid signature parameter `s` is encountered.",
+      "fields": {}
+    },
+    "InvalidSignature": {
+      "description": "Emitted when an invalid signature is provided.",
+      "fields": {}
+    },
+    "InvalidV": {
+      "description": "Emitted when an invalid signature parameter `v` is encountered.",
+      "fields": {}
+    },
+    "NotOwner": {
+      "description": "Emitted when an operation requires ownership but is performed by a non-owner.",
+      "fields": {}
+    },
+    "PermitExpired": {
+      "description": "Emitted when a permit has expired.",
+      "fields": {}
     }
   }
-
+}

@@ -1,71 +1,66 @@
 {
-    "constructor": {
-      "description": "Initializes the contract with `logic`, `admin_`, and `data`.",
+  "transfer_functions": {
+    "upgradeTo": {
+      "description": "Upgrades the contract to a new implementation.",
       "fields": {
-        "logic": "_logic",
-        "admin": "_admin",
-        "data": "_data"
+        "newImplementation": "_newImplementation"
       }
     },
-      "AdminChanged": {
-        "description": "Emitted when the admin is changed from `previousAdmin` to `newAdmin`.",
-        "fields": {
-          "previousAdmin": "_previousAdmin",
-          "newAdmin": "_newAdmin"
-        }
-      },
-      "BeaconUpgraded": {
-        "description": "Emitted when the beacon address is upgraded to `beacon`.",
-        "fields": {
-          "beacon": "_beacon"
-        }
-      },
-      "Upgraded": {
-        "description": "Emitted when the implementation address is upgraded to `implementation`.",
-        "fields": {
-          "implementation": "_implementation"
-        }
-      },
-    "functions": {
-      "admin": {
-        "description": "Returns the current admin address.",
-        "fields": {
-          "admin": "_admin"
-        }
-      },
-      "changeAdmin": {
-        "description": "Changes the admin address to `newAdmin`.",
-        "fields": {
-          "newAdmin": "_newAdmin"
-        }
-      },
-      "implementation": {
-        "description": "Returns the current implementation address.",
-        "fields": {
-          "implementation": "_implementation"
-        }
-      },
-      "upgradeTo": {
-        "description": "Upgrades the implementation address to `newImplementation`.",
-        "fields": {
-          "newImplementation": "_newImplementation"
-        }
-      },
-      "upgradeToAndCall": {
-        "description": "Upgrades the implementation address to `newImplementation` and executes `data`.",
-        "fields": {
-          "newImplementation": "_newImplementation",
-          "data": "_data"
-        }
+    "upgradeToAndCall": {
+      "description": "Upgrades the contract to a new implementation and executes a function call.",
+      "fields": {
+        "newImplementation": "_newImplementation",
+        "data": "_data"
+      }
+    }
+  },
+  "other_functions": {
+    "implementation": {
+      "description": "Returns the current implementation address.",
+      "fields": {}
+    },
+    "changeAdmin": {
+      "description": "Changes the admin of the contract.",
+      "fields": {
+        "newAdmin": "_newAdmin"
+      }
+    },
+    "admin": {
+      "description": "Returns the current admin address.",
+      "fields": {}
+    },
+    "constructor": {
+      "description": "Initializes the contract with the given implementation address.",
+      "fields": {
+        "_logic": "_logic",
+        "admin_": "_admin",
+        "_data": "_data"
       }
     },
     "fallback": {
-      "description": "Fallback function to handle calls and Ether transfers.",
+      "description": "Fallback function to receive Ether.",
       "fields": {}
+    }
+  },
+  "events": {
+    "AdminChanged": {
+      "description": "Emitted when the admin address changes.",
+      "fields": {
+        "previousAdmin": "_previousAdmin",
+        "newAdmin": "_newAdmin"
+      }
     },
-    "receive": {
-      "description": "Receive function to handle incoming Ether transfers.",
-      "fields": {}
+    "BeaconUpgraded": {
+      "description": "Emitted when the beacon address is upgraded.",
+      "fields": {
+        "beacon": "_beacon"
+      }
+    },
+    "Upgraded": {
+      "description": "Emitted when the contract is upgraded to a new implementation.",
+      "fields": {
+        "implementation": "_implementation"
+      }
+    }
+  }
 }
-}
-  

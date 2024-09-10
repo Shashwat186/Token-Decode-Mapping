@@ -1,41 +1,66 @@
 {
-    "transfer_functions": {},
-    "other_functions": {
-      "constructor": {
-        "description": "Initializes the contract with the logic address, admin address, and initialization data.",
-        "fields": {
-          "_logic": "_logic",
-          "admin_": "_admin",
-          "_data": "_data"
-        }
-      },
-      "fallback": {
-        "description": "Fallback function to receive Ether.",
-        "fields": {}
-      },
-      "receive": {
-        "description": "Receive function to accept Ether transfers.",
-        "fields": {}
+  "transfer_functions": {
+    "upgradeTo": {
+      "description": "Upgrades the contract to a new implementation.",
+      "fields": {
+        "newImplementation": "_newImplementation"
       }
     },
-      "AdminChanged": {
-        "description": "Emitted when the admin of the contract is changed.",
-        "fields": {
-          "previousAdmin": "_previousAdmin",
-          "newAdmin": "_newAdmin"
-        }
-      },
-      "BeaconUpgraded": {
-        "description": "Emitted when the beacon of the contract is upgraded.",
-        "fields": {
-          "beacon": "_beacon"
-        }
-      },
-      "Upgraded": {
-        "description": "Emitted when the contract is upgraded to a new implementation.",
-        "fields": {
-          "implementation": "_implementation"
-        }
+    "upgradeToAndCall": {
+      "description": "Upgrades the contract to a new implementation and executes a function call.",
+      "fields": {
+        "newImplementation": "_newImplementation",
+        "data": "_data"
       }
+    }
+  },
+  "other_functions": {
+    "implementation": {
+      "description": "Returns the current implementation address.",
+      "fields": {}
+    },
+    "changeAdmin": {
+      "description": "Changes the admin of the contract.",
+      "fields": {
+        "newAdmin": "_newAdmin"
+      }
+    },
+    "admin": {
+      "description": "Returns the current admin address.",
+      "fields": {}
+    },
+    "constructor": {
+      "description": "Initializes the contract with the given implementation address.",
+      "fields": {
+        "_implementation": "_implementation"
+      }
+    },
+    "fallback": {
+      "description": "Fallback function to receive Ether.",
+      "fields": {}
+    },
+    "receive": {
+      "description": "Receive function to accept Ether transfers.",
+      "fields": {}
+    },
+    "AdminChanged": {
+      "description": "Emitted when the admin address changes.",
+      "fields": {
+        "previousAdmin": "_previousAdmin",
+        "newAdmin": "_newAdmin"
+      }
+    },
+    "Upgraded": {
+      "description": "Emitted when the contract is upgraded to a new implementation.",
+      "fields": {
+        "implementation": "_implementation"
+      }
+    },
+    "BeaconUpgraded": {
+      "description": "Emitted when the beacon is upgraded.",
+      "fields": {
+        "beacon": "_beacon"
+      }
+    }
+  }
 }
-  

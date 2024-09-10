@@ -1,65 +1,114 @@
 {
-  "transfer_functions": {
-    "approve": {
-      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-      "fields": {
-        "spender": "_spender",
-        "value": "_value"
-      }
-    },
+  "transfer": {
     "transfer": {
-      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "description": "Transfers `wad` amount of tokens to `dst` address.",
       "fields": {
-        "to": "_to",
-        "value": "_value"
+        "dst": "_dst",
+        "wad": "_wad"
       }
     },
     "transferFrom": {
-      "description": "Transfers tokens from one address to another on behalf of the sender.",
-      "fields": {
-        "from": "_from",
-        "to": "_to",
-        "value": "_value"
-      }
-    },
-    "burn": {
-      "description": "Burns a specific amount of tokens from the caller’s account.",
-      "fields": {
-        "user": "_usr",
-        "value": "_value"
-      }
-    },
-    "mint": {
-      "description": "Mints a specific amount of tokens to the caller’s account.",
-      "fields": {
-        "user": "_usr",
-        "value": "_value"
-      }
-    },
-    "move": {
-      "description": "Moves tokens from one address to another.",
+      "description": "Transfers `wad` amount of tokens from `src` address to `dst` address.",
       "fields": {
         "src": "_src",
         "dst": "_dst",
-        "value": "_value"
+        "wad": "_wad"
+      }
+    },
+    "move": {
+      "description": "Moves `wad` amount of tokens from `src` address to `dst` address.",
+      "fields": {
+        "src": "_src",
+        "dst": "_dst",
+        "wad": "_wad"
       }
     },
     "pull": {
-      "description": "Pulls tokens from a specific address to the caller’s account.",
+      "description": "Pulls `wad` amount of tokens from `usr` address.",
       "fields": {
-        "user": "_usr",
-        "value": "_value"
+        "usr": "_usr",
+        "wad": "_wad"
       }
     },
     "push": {
-      "description": "Pushes tokens from the caller’s account to a specific address.",
+      "description": "Pushes `wad` amount of tokens to `usr` address.",
       "fields": {
-        "user": "_usr",
-        "value": "_value"
+        "usr": "_usr",
+        "wad": "_wad"
+      }
+    }
+  },
+  "other_functions": {
+    "constructor": {
+      "description": "Initializes the contract with the given chain ID.",
+      "fields": {
+        "chainId_": "_chainId_"
+      }
+    },
+    "DOMAIN_SEPARATOR": {
+      "description": "Returns the domain separator used for EIP-712.",
+      "fields": {}
+    },
+    "PERMIT_TYPEHASH": {
+      "description": "Returns the typehash for the permit function.",
+      "fields": {}
+    },
+    "allowance": {
+      "description": "Returns the amount of tokens that `src` address is allowed to spend on behalf of `guy` address.",
+      "fields": {
+        "src": "_src",
+        "guy": "_guy"
+      }
+    },
+    "approve": {
+      "description": "Approves `usr` address to spend `wad` amount of tokens.",
+      "fields": {
+        "usr": "_usr",
+        "wad": "_wad"
+      }
+    },
+    "balanceOf": {
+      "description": "Returns the balance of `address`.",
+      "fields": {
+        "address": "_address"
+      }
+    },
+    "burn": {
+      "description": "Burns `wad` amount of tokens from `usr` address.",
+      "fields": {
+        "usr": "_usr",
+        "wad": "_wad"
+      }
+    },
+    "decimals": {
+      "description": "Returns the number of decimals used by the token.",
+      "fields": {}
+    },
+    "deny": {
+      "description": "Removes permission for `guy` address.",
+      "fields": {
+        "guy": "_guy"
+      }
+    },
+    "mint": {
+      "description": "Mints `wad` amount of tokens to `usr` address.",
+      "fields": {
+        "usr": "_usr",
+        "wad": "_wad"
+      }
+    },
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "nonces": {
+      "description": "Returns the current nonce for `address`.",
+      "fields": {
+        "address": "_address"
       }
     },
     "permit": {
-      "description": "Permits a spender to withdraw from the caller’s account up to the specified amount.",
+      "description": "Sets the allowance of `spender` for `holder` address with a permit signature.",
       "fields": {
         "holder": "_holder",
         "spender": "_spender",
@@ -71,83 +120,40 @@
         "s": "_s"
       }
     },
-    "deny": {
-      "description": "Denies permission for a specific address.",
-      "fields": {
-        "guy": "_guy"
-      }
-    },
     "rely": {
-      "description": "Grants permission to a specific address.",
+      "description": "Adds `guy` address to the list of allowed addresses.",
       "fields": {
         "guy": "_guy"
       }
-    }
-  },
-  "other_functions": {
-    "balanceOf": {
-      "description": "Returns the amount of tokens owned by the account.",
-      "fields": {
-        "address": "_address"
-      }
-    },
-    "decimals": {
-      "description": "Returns the number of decimals used to get its user representation.",
-      "fields": {}
-    },
-    "name": {
-      "description": "Returns the name of the token.",
-      "fields": {}
     },
     "symbol": {
       "description": "Returns the symbol of the token.",
       "fields": {}
     },
     "totalSupply": {
-      "description": "Returns the total supply of tokens.",
+      "description": "Returns the total supply of the token.",
       "fields": {}
-    },
-    "allowance": {
-      "description": "Returns the remaining number of tokens that the spender is allowed to spend on behalf of the owner.",
-      "fields": {
-        "owner": "_owner",
-        "spender": "_spender"
-      }
-    },
-    "DOMAIN_SEPARATOR": {
-      "description": "Returns the domain separator for EIP712.",
-      "fields": {}
-    },
-    "PERMIT_TYPEHASH": {
-      "description": "Returns the type hash for the permit function.",
-      "fields": {}
-    },
-    "nonces": {
-      "description": "Returns the current nonce for an address.",
-      "fields": {
-        "address": "_address"
-      }
     },
     "version": {
       "description": "Returns the version of the contract.",
       "fields": {}
     },
     "wards": {
-      "description": "Returns the number of wards assigned to an address.",
+      "description": "Returns the wards associated with `address`.",
       "fields": {
         "address": "_address"
       }
     },
     "Approval": {
-      "description": "Triggered when approval is granted to a spender.",
+      "description": "Emitted when `src` address approves `guy` address to spend `wad` amount of tokens.",
       "fields": {
         "src": "_src",
-        "spender": "_spender",
-        "value": "_value"
+        "guy": "_guy",
+        "wad": "_wad"
       }
     },
     "LogNote": {
-      "description": "Triggered for internal logging with arbitrary data.",
+      "description": "Emitted when a note is logged.",
       "fields": {
         "sig": "_sig",
         "usr": "_usr",
@@ -157,18 +163,12 @@
       }
     },
     "Transfer": {
-      "description": "Triggered when tokens are transferred.",
+      "description": "Emitted when `src` address transfers `wad` amount of tokens to `dst` address.",
       "fields": {
         "src": "_src",
         "dst": "_dst",
-        "value": "_value"
+        "wad": "_wad"
       }
-    }
-  },
-  "constructor": {
-    "description": "Constructor for initializing the contract with chain ID.",
-    "fields": {
-      "chainId": "_chainId_"
     }
   }
 }

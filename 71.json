@@ -1,36 +1,26 @@
 {
-    "transfer_functions": {
-      "fallback": {
-        "description": "A fallback function that is triggered when the contract receives ether without data.",
-        "fields": {}
-      }
-    },
-    "other_functions": {
-      "constructor": {
-        "description": "Initializes the contract with the specified implementation address.",
-        "fields": {
-          "implementation": "_implementation"
-        }
-      },
+    "transfer": {
       "upgradeTo": {
-        "description": "Upgrades the contract to a new implementation address.",
+        "description": "Upgrades the contract to a new implementation.",
         "fields": {
           "newImplementation": "_newImplementation"
         }
       },
       "upgradeToAndCall": {
-        "description": "Upgrades the contract to a new implementation address and calls a function on the new implementation.",
+        "description": "Upgrades the contract to a new implementation and executes a function call.",
         "fields": {
           "newImplementation": "_newImplementation",
           "data": "_data"
         }
-      },
+      }
+    },
+    "other_functions": {
       "implementation": {
-        "description": "Returns the address of the current implementation contract.",
+        "description": "Returns the current implementation address.",
         "fields": {}
       },
       "changeAdmin": {
-        "description": "Changes the admin address of the contract.",
+        "description": "Changes the admin of the contract.",
         "fields": {
           "newAdmin": "_newAdmin"
         }
@@ -38,11 +28,19 @@
       "admin": {
         "description": "Returns the current admin address.",
         "fields": {}
-      }
-    },
-    "events": {
+      },
+      "constructor": {
+        "description": "Initializes the contract with the given implementation address.",
+        "fields": {
+          "_implementation": "_implementation"
+        }
+      },
+      "fallback": {
+        "description": "Fallback function to receive Ether.",
+        "fields": {}
+      },
       "AdminChanged": {
-        "description": "Emitted when the admin of the contract is changed.",
+        "description": "Emitted when the admin address changes.",
         "fields": {
           "previousAdmin": "_previousAdmin",
           "newAdmin": "_newAdmin"

@@ -1,219 +1,67 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "upgradeTo": {
+        "description": "Upgrades the contract to a new implementation.",
         "fields": {
-          "spender": "_spender",
-          "amount": "_value"
+          "newImplementation": "_newImplementation"
         }
       },
-      "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+      "upgradeToAndCall": {
+        "description": "Upgrades the contract to a new implementation and executes a function call.",
         "fields": {
-          "to": "_to",
-          "amount": "_amount"
-        }
-      },
-      "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "amount": "_amount"
+          "newImplementation": "_newImplementation",
+          "data": "_data"
         }
       }
     },
     "other_functions": {
+      "implementation": {
+        "description": "Returns the current implementation address.",
+        "fields": {}
+      },
+      "changeAdmin": {
+        "description": "Changes the admin of the contract.",
+        "fields": {
+          "newAdmin": "_newAdmin"
+        }
+      },
+      "admin": {
+        "description": "Returns the current admin address.",
+        "fields": {}
+      },
       "constructor": {
-        "description": "Initializes the contract with existing holders, amounts, and various parameters.",
+        "description": "Initializes the contract with the given implementation address.",
         "fields": {
-          "existingHolders": "_existingHolders",
-          "existingAmounts": "_existingAmounts",
-          "name": "_name_",
-          "symbol": "_symbol_",
-          "inflationCapPeriod": "_inflationCapPeriod_",
-          "inflationCapWad": "_inflationCapWad_",
-          "inflationLockPeriod": "_inflationLockPeriod_"
+          "_implementation": "_implementation"
         }
       },
-      "acceptOwnership": {
-        "description": "Accepts ownership transfer from the pending owner.",
+      "fallback": {
+        "description": "Fallback function to receive Ether.",
         "fields": {}
       },
-      "setMinter": {
-        "description": "Sets the address allowed to mint new tokens.",
+      "receive": {
+        "description": "Receive function to accept Ether.",
+        "fields": {}
+      }
+    },
+    "events": {
+      "AdminChanged": {
+        "description": "Emitted when the admin address changes.",
         "fields": {
-          "minter": "_minter_"
+          "previousAdmin": "_previousAdmin",
+          "newAdmin": "_newAdmin"
         }
       },
-      "mintInflation": {
-        "description": "Mints inflation tokens to a specified address.",
+      "BeaconUpgraded": {
+        "description": "Emitted when the beacon address is upgraded.",
         "fields": {
-          "to": "_to",
-          "amount": "_amount"
+          "beacon": "_beacon"
         }
       },
-      "mintOnce": {
-        "description": "Mints tokens to new holders in a single transaction.",
+      "Upgraded": {
+        "description": "Emitted when the contract is upgraded to a new implementation.",
         "fields": {
-          "newHolders": "_newHolders",
-          "newAmounts": "_newAmounts"
-        }
-      },
-      "transferOwnership": {
-        "description": "Transfers ownership of the contract to a new address.",
-        "fields": {
-          "newOwner": "_newOwner"
-        }
-      },
-      "decreaseAllowance": {
-        "description": "Decreases the allowance of a spender.",
-        "fields": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
-        }
-      },
-      "increaseAllowance": {
-        "description": "Increases the allowance of a spender.",
-        "fields": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
-        }
-      },
-      "INITIAL_SUPPLY_CAP": {
-        "description": "Returns the initial supply cap of the token.",
-        "fields": {}
-      },
-      "WAD_ONE": {
-        "description": "Returns the WAD_ONE value used in calculations.",
-        "fields": {}
-      },
-      "balanceOf": {
-        "description": "Returns the balance of a specified account.",
-        "fields": {
-          "account": "_account"
-        }
-      },
-      "allowance": {
-        "description": "Returns the amount of tokens that a spender is allowed to withdraw from the owner’s account.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender"
-        }
-      },
-      "currentPeriodEnd": {
-        "description": "Returns the end time of the current inflation cap period.",
-        "fields": {}
-      },
-      "currentPeriodSupplyCap": {
-        "description": "Returns the supply cap for the current inflation period.",
-        "fields": {}
-      },
-      "decimals": {
-        "description": "Returns the number of decimal places used for token values.",
-        "fields": {}
-      },
-      "inflationCapPeriod": {
-        "description": "Returns the period for the inflation cap.",
-        "fields": {}
-      },
-      "inflationCapWad": {
-        "description": "Returns the inflation cap in WAD units.",
-        "fields": {}
-      },
-      "inflationUnlockTime": {
-        "description": "Returns the unlock time for inflation.",
-        "fields": {}
-      },
-      "initialMintDone": {
-        "description": "Returns whether the initial minting has been completed.",
-        "fields": {}
-      },
-      "minter": {
-        "description": "Returns the address authorized to mint new tokens.",
-        "fields": {}
-      },
-      "name": {
-        "description": "Returns the name of the token.",
-        "fields": {}
-      },
-      "symbol": {
-        "description": "Returns the symbol of the token.",
-        "fields": {}
-      },
-      "totalSupply": {
-        "description": "Returns the total supply of the token.",
-        "fields": {}
-      },
-      "owner": {
-        "description": "Returns the current owner of the contract.",
-        "fields": {}
-      },
-      "pendingOwner": {
-        "description": "Returns the address of the pending owner for ownership transfer.",
-        "fields": {}
-      },
-      "renounceOwnership": {
-        "description": "Renounces ownership of the contract.",
-        "fields": {}
-      },
-      "TokenUpdated": {
-        "description": "Emitted when the token parameters are updated.",
-        "fields": {
-          "newToken": "_newToken",
-          "name": "_name",
-          "symbol": "_symbol",
-          "existingHolders": "_existingHolders",
-          "existingAmounts": "_existingAmounts",
-          "inflationCapPeriod": "_inflationCapPeriod",
-          "inflationCapWad": "_inflationCapWad",
-          "inflationLockPeriod": "_inflationLockPeriod"
-        }
-      },
-      "TokensMinted": {
-        "description": "Emitted when tokens are minted to new holders.",
-        "fields": {
-          "minter": "_minter",
-          "newHolders": "_newHolders",
-          "newAmounts": "_newAmounts"
-        }
-      },
-      "InflationTokensMinted": {
-        "description": "Emitted when inflation tokens are minted.",
-        "fields": {
-          "minter": "_minter",
-          "to": "_to",
-          "amount": "_amount"
-        }
-      },
-      "OwnershipTransferStarted": {
-        "description": "Emitted when ownership transfer starts.",
-        "fields": {
-          "previousOwner": "_previousOwner",
-          "newOwner": "_newOwner"
-        }
-      },
-      "OwnershipTransferred": {
-        "description": "Emitted when ownership is transferred.",
-        "fields": {
-          "previousOwner": "_previousOwner",
-          "newOwner": "_newOwner"
-        }
-      },
-      "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        }
-      },
-      "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
+          "implementation": "_implementation"
         }
       }
     }

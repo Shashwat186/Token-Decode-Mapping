@@ -1,148 +1,153 @@
 {
-    "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
-      "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
-        "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
-        }
-      },
-      "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
-        "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
-        }
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers tokens to a specified address.",
+      "fields": {
+        "to": "_to",
+        "value": "_value"
       }
     },
-    "other_functions": {
-      "setTransferAgent": {
-        "description": "Sets a transfer agent with the specified address and state.",
-        "fields": {
-          "transfer_agent": "addr",
-          "state": "state"
-        }
-      },
-      "setReleaseAgent": {
-        "description": "Sets the release agent with the specified address.",
-        "fields": {
-          "release_agent": "addr"
-        }
-      },
-      "setUpgradeAgent": {
-        "description": "Sets the upgrade agent with the specified address.",
-        "fields": {
-          "upgrade_agent": "agent"
-        }
-      },
-      "setUpgradeMaster": {
-        "description": "Sets the upgrade master with the specified address.",
-        "fields": {
-          "upgrade_master": "master"
-        }
-      },
-      "mint": {
-        "description": "Mints new tokens to the specified address.",
-        "fields": {
-          "recipient": "_to",
-          "amount": "_amount"
-        }
-      },
-      "finishMinting": {
-        "description": "Finishes the minting process.",
-        "fields": {}
-      },
-      "releaseTokenTransfer": {
-        "description": "Releases token transfer restrictions.",
-        "fields": {}
-      },
-      "upgrade": {
-        "description": "Upgrades the contract to a new version.",
-        "fields": {
-          "value": "value"
-        }
-      },
-      "renounceOwnership": {
-        "description": "Renounces ownership of the contract.",
-        "fields": {}
-      },
-      "transferOwnership": {
-        "description": "Transfers ownership of the contract to a new address.",
-        "fields": {
-          "newOwner": "_newOwner"
-        }
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another, given approval.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
       }
     },
-    "events": {
-      "UpdatedTokenInformation": {
-        "description": "Emitted when the token information is updated.",
-        "fields": {
-          "newName": "newName",
-          "newSymbol": "newSymbol"
-        }
-      },
-      "Upgrade": {
-        "description": "Emitted when an upgrade is made.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        }
-      },
-      "UpgradeAgentSet": {
-        "description": "Emitted when the upgrade agent is set.",
-        "fields": {
-          "agent": "agent"
-        }
-      },
-      "Mint": {
-        "description": "Emitted when new tokens are minted.",
-        "fields": {
-          "to": "to",
-          "amount": "amount"
-        }
-      },
-      "MintFinished": {
-        "description": "Emitted when minting is finished.",
-        "fields": {}
-      },
-      "OwnershipRenounced": {
-        "description": "Emitted when ownership is renounced.",
-        "fields": {
-          "previousOwner": "previousOwner"
-        }
-      },
-      "OwnershipTransferred": {
-        "description": "Emitted when ownership is transferred.",
-        "fields": {
-          "previousOwner": "previousOwner",
-          "newOwner": "newOwner"
-        }
-      },
-      "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
-        "fields": {
-          "owner": "owner",
-          "spender": "spender",
-          "value": "value"
-        }
-      },
-      "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
-        "fields": {
-          "from": "from",
-          "to": "to",
-          "value": "value"
-        }
+    "approve": {
+      "description": "Approves the spender to withdraw tokens from your account.",
+      "fields": {
+        "spender": "_spender",
+        "value": "_value"
       }
+    },
+    "increaseApproval": {
+      "description": "Increases the amount of tokens a spender is allowed to withdraw.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    "decreaseApproval": {
+      "description": "Decreases the amount of tokens a spender is allowed to withdraw.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
+    "setTransferAgent": {
+      "description": "Assigns or removes a transfer agent.",
+      "fields": {
+        "address": "addr",
+        "state": "state"
+      }
+    },
+    "releaseTokenTransfer": {
+      "description": "Releases the token transfer once conditions are met.",
+      "fields": {}
+    }
+  },
+  "other_functions": {
+    "mint": {
+      "description": "Mints new tokens and assigns them to an address.",
+      "fields": {
+        "to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "finishMinting": {
+      "description": "Finishes the minting process.",
+      "fields": {}
+    },
+    "mintingFinished": {
+      "description": "Returns whether minting is finished.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the balance of a specified address.",
+      "fields": {
+        "owner": "_owner"
+      }
+    },
+    "totalSupply": {
+      "description": "Returns the total token supply.",
+      "fields": {}
+    },
+    "upgrade": {
+      "description": "Upgrades the contract with a new version.",
+      "fields": {
+        "value": "value"
+      }
+    },
+    "upgradeAgent": {
+      "description": "Returns the upgrade agent address.",
+      "fields": {}
+    },
+    "setUpgradeAgent": {
+      "description": "Sets a new upgrade agent address.",
+      "fields": {
+        "agent": "agent"
+      }
+    },
+    "canUpgrade": {
+      "description": "Checks if the token can be upgraded.",
+      "fields": {}
+    },
+    "getUpgradeState": {
+      "description": "Returns the upgrade state of the token.",
+      "fields": {}
+    },
+    "owner": {
+      "description": "Returns the owner address of the contract.",
+      "fields": {}
+    },
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to a new owner.",
+      "fields": {
+        "newOwner": "_newOwner"
+      }
+    },
+    "renounceOwnership": {
+      "description": "Renounces ownership of the contract.",
+      "fields": {}
+    },
+    "setReleaseAgent": {
+      "description": "Sets an agent to release the tokens.",
+      "fields": {
+        "address": "addr"
+      }
+    },
+    "released": {
+      "description": "Checks if the token has been released for transfers.",
+      "fields": {}
+    },
+    "name": {
+      "description": "Returns the token name.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the token symbol.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the token's decimal places.",
+      "fields": {}
+    },
+    "allowance": {
+      "description": "Returns the allowance for a spender.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    "releaseAgent": {
+      "description": "Returns the release agent address.",
+      "fields": {}
+    },
+    "totalUpgraded": {
+      "description": "Returns the total upgraded tokens.",
+      "fields": {}
     }
   }
-  
+}

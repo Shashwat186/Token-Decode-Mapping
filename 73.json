@@ -1,179 +1,143 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers tokens to a recipient.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
+          "recipient": "_recipient",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from a specified address to another address, using the allowance mechanism.",
+        "description": "Transfers tokens from one address to another using an allowance.",
         "fields": {
-          "from": "_from",
-          "to": "_to",
-          "amount": "_value"
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        }
+      },
+      "mint": {
+        "description": "Mints new tokens to a specified address.",
+        "fields": {
+          "user": "_user",
+          "amount": "_amount"
         }
       }
     },
     "other_functions": {
-      "setPrecrime": {
-        "description": "Sets the precrime address for the contract.",
+      "allowance": {
+        "description": "Returns the remaining number of tokens that the spender can spend on behalf of the owner.",
         "fields": {
-          "precrime_address": "_precrime"
+          "owner": "_owner",
+          "spender": "_spender"
         }
       },
-      "setReceiveVersion": {
-        "description": "Sets the version for receiving messages.",
+      "approve": {
+        "description": "Allows the spender to withdraw a set amount of tokens from the owner's account.",
         "fields": {
-          "version": "_version"
+          "spender": "_spender",
+          "amount": "_amount"
         }
       },
-      "setSendVersion": {
-        "description": "Sets the version for sending messages.",
+      "decreaseAllowance": {
+        "description": "Decreases the allowance granted to a spender by the owner.",
         "fields": {
-          "version": "_version"
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
         }
       },
-      "setTrustedRemote": {
-        "description": "Sets the trusted remote address for a given source chain ID.",
+      "increaseAllowance": {
+        "description": "Increases the allowance granted to a spender by the owner.",
         "fields": {
-          "srcChainId": "_srcChainId",
-          "path": "_path"
+          "spender": "_spender",
+          "addedValue": "_addedValue"
         }
       },
-      "setTrustedRemoteAddress": {
-        "description": "Sets the trusted remote address for a given remote chain ID.",
+      "balanceOf": {
+        "description": "Returns the balance of a specific address.",
         "fields": {
-          "remoteChainId": "_remoteChainId",
-          "remoteAddress": "_remoteAddress"
+          "account": "_account"
         }
       },
-      "setUseCustomAdapterParams": {
-        "description": "Sets whether to use custom adapter parameters.",
+      "grantRole": {
+        "description": "Grants a specific role to an account.",
         "fields": {
-          "useCustomAdapterParams": "_useCustomAdapterParams"
+          "role": "_role",
+          "account": "_account"
         }
       },
-      "setWhitelist": {
-        "description": "Sets or unsets a whitelist status for an address.",
+      "revokeRole": {
+        "description": "Revokes a specific role from an account.",
         "fields": {
-          "address": "_addr",
-          "isWhitelist": "_isWhitelist"
+          "role": "_role",
+          "account": "_account"
         }
       },
-      "setConfig": {
-        "description": "Sets configuration for a specified version, chain ID, and config type.",
+      "hasRole": {
+        "description": "Checks if an account has a specific role.",
         "fields": {
-          "version": "_version",
-          "chainId": "_chainId",
-          "configType": "_configType",
-          "config": "_config"
+          "role": "_role",
+          "account": "_account"
         }
       },
-      "setFeeBp": {
-        "description": "Sets the fee basis points for a specific destination chain.",
+      "getRoleMember": {
+        "description": "Returns the account at a specific index for a role.",
         "fields": {
-          "dstChainId": "_dstChainId",
-          "enabled": "_enabled",
-          "feeBp": "_feeBp"
+          "role": "_role",
+          "index": "_index"
         }
       },
-      "setDefaultFeeBp": {
-        "description": "Sets the default fee basis points.",
+      "getRoleMemberCount": {
+        "description": "Returns the number of accounts that have a specific role.",
         "fields": {
-          "feeBp": "_feeBp"
+          "role": "_role"
         }
       },
-      "setFeeOwner": {
-        "description": "Sets the address that owns the fee.",
+      "renounceRole": {
+        "description": "Renounces a role from the calling account.",
         "fields": {
-          "feeOwner": "_feeOwner"
+          "role": "_role",
+          "account": "_account"
         }
       },
-      "setInboundCap": {
-        "description": "Sets the inbound cap for a specific chain ID.",
+      "getNonce": {
+        "description": "Returns the current nonce for a user, useful for meta-transactions.",
         "fields": {
-          "chainId": "_chainId",
-          "cap": "_cap"
+          "user": "_user"
         }
       },
-      "setOutboundCap": {
-        "description": "Sets the outbound cap for a specific chain ID.",
+      "executeMetaTransaction": {
+        "description": "Executes a meta-transaction.",
         "fields": {
-          "chainId": "_chainId",
-          "cap": "_cap"
+          "userAddress": "_userAddress",
+          "functionSignature": "_functionSignature",
+          "sigR": "_sigR",
+          "sigS": "_sigS",
+          "sigV": "_sigV"
         }
       },
-      "setMinDstGas": {
-        "description": "Sets the minimum gas required for a specific destination chain and packet type.",
-        "fields": {
-          "dstChainId": "_dstChainId",
-          "packetType": "_packetType",
-          "minGas": "_minGas"
-        }
-      },
-      "setOperator": {
-        "description": "Sets the operator address.",
-        "fields": {
-          "newOperator": "_newOperator"
-        }
-      
-      },
-      "pause": {
-        "description": "Pauses the contract, preventing certain actions.",
+      "getDomainSeperator": {
+        "description": "Returns the domain separator used in the encoding of the signature for meta-transactions.",
         "fields": {}
       },
-      "unpause": {
-        "description": "Unpauses the contract, resuming normal operations.",
+      "getChainId": {
+        "description": "Returns the chain ID of the contract's blockchain.",
         "fields": {}
       },
-      "forceResumeReceive": {
-        "description": "Forces the resumption of receiving messages for a given source chain.",
-        "fields": {
-          "srcChainId": "_srcChainId",
-          "srcAddress": "_srcAddress"
-        }
-    
-      },
-      "sharedDecimals": {
-        "description": "Returns the number of decimal places used by the token.",
+      "name": {
+        "description": "Returns the name of the token.",
         "fields": {}
-      },
-      "supportsInterface": {
-        "description": "Checks if the contract implements a given interface.",
-        "fields": {
-          "interfaceId": "_interfaceId"
-        }
       },
       "symbol": {
         "description": "Returns the symbol of the token.",
         "fields": {}
       },
-      "token": {
-        "description": "Returns the token address.",
+      "decimals": {
+        "description": "Returns the number of decimals the token uses.",
         "fields": {}
       },
       "totalSupply": {
-        "description": "Returns the total supply of tokens.",
+        "description": "Returns the total token supply.",
         "fields": {}
-      },
-      "useCustomAdapterParams": {
-        "description": "Checks if custom adapter parameters are used.",
-        "fields": {}
-      },
-      "whitelist": {
-        "description": "Checks if an address is whitelisted.",
-        "fields": {
-          "address": "_address"
-        }
       }
     }
   }

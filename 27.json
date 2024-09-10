@@ -7,32 +7,33 @@
       }
     },
     "upgradeToAndCall": {
-      "description": "Upgrades the contract to a new implementation and calls a function on the new implementation.",
+      "description": "Upgrades the contract to a new implementation and executes a function call.",
       "fields": {
         "newImplementation": "_newImplementation",
         "data": "_data"
       }
+    }
+  },
+  "other_functions": {
+    "implementation": {
+      "description": "Returns the current implementation address.",
+      "fields": {}
     },
     "changeAdmin": {
       "description": "Changes the admin of the contract.",
       "fields": {
         "newAdmin": "_newAdmin"
       }
-    }
-  },
-  "other_functions": {
+    },
     "admin": {
-      "description": "Returns the address of the current admin.",
+      "description": "Returns the current admin address.",
       "fields": {}
     },
-    "implementation": {
-      "description": "Returns the address of the current implementation.",
-      "fields": {}
-    },
-    "constructor": {
-      "description": "Initializes the contract with an implementation address and initialization data.",
+    "initialize": {
+      "description": "Initializes the contract with the given implementation address and admin.",
       "fields": {
-        "_implementation": "_implementation",
+        "_logic": "_logic",
+        "_admin": "_admin",
         "_data": "_data"
       }
     },
@@ -40,19 +41,18 @@
       "description": "Fallback function to receive Ether.",
       "fields": {}
     },
-      "AdminChanged": {
-        "description": "Emitted when the admin of the contract is changed.",
-        "fields": {
-          "previousAdmin": "_previousAdmin",
-          "newAdmin": "_newAdmin"
-        }
-      },
-      "Upgraded": {
-        "description": "Emitted when the contract is upgraded to a new implementation.",
-        "fields": {
-          "implementation": "_implementation"
-        }
+    "AdminChanged": {
+      "description": "Emitted when the admin address changes.",
+      "fields": {
+        "previousAdmin": "_previousAdmin",
+        "newAdmin": "_newAdmin"
+      }
+    },
+    "Upgraded": {
+      "description": "Emitted when the contract is upgraded to a new implementation.",
+      "fields": {
+        "implementation": "_implementation"
       }
     }
   }
-
+}

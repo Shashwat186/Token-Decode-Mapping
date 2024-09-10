@@ -1,195 +1,157 @@
 {
     "transfer_functions": {
+      "transfer": {
+        "description": "Transfers a specified amount of tokens to a given address.",
+        "fields": {
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers a specified amount of tokens from one address to another, using the allowance set by the owner.",
+        "fields": {
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        }
+      },
       "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "description": "Allows a spender to withdraw from the owner's account multiple times, up to the specified amount.",
         "fields": {
           "spender": "_spender",
           "amount": "_amount"
         }
       },
-      "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
-        "fields": {
-          "transfer_to": "_to",
-          "amount": "_amount"
-        }
-      },
-      "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
-        "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_amount"
-        }
-      }
-    },
-    "other_functions": {
-      "addEchelonHandlerContract": {
-        "description": "Adds an Echelon handler contract with specified addresses.",
-        "fields": {
-          "contractAddress": "_contractAddress",
-          "ethDestinationAddress": "_ethDestinationAddress",
-          "primeDestinationAddress": "_primeDestinationAddress"
-        }
-      },
-      "executeUnlock": {
-        "description": "Executes the unlock action for the token.",
-        "fields": {}
-      },
-      "toggleAllowlistFrom": {
-        "description": "Toggles the allowlist status for a list of addresses (from).",
-        "fields": {
-          "allowlistAddresses": "_allowlistAddresses",
-          "toggle": "_toggle"
-        }
-      },
-      "toggleAllowlistTo": {
-        "description": "Toggles the allowlist status for a list of addresses (to).",
-        "fields": {
-          "allowlistAddresses": "_allowlistAddresses",
-          "toggle": "_toggle"
-        }
-      },
       "increaseAllowance": {
-        "description": "Increases the allowance for a spender by a specified amount.",
+        "description": "Increases the amount of tokens that a spender is allowed to withdraw from the owner's account.",
         "fields": {
           "spender": "_spender",
           "addedValue": "_addedValue"
         }
       },
       "decreaseAllowance": {
-        "description": "Decreases the allowance for a spender by a specified amount.",
+        "description": "Decreases the amount of tokens that a spender is allowed to withdraw from the owner's account.",
         "fields": {
           "spender": "_spender",
           "subtractedValue": "_subtractedValue"
         }
+      }
+    },
+    "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract with the given owner address.",
+        "fields": {
+          "_owner": "_owner"
+        }
+      },
+      "DOMAIN_SEPARATOR": {
+        "description": "Returns the domain separator used in the EIP-712 encoding for permits.",
+        "fields": {}
+      },
+      "allowance": {
+        "description": "Returns the amount of tokens that a spender is allowed to withdraw from the owner's account.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the token balance of a specified address.",
+        "fields": {
+          "account": "_account"
+        }
       },
       "burn": {
-        "description": "Burns a specified amount of tokens from the caller’s account.",
+        "description": "Burns a specified amount of tokens from the caller's account.",
         "fields": {
           "amount": "_amount"
         }
       },
       "burnFrom": {
-        "description": "Burns a specified amount of tokens from another account.",
+        "description": "Burns a specified amount of tokens from a given address's account.",
         "fields": {
           "account": "_account",
           "amount": "_amount"
         }
       },
-      "setDenom": {
-        "description": "Sets the Cosmos denomination.",
-        "fields": {
-          "denom": "_denom"
-        }
-      },
-      "mint": {
-        "description": "Mints new tokens and adds them to a specified account.",
-        "fields": {
-          "user": "_user",
-          "amount": "_amount"
-        }
-      },
-      "unlocked": {
-        "description": "Checks if the contract is unlocked.",
+      "decimals": {
+        "description": "Returns the number of decimal places used for the token.",
         "fields": {}
       },
-      "invokeEchelon": {
-        "description": "Invokes Echelon with specified parameters.",
+      "mint": {
+        "description": "Mints a specified amount of tokens to a given address.",
         "fields": {
-          "handlerAddress": "_handlerAddress",
-          "id": "_id",
-          "primeValue": "_primeValue",
-          "data": "_data"
-        }
-      },
-      "getRoleAdmin": {
-        "description": "Returns the admin role of a given role.",
-        "fields": {
-          "role": "_role"
-        }
-      },
-      "grantRole": {
-        "description": "Grants a role to an account.",
-        "fields": {
-          "role": "_role",
-          "account": "_account"
-        }
-      },
-      "hasRole": {
-        "description": "Checks if an account has a specified role.",
-        "fields": {
-          "role": "_role",
-          "account": "_account"
-        }
-      },
-      "renounceRole": {
-        "description": "Renounces a role from an account.",
-        "fields": {
-          "role": "_role",
-          "account": "_account"
-        }
-      },
-      "revokeRole": {
-        "description": "Revokes a role from an account.",
-        "fields": {
-          "role": "_role",
-          "account": "_account"
-        }
-      },
-      "supportsInterface": {
-        "description": "Checks if the contract supports a specific interface.",
-        "fields": {
-          "interfaceId": "_interfaceId"
+          "to": "_to",
+          "amount": "_amount"
         }
       },
       "name": {
         "description": "Returns the name of the token.",
         "fields": {}
       },
+      "nonces": {
+        "description": "Returns the current nonce for a given address, used for permit signatures.",
+        "fields": {
+          "owner": "_owner"
+        }
+      },
+      "owner": {
+        "description": "Returns the address of the current owner.",
+        "fields": {}
+      },
+      "permit": {
+        "description": "Allows a spender to withdraw tokens from an owner's account using a permit instead of a transaction.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value",
+          "deadline": "_deadline",
+          "v": "_v",
+          "r": "_r",
+          "s": "_s"
+        }
+      },
+      "renounceOwnership": {
+        "description": "Renounces ownership of the contract, leaving it without an owner.",
+        "fields": {}
+      },
       "symbol": {
         "description": "Returns the symbol of the token.",
         "fields": {}
       },
-      "decimals": {
-        "description": "Returns the number of decimals used by the token.",
-        "fields": {}
-      },
       "totalSupply": {
-        "description": "Returns the total supply of tokens.",
+        "description": "Returns the total supply of tokens in circulation.",
         "fields": {}
       },
-      "balanceOf": {
-        "description": "Returns the balance of a specific account.",
+      "transferOwnership": {
+        "description": "Transfers ownership of the contract to a new address.",
         "fields": {
-          "account": "_account"
+          "newOwner": "_newOwner"
         }
-      },
-      "allowance": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to withdraw from the owner.",
+      }
+    },
+    "events": {
+      "Approval": {
+        "description": "Emitted when an approval is made.",
         "fields": {
           "owner": "_owner",
-          "spender": "_spender"
+          "spender": "_spender",
+          "value": "_value"
         }
       },
-      "echelonGateways": {
-        "description": "Returns the Echelon gateway addresses associated with the contract.",
+      "OwnershipTransferred": {
+        "description": "Emitted when ownership is transferred.",
         "fields": {
-          "ethDestinationAddress": "_ethDestinationAddress",
-          "primeDestinationAddress": "_primeDestinationAddress",
-          "invokeEchelonHandler": "_invokeEchelonHandler"
+          "previousOwner": "_previousOwner",
+          "newOwner": "_newOwner"
         }
       },
-      "isAllowlistFrom": {
-        "description": "Checks if an address is on the allowlist (from).",
+      "Transfer": {
+        "description": "Emitted when a transfer of tokens occurs.",
         "fields": {
-          "address": "_address"
-        }
-      },
-      "isAllowlistTo": {
-        "description": "Checks if an address is on the allowlist (to).",
-        "fields": {
-          "address": "_address"
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
         }
       }
     }

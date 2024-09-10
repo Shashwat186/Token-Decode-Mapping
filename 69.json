@@ -1,21 +1,24 @@
 {
     "transfer_functions": {
-      "fallback": {
-        "description": "A fallback function that is triggered when the contract receives ether without data.",
-        "fields": {}
+      "ProxyDeposit": {
+        "description": "Emitted when Ether is deposited into the proxy.",
+        "fields": {
+          "sender": "_sender",
+          "value": "_value"
+        }
       }
     },
     "other_functions": {
       "proxyType": {
-        "description": "Returns the type of the proxy.",
+        "description": "Returns the type of proxy.",
         "fields": {}
       },
       "isDepositable": {
-        "description": "Returns whether the contract is depositable.",
+        "description": "Checks if deposits are allowed in this contract.",
         "fields": {}
       },
       "implementation": {
-        "description": "Returns the address of the implementation contract.",
+        "description": "Returns the current implementation address.",
         "fields": {}
       },
       "appId": {
@@ -23,25 +26,20 @@
         "fields": {}
       },
       "kernel": {
-        "description": "Returns the address of the kernel contract.",
+        "description": "Returns the address of the kernel.",
         "fields": {}
       },
       "constructor": {
-        "description": "Initializes the contract with the specified kernel address, application ID, and initialization payload.",
+        "description": "Initializes the contract with the given kernel, app ID, and initialization payload.",
         "fields": {
           "_kernel": "_kernel",
           "_appId": "_appId",
           "_initializePayload": "_initializePayload"
         }
-      }
-    },
-    "events": {
-      "ProxyDeposit": {
-        "description": "Emitted when a deposit is made to the proxy.",
-        "fields": {
-          "sender": "_sender",
-          "value": "_value"
-        }
+      },
+      "fallback": {
+        "description": "Fallback function to receive Ether.",
+        "fields": {}
       }
     }
   }

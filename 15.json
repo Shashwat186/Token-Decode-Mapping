@@ -1,23 +1,16 @@
 {
   "transfer_functions": {
-    "approve": {
-      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+    "transfer": {
+      "description": "Transfers tokens to a specified address.",
       "fields": {
-        "spender": "_spender",
+        "recipient": "_recipient",
         "amount": "_amount"
       }
     },
     "transferFrom": {
-      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "description": "Transfers tokens from one address to another on behalf of the owner.",
       "fields": {
-        "from": "_from",
-        "to": "_to",
-        "amount": "_amount"
-      }
-    },
-    "transfer": {
-      "description": "Transfers tokens from the caller’s account to the specified recipient.",
-      "fields": {
+        "sender": "_sender",
         "recipient": "_recipient",
         "amount": "_amount"
       }
@@ -30,7 +23,7 @@
       }
     },
     "finaliseNearToEthTransfer": {
-      "description": "Finalizes a transfer of tokens from NEAR to Ethereum after proof verification.",
+      "description": "Finalizes a transfer of tokens from NEAR to Ethereum.",
       "fields": {
         "proofData": "_proofData",
         "proofBlockHeight": "_proofBlockHeight"
@@ -39,73 +32,80 @@
   },
   "other_functions": {
     "admin": {
-      "description": "Returns the address of the admin.",
+      "description": "Returns the current admin address.",
       "fields": {}
     },
     "adminDelegatecall": {
-      "description": "Allows the admin to perform delegate calls.",
+      "description": "Executes a delegate call to an admin-specified address.",
       "fields": {
         "target": "_target",
         "data": "_data"
       }
     },
     "adminPause": {
-      "description": "Pauses the contract operations based on flags.",
+      "description": "Pauses the contract with specified flags.",
       "fields": {
         "flags": "_flags"
       }
     },
     "adminReceiveEth": {
-      "description": "Allows the contract to receive ETH.",
+      "description": "Allows the contract to receive Ether.",
       "fields": {}
     },
     "adminSendEth": {
-      "description": "Allows the admin to send ETH to a specified address.",
+      "description": "Allows the contract to send Ether to a specified address.",
       "fields": {
         "destination": "_destination",
         "amount": "_amount"
       }
     },
     "adminSstore": {
-      "description": "Allows the admin to store values in the contract.",
+      "description": "Stores a value in the contract's storage.",
       "fields": {
         "key": "_key",
         "value": "_value"
       }
     },
     "allowance": {
-      "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the owner.",
+      "description": "Returns the amount of tokens that an owner allowed to a spender.",
       "fields": {
         "owner": "_owner",
         "spender": "_spender"
       }
     },
+    "approve": {
+      "description": "Allows a spender to withdraw tokens from the owner's account.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
+    },
     "balanceOf": {
-      "description": "Returns the balance of a specified address.",
+      "description": "Returns the token balance of a specified address.",
       "fields": {
         "account": "_account"
       }
     },
     "decimals": {
-      "description": "Returns the number of decimals used to get the user representation of the token.",
+      "description": "Returns the number of decimal places the token uses.",
       "fields": {}
     },
-    "increaseAllowance": {
-      "description": "Increases the allowance of a spender.",
-      "fields": {
-        "spender": "_spender",
-        "addedValue": "_addedValue"
-      }
-    },
     "decreaseAllowance": {
-      "description": "Decreases the allowance of a spender.",
+      "description": "Decreases the allowance granted to a spender.",
       "fields": {
         "spender": "_spender",
         "subtractedValue": "_subtractedValue"
       }
     },
+    "increaseAllowance": {
+      "description": "Increases the allowance granted to a spender.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
     "minBlockAcceptanceHeight": {
-      "description": "Returns the minimum block height for acceptance.",
+      "description": "Returns the minimum block height required for acceptance.",
       "fields": {}
     },
     "name": {
@@ -113,15 +113,15 @@
       "fields": {}
     },
     "nearConnector": {
-      "description": "Returns the NEAR connector details.",
+      "description": "Returns the connector used for NEAR integration.",
       "fields": {}
     },
     "paused": {
-      "description": "Returns the paused status flags of the contract.",
+      "description": "Returns the current pause status of the contract.",
       "fields": {}
     },
     "prover": {
-      "description": "Returns the address of the prover contract.",
+      "description": "Returns the address of the NEAR prover contract.",
       "fields": {}
     },
     "symbol": {
@@ -129,58 +129,14 @@
       "fields": {}
     },
     "totalSupply": {
-      "description": "Returns the total supply of tokens.",
+      "description": "Returns the total supply of the token.",
       "fields": {}
+    },
+    "usedProofs": {
+      "description": "Checks if a given proof has been used.",
+      "fields": {
+        "proofId": "_proofId"
+      }
     }
-  },
-    "Approval": {
-      "description": "Triggered when approval is granted to a spender.",
-      "fields": {
-        "owner": "_owner",
-        "spender": "_spender",
-        "value": "_value"
-      }
-    },
-    "ConsumedProof": {
-      "description": "Triggered when a proof is consumed.",
-      "fields": {
-        "receiptId": "_receiptId"
-      }
-    },
-    "NearToEthTransferFinalised": {
-      "description": "Triggered when a NEAR to ETH transfer is finalized.",
-      "fields": {
-        "amount": "_amount",
-        "recipient": "_recipient"
-      }
-    },
-    "Transfer": {
-      "description": "Triggered when tokens are transferred.",
-      "fields": {
-        "from": "_from",
-        "to": "_to",
-        "value": "_value"
-      }
-    },
-    "TransferToNearInitiated": {
-      "description": "Triggered when a transfer to NEAR is initiated.",
-      "fields": {
-        "sender": "_sender",
-        "amount": "_amount",
-        "accountId": "_accountId"
-      }
-    },
-  "constructor": {
-    "description": "Constructor for initializing the contract with token parameters.",
-    "fields": {
-      "tokenName": "_tokenName",
-      "tokenSymbol": "_tokenSymbol",
-      "nearConnector": "_nearConnector",
-      "prover": "_prover",
-      "minBlockAcceptanceHeight": "_minBlockAcceptanceHeight",
-      "admin": "_admin",
-      "pausedFlags": "_pausedFlags"
-    }
+  }
 }
-}
-

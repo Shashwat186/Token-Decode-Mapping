@@ -1,165 +1,68 @@
 {
-  "transfer_functions": {
-    "approve": {
-      "parameters": {
-        "spender": "address",
-        "rawAmount": "uint256"
+  "functions": {
+    "transfer_functions": {
+      "upgradeTo": {
+        "description": "Upgrades the contract to a new implementation.",
+        "fields": {
+          "newImplementation": "_newImplementation"
+        }
       },
-      "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
+      "upgradeToAndCall": {
+        "description": "Upgrades the contract to a new implementation and executes a function call.",
+        "fields": {
+          "newImplementation": "_newImplementation",
+          "data": "_data"
+        }
+      }
     },
-    "transfer": {
-      "parameters": {
-        "dst": "address",
-        "rawAmount": "uint256"
+    "other_functions": {
+      "implementation": {
+        "description": "Returns the current implementation address.",
+        "fields": {}
       },
-      "description": "Transfers tokens from the caller's account to the specified address."
-    },
-    "transferFrom": {
-      "parameters": {
-        "src": "address",
-        "dst": "address",
-        "rawAmount": "uint256"
+      "changeAdmin": {
+        "description": "Changes the admin of the contract.",
+        "fields": {
+          "newAdmin": "_newAdmin"
+        }
       },
-      "description": "Transfers tokens from one address to another using the allowance mechanism."
-    },
-    "generateTokens": {
-      "parameters": {
-        "account": "address",
-        "rawAmount": "uint256"
+      "admin": {
+        "description": "Returns the current admin address.",
+        "fields": {}
       },
-      "description": "Mints new tokens and adds them to the specified account's balance."
-    },
-    "destroyTokens": {
-      "parameters": {
-        "account": "address",
-        "rawAmount": "uint256"
+      "constructor": {
+        "description": "Initializes the contract with the given implementation address.",
+        "fields": {
+          "_logic": "_logic",
+          "admin_": "_admin",
+          "_data": "_data"
+        }
       },
-      "description": "Destroys tokens from the specified account, reducing the total supply."
-    },
-    "approveAndCall": {
-      "parameters": {
-        "spender": "address",
-        "rawAmount": "uint256",
-        "extraData": "bytes"
-      },
-      "description": "Approves a spender and calls a specified function on the spender contract with the provided data."
-    },
-    "enableTransfers": {
-      "parameters": {
-        "transfersEnabled": "bool"
-      },
-      "description": "Enables or disables token transfers."
+      "fallback": {
+        "description": "Fallback function to receive Ether.",
+        "fields": {}
+      }
     }
   },
-  "other_functions": {
-    "name": {
-      "parameters": {},
-      "description": "Returns the name of the token."
+  "events": {
+    "AdminChanged": {
+      "description": "Emitted when the admin address changes.",
+      "fields": {
+        "previousAdmin": "_previousAdmin",
+        "newAdmin": "_newAdmin"
+      }
     },
-    "creationBlock": {
-      "parameters": {},
-      "description": "Returns the block number at which the token was created."
+    "BeaconUpgraded": {
+      "description": "Emitted when the beacon is upgraded.",
+      "fields": {
+        "beacon": "_beacon"
+      }
     },
-    "totalSupply": {
-      "parameters": {},
-      "description": "Returns the total supply of tokens."
-    },
-    "decimals": {
-      "parameters": {},
-      "description": "Returns the number of decimal places used to represent the token."
-    },
-    "changeController": {
-      "parameters": {
-        "newController": "address"
-      },
-      "description": "Changes the controller address."
-    },
-    "balanceOf": {
-      "parameters": {
-        "owner": "address"
-      },
-      "description": "Returns the balance of tokens held by the specified address."
-    },
-    "balanceOfAt": {
-      "parameters": {
-        "owner": "address",
-        "blockNumber": "uint256"
-      },
-      "description": "Returns the balance of tokens held by the specified address at a particular block number."
-    },
-    "version": {
-      "parameters": {},
-      "description": "Returns the version of the token contract."
-    },
-    "createCloneToken": {
-      "parameters": {
-        "cloneTokenName": "string",
-        "cloneDecimalUnits": "uint8",
-        "cloneTokenSymbol": "string",
-        "snapshotBlock": "uint256",
-        "transfersEnabled": "bool"
-      },
-      "description": "Creates a clone of the token with specified parameters and returns the address of the new token."
-    },
-    "parentToken": {
-      "parameters": {},
-      "description": "Returns the address of the parent token."
-    },
-    "parentSnapShotBlock": {
-      "parameters": {},
-      "description": "Returns the snapshot block number of the parent token."
-    },
-    "tokenFactory": {
-      "parameters": {},
-      "description": "Returns the address of the token factory."
-    },
-    "controller": {
-      "parameters": {},
-      "description": "Returns the address of the current controller."
-    },
-    "claimTokens": {
-      "parameters": {
-        "token": "address"
-      },
-      "description": "Claims tokens for the specified token address."
-    },
-    "allowance": {
-      "parameters": {
-        "owner": "address",
-        "spender": "address"
-      },
-      "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the owner's balance."
-    }
-  },
-    "ClaimedTokens": {
-      "inputs": {
-        "token": "address",
-        "controller": "address",
-        "amount": "uint256"
-      },
-      "description": "Emitted when tokens are claimed."
-    },
-    "Transfer": {
-      "inputs": {
-        "from": "address",
-        "to": "address",
-        "amount": "uint256"
-      },
-      "description": "Emitted when tokens are transferred from one address to another."
-    },
-    "NewCloneToken": {
-      "inputs": {
-        "cloneToken": "address",
-        "snapshotBlock": "uint256"
-      },
-      "description": "Emitted when a new clone token is created."
-    },
-    "Approval": {
-      "inputs": {
-        "owner": "address",
-        "spender": "address",
-        "amount": "uint256"
-      },
-      "description": "Emitted when an allowance is set for a spender."
+    "Upgraded": {
+      "description": "Emitted when the contract is upgraded to a new implementation.",
+      "fields": {
+        "implementation": "_implementation"
+      }
     }
   }
+}

@@ -1,54 +1,56 @@
 {
   "transfer_functions": {
-    "upgradeTo": {
-      "description": "Upgrades the implementation address of the proxy.",
-      "fields": {
-        "implementation": "_implementation"
-      }
-    },
-    "upgradeToAndCall": {
-      "description": "Upgrades the implementation address of the proxy and optionally executes a function on the new implementation.",
-      "fields": {
-        "implementation": "_implementation",
-        "data": "_data"
-      }
-    },
     "transferProxyOwnership": {
-      "description": "Transfers ownership of the proxy to a new address.",
+      "description": "Transfers the ownership of the proxy contract to a new address.",
       "fields": {
         "newOwner": "_newOwner"
       }
     }
   },
   "other_functions": {
-    "proxyOwner": {
-      "description": "Returns the address of the current proxy owner.",
-      "fields": {}
+    "upgradeTo": {
+      "description": "Upgrades the contract to a new implementation.",
+      "fields": {
+        "implementation": "_newImplementation"
+      }
+    },
+    "upgradeToAndCall": {
+      "description": "Upgrades the contract to a new implementation and executes a function call.",
+      "fields": {
+        "implementation": "_newImplementation",
+        "data": "_data"
+      }
     },
     "implementation": {
-      "description": "Returns the address of the current implementation.",
+      "description": "Returns the current implementation address.",
+      "fields": {}
+    },
+    "proxyOwner": {
+      "description": "Returns the current owner of the proxy contract.",
       "fields": {}
     },
     "constructor": {
-      "description": "Constructor function that initializes the contract.",
+      "description": "Initializes the contract with no specific inputs required.",
       "fields": {}
     },
     "fallback": {
-      "description": "Fallback function that receives Ether and forwards it to the implementation address.",
+      "description": "Fallback function to receive Ether.",
       "fields": {}
     }
   },
+  "events": {
     "ProxyOwnershipTransferred": {
-      "description": "Emitted when ownership of the proxy is transferred.",
+      "description": "Emitted when the ownership of the proxy contract is transferred.",
       "fields": {
         "previousOwner": "_previousOwner",
         "newOwner": "_newOwner"
       }
     },
     "Upgraded": {
-      "description": "Emitted when the implementation address is upgraded.",
+      "description": "Emitted when the contract is upgraded to a new implementation.",
       "fields": {
         "implementation": "_implementation"
       }
     }
   }
+}

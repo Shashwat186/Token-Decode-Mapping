@@ -1,154 +1,174 @@
 {
   "transfer_functions": {
     "approve": {
-      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "description": "Allows the spender to withdraw from the caller's account, multiple times, up to the specified amount.",
       "fields": {
-        "spender": "_spender",
-        "amount": "_value"
-      }
-    },
-    "transfer": {
-      "description": "Transfers tokens directly from the caller’s address to another address.",
-      "fields": {
-        "transfer_to": "_to",
-        "amount": "_value"
+        "_spender": "_spender",
+        "_value": "_value"
       }
     },
     "transferFrom": {
-      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "description": "Transfers tokens from one address to another using an allowance mechanism.",
       "fields": {
-        "transfer_from": "_from",
-        "transfer_to": "_to",
-        "amount": "_value"
+        "_from": "_from",
+        "_to": "_to",
+        "_value": "_value"
       }
-    }
-  },
-  "other_functions": {
+    },
+    "transfer": {
+      "description": "Transfers a specified amount of tokens to a given address.",
+      "fields": {
+        "_to": "_to",
+        "_value": "_value"
+      }
+    },
     "deprecate": {
-      "description": "Marks the contract as deprecated and sets a new address.",
+      "description": "Marks the contract as deprecated, setting a new upgraded contract address.",
       "fields": {
-        "upgradedAddress": "_upgradedAddress"
-      }
-    },
-    "addBlackList": {
-      "description": "Adds an address to the blacklist.",
-      "fields": {
-        "evilUser": "_evilUser"
-      }
-    },
-    "removeBlackList": {
-      "description": "Removes an address from the blacklist.",
-      "fields": {
-        "clearedUser": "_clearedUser"
-      }
-    },
-    "destroyBlackFunds": {
-      "description": "Destroys the blacklisted funds of a user.",
-      "fields": {
-        "blackListedUser": "_blackListedUser"
+        "_upgradedAddress": "_upgradedAddress"
       }
     },
     "setParams": {
-      "description": "Sets the fee basis points and maximum fee.",
+      "description": "Sets new fee parameters for transfers, including basis points and maximum fees.",
       "fields": {
-        "basisPoints": "_newBasisPoints",
-        "maxFee": "_newMaxFee"
+        "newBasisPoints": "newBasisPoints",
+        "newMaxFee": "newMaxFee"
       }
     },
     "issue": {
-      "description": "Issues new tokens to the caller’s account.",
+      "description": "Mints new tokens and adds them to the total supply.",
       "fields": {
-        "amount": "_amount"
+        "amount": "amount"
       }
     },
     "redeem": {
-      "description": "Redeems tokens from the caller’s account.",
+      "description": "Burns tokens from the total supply, reducing the overall supply.",
       "fields": {
-        "amount": "_amount"
+        "amount": "amount"
+      }
+    },
+    "destroyBlackFunds": {
+      "description": "Destroys the funds of a blacklisted address.",
+      "fields": {
+        "_blackListedUser": "_blackListedUser"
       }
     },
     "transferOwnership": {
       "description": "Transfers ownership of the contract to a new address.",
       "fields": {
-        "newOwner": "_newOwner"
+        "newOwner": "newOwner"
       }
     },
+    "addBlackList": {
+      "description": "Adds an address to the blacklist.",
+      "fields": {
+        "_evilUser": "_evilUser"
+      }
+    },
+    "removeBlackList": {
+      "description": "Removes an address from the blacklist.",
+      "fields": {
+        "_clearedUser": "_clearedUser"
+      }
+    }
+  },
+  "other_functions": {
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places the token uses.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "_totalSupply": {
+      "description": "Returns the internal total supply of tokens.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the balance of the specified address.",
+      "fields": {
+        "who": "who"
+      }
+    },
+    "allowance": {
+      "description": "Returns the remaining number of tokens that the spender is allowed to spend from the owner's account.",
+      "fields": {
+        "_owner": "_owner",
+        "_spender": "_spender"
+      }
+    },
+    "upgradedAddress": {
+      "description": "Returns the address of the upgraded contract, if any.",
+      "fields": {}
+    },
+    "deprecated": {
+      "description": "Indicates whether the contract is deprecated.",
+      "fields": {}
+    },
+    "paused": {
+      "description": "Returns whether the contract is currently paused.",
+      "fields": {}
+    },
+    "getOwner": {
+      "description": "Returns the address of the owner.",
+      "fields": {}
+    },
+    "owner": {
+      "description": "Returns the current owner's address.",
+      "fields": {}
+    },
+    "getBlackListStatus": {
+      "description": "Checks if a specified address is blacklisted.",
+      "fields": {
+        "_maker": "_maker"
+      }
+    },
+    "isBlackListed": {
+      "description": "Returns whether the specified address is blacklisted.",
+      "fields": {
+        "": ""
+      }
+    },
+    "balances": {
+      "description": "Returns the balance of a specific address.",
+      "fields": {
+        "": ""
+      }
+    },
+    "allowed": {
+      "description": "Returns the allowance that one address has on another.",
+      "fields": {
+        "": ""
+      }
+    },
+    "maximumFee": {
+      "description": "Returns the maximum transaction fee allowed.",
+      "fields": {}
+    },
+    "basisPointsRate": {
+      "description": "Returns the fee basis points rate.",
+      "fields": {}
+    },
+    "MAX_UINT": {
+      "description": "Returns the maximum possible uint256 value.",
+      "fields": {}
+    },
     "pause": {
-      "description": "Pauses all token transfers.",
+      "description": "Pauses the contract, preventing any token transfers.",
       "fields": {}
     },
     "unpause": {
-      "description": "Unpauses all token transfers.",
-      "fields": {}
-    },
-    "Issue": {
-      "description": "Emitted when new tokens are issued.",
-      "fields": {
-        "amount": "_amount"
-      }
-    },
-    "Redeem": {
-      "description": "Emitted when tokens are redeemed.",
-      "fields": {
-        "amount": "_amount"
-      }
-    },
-    "Deprecate": {
-      "description": "Emitted when the contract is deprecated.",
-      "fields": {
-        "newAddress": "_newAddress"
-      }
-    },
-    "Params": {
-      "description": "Emitted when the fee parameters are updated.",
-      "fields": {
-        "feeBasisPoints": "_feeBasisPoints",
-        "maxFee": "_maxFee"
-      }
-    },
-    "DestroyedBlackFunds": {
-      "description": "Emitted when blacklisted funds are destroyed.",
-      "fields": {
-        "blackListedUser": "_blackListedUser",
-        "balance": "_balance"
-      }
-    },
-    "AddedBlackList": {
-      "description": "Emitted when an address is added to the blacklist.",
-      "fields": {
-        "user": "_user"
-      }
-    },
-    "RemovedBlackList": {
-      "description": "Emitted when an address is removed from the blacklist.",
-      "fields": {
-        "user": "_user"
-      }
-    },
-    "Approval": {
-      "description": "Emitted when an approval is made for a spender to withdraw tokens.",
-      "fields": {
-        "owner": "_owner",
-        "spender": "_spender",
-        "value": "_value"
-      }
-    },
-    "Transfer": {
-      "description": "Emitted when tokens are transferred from one address to another.",
-      "fields": {
-        "from": "_from",
-        "to": "_to",
-        "value": "_value"
-      }
-    },
-    "Pause": {
-      "description": "Emitted when the contract is paused.",
-      "fields": {}
-    },
-    "Unpause": {
-      "description": "Emitted when the contract is unpaused.",
+      "description": "Unpauses the contract, allowing token transfers to resume.",
       "fields": {}
     }
   }
 }
-

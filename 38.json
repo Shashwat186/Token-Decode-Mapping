@@ -1,172 +1,149 @@
 {
   "transfer_functions": {
-    "approve": {
-      "parameters": {
-        "guy": "_guy",
-        "wad": "_wad"
-      },
-      "description": "Approves the specified address to spend a specified amount of tokens."
+    "transfer": {
+      "description": "Transfers `amount` tokens from the caller's account to `recipient`.",
+      "fields": {
+        "recipient": "_recipient",
+        "amount": "_amount"
+      }
     },
     "transferFrom": {
-      "parameters": {
-        "src": "_src",
-        "dst": "_dst",
-        "wad": "_wad"
-      },
-      "description": "Transfers tokens from one address to another using the allowance mechanism."
+      "description": "Transfers `amount` tokens from `sender` to `recipient` using allowance.",
+      "fields": {
+        "sender": "_sender",
+        "recipient": "_recipient",
+        "amount": "_amount"
+      }
     },
-    "mint": {
-      "parameters": {
-        "guy": "_guy",
-        "wad": "_wad"
-      },
-      "description": "Mints a specified amount of tokens and assigns them to the specified address."
+    "approve": {
+      "description": "Allows `spender` to withdraw `amount` tokens from the caller's account.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
     },
-    "burn": {
-      "parameters": {
-        "wad": "_wad"
-      },
-      "description": "Burns a specified amount of tokens from the caller's account."
+    "increaseAllowance": {
+      "description": "Increases the allowance of `spender` by `addedValue`.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
     },
-    "transfer": {
-      "parameters": {
-        "dst": "_dst",
-        "wad": "_wad"
-      },
-      "description": "Transfers tokens from the caller's account to the specified address."
-    },
-    "push": {
-      "parameters": {
-        "dst": "_dst",
-        "wad": "_wad"
-      },
-      "description": "Pushes tokens from the caller's account to the specified address."
-    },
-    "move": {
-      "parameters": {
-        "src": "_src",
-        "dst": "_dst",
-        "wad": "_wad"
-      },
-      "description": "Moves tokens from one address to another."
-    },
-    "stop": {
-      "parameters": {},
-      "description": "Stops all functionality of the contract."
-    },
-    "start": {
-      "parameters": {},
-      "description": "Starts the contract functionality."
-    },
-    "setName": {
-      "parameters": {
-        "name_": "_name_"
-      },
-      "description": "Sets the name of the token."
-    },
-    "setOwner": {
-      "parameters": {
-        "owner_": "_owner_"
-      },
-      "description": "Sets the owner of the contract."
-    },
-    "setAuthority": {
-      "parameters": {
-        "authority_": "_authority_"
-      },
-      "description": "Sets the authority address."
+    "decreaseAllowance": {
+      "description": "Decreases the allowance of `spender` by `subtractedValue`.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
     }
   },
   "other_functions": {
-    "balanceOf": {
-      "parameters": {
-        "src": "_src"
-      },
-      "description": "Returns the balance of tokens held by the specified address."
+    "constructor": {
+      "description": "Initializes the contract with the given initial supply.",
+      "fields": {
+        "_initialSupply": "_initialSupply"
+      }
     },
-    "allowance": {
-      "parameters": {
-        "src": "_src",
-        "guy": "_guy"
-      },
-      "description": "Returns the remaining amount of tokens that the specified address can spend on behalf of the owner."
+    "acceptOwnership": {
+      "description": "Accepts the ownership of the contract from the pending governor.",
+      "fields": {}
     },
-    "decimals": {
-      "parameters": {},
-      "description": "Returns the number of decimal places used to represent the token."
+    "addMinter": {
+      "description": "Adds a new minter account.",
+      "fields": {
+        "_account": "_account"
+      }
+    },
+    "removeMinter": {
+      "description": "Removes a minter account.",
+      "fields": {
+        "_account": "_account"
+      }
+    },
+    "renounceMinter": {
+      "description": "Renounces the minter role of the caller.",
+      "fields": {}
+    },
+    "mint": {
+      "description": "Mints `_amount` new tokens to `_to`.",
+      "fields": {
+        "_to": "_to",
+        "_amount": "_amount"
+      }
+    },
+    "burn": {
+      "description": "Burns `_amount` tokens from the caller's account.",
+      "fields": {
+        "amount": "_amount"
+      }
+    },
+    "burnFrom": {
+      "description": "Burns `_amount` tokens from `_account`.",
+      "fields": {
+        "_account": "_account",
+        "amount": "_amount"
+      }
     },
     "name": {
-      "parameters": {},
-      "description": "Returns the name of the token."
+      "description": "Returns the name of the token.",
+      "fields": {}
     },
     "symbol": {
-      "parameters": {},
-      "description": "Returns the symbol of the token."
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimals used for the token.",
+      "fields": {}
     },
     "totalSupply": {
-      "parameters": {},
-      "description": "Returns the total supply of tokens."
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
     },
-    "stopped": {
-      "parameters": {},
-      "description": "Returns whether the contract is stopped."
+    "balanceOf": {
+      "description": "Returns the balance of `_account`.",
+      "fields": {
+        "_account": "_account"
+      }
     },
-    "authority": {
-      "parameters": {},
-      "description": "Returns the address of the authority."
+    "allowance": {
+      "description": "Returns the amount of tokens that `spender` is allowed to withdraw from `owner`.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
     },
-    "owner": {
-      "parameters": {},
-      "description": "Returns the address of the owner."
-    }
-  },
-  "events": {
-    "Mint": {
-      "indexed_parameters": {
-        "guy": "_guy",
-        "wad": "_wad"
-      },
-      "description": "Emitted when tokens are minted."
+    "governor": {
+      "description": "Returns the current governor of the contract.",
+      "fields": {}
     },
-    "Burn": {
-      "indexed_parameters": {
-        "guy": "_guy",
-        "wad": "_wad"
-      },
-      "description": "Emitted when tokens are burned."
+    "pendingGovernor": {
+      "description": "Returns the address of the pending governor.",
+      "fields": {}
     },
-    "LogSetAuthority": {
-      "indexed_parameters": {
-        "authority": "_authority"
-      },
-      "description": "Emitted when the authority address is set."
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to `_newGovernor`.",
+      "fields": {
+        "_newGovernor": "_newGovernor"
+      }
     },
-    "LogSetOwner": {
-      "indexed_parameters": {
-        "owner": "_owner"
-      },
-      "description": "Emitted when the owner address is set."
-    },
-    "LogNote": {
-      "indexed_parameters": {
-        "sig": "_sig",
-        "guy": "_guy",
-        "foo": "_foo",
-        "bar": "_bar"
-      },
-      "description": "Emitted when a note is logged."
-    },
-      "indexed_parameters": {
-        "from": "_from",
-        "to": "_to",
-        "value": "_value"
-      },
-      "description": "Emitted when tokens are transferred from one address to another."
-    },
-      "indexed_parameters": {
+    "permit": {
+      "description": "Allows `spender` to withdraw `_value` tokens from `_owner` using a signature.",
+      "fields": {
         "owner": "_owner",
         "spender": "_spender",
-        "value": "_value"
-      },
-      "description": "Emitted when an owner approves a spender."
+        "value": "_value",
+        "deadline": "_deadline",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
+      }
+    },
+    "isMinter": {
+      "description": "Checks if `_account` is a minter.",
+      "fields": {
+        "_account": "_account"
+      }
     }
+  }
+}

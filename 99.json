@@ -1,95 +1,167 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers `amount` tokens from the caller's account to the `recipient` address.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
+          "recipient": "_to",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers `amount` tokens from `sender` to `recipient` using the allowance mechanism.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
         }
-      }
-    },
-    "other_functions": {
-      "decreaseApproval": {
-        "description": "Decreases the amount of tokens a spender is allowed to withdraw from the caller’s account.",
+      },
+      "approve": {
+        "description": "Approves `spender` to spend `amount` tokens on behalf of the caller.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the allowance of `spender` by `subtractedValue`.",
         "fields": {
           "spender": "_spender",
           "subtractedValue": "_subtractedValue"
         }
       },
-      "increaseApproval": {
-        "description": "Increases the amount of tokens a spender is allowed to withdraw from the caller’s account.",
+      "increaseAllowance": {
+        "description": "Increases the allowance of `spender` by `addedValue`.",
         "fields": {
           "spender": "_spender",
           "addedValue": "_addedValue"
         }
       },
-      "balanceOf": {
-        "description": "Returns the token balance of a specified address.",
+      "mint": {
+        "description": "Mints `amount` new tokens to the `recipient` address.",
         "fields": {
-          "owner": "_owner"
+          "recipient": "_to",
+          "amount": "_amount"
         }
       },
+      "burn": {
+        "description": "Burns `amount` tokens from the caller's account.",
+        "fields": {
+          "amount": "_amount"
+        }
+      },
+      "burnFrom": {
+        "description": "Burns `amount` tokens from `account`.",
+        "fields": {
+          "account": "_account",
+          "amount": "_amount"
+        }
+      }
+    },
+    "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract with the given name, ticker, and cap.",
+        "fields": {
+          "_name": "_name",
+          "_ticker": "_ticker",
+          "_cap": "_cap"
+        }
+      },
+      "DELEGATION_TYPEHASH": {
+        "description": "Returns the typehash for the delegation.",
+        "fields": {}
+      },
+      "DOMAIN_TYPEHASH": {
+        "description": "Returns the typehash for the domain.",
+        "fields": {}
+      },
       "allowance": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to withdraw from the owner's account.",
+        "description": "Returns the remaining number of tokens that `spender` is allowed to spend on behalf of `owner`.",
         "fields": {
           "owner": "_owner",
           "spender": "_spender"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the number of tokens held by `account`.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "cap": {
+        "description": "Returns the maximum number of tokens that can be minted.",
+        "fields": {}
+      },
+      "checkpoints": {
+        "description": "Returns the number of votes at a specific block for an address.",
+        "fields": {
+          "account": "_account",
+          "blockNumber": "_blockNumber"
+        }
+      },
+      "decimals": {
+        "description": "Returns the number of decimal places used for token amounts.",
+        "fields": {}
+      },
+      "delegates": {
+        "description": "Returns the delegate address for `delegator`.",
+        "fields": {
+          "delegator": "_delegator"
+        }
+      },
+      "getCurrentVotes": {
+        "description": "Returns the current number of votes for `account`.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "getPriorVotes": {
+        "description": "Returns the number of votes for `account` at a specific block.",
+        "fields": {
+          "account": "_account",
+          "blockNumber": "_blockNumber"
         }
       },
       "name": {
         "description": "Returns the name of the token.",
         "fields": {}
       },
+      "nonces": {
+        "description": "Returns the current nonce for `account`.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "numCheckpoints": {
+        "description": "Returns the number of checkpoints for an address.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "owner": {
+        "description": "Returns the current owner of the contract.",
+        "fields": {}
+      },
+      "renounceOwnership": {
+        "description": "Renounces ownership of the contract.",
+        "fields": {}
+      },
       "symbol": {
         "description": "Returns the symbol of the token.",
         "fields": {}
       },
-      "decimals": {
-        "description": "Returns the number of decimal places the token uses.",
-        "fields": {}
-      },
       "totalSupply": {
-        "description": "Returns the total supply of the token.",
+        "description": "Returns the total supply of tokens.",
         "fields": {}
       },
       "transferOwnership": {
-        "description": "Transfers ownership of the contract to a new address.",
+        "description": "Transfers ownership of the contract to `newOwner`.",
         "fields": {
           "newOwner": "_newOwner"
         }
       },
-      "pause": {
-        "description": "Pauses all token transfers.",
+      "version": {
+        "description": "Returns the version of the contract.",
         "fields": {}
-      },
-      "unpause": {
-        "description": "Unpauses all token transfers.",
-        "fields": {}
-      },
-      "paused": {
-        "description": "Returns whether the contract is currently paused.",
-        "fields": {}
-      },
-      "constructor": {
-        "description": "Initializes the contract with the total token supply.",
-        "fields": {
-          "tokenTotalAmount": "_tokenTotalAmount"
-        }
       }
     }
   }

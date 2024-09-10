@@ -1,176 +1,130 @@
 {
-    "transfer_functions": {
-      "approve": {
-        "parameters": {
-          "guy": "_guy",
-          "wad": "_wad"
-        },
-        "description": "Approves the specified address to spend a specified amount of tokens on behalf of the caller."
-      },
-      "transferFrom": {
-        "parameters": {
-          "src": "_src",
-          "dst": "_dst",
-          "wad": "_wad"
-        },
-        "description": "Transfers tokens from one address to another using the allowance mechanism."
-      },
-      "mint": {
-        "parameters": {
-          "guy": "_guy",
-          "wad": "_wad"
-        },
-        "description": "Mints new tokens and assigns them to the specified address."
-      },
-      "burn": {
-        "parameters": {
-          "wad": "_wad"
-        },
-        "description": "Burns a specified amount of tokens from the caller's balance."
-      },
-      "setOwner": {
-        "parameters": {
-          "owner_": "_owner_"
-        },
-        "description": "Sets a new owner for the contract."
-      },
-      "setName": {
-        "parameters": {
-          "name_": "_name_"
-        },
-        "description": "Sets a new name for the token."
-      },
-      "setAuthority": {
-        "parameters": {
-          "authority_": "_authority_"
-        },
-        "description": "Sets a new authority for the contract."
-      },
-      "start": {
-        "parameters": {},
-        "description": "Starts the contract operations."
-      },
-      "stop": {
-        "parameters": {},
-        "description": "Stops the contract operations."
-      },
-      "push": {
-        "parameters": {
-          "dst": "_dst",
-          "wad": "_wad"
-        },
-        "description": "Pushes tokens from the caller to the specified address."
-      },
-      "pull": {
-        "parameters": {
-          "src": "_src",
-          "wad": "_wad"
-        },
-        "description": "Pulls tokens from the specified address to the caller."
-      },
-      "move": {
-        "parameters": {
-          "src": "_src",
-          "dst": "_dst",
-          "wad": "_wad"
-        },
-        "description": "Moves tokens from one address to another."
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers a specified amount of tokens to a given address.",
+      "fields": {
+        "dst": "_destinationAddress",
+        "wad": "_amount"
       }
     },
-    "other_functions": {
-      "balanceOf": {
-        "parameters": {
-          "src": "_src"
-        },
-        "description": "Returns the balance of tokens held by the specified address."
-      },
-      "allowance": {
-        "parameters": {
-          "src": "_src",
-          "guy": "_guy"
-        },
-        "description": "Returns the remaining amount of tokens that the spender can spend on behalf of the owner."
-      },
-      "decimals": {
-        "parameters": {},
-        "description": "Returns the number of decimal places used to get the user representation of the token."
-      },
-      "name": {
-        "parameters": {},
-        "description": "Returns the name of the token."
-      },
-      "symbol": {
-        "parameters": {},
-        "description": "Returns the symbol of the token."
-      },
-      "totalSupply": {
-        "parameters": {},
-        "description": "Returns the total supply of tokens."
-      },
-      "stopped": {
-        "parameters": {},
-        "description": "Returns whether the contract is stopped or not."
-      },
-      "authority": {
-        "parameters": {},
-        "description": "Returns the current authority of the contract."
-      },
-      "owner": {
-        "parameters": {},
-        "description": "Returns the current owner of the contract."
+    "transferFrom": {
+      "description": "Transfers a specified amount of tokens from one address to another.",
+      "fields": {
+        "src": "_sourceAddress",
+        "dst": "_destinationAddress",
+        "wad": "_amount"
       }
     },
-    "events": {
-      "Mint": {
-        "indexed_parameters": {
-          "guy": "_guy",
-          "wad": "_wad"
-        },
-        "description": "Emitted when new tokens are minted."
-      },
-      "Burn": {
-        "indexed_parameters": {
-          "guy": "_guy",
-          "wad": "_wad"
-        },
-        "description": "Emitted when tokens are burned."
-      },
-      "LogSetAuthority": {
-        "indexed_parameters": {
-          "authority": "_authority"
-        },
-        "description": "Emitted when a new authority is set."
-      },
-      "LogSetOwner": {
-        "indexed_parameters": {
-          "owner": "_owner"
-        },
-        "description": "Emitted when a new owner is set."
-      },
-      "LogNote": {
-        "indexed_parameters": {
-          "sig": "_sig",
-          "guy": "_guy",
-          "foo": "_foo",
-          "bar": "_bar"
-        },
-        "description": "Emitted for general log events."
-      },
-      "Transfer": {
-        "indexed_parameters": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        },
-        "description": "Emitted when tokens are transferred from one address to another."
-      },
-        "indexed_parameters": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
-        },
-        "description": "Emitted when an owner approves a spender."
+    "approve": {
+      "description": "Approves a given address to spend a specified amount of tokens on behalf of the caller.",
+      "fields": {
+        "guy": "_spenderAddress",
+        "wad": "_amount"
+      }
+    },
+    "push": {
+      "description": "Pushes a specified amount of tokens to a given address.",
+      "fields": {
+        "dst": "_destinationAddress",
+        "wad": "_amount"
+      }
+    },
+    "pull": {
+      "description": "Pulls a specified amount of tokens from a given address.",
+      "fields": {
+        "src": "_sourceAddress",
+        "wad": "_amount"
+      }
+    },
+    "move": {
+      "description": "Moves a specified amount of tokens from one address to another without changing the approval.",
+      "fields": {
+        "src": "_sourceAddress",
+        "dst": "_destinationAddress",
+        "wad": "_amount"
       }
     }
-  
-  
+  },
+  "other_functions": {
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimals used by the token.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the token balance of a given address.",
+      "fields": {
+        "src": "_address"
+      }
+    },
+    "stopped": {
+      "description": "Returns whether the contract is stopped.",
+      "fields": {}
+    },
+    "owner": {
+      "description": "Returns the current owner of the contract.",
+      "fields": {}
+    },
+    "authority": {
+      "description": "Returns the current authority address.",
+      "fields": {}
+    },
+    "allowance": {
+      "description": "Returns the amount of tokens a spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "src": "_ownerAddress",
+        "guy": "_spenderAddress"
+      }
+    },
+    "setOwner": {
+      "description": "Sets a new owner of the contract.",
+      "fields": {
+        "owner_": "_newOwnerAddress"
+      }
+    },
+    "setAuthority": {
+      "description": "Sets a new authority address.",
+      "fields": {
+        "authority_": "_newAuthorityAddress"
+      }
+    },
+    "mint": {
+      "description": "Mints a specified amount of tokens to a given address.",
+      "fields": {
+        "guy": "_recipientAddress",
+        "wad": "_amount"
+      }
+    },
+    "burn": {
+      "description": "Burns a specified amount of tokens from the caller's address.",
+      "fields": {
+        "wad": "_amount"
+      }
+    },
+    "start": {
+      "description": "Starts the contract.",
+      "fields": {}
+    },
+    "stop": {
+      "description": "Stops the contract.",
+      "fields": {}
+    },
+    "setName": {
+      "description": "Sets the name of the token.",
+      "fields": {
+        "name_": "_name"
+      }
+    }
+  }
+}

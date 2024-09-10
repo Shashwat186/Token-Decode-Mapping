@@ -1,75 +1,99 @@
 {
   "transfer_functions": {
-    "transfer": {
-      "description": "Transfers `amount` of tokens from the caller's account to `recipient`.",
-      "fields": {
-        "recipient": "_recipient",
-        "amount": "_amount"
-      }
-    },
-    "transferFrom": {
-      "description": "Transfers `amount` of tokens from `sender` to `recipient`.",
-      "fields": {
-        "sender": "_sender",
-        "recipient": "_recipient",
-        "amount": "_amount"
-      }
-    }
-  },
-  "other_functions": {
-    "approve": {
-      "description": "Allows `spender` to withdraw from the caller's account multiple times, up to the `amount`.",
-      "fields": {
-        "spender": "_spender",
-        "amount": "_amount"
-      }
-    },
     "allowance": {
-      "description": "Returns the amount of tokens that `spender` is allowed to spend on behalf of `owner`.",
+      "description": "Returns the amount of tokens that a spender is allowed to spend on behalf of the owner.",
       "fields": {
         "owner": "_owner",
         "spender": "_spender"
       }
     },
-    "balanceOf": {
-      "description": "Returns the balance of `account`.",
-      "fields": {
-        "account": "_account"
-      }
-    },
-    "burn": {
-      "description": "Burns `amount` of tokens from the caller's account.",
-      "fields": {
-        "amount": "_amount"
-      }
-    },
-    "burnFrom": {
-      "description": "Burns `amount` of tokens from `account`.",
-      "fields": {
-        "account": "_account",
-        "amount": "_amount"
-      }
-    },
-    "decreaseAllowance": {
-      "description": "Decreases the amount of tokens that `spender` is allowed to spend on behalf of the caller.",
+    "approve": {
+      "description": "Sets the amount of tokens that a spender is allowed to spend on behalf of the owner.",
       "fields": {
         "spender": "_spender",
-        "subtractedValue": "_subtractedValue"
+        "amount": "_amount"
+      }
+    },
+    "transfer": {
+      "description": "Transfers tokens from the caller's account to the specified recipient.",
+      "fields": {
+        "to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another on behalf of the owner.",
+      "fields": {
+        "sender": "_sender",
+        "recipient": "_recipient",
+        "amount": "_amount"
       }
     },
     "increaseAllowance": {
-      "description": "Increases the amount of tokens that `spender` is allowed to spend on behalf of the caller.",
+      "description": "Increases the allowance that a spender is allowed to spend on behalf of the owner.",
       "fields": {
         "spender": "_spender",
         "addedValue": "_addedValue"
       }
     },
+    "decreaseAllowance": {
+      "description": "Decreases the allowance that a spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
     "mint": {
-      "description": "Mints `amount` of tokens to `to` address.",
+      "description": "Mints new tokens and assigns them to the specified address.",
       "fields": {
         "to": "_to",
         "amount": "_amount"
       }
+    },
+    "burn": {
+      "description": "Burns a specified amount of tokens from the caller's account.",
+      "fields": {
+        "amount": "_amount"
+      }
+    },
+    "burnFrom": {
+      "description": "Burns a specified amount of tokens from another address's account.",
+      "fields": {
+        "account": "_account",
+        "amount": "_amount"
+      }
+    }
+  },
+  "other_functions": {
+    "constructor": {
+      "description": "Initializes the contract with the given parameters.",
+      "fields": {
+        "name": "_name",
+        "symbol": "_symbol",
+        "_initialSupply": "_initialSupply"
+      }
+    },
+    "DEFAULT_ADMIN_ROLE": {
+      "description": "Returns the default admin role identifier.",
+      "fields": {}
+    },
+    "MINTER_ROLE": {
+      "description": "Returns the minter role identifier.",
+      "fields": {}
+    },
+    "PAUSER_ROLE": {
+      "description": "Returns the pauser role identifier.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the balance of the specified address.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places used by the token.",
+      "fields": {}
     },
     "name": {
       "description": "Returns the name of the token.",
@@ -83,87 +107,63 @@
       "description": "Returns the total supply of tokens.",
       "fields": {}
     },
-    "decimals": {
-      "description": "Returns the number of decimal places the token uses.",
-      "fields": {}
-    },
     "pause": {
       "description": "Pauses all token transfers.",
       "fields": {}
     },
     "paused": {
-      "description": "Returns true if the token is paused.",
+      "description": "Returns whether the contract is paused.",
       "fields": {}
     },
     "unpause": {
       "description": "Unpauses all token transfers.",
       "fields": {}
     },
-    "DEFAULT_ADMIN_ROLE": {
-      "description": "Returns the role identifier for the default admin role.",
-      "fields": {}
-    },
-    "MINTER_ROLE": {
-      "description": "Returns the role identifier for the minter role.",
-      "fields": {}
-    },
-    "PAUSER_ROLE": {
-      "description": "Returns the role identifier for the pauser role.",
-      "fields": {}
-    },
     "getRoleAdmin": {
-      "description": "Returns the admin role for `role`.",
+      "description": "Returns the admin role for a given role.",
       "fields": {
         "role": "_role"
       }
     },
     "getRoleMember": {
-      "description": "Returns the member address at `index` for `role`.",
+      "description": "Returns the member of a role at a given index.",
       "fields": {
         "role": "_role",
         "index": "_index"
       }
     },
     "getRoleMemberCount": {
-      "description": "Returns the number of members in `role`.",
+      "description": "Returns the number of members in a role.",
       "fields": {
         "role": "_role"
       }
     },
     "grantRole": {
-      "description": "Grants `role` to `account`.",
+      "description": "Grants a role to an account.",
       "fields": {
         "role": "_role",
         "account": "_account"
       }
     },
     "hasRole": {
-      "description": "Checks if `account` has `role`.",
+      "description": "Checks if an account has a specific role.",
       "fields": {
         "role": "_role",
         "account": "_account"
       }
     },
     "renounceRole": {
-      "description": "Renounces `role` for `account`.",
+      "description": "Renounces a role from the caller.",
       "fields": {
         "role": "_role",
         "account": "_account"
       }
     },
     "revokeRole": {
-      "description": "Revokes `role` from `account`.",
+      "description": "Revokes a role from an account.",
       "fields": {
         "role": "_role",
         "account": "_account"
-      }
-    },
-    "constructor": {
-      "description": "Initializes the contract with `name`, `symbol`, and `_initialSupply`.",
-      "fields": {
-        "name": "_name",
-        "symbol": "_symbol",
-        "initialSupply": "_initialSupply"
       }
     }
   }

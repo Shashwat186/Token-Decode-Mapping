@@ -1,94 +1,219 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers tokens from the caller's account to a recipient.",
         "fields": {
-          "transfer_to": "_recipient",
+          "recipient": "_recipient",
           "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers tokens from a specified address to a recipient on behalf of the owner.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        }
+      },
+      "approve": {
+        "description": "Approves a spender to spend a specified amount of tokens on behalf of the caller.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the allowance of a spender by a specified amount.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the allowance of a spender by a specified amount.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        }
+      },
+      "permit": {
+        "description": "Permits a spender to spend tokens on behalf of the owner via a signed message.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value",
+          "deadline": "_deadline",
+          "v": "_v",
+          "r": "_r",
+          "s": "_s"
+        }
+      },
+      "mint": {
+        "description": "Mints a specified amount of new tokens to a recipient.",
+        "fields": {
+          "recipient": "_recipient",
+          "amount": "_amount"
+        }
+      },
+      "burn": {
+        "description": "Burns a specified amount of tokens from the caller's account.",
+        "fields": {
+          "account": "_account",
           "amount": "_amount"
         }
       }
     },
     "other_functions": {
-      "burn": {
-        "description": "Burns tokens from a specified address.",
-        "fields": {
-          "address": "_account",
-          "amount": "_amount"
-        }
-      },
-      "mint": {
-        "description": "Mints new tokens to the specified address.",
-        "fields": {
-          "to": "_address",
-          "amount": "_amount"
-        }
-      },
-      "name": {
-        "description": "Retrieves the name of the token.",
+      "BURNER_ROLE": {
+        "description": "Returns the bytes32 identifier for the burner role.",
         "fields": {}
       },
-      "symbol": {
-        "description": "Retrieves the symbol of the token.",
+      "DEFAULT_ADMIN_ROLE": {
+        "description": "Returns the bytes32 identifier for the default admin role.",
         "fields": {}
       },
-      "totalSupply": {
-        "description": "Retrieves the total supply of tokens.",
+      "DOMAIN_SEPARATOR": {
+        "description": "Returns the domain separator used in EIP-712 signatures.",
         "fields": {}
       },
-      "decimals": {
-        "description": "Retrieves the number of decimal places used by the token.",
+      "MINTER_ROLE": {
+        "description": "Returns the bytes32 identifier for the minter role.",
         "fields": {}
-      },
-      "balanceOf": {
-        "description": "Retrieves the balance of a specified address.",
-        "fields": {
-          "address": "_account"
-        }
       },
       "allowance": {
-        "description": "Retrieves the amount of tokens a spender is allowed to spend from the owner's account.",
+        "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the owner.",
         "fields": {
           "owner": "_owner",
           "spender": "_spender"
         }
       },
-      "decreaseAllowance": {
-        "description": "Decreases the allowance for a spender.",
+      "balanceOf": {
+        "description": "Returns the balance of tokens held by a specific address.",
         "fields": {
-          "spender": "_spender",
-          "subtractedValue": "_amount"
+          "account": "_account"
         }
       },
-      "increaseAllowance": {
-        "description": "Increases the allowance for a spender.",
+      "checkpoints": {
+        "description": "Returns the checkpoints for a specific account.",
         "fields": {
-          "spender": "_spender",
-          "addedValue": "_amount"
+          "account": "_account",
+          "pos": "_pos"
+        }
+      },
+      "decimals": {
+        "description": "Returns the number of decimals used by the token.",
+        "fields": {}
+      },
+      "delegates": {
+        "description": "Returns the current delegate of a specific address.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "getPastTotalSupply": {
+        "description": "Returns the total supply of tokens at a specific block number.",
+        "fields": {
+          "blockNumber": "_blockNumber"
+        }
+      },
+      "getPastVotes": {
+        "description": "Returns the number of votes for a specific account at a specific block number.",
+        "fields": {
+          "account": "_account",
+          "blockNumber": "_blockNumber"
+        }
+      },
+      "getRoleAdmin": {
+        "description": "Returns the admin role for a specific role.",
+        "fields": {
+          "role": "_role"
+        }
+      },
+      "getRoleMember": {
+        "description": "Returns a member of a specific role at a given index.",
+        "fields": {
+          "role": "_role",
+          "index": "_index"
+        }
+      },
+      "getRoleMemberCount": {
+        "description": "Returns the number of members in a specific role.",
+        "fields": {
+          "role": "_role"
+        }
+      },
+      "getVotes": {
+        "description": "Returns the number of votes for a specific address.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "grantRole": {
+        "description": "Grants a specific role to an account.",
+        "fields": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "hasRole": {
+        "description": "Checks if an account has a specific role.",
+        "fields": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "renounceRole": {
+        "description": "Renounces a specific role for the caller.",
+        "fields": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "revokeRole": {
+        "description": "Revokes a specific role from an account.",
+        "fields": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "supportsInterface": {
+        "description": "Checks if the contract implements a specific interface.",
+        "fields": {
+          "interfaceId": "_interfaceId"
+        }
+      },
+      "name": {
+        "description": "Returns the name of the token.",
+        "fields": {}
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
+        "fields": {}
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
+      },
+      "nonces": {
+        "description": "Returns the current nonce for a specific address.",
+        "fields": {
+          "owner": "_owner"
+        }
+      },
+      "numCheckpoints": {
+        "description": "Returns the number of checkpoints for a specific account.",
+        "fields": {
+          "account": "_account"
         }
       },
       "delegate": {
-        "description": "Delegates voting power to another address.",
+        "description": "Delegates voting power to a specified address.",
         "fields": {
           "delegatee": "_delegatee"
         }
       },
       "delegateBySig": {
-        "description": "Delegates voting power by a signed message.",
+        "description": "Delegates voting power to a specified address via a signed message.",
         "fields": {
           "delegatee": "_delegatee",
           "nonce": "_nonce",
@@ -97,124 +222,6 @@
           "r": "_r",
           "s": "_s"
         }
-      },
-      "delegates": {
-        "description": "Retrieves the delegate for a specified address.",
-        "fields": {
-          "address": "_account"
-        }
-      },
-      "getVotes": {
-        "description": "Retrieves the current voting power of an address.",
-        "fields": {
-          "address": "_account"
-        }
-      },
-      "getPastVotes": {
-        "description": "Retrieves the voting power of an address at a specific block number.",
-        "fields": {
-          "address": "_account",
-          "blockNumber": "_blockNumber"
-        }
-      },
-      "getPastTotalSupply": {
-        "description": "Retrieves the total supply of tokens at a specific block number.",
-        "fields": {
-          "blockNumber": "_blockNumber"
-        }
-      },
-      "checkpoints": {
-        "description": "Retrieves the checkpoints for a specific account and position.",
-        "fields": {
-          "account": "_account",
-          "pos": "_position"
-        }
-      },
-      "nonces": {
-        "description": "Retrieves the current nonce for a specified address.",
-        "fields": {
-          "address": "_account"
-        }
-      },
-      "numCheckpoints": {
-        "description": "Retrieves the number of checkpoints for a specified address.",
-        "fields": {
-          "address": "_account"
-        }
-      },
-      "permit": {
-        "description": "Permits a spender to spend tokens on behalf of the owner, with a signed message.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_amount",
-          "deadline": "_deadline",
-          "v": "_v",
-          "r": "_r",
-          "s": "_s"
-        }
-      },
-      "grantRole": {
-        "description": "Grants a role to a specified address.",
-        "fields": {
-          "role": "_role",
-          "account": "_address"
-        }
-      },
-      "revokeRole": {
-        "description": "Revokes a role from a specified address.",
-        "fields": {
-          "role": "_role",
-          "account": "_address"
-        }
-      },
-      "renounceRole": {
-        "description": "Allows an account to renounce its role.",
-        "fields": {
-          "role": "_role",
-          "account": "_address"
-        }
-      },
-      "getRoleAdmin": {
-        "description": "Retrieves the admin role for a specified role.",
-        "fields": {
-          "role": "_role"
-        }
-      },
-      "getRoleMember": {
-        "description": "Retrieves a role member at a specific index.",
-        "fields": {
-          "role": "_role",
-          "index": "_index"
-        }
-      },
-      "getRoleMemberCount": {
-        "description": "Retrieves the number of members in a specified role.",
-        "fields": {
-          "role": "_role"
-        }
-      },
-      "supportsInterface": {
-        "description": "Checks if the contract supports a specific interface.",
-        "fields": {
-          "interfaceId": "_interfaceId"
-        }
-      },
-      "DOMAIN_SEPARATOR": {
-        "description": "Retrieves the domain separator used in permit signatures.",
-        "fields": {}
-      },
-      "DEFAULT_ADMIN_ROLE": {
-        "description": "Retrieves the default admin role identifier.",
-        "fields": {}
-      },
-      "MINTER_ROLE": {
-        "description": "Retrieves the minter role identifier.",
-        "fields": {}
-      },
-      "BURNER_ROLE": {
-        "description": "Retrieves the burner role identifier.",
-        "fields": {}
       }
     }
   }

@@ -1,89 +1,53 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers a specified amount of tokens from the caller to a recipient.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
+          "recipient": "_recipient",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers a specified amount of tokens from one address to another, on behalf of the owner.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        }
+      },
+      "approve": {
+        "description": "Sets the amount of tokens that a spender is allowed to spend on behalf of the caller.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the amount of tokens that a spender is allowed to spend on behalf of the caller.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the amount of tokens that a spender is allowed to spend on behalf of the caller.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
         }
       }
     },
     "other_functions": {
-      "claimTokens": {
-        "description": "Claims tokens based on the amount and Merkle proof provided.",
+      "constructor": {
+        "description": "Initializes the contract with specified parameters.",
         "fields": {
-          "amount": "_amount",
-          "delegate": "_delegate",
-          "merkleProof": "_merkleProof"
+          "freeSupply": "_freeSupply",
+          "airdropSupply": "_airdropSupply",
+          "_claimPeriodEnds": "_claimPeriodEnds"
         }
       },
-      "delegate": {
-        "description": "Delegates voting power to another address.",
-        "fields": {
-          "delegatee": "_delegatee"
-        }
-      },
-      "delegateBySig": {
-        "description": "Delegates voting power to another address using a signature.",
-        "fields": {
-          "delegatee": "_delegatee",
-          "nonce": "_nonce",
-          "expiry": "_expiry",
-          "v": "_v",
-          "r": "_r",
-          "s": "_s"
-        }
-      },
-      "setMerkleRoot": {
-        "description": "Sets the Merkle root for claims.",
-        "fields": {
-          "merkleRoot": "_merkleRoot"
-        }
-      },
-      "mint": {
-        "description": "Mints new tokens and transfers them to a specified address.",
-        "fields": {
-          "dest": "_dest",
-          "amount": "_amount"
-        }
-      },
-      "sweep": {
-        "description": "Sends all contract balance to a specified address.",
-        "fields": {
-          "dest": "_dest"
-        }
-      },
-      "transferOwnership": {
-        "description": "Transfers ownership of the contract to a new address.",
-        "fields": {
-          "newOwner": "_newOwner"
-        }
-      },
-      "renounceOwnership": {
-        "description": "Renounces ownership of the contract.",
-        "fields": {}
-      },
-      "claimPeriodEnds": {
-        "description": "Returns the end time of the claim period.",
-        "fields": {}
-      },
-      "decimals": {
-        "description": "Returns the number of decimals the token uses.",
+      "DOMAIN_SEPARATOR": {
+        "description": "Returns the domain separator used in the EIP712 signature scheme.",
         "fields": {}
       },
       "name": {
@@ -94,89 +58,77 @@
         "description": "Returns the symbol of the token.",
         "fields": {}
       },
+      "decimals": {
+        "description": "Returns the number of decimal places used by the token.",
+        "fields": {}
+      },
       "totalSupply": {
         "description": "Returns the total supply of the token.",
         "fields": {}
       },
       "balanceOf": {
-        "description": "Returns the balance of a specified address.",
+        "description": "Returns the balance of a specific address.",
         "fields": {
           "account": "_account"
         }
       },
       "getVotes": {
-        "description": "Returns the current voting power of an address.",
+        "description": "Returns the number of votes of a specific address.",
         "fields": {
           "account": "_account"
         }
       },
       "getPastVotes": {
-        "description": "Returns the past voting power of an address at a specific block number.",
+        "description": "Returns the number of votes of a specific address at a past block number.",
         "fields": {
           "account": "_account",
           "blockNumber": "_blockNumber"
         }
       },
       "getPastTotalSupply": {
-        "description": "Returns the total supply of the token at a specific block number.",
+        "description": "Returns the total supply at a past block number.",
         "fields": {
           "blockNumber": "_blockNumber"
         }
       },
       "checkpoints": {
-        "description": "Returns the checkpoint details for a specified address and position.",
+        "description": "Returns the checkpoints of a specific address.",
         "fields": {
           "account": "_account",
           "pos": "_pos"
         }
       },
       "numCheckpoints": {
-        "description": "Returns the number of checkpoints for a specified address.",
+        "description": "Returns the number of checkpoints of a specific address.",
         "fields": {
           "account": "_account"
         }
       },
-      "nonces": {
-        "description": "Returns the nonce for a specified address, used for permit.",
+      "delegates": {
+        "description": "Returns the current delegate of a specific address.",
         "fields": {
-          "owner": "_owner"
+          "account": "_account"
         }
       },
-      "merkleRoot": {
-        "description": "Returns the current Merkle root.",
-        "fields": {}
-      },
-      "minimumMintInterval": {
-        "description": "Returns the minimum interval required between mints.",
-        "fields": {}
-      },
-      "mintCap": {
-        "description": "Returns the maximum amount of tokens that can be minted.",
-        "fields": {}
-      },
-      "nextMint": {
-        "description": "Returns the timestamp of the next allowed mint.",
-        "fields": {}
-      },
-      "isClaimed": {
-        "description": "Checks if a specific claim has been made.",
+      "delegate": {
+        "description": "Delegates voting power to another address.",
         "fields": {
-          "index": "_index"
+          "delegatee": "_delegatee"
         }
       },
-      "DOMAIN_SEPARATOR": {
-        "description": "Returns the domain separator used in EIP712 signatures.",
-        "fields": {}
-      },
-      "allowance": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to spend from an owner's account.",
+      "delegateBySig": {
+        "description": "Delegates voting power by signature.",
         "fields": {
-          "owner": "_owner",
-          "spender": "_spender"
+          "delegatee": "_delegatee",
+          "nonce": "_nonce",
+          "expiry": "_expiry",
+          "v": "_v",
+          "r": "_r",
+          "s": "_s"
         }
       },
       "permit": {
-        "description": "Sets an approval with a permit, allowing spending from an owner's account.",
+        "description": "Sets allowances using the EIP2612 permit mechanism.",
         "fields": {
           "owner": "_owner",
           "spender": "_spender",
@@ -187,57 +139,78 @@
           "s": "_s"
         }
       },
-      "delegateChanged": {
-        "description": "Emitted when a delegate is changed for an address.",
+      "claimPeriodEnds": {
+        "description": "Returns the end of the claim period.",
+        "fields": {}
+      },
+      "merkleRoot": {
+        "description": "Returns the current Merkle root.",
+        "fields": {}
+      },
+      "setMerkleRoot": {
+        "description": "Sets a new Merkle root.",
         "fields": {
-          "delegator": "_delegator",
-          "fromDelegate": "_fromDelegate",
-          "toDelegate": "_toDelegate"
+          "_merkleRoot": "_merkleRoot"
         }
       },
-      "delegateVotesChanged": {
-        "description": "Emitted when delegate votes are changed.",
+      "isClaimed": {
+        "description": "Checks if a specific claim has been made.",
         "fields": {
+          "index": "_index"
+        }
+      },
+      "claimTokens": {
+        "description": "Claims tokens using a Merkle proof.",
+        "fields": {
+          "amount": "_amount",
           "delegate": "_delegate",
-          "previousBalance": "_previousBalance",
-          "newBalance": "_newBalance"
+          "merkleProof": "_merkleProof"
         }
       },
-      "MerkleRootChanged": {
-        "description": "Emitted when the Merkle root is changed.",
+      "mint": {
+        "description": "Mints new tokens to a specified address.",
         "fields": {
-          "merkleRoot": "_merkleRoot"
+          "dest": "_dest",
+          "amount": "_amount"
         }
       },
-      "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+      "mintCap": {
+        "description": "Returns the minting cap.",
+        "fields": {}
+      },
+      "nextMint": {
+        "description": "Returns the next mint amount.",
+        "fields": {}
+      },
+      "sweep": {
+        "description": "Sweeps funds from the contract to a specified address.",
         "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
+          "dest": "_dest"
         }
       },
-      "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        }
+      "renounceOwnership": {
+        "description": "Renounces ownership of the contract.",
+        "fields": {}
       },
-      "OwnershipTransferred": {
-        "description": "Emitted when ownership of the contract is transferred.",
+      "transferOwnership": {
+        "description": "Transfers ownership to a new address.",
         "fields": {
-          "previousOwner": "_previousOwner",
           "newOwner": "_newOwner"
         }
       },
-      "Claim": {
-        "description": "Emitted when tokens are claimed.",
+      "owner": {
+        "description": "Returns the current owner of the contract.",
+        "fields": {}
+      },
+      "nonces": {
+        "description": "Returns the nonce for a specific address.",
         "fields": {
-          "claimant": "_claimant",
-          "amount": "_amount"
+          "owner": "_owner"
         }
+      },
+      "minimumMintInterval": {
+        "description": "Returns the minimum interval between mints.",
+        "fields": {}
       }
     }
   }

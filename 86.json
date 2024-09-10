@@ -1,97 +1,126 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers `rawAmount` of tokens from the caller's account to `dst`.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
+          "dst": "_dst",
+          "rawAmount": "_rawAmount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers `rawAmount` of tokens from `src` to `dst` on behalf of `src`.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
+          "src": "_src",
+          "dst": "_dst",
+          "rawAmount": "_rawAmount"
         }
       }
     },
     "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract with the given account address.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "approve": {
+        "description": "Sets the allowance of `spender` to `rawAmount` tokens.",
+        "fields": {
+          "spender": "_spender",
+          "rawAmount": "_rawAmount"
+        }
+      },
+      "allowance": {
+        "description": "Returns the remaining number of tokens that `spender` is allowed to spend on behalf of `account`.",
+        "fields": {
+          "account": "_account",
+          "spender": "_spender"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the token balance of `account`.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "decimals": {
+        "description": "Returns the number of decimal places used by the token.",
+        "fields": {}
+      },
       "name": {
         "description": "Returns the name of the token.",
+        "fields": {}
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
         "fields": {}
       },
       "totalSupply": {
         "description": "Returns the total supply of tokens.",
         "fields": {}
       },
-      "decimals": {
-        "description": "Returns the number of decimals used by the token.",
+      "getCurrentVotes": {
+        "description": "Returns the current number of votes held by `account`.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "getPriorVotes": {
+        "description": "Returns the number of votes held by `account` at a specific block number.",
+        "fields": {
+          "account": "_account",
+          "blockNumber": "_blockNumber"
+        }
+      },
+      "delegates": {
+        "description": "Returns the delegate address of `account`.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "delegate": {
+        "description": "Delegates voting power to `delegatee`.",
+        "fields": {
+          "delegatee": "_delegatee"
+        }
+      },
+      "delegateBySig": {
+        "description": "Delegates voting power to `delegatee` using a signature.",
+        "fields": {
+          "delegatee": "_delegatee",
+          "nonce": "_nonce",
+          "expiry": "_expiry",
+          "v": "_v",
+          "r": "_r",
+          "s": "_s"
+        }
+      },
+      "checkpoints": {
+        "description": "Returns the checkpoint information of `account` at a specific index.",
+        "fields": {
+          "account": "_account",
+          "index": "_index"
+        }
+      },
+      "numCheckpoints": {
+        "description": "Returns the number of checkpoints for `account`.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "nonces": {
+        "description": "Returns the current nonce for `account`.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "DELEGATION_TYPEHASH": {
+        "description": "Returns the type hash for delegation.",
         "fields": {}
       },
-      "burn": {
-        "description": "Burns a specified amount of tokens from the caller’s account.",
-        "fields": {
-          "amount": "_value"
-        }
-      },
-      "balanceOf": {
-        "description": "Returns the balance of a specified address.",
-        "fields": {
-          "account": ""
-        }
-      },
-      "burnFrom": {
-        "description": "Burns a specified amount of tokens from another address's account.",
-        "fields": {
-          "account": "_from",
-          "amount": "_value"
-        }
-      },
-      "symbol": {
-        "description": "Returns the symbol of the token.",
+      "DOMAIN_TYPEHASH": {
+        "description": "Returns the domain type hash.",
         "fields": {}
-      },
-      "approveAndCall": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified and then calls the specified contract.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value",
-          "extraData": "_extraData"
-        }
-      },
-      "allowance": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of an owner.",
-        "fields": {
-          "owner": "",
-          "spender": ""
-        }
-      },
-      "constructor": {
-        "description": "Constructor function that initializes the contract.",
-        "fields": {}
-      },
-      "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        }
-      },
-      "Burn": {
-        "description": "Emitted when tokens are burned from the caller’s account.",
-        "fields": {
-          "from": "_from",
-          "value": "_value"
-        }
       }
     }
   }

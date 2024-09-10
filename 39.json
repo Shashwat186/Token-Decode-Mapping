@@ -1,100 +1,110 @@
 {
   "transfer_functions": {
-    "approve": {
-      "parameters": {
-        "spender": "_spender",
+    "transfer": {
+      "description": "Transfers a specified amount of tokens to a given address.",
+      "fields": {
+        "to": "_to",
         "amount": "_amount"
-      },
-      "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
+      }
     },
     "transferFrom": {
-      "parameters": {
+      "description": "Transfers a specified amount of tokens from one address to another, using an allowance mechanism.",
+      "fields": {
         "from": "_from",
         "to": "_to",
         "amount": "_amount"
-      },
-      "description": "Transfers tokens from one address to another using the allowance mechanism."
-    },
-    "transfer": {
-      "parameters": {
-        "to": "_to",
-        "amount": "_amount"
-      },
-      "description": "Transfers tokens from the caller's account to the specified address."
-    },
-    "decreaseAllowance": {
-      "parameters": {
-        "spender": "_spender",
-        "subtractedValue": "_subtractedValue"
-      },
-      "description": "Decreases the allowance of a spender."
-    },
-    "increaseAllowance": {
-      "parameters": {
-        "spender": "_spender",
-        "addedValue": "_addedValue"
-      },
-      "description": "Increases the allowance of a spender."
+      }
     }
   },
   "other_functions": {
-    "allowance": {
-      "parameters": {
-        "owner": "_owner",
-        "spender": "_spender"
-      },
-      "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the owner's account."
-    },
-    "balanceOf": {
-      "parameters": {
-        "account": "_account"
-      },
-      "description": "Returns the balance of tokens held by the specified address."
-    },
-    "decimals": {
-      "parameters": {},
-      "description": "Returns the number of decimal places used to represent the token."
-    },
-    "name": {
-      "parameters": {},
-      "description": "Returns the name of the token."
-    },
-    "symbol": {
-      "parameters": {},
-      "description": "Returns the symbol of the token."
-    },
-    "totalSupply": {
-      "parameters": {},
-      "description": "Returns the total supply of tokens."
-    }
-  },
-    "Approval": {
-      "indexed_parameters": {
-        "owner": "_owner",
-        "spender": "_spender"
-      },
-      "non_indexed_parameters": {
-        "value": "_value"
-      },
-      "description": "Emitted when an owner approves a spender."
-    },
-    "Transfer": {
-      "indexed_parameters": {
-        "from": "_from",
-        "to": "_to"
-      },
-      "non_indexed_parameters": {
-        "value": "_value"
-      },
-      "description": "Emitted when tokens are transferred from one address to another."
-    },
-    "Initialize": {
-      "parameters": {
+    "constructor": {
+      "description": "Initializes the contract with the given parameters.",
+      "fields": {
         "name": "_name",
         "symbol": "_symbol",
         "vault": "_vault"
-      },
-      "description": "Initializes the contract with the token's name, symbol, and vault address."
+      }
+    },
+    "allowance": {
+      "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    "approve": {
+      "description": "Sets the amount of tokens that a spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
+    },
+    "balanceOf": {
+      "description": "Returns the token balance of a given address.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places used by the token.",
+      "fields": {}
+    },
+    "decreaseAllowance": {
+      "description": "Decreases the amount of tokens that a spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
+    "increaseAllowance": {
+      "description": "Increases the amount of tokens that a spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of the token.",
+      "fields": {}
+    },
+    "implementation": {
+      "description": "Returns the current implementation address.",
+      "fields": {}
+    },
+    "changeAdmin": {
+      "description": "Changes the admin of the contract.",
+      "fields": {
+        "newAdmin": "_newAdmin"
+      }
+    },
+    "admin": {
+      "description": "Returns the current admin address.",
+      "fields": {}
+    },
+    "fallback": {
+      "description": "Fallback function to receive Ether.",
+      "fields": {}
+    },
+    "AdminChanged": {
+      "description": "Emitted when the admin address changes.",
+      "fields": {
+        "previousAdmin": "_previousAdmin",
+        "newAdmin": "_newAdmin"
+      }
+    },
+    "Upgraded": {
+      "description": "Emitted when the contract is upgraded to a new implementation.",
+      "fields": {
+        "implementation": "_implementation"
+      }
     }
+  }
 }
-

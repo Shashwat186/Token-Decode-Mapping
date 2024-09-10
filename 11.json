@@ -1,97 +1,100 @@
 {
-    "transfer_functions": {
-      "transfer": {
-        "description": "Transfers tokens to a recipient.",
-        "parameters": {
-          "transfer_to": "_to",
-          "amount": "_amount"
-        }
-      },
-      "transferFrom": {
-        "description": "Transfers tokens from a sender to a recipient.",
-        "parameters": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_amount"
-        }
-      },
-      "transferAndCall": {
-        "description": "Transfers tokens to a recipient and triggers a callback.",
-        "parameters": {
-          "transfer_to": "_to",
-          "amount": "_amount",
-          "data": "_data"
-        }
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers a specified amount of tokens to a given address.",
+      "fields": {
+        "to": "_to",
+        "value": "_value"
       }
     },
-    "other_functions": {
-      "approve": {
-        "description": "Approves a spender to transfer tokens on behalf of the owner.",
-        "parameters": {
-          "spender": "_spender",
-          "amount": "_amount"
-        }
-      },
-      "decreaseApproval": {
-        "description": "Decreases the approval of a spender.",
-        "parameters": {
-          "spender": "_spender",
-          "subtractedAmount": "_amount"
-        }
-      },
-      "increaseApproval": {
-        "description": "Increases the approval of a spender.",
-        "parameters": {
-          "spender": "_spender",
-          "addedAmount": "_amount"
-        }
-      },
-      "allowance": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to spend.",
-        "parameters": {
-          "owner": "_owner",
-          "spender": "_spender"
-        }
-      },
-      "balanceOf": {
-        "description": "Returns the balance of an account.",
-        "parameters": {
-          "owner": "_owner"
-        }
-      },
-      "name": {
-        "description": "Returns the name of the token.",
-        "parameters": {}
-      },
-      "symbol": {
-        "description": "Returns the symbol of the token.",
-        "parameters": {}
-      },
-      "totalSupply": {
-        "description": "Returns the total supply of tokens.",
-        "parameters": {}
-      },
-      "decimals": {
-        "description": "Returns the number of decimals used by the token.",
-        "parameters": {}
-      },
-      "Transfer": {
-        "description": "Emits when tokens are transferred.",
-        "parameters": {
-          "transfer_from": "from",
-          "transfer_to": "to",
-          "amount": "value",
-          "data": "data"
-        }
-      },
-      "Approval": {
-        "description": "Emits when a spender is approved for a transfer.",
-        "parameters": {
-          "owner": "owner",
-          "spender": "spender",
-          "amount": "value"
-        }
+    "transferFrom": {
+      "description": "Transfers a specified amount of tokens from one address to another using an allowance.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
+      }
+    },
+    "transferAndCall": {
+      "description": "Transfers a specified amount of tokens to a given address and executes a function call.",
+      "fields": {
+        "to": "_to",
+        "value": "_value",
+        "data": "_data"
+      }
+    }
+  },
+  "other_functions": {
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places the token uses.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the balance of tokens for a given address.",
+      "fields": {
+        "owner": "_owner"
+      }
+    },
+    "allowance": {
+      "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of an owner.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    "approve": {
+      "description": "Allows a spender to spend a specified amount of tokens on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "value": "_value"
+      }
+    },
+    "increaseApproval": {
+      "description": "Increases the allowance a spender has to spend tokens on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    "decreaseApproval": {
+      "description": "Decreases the allowance a spender has to spend tokens on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
+    "constructor": {
+      "description": "Initializes the contract.",
+      "fields": {}
+    },
+    "Transfer": {
+      "description": "Emitted when tokens are transferred.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value",
+        "data": "_data"
+      }
+    },
+    "Approval": {
+      "description": "Emitted when a spender is approved or allowance is changed.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value"
       }
     }
   }
-  
+}

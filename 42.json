@@ -1,36 +1,132 @@
 {
-    "other_functions": {
-      "fallback": {
-        "parameters": {},
-        "description": "Fallback function to receive Ether and handle unexpected function calls."
-      },
-      "receive": {
-        "parameters": {},
-        "description": "Receive function to handle incoming Ether transfers."
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers `_amount` tokens from the caller's address to the `_to` address.",
+      "fields": {
+        "_to": "_to",
+        "_amount": "_amount"
       }
     },
-      "AdminChanged": {
-        "indexed_parameters": {},
-        "non_indexed_parameters": {
-          "previousAdmin": "_previousAdmin",
-          "newAdmin": "_newAdmin"
-        },
-        "description": "Emitted when the admin address is changed."
-      },
-      "BeaconUpgraded": {
-        "indexed_parameters": {
-          "beacon": "_beacon"
-        },
-        "non_indexed_parameters": {},
-        "description": "Emitted when the beacon address is upgraded."
-      },
-      "Upgraded": {
-        "indexed_parameters": {
-          "implementation": "_implementation"
-        },
-        "non_indexed_parameters": {},
-        "description": "Emitted when the implementation address is upgraded."
+    "transferFrom": {
+      "description": "Transfers `_amount` tokens from `_from` address to `_to` address on behalf of the caller.",
+      "fields": {
+        "_from": "_from",
+        "_to": "_to",
+        "_amount": "_amount"
+      }
+    },
+    "approve": {
+      "description": "Approves the `_spender` address to spend `_value` tokens on behalf of the caller.",
+      "fields": {
+        "_spender": "_spender",
+        "_value": "_value"
+      }
+    },
+    "allowPrecirculation": {
+      "description": "Allows `_addr` address to pre-circulate tokens.",
+      "fields": {
+        "_addr": "_addr"
+      }
+    },
+    "disallowPrecirculation": {
+      "description": "Disallows `_addr` address from pre-circulating tokens.",
+      "fields": {
+        "_addr": "_addr"
       }
     }
-
-  
+  },
+  "other_functions": {
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimals used by the token.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of the token.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the balance of tokens for a given `_owner` address.",
+      "fields": {
+        "_owner": "_owner"
+      }
+    },
+    "allowance": {
+      "description": "Returns the remaining number of tokens that `_spender` is allowed to spend on behalf of `_owner`.",
+      "fields": {
+        "_owner": "_owner",
+        "_spender": "_spender"
+      }
+    },
+    "getController": {
+      "description": "Returns the address of the current controller.",
+      "fields": {}
+    },
+    "controller": {
+      "description": "Returns the address of the current controller.",
+      "fields": {}
+    },
+    "changeController": {
+      "description": "Changes the controller to a new `_newController` address.",
+      "fields": {
+        "_newController": "_newController"
+      }
+    },
+    "mint": {
+      "description": "Mints `_amount` new tokens to `_owner` address.",
+      "fields": {
+        "_owner": "_owner",
+        "_amount": "_amount"
+      }
+    },
+    "changeUnlockTime": {
+      "description": "Sets a new unlock time for token transfers.",
+      "fields": {
+        "_unlockTime": "_unlockTime"
+      }
+    },
+    "getUnlockTime": {
+      "description": "Returns the current unlock time for token transfers.",
+      "fields": {}
+    },
+    "isPrecirculationAllowed": {
+      "description": "Checks if pre-circulation is allowed for the `_addr` address.",
+      "fields": {
+        "_addr": "_addr"
+      }
+    },
+    "constructor": {
+      "description": "Initializes the contract with the given unlock time.",
+      "fields": {
+        "_unlockTime": "_unlockTime"
+      }
+    },
+    "fallback": {
+      "description": "Fallback function to receive Ether.",
+      "fields": {}
+    },
+    "Transfer": {
+      "description": "Emitted when a transfer of tokens occurs.",
+      "fields": {
+        "_from": "_from",
+        "_to": "_to",
+        "_value": "_value"
+      }
+    },
+    "Approval": {
+      "description": "Emitted when an approval of token spending occurs.",
+      "fields": {
+        "_owner": "_owner",
+        "_spender": "_spender",
+        "_value": "_value"
+      }
+    }
+  }
+}

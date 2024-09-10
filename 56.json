@@ -1,92 +1,326 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers a specified amount of tokens to a recipient address.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
+          "recipient": "_recipient",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers tokens from a sender to a recipient using an allowance mechanism.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        }
+      },
+      "approve": {
+        "description": "Approves a spender to use a specified amount of tokens on behalf of the owner.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the allowance of a spender by a specified amount.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the allowance of a spender by a specified amount.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        }
+      },
+      "burn": {
+        "description": "Burns a specified amount of tokens from the caller's account.",
+        "fields": {
+          "amount": "_amount"
+        }
+      },
+      "burnFrom": {
+        "description": "Burns a specified amount of tokens from a specified account using an allowance mechanism.",
+        "fields": {
+          "account": "_account",
+          "amount": "_amount"
+        }
+      },
+      "poolBurnFrom": {
+        "description": "Burns a specified amount of tokens from a pool's account.",
+        "fields": {
+          "bAddress": "_b_address",
+          "bAmount": "_b_amount"
+        }
+      },
+      "poolMint": {
+        "description": "Mints a specified amount of tokens to a pool's account.",
+        "fields": {
+          "mAddress": "_m_address",
+          "mAmount": "_m_amount"
         }
       }
     },
     "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract with the given parameters.",
+        "fields": {
+          "_name": "_name",
+          "_symbol": "_symbol",
+          "_creator_address": "_creator_address",
+          "_timelock_address": "_timelock_address"
+        }
+      },
+      "COLLATERAL_RATIO_PAUSER": {
+        "description": "Returns the bytes32 identifier for the collateral ratio pauser role.",
+        "fields": {}
+      },
+      "DEFAULT_ADMIN_ADDRESS": {
+        "description": "Returns the address of the default admin.",
+        "fields": {}
+      },
+      "DEFAULT_ADMIN_ROLE": {
+        "description": "Returns the bytes32 identifier for the default admin role.",
+        "fields": {}
+      },
+      "addPool": {
+        "description": "Adds a pool address to the contract.",
+        "fields": {
+          "poolAddress": "_pool_address"
+        }
+      },
       "allowance": {
-        "description": "Returns the amount that the spender is still allowed to withdraw from the owner’s account.",
+        "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of an owner.",
         "fields": {
           "owner": "_owner",
           "spender": "_spender"
         }
       },
       "balanceOf": {
-        "description": "Returns the token balance of a specific address.",
+        "description": "Returns the balance of tokens held by a specified address.",
         "fields": {
-          "address": ""
+          "account": "_account"
         }
+      },
+      "collateral_ratio_paused": {
+        "description": "Returns whether the collateral ratio is currently paused.",
+        "fields": {}
+      },
+      "controller_address": {
+        "description": "Returns the address of the controller.",
+        "fields": {}
+      },
+      "creator_address": {
+        "description": "Returns the address of the creator.",
+        "fields": {}
       },
       "decimals": {
-        "description": "Returns the number of decimals used to define the token.",
+        "description": "Returns the number of decimal places used by the token.",
         "fields": {}
       },
-      "decreaseAllowance": {
-        "description": "Decreases the spender’s allowance by the specified amount.",
+      "eth_usd_consumer_address": {
+        "description": "Returns the address of the ETH/USD price consumer.",
+        "fields": {}
+      },
+      "eth_usd_price": {
+        "description": "Returns the current ETH/USD price.",
+        "fields": {}
+      },
+      "frax_eth_oracle_address": {
+        "description": "Returns the address of the FRAX/ETH price oracle.",
+        "fields": {}
+      },
+      "frax_info": {
+        "description": "Returns various FRAX-related information.",
+        "fields": {}
+      },
+      "frax_pools": {
+        "description": "Checks if an address is a registered FRAX pool.",
         "fields": {
-          "spender": "_spender",
-          "amount": "_value"
+          "address": "_address"
         }
       },
-      "increaseAllowance": {
-        "description": "Increases the spender’s allowance by the specified amount.",
+      "frax_pools_array": {
+        "description": "Returns an array of registered FRAX pool addresses.",
         "fields": {
-          "spender": "_spender",
-          "amount": "_value"
+          "index": "_index"
         }
       },
-      "mainchainGateway": {
-        "description": "Returns the address of the mainchain gateway.",
+      "frax_price": {
+        "description": "Returns the current price of FRAX.",
         "fields": {}
       },
-      "name": {
-        "description": "Returns the name of the token.",
+      "frax_step": {
+        "description": "Returns the current step of FRAX.",
         "fields": {}
       },
-      "symbol": {
-        "description": "Returns the symbol of the token.",
+      "fxs_address": {
+        "description": "Returns the address of FXS.",
+        "fields": {}
+      },
+      "fxs_eth_oracle_address": {
+        "description": "Returns the address of the FXS/ETH price oracle.",
+        "fields": {}
+      },
+      "fxs_price": {
+        "description": "Returns the current price of FXS.",
+        "fields": {}
+      },
+      "genesis_supply": {
+        "description": "Returns the initial supply of the token.",
+        "fields": {}
+      },
+      "getRoleAdmin": {
+        "description": "Returns the admin role for a specified role.",
+        "fields": {
+          "role": "_role"
+        }
+      },
+      "getRoleMember": {
+        "description": "Returns the address of a member for a specified role at a given index.",
+        "fields": {
+          "role": "_role",
+          "index": "_index"
+        }
+      },
+      "getRoleMemberCount": {
+        "description": "Returns the number of members in a specified role.",
+        "fields": {
+          "role": "_role"
+        }
+      },
+      "globalCollateralValue": {
+        "description": "Returns the total collateral value.",
+        "fields": {}
+      },
+      "global_collateral_ratio": {
+        "description": "Returns the global collateral ratio.",
+        "fields": {}
+      },
+      "grantRole": {
+        "description": "Grants a specified role to an account.",
+        "fields": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "hasRole": {
+        "description": "Checks if an account has a specified role.",
+        "fields": {
+          "role": "_role",
+          "account": "_account"
+        }
+      },
+      "setController": {
+        "description": "Sets a new controller address.",
+        "fields": {
+          "controllerAddress": "_controller_address"
+        }
+      },
+      "setETHUSDOracle": {
+        "description": "Sets a new ETH/USD price consumer address.",
+        "fields": {
+          "ethUsdConsumerAddress": "_eth_usd_consumer_address"
+        }
+      },
+      "setFRAXEthOracle": {
+        "description": "Sets new FRAX/ETH price oracle and WETH address.",
+        "fields": {
+          "fraxOracleAddr": "_frax_oracle_addr",
+          "wethAddress": "_weth_address"
+        }
+      },
+      "setFXSAddress": {
+        "description": "Sets a new FXS address.",
+        "fields": {
+          "fxsAddress": "_fxs_address"
+        }
+      },
+      "setFXSEthOracle": {
+        "description": "Sets new FXS/ETH price oracle and WETH address.",
+        "fields": {
+          "fxsOracleAddr": "_fxs_oracle_addr",
+          "wethAddress": "_weth_address"
+        }
+      },
+      "setFraxStep": {
+        "description": "Sets a new FRAX step value.",
+        "fields": {
+          "newStep": "_new_step"
+        }
+      },
+      "setMintingFee": {
+        "description": "Sets a new minting fee.",
+        "fields": {
+          "minFee": "_min_fee"
+        }
+      },
+      "setOwner": {
+        "description": "Sets a new owner address.",
+        "fields": {
+          "ownerAddress": "_owner_address"
+        }
+      },
+      "setPriceBand": {
+        "description": "Sets a new price band.",
+        "fields": {
+          "priceBand": "_price_band"
+        }
+      },
+      "setPriceTarget": {
+        "description": "Sets a new price target.",
+        "fields": {
+          "newPriceTarget": "_new_price_target"
+        }
+      },
+      "setRedemptionFee": {
+        "description": "Sets a new redemption fee.",
+        "fields": {
+          "redFee": "_red_fee"
+        }
+      },
+      "setRefreshCooldown": {
+        "description": "Sets a new refresh cooldown period.",
+        "fields": {
+          "newCooldown": "_new_cooldown"
+        }
+      },
+      "setTimelock": {
+        "description": "Sets a new timelock address.",
+        "fields": {
+          "newTimelock": "_new_timelock"
+        }
+      },
+      "setTokenInfo": {
+        "description": "Sets new token information.",
+        "fields": {
+          "name": "_name",
+          "symbol": "_symbol"
+        }
+      },
+      "setVesting": {
+        "description": "Sets new vesting parameters.",
+        "fields": {
+          "vesting": "_vesting"
+        }
+      },
+      "supportsInterface": {
+        "description": "Checks if the contract supports a specified interface.",
+        "fields": {
+          "interfaceId": "_interface_id"
+        }
+      },
+      "timelock_address": {
+        "description": "Returns the address of the timelock.",
         "fields": {}
       },
       "totalSupply": {
-        "description": "Returns the total supply of tokens in circulation.",
+        "description": "Returns the total supply of tokens.",
         "fields": {}
       }
-    },
-      "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
-        }
-      },
-      "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        }
-      }
-}
+    }
+  }
   

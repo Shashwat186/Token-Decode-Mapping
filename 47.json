@@ -1,237 +1,168 @@
 {
   "transfer_functions": {
-    "approve": {
-      "parameters": {
-        "spender": "address",
-        "rawAmount": "uint256"
-      },
-      "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
-    },
     "transfer": {
-      "parameters": {
-        "dst": "address",
-        "rawAmount": "uint256"
-      },
-      "description": "Transfers tokens from the caller's account to the specified address."
+      "description": "Transfers tokens from the caller to the specified recipient.",
+      "fields": {
+        "recipient": "_recipient",
+        "amount": "_amount"
+      }
     },
     "transferFrom": {
-      "parameters": {
-        "src": "address",
-        "dst": "address",
-        "rawAmount": "uint256"
-      },
-      "description": "Transfers tokens from one address to another using the allowance mechanism."
-    },
-    "mint": {
-      "parameters": {
-        "account": "address",
-        "rawAmount": "uint256"
-      },
-      "description": "Mints new tokens and adds them to the specified account's balance."
-    },
-    "enableTransfer": {
-      "parameters": {},
-      "description": "Enables token transfers."
-    },
-    "updateTrancheBalance": {
-      "parameters": {
-        "beneficiary": "address",
-        "rawAmount": "uint256",
-        "investorType": "enum IOndo.InvestorType"
-      },
-      "description": "Updates the tranche balance for a specified beneficiary."
+      "description": "Transfers tokens from one account to another on behalf of the owner.",
+      "fields": {
+        "sender": "_sender",
+        "recipient": "_recipient",
+        "amount": "_amount"
+      }
     }
   },
   "other_functions": {
+    "constructor": {
+      "description": "Initializes the contract with the given name and symbol.",
+      "fields": {
+        "name_": "_name",
+        "symbol_": "_symbol"
+      }
+    },
     "DEFAULT_ADMIN_ROLE": {
-      "parameters": {},
-      "description": "Returns the default admin role identifier."
+      "description": "Returns the default admin role identifier.",
+      "fields": {}
     },
-    "DELEGATION_TYPEHASH": {
-      "parameters": {},
-      "description": "Returns the type hash for delegation."
+    "ERC712_VERSION": {
+      "description": "Returns the ERC712 version.",
+      "fields": {}
     },
-    "DOMAIN_TYPEHASH": {
-      "parameters": {},
-      "description": "Returns the domain type hash."
-    },
-    "MINTER_ROLE": {
-      "parameters": {},
-      "description": "Returns the minter role identifier."
-    },
-    "TIMELOCK_UPDATE_ROLE": {
-      "parameters": {},
-      "description": "Returns the timelock update role identifier."
-    },
-    "TRANSFER_ROLE": {
-      "parameters": {},
-      "description": "Returns the transfer role identifier."
+    "PREDICATE_ROLE": {
+      "description": "Returns the predicate role identifier.",
+      "fields": {}
     },
     "allowance": {
-      "parameters": {
-        "account": "address",
-        "spender": "address"
-      },
-      "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the account's balance."
+      "description": "Returns the remaining number of tokens that spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    "approve": {
+      "description": "Sets the amount of tokens that spender is allowed to spend on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
     },
     "balanceOf": {
-      "parameters": {
-        "account": "address"
-      },
-      "description": "Returns the balance of tokens held by the specified address."
-    },
-    "checkpoints": {
-      "parameters": {
-        "address": "address",
-        "uint32": "uint32"
-      },
-      "description": "Returns the checkpoint information for the specified address."
-    },
-    "cliffTimestamp": {
-      "parameters": {},
-      "description": "Returns the cliff timestamp."
+      "description": "Returns the token balance of the specified account.",
+      "fields": {
+        "account": "_account"
+      }
     },
     "decimals": {
-      "parameters": {},
-      "description": "Returns the number of decimal places used to represent the token."
+      "description": "Returns the number of decimals used by the token.",
+      "fields": {}
     },
-    "delegate": {
-      "parameters": {
-        "delegatee": "address"
-      },
-      "description": "Delegates votes to the specified address."
+    "decreaseAllowance": {
+      "description": "Decreases the amount of tokens that spender is allowed to spend on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
     },
-    "delegateBySig": {
-      "parameters": {
-        "delegatee": "address",
-        "nonce": "uint256",
-        "expiry": "uint256",
-        "v": "uint8",
-        "r": "bytes32",
-        "s": "bytes32"
-      },
-      "description": "Delegates votes by signature."
+    "executeMetaTransaction": {
+      "description": "Executes a meta transaction on behalf of a user.",
+      "fields": {
+        "userAddress": "_userAddress",
+        "functionSignature": "_functionSignature",
+        "sigR": "_sigR",
+        "sigS": "_sigS",
+        "sigV": "_sigV"
+      }
     },
-    "delegates": {
-      "parameters": {
-        "address": "address"
-      },
-      "description": "Returns the delegate address for the specified address."
+    "getChainId": {
+      "description": "Returns the chain ID of the blockchain.",
+      "fields": {}
     },
-    "getCurrentVotes": {
-      "parameters": {
-        "account": "address"
-      },
-      "description": "Returns the current vote count for the specified address."
+    "getDomainSeperator": {
+      "description": "Returns the domain separator used in EIP712.",
+      "fields": {}
     },
-    "getFreedBalance": {
-      "parameters": {
-        "account": "address"
-      },
-      "description": "Returns the freed balance for the specified address."
-    },
-    "getPriorVotes": {
-      "parameters": {
-        "account": "address",
-        "blockNumber": "uint256"
-      },
-      "description": "Returns the prior vote count for the specified address at the specified block number."
+    "getNonce": {
+      "description": "Returns the nonce for the specified user address.",
+      "fields": {
+        "user": "_user"
+      }
     },
     "getRoleAdmin": {
-      "parameters": {
-        "role": "bytes32"
-      },
-      "description": "Returns the admin role for the specified role."
+      "description": "Returns the admin role of a specific role.",
+      "fields": {
+        "role": "_role"
+      }
     },
-    "getVestedBalance": {
-      "parameters": {
-        "account": "address"
-      },
-      "description": "Returns the vested balance for the specified address."
+    "getRoleMember": {
+      "description": "Returns the address of a specific role member at a given index.",
+      "fields": {
+        "role": "_role",
+        "index": "_index"
+      }
+    },
+    "getRoleMemberCount": {
+      "description": "Returns the number of members in a specific role.",
+      "fields": {
+        "role": "_role"
+      }
     },
     "grantRole": {
-      "parameters": {
-        "role": "bytes32",
-        "account": "address"
-      },
-      "description": "Grants the specified role to the specified account."
+      "description": "Grants a specific role to an account.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
     },
     "hasRole": {
-      "parameters": {
-        "role": "bytes32",
-        "account": "address"
-      },
-      "description": "Checks if the specified account has the specified role."
+      "description": "Checks if an account has a specific role.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    "increaseAllowance": {
+      "description": "Increases the amount of tokens that spender is allowed to spend on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    "mint": {
+      "description": "Mints new tokens and assigns them to the specified user.",
+      "fields": {
+        "user": "_user",
+        "amount": "_amount"
+      }
     },
     "name": {
-      "parameters": {},
-      "description": "Returns the name of the token."
-    },
-    "nonces": {
-      "parameters": {
-        "address": "address"
-      },
-      "description": "Returns the nonce for the specified address."
-    },
-    "numCheckpoints": {
-      "parameters": {
-        "address": "address"
-      },
-      "description": "Returns the number of checkpoints for the specified address."
-    },
-    "passedAllVestingPeriods": {
-      "parameters": {},
-      "description": "Checks if all vesting periods have passed."
-    },
-    "passedCliff": {
-      "parameters": {},
-      "description": "Checks if the cliff period has passed."
+      "description": "Returns the name of the token.",
+      "fields": {}
     },
     "renounceRole": {
-      "parameters": {
-        "role": "bytes32",
-        "account": "address"
-      },
-      "description": "Renounces the specified role for the specified account."
+      "description": "Renounces a specific role for the caller.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
     },
     "revokeRole": {
-      "parameters": {
-        "role": "bytes32",
-        "account": "address"
-      },
-      "description": "Revokes the specified role from the specified account."
-    },
-    "seedVestingPeriod": {
-      "parameters": {},
-      "description": "Returns the seed vesting period."
-    },
-    "supportsInterface": {
-      "parameters": {
-        "interfaceId": "bytes4"
-      },
-      "description": "Checks if the contract supports the specified interface."
+      "description": "Revokes a specific role from an account.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
     },
     "symbol": {
-      "parameters": {},
-      "description": "Returns the symbol of the token."
+      "description": "Returns the symbol of the token.",
+      "fields": {}
     },
     "totalSupply": {
-      "parameters": {},
-      "description": "Returns the total supply of tokens."
-    },
-    "tranche1VestingPeriod": {
-      "parameters": {},
-      "description": "Returns the tranche 1 vesting period."
-    },
-    "tranche2VestingPeriod": {
-      "parameters": {},
-      "description": "Returns the tranche 2 vesting period."
-    },
-    "updateCliffTimestamp": {
-      "parameters": {
-        "newTimestamp": "uint256"
-      },
-      "description": "Updates the cliff timestamp."
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
     }
   }
 }

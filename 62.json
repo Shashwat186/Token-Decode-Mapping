@@ -1,102 +1,59 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers tokens to a specified address.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
+          "to": "_to",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers tokens from one address to another using an allowance.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
-        }
-      }
-    },
-    "other_functions": {
-      "changeExecutionAdmin": {
-        "description": "Changes the execution admin address.",
-        "fields": {
-          "newAdmin": "_newAdmin"
+          "from": "_from",
+          "to": "_to",
+          "amount": "_amount"
         }
       },
-      "burnFor": {
-        "description": "Burns tokens on behalf of a specified owner.",
+      "approve": {
+        "description": "Approves a spender to spend a specified amount of tokens.",
         "fields": {
-          "owner": "_owner",
+          "spender": "_spender",
           "amount": "_amount"
         }
       },
       "approveFor": {
-        "description": "Approves a spender to withdraw a specific amount from a specified owner.",
+        "description": "Approves a spender to spend a specified amount of tokens on behalf of an owner.",
         "fields": {
           "owner": "_owner",
           "spender": "_spender",
           "amount": "_amount"
         }
       },
-      "addAllowanceIfNeeded": {
-        "description": "Adds allowance if needed for a specified spender.",
+      "transferAndChargeForGas": {
+        "description": "Transfers tokens and charges for gas.",
         "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "amountNeeded": "_amountNeeded"
-        }
-      },
-      "burn": {
-        "description": "Burns a specified amount of tokens from the caller’s account.",
-        "fields": {
-          "amount": "_amount"
-        }
-      },
-      "setExecutionOperator": {
-        "description": "Sets an execution operator with an enabled/disabled status.",
-        "fields": {
-          "executionOperator": "_executionOperator",
-          "enabled": "_enabled"
-        }
-      },
-      "changeAdmin": {
-        "description": "Changes the admin address.",
-        "fields": {
-          "newAdmin": "_newAdmin"
-        }
-      },
-      "setSuperOperator": {
-        "description": "Sets a super operator with an enabled/disabled status.",
-        "fields": {
-          "superOperator": "_superOperator",
-          "enabled": "_enabled"
-        }
-      },
-      "paidCall": {
-        "description": "Makes a paid call to a target address with specified amount and data.",
-        "fields": {
-          "target": "_target",
+          "from": "_from",
+          "to": "_to",
           "amount": "_amount",
-          "data": "_data"
+          "gasLimit": "_gasLimit",
+          "tokenGasPrice": "_tokenGasPrice",
+          "baseGasCharge": "_baseGasCharge",
+          "tokenReceiver": "_tokenReceiver"
         }
       },
-      "approveAndCall": {
-        "description": "Approves a spender and makes a call to a target address with specified data.",
+      "approveAndExecuteWithSpecificGas": {
+        "description": "Approves a spender and executes a transaction with specific gas.",
         "fields": {
-          "target": "_target",
+          "from": "_from",
+          "to": "_to",
           "amount": "_amount",
+          "gasLimit": "_gasLimit",
           "data": "_data"
         }
       },
       "approveAndExecuteWithSpecificGasAndChargeForIt": {
-        "description": "Approves and executes a transaction with specific gas and charges for it.",
+        "description": "Approves a spender and executes a transaction with specific gas and charges for it.",
         "fields": {
           "from": "_from",
           "to": "_to",
@@ -109,24 +66,30 @@
         }
       },
       "executeWithSpecificGas": {
-        "description": "Executes a transaction with specific gas parameters.",
+        "description": "Executes a transaction with specific gas.",
         "fields": {
           "to": "_to",
           "gasLimit": "_gasLimit",
           "data": "_data"
         }
+      }
+    },
+    "other_functions": {
+      "name": {
+        "description": "Returns the name of the token.",
+        "fields": {}
       },
-      "transferAndChargeForGas": {
-        "description": "Transfers tokens and charges for the gas used.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "amount": "_amount",
-          "gasLimit": "_gasLimit",
-          "tokenGasPrice": "_tokenGasPrice",
-          "baseGasCharge": "_baseGasCharge",
-          "tokenReceiver": "_tokenReceiver"
-        }
+      "decimals": {
+        "description": "Returns the number of decimal places the token uses.",
+        "fields": {}
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
+        "fields": {}
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
       },
       "balanceOf": {
         "description": "Returns the balance of a specified address.",
@@ -135,10 +98,22 @@
         }
       },
       "allowance": {
-        "description": "Returns the remaining allowance for a spender from a specified owner.",
+        "description": "Returns the remaining allowance of a spender on behalf of an owner.",
         "fields": {
           "owner": "_owner",
           "spender": "_spender"
+        }
+      },
+      "isExecutionOperator": {
+        "description": "Checks if an address is an execution operator.",
+        "fields": {
+          "who": "_who"
+        }
+      },
+      "isSuperOperator": {
+        "description": "Checks if an address is a super operator.",
+        "fields": {
+          "who": "_who"
         }
       },
       "getAdmin": {
@@ -149,16 +124,112 @@
         "description": "Returns the current execution admin address.",
         "fields": {}
       },
-      "isExecutionOperator": {
-        "description": "Checks if a specified address is an execution operator.",
+      "changeAdmin": {
+        "description": "Changes the admin of the contract.",
         "fields": {
-          "who": "_who"
+          "newAdmin": "_newAdmin"
         }
       },
-      "isSuperOperator": {
-        "description": "Checks if a specified address is a super operator.",
+      "changeExecutionAdmin": {
+        "description": "Changes the execution admin of the contract.",
         "fields": {
-          "who": "_who"
+          "newAdmin": "_newAdmin"
+        }
+      },
+      "setSuperOperator": {
+        "description": "Sets or unsets a super operator.",
+        "fields": {
+          "superOperator": "_superOperator",
+          "enabled": "_enabled"
+        }
+      },
+      "setExecutionOperator": {
+        "description": "Sets or unsets an execution operator.",
+        "fields": {
+          "executionOperator": "_executionOperator",
+          "enabled": "_enabled"
+        }
+      },
+      "addAllowanceIfNeeded": {
+        "description": "Adds an allowance if needed.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "amountNeeded": "_amountNeeded"
+        }
+      },
+      "burn": {
+        "description": "Burns a specified amount of tokens.",
+        "fields": {
+          "amount": "_amount"
+        }
+      },
+      "burnFor": {
+        "description": "Burns a specified amount of tokens on behalf of an owner.",
+        "fields": {
+          "owner": "_owner",
+          "amount": "_amount"
+        }
+      },
+      "paidCall": {
+        "description": "Executes a call with a specified amount of Ether.",
+        "fields": {
+          "target": "_target",
+          "amount": "_amount",
+          "data": "_data"
+        }
+      },
+      "approveAndCall": {
+        "description": "Approves a spender and executes a call with a specified amount of Ether.",
+        "fields": {
+          "target": "_target",
+          "amount": "_amount",
+          "data": "_data"
+        }
+      },
+      "approveAndExecuteWithSpecificGasAndChargeForIt": {
+        "description": "Approves a spender and executes a transaction with specific gas and charges for it.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "amount": "_amount",
+          "gasLimit": "_gasLimit",
+          "tokenGasPrice": "_tokenGasPrice",
+          "baseGasCharge": "_baseGasCharge",
+          "tokenReceiver": "_tokenReceiver",
+          "data": "_data"
+        }
+      },
+      "fallback": {
+        "description": "Fallback function to receive Ether.",
+        "fields": {}
+      },
+      "AdminChanged": {
+        "description": "Emitted when the admin address changes.",
+        "fields": {
+          "previousAdmin": "_previousAdmin",
+          "newAdmin": "_newAdmin"
+        }
+      },
+      "ExecutionAdminAdminChanged": {
+        "description": "Emitted when the execution admin address changes.",
+        "fields": {
+          "oldAdmin": "_oldAdmin",
+          "newAdmin": "_newAdmin"
+        }
+      },
+      "SuperOperator": {
+        "description": "Emitted when a super operator is set or unset.",
+        "fields": {
+          "superOperator": "_superOperator",
+          "enabled": "_enabled"
+        }
+      },
+      "ExecutionOperator": {
+        "description": "Emitted when an execution operator is set or unset.",
+        "fields": {
+          "executionOperator": "_executionOperator",
+          "enabled": "_enabled"
         }
       }
     }

@@ -1,89 +1,84 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "The address to be allowed to spend the caller's tokens.",
-          "amount": "The number of tokens that are approved."
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers tokens to a specified address.",
         "fields": {
-          "transfer_to": "The address to which tokens are transferred.",
-          "amount": "The amount of tokens to be transferred."
+          "_to": "_to",
+          "_value": "_value"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers tokens from one address to another, using an allowance mechanism.",
         "fields": {
-          "transfer_from": "The address from which the tokens are being transferred.",
-          "transfer_to": "The address to which tokens are being sent.",
-          "amount": "The number of tokens to be transferred."
+          "_from": "_from",
+          "_to": "_to",
+          "_value": "_value"
         }
       },
       "increaseAllowance": {
-        "description": "Increases the amount of tokens that a spender is allowed to withdraw from the caller’s account.",
+        "description": "Increases the spender's allowance for the owner's tokens.",
         "fields": {
-          "spender": "The address of the spender whose allowance is increased.",
-          "addedValue": "The additional amount of tokens to add to the spender's allowance."
+          "_spender": "_spender",
+          "_value": "_value"
         }
       },
       "decreaseAllowance": {
-        "description": "Decreases the amount of tokens that a spender is allowed to withdraw from the caller’s account.",
+        "description": "Decreases the spender's allowance for the owner's tokens.",
         "fields": {
-          "spender": "The address of the spender whose allowance is decreased.",
-          "subtractedValue": "The amount of tokens to subtract from the spender's allowance."
+          "_spender": "_spender",
+          "_value": "_value"
+        }
+      },
+      "approve": {
+        "description": "Approves a spender to transfer tokens on the owner's behalf.",
+        "fields": {
+          "_spender": "_spender",
+          "_value": "_value"
+        }
+      },
+      "allowance": {
+        "description": "Returns the remaining number of tokens that a spender is allowed to transfer on behalf of an owner.",
+        "fields": {
+          "_owner": "_owner",
+          "_spender": "_spender"
+        }
+      },
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one account to another.",
+        "fields": {
+          "_from": "_from",
+          "_to": "_to",
+          "_value": "_value"
+        }
+      },
+      "Approval": {
+        "description": "Emitted when the allowance of a spender is set by the owner.",
+        "fields": {
+          "_owner": "_owner",
+          "_spender": "_spender",
+          "_value": "_value"
         }
       }
     },
     "other_functions": {
-      "mint": {
-        "description": "Mints new tokens to a user's account.",
+      "constructor": {
+        "description": "Initializes the contract with the mainchain gateway address.",
         "fields": {
-          "user": "The address of the user receiving the newly minted tokens.",
-          "amount": "The amount of tokens to mint."
+          "_mainchainGateway": "_mainchainGateway"
         }
       },
-      "executeMetaTransaction": {
-        "description": "Executes a meta transaction on behalf of the user.",
-        "fields": {
-          "userAddress": "The address of the user on whose behalf the transaction is executed.",
-          "functionSignature": "The function signature to execute.",
-          "sigR": "Part of the signature.",
-          "sigS": "Part of the signature.",
-          "sigV": "Part of the signature."
-        }
-      },
-      "grantRole": {
-        "description": "Grants a role to a specific account.",
-        "fields": {
-          "role": "The role to be granted.",
-          "account": "The address of the account receiving the role."
-        }
-      },
-      "revokeRole": {
-        "description": "Revokes a role from a specific account.",
-        "fields": {
-          "role": "The role to be revoked.",
-          "account": "The address of the account from which the role is revoked."
-        }
-      },
-      "renounceRole": {
-        "description": "Allows the caller to renounce a role they hold.",
-        "fields": {
-          "role": "The role to be renounced.",
-          "account": "The address of the account renouncing the role."
-        }
+      "mainchainGateway": {
+        "description": "Returns the address of the mainchain gateway.",
+        "fields": {}
       },
       "balanceOf": {
-        "description": "Returns the balance of tokens for a specific account.",
+        "description": "Returns the balance of a specific address.",
         "fields": {
-          "account": "The address of the account whose balance is being queried."
+          "_address": "_address"
         }
       },
-      "totalSupply": {
-        "description": "Returns the total supply of tokens.",
+      "decimals": {
+        "description": "Returns the number of decimal places used in the token.",
         "fields": {}
       },
       "name": {
@@ -94,65 +89,9 @@
         "description": "Returns the symbol of the token.",
         "fields": {}
       },
-      "decimals": {
-        "description": "Returns the number of decimals used by the token.",
+      "totalSupply": {
+        "description": "Returns the total supply of the token.",
         "fields": {}
-      },
-      "getChainId": {
-        "description": "Returns the chain ID where the contract is deployed.",
-        "fields": {}
-      },
-      "getDomainSeperator": {
-        "description": "Returns the domain separator for EIP-712.",
-        "fields": {}
-      },
-      "getNonce": {
-        "description": "Returns the current nonce of the user for meta transactions.",
-        "fields": {
-          "user": "The address of the user whose nonce is queried."
-        }
-      }
-    },
-    "events": {
-      "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
-        "fields": {
-          "owner": "The address of the token owner.",
-          "spender": "The address of the spender approved to withdraw tokens.",
-          "value": "The amount of tokens approved."
-        }
-      },
-      "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
-        "fields": {
-          "from": "The address from which tokens are sent.",
-          "to": "The address to which tokens are sent.",
-          "value": "The number of tokens transferred."
-        }
-      },
-      "RoleGranted": {
-        "description": "Emitted when a role is granted to an account.",
-        "fields": {
-          "role": "The role granted.",
-          "account": "The account receiving the role.",
-          "sender": "The address that granted the role."
-        }
-      },
-      "RoleRevoked": {
-        "description": "Emitted when a role is revoked from an account.",
-        "fields": {
-          "role": "The role revoked.",
-          "account": "The account losing the role.",
-          "sender": "The address that revoked the role."
-        }
-      },
-      "MetaTransactionExecuted": {
-        "description": "Emitted when a meta transaction is executed.",
-        "fields": {
-          "userAddress": "The address of the user on whose behalf the transaction was executed.",
-          "relayerAddress": "The address of the relayer executing the transaction.",
-          "functionSignature": "The function that was executed."
-        }
       }
     }
   }

@@ -1,294 +1,233 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_amount"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers value to the specified address.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_amount"
+          "to": "_to",
+          "value": "_value"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers value from one address to another using allowance.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
+        }
+      },
+      "approve": {
+        "description": "Approves a spender to transfer a specified value on behalf of the caller.",
+        "fields": {
+          "spender": "_spender",
+          "value": "_value"
+        }
+      },
+      "burnSecondary": {
+        "description": "Burns secondary tokens for a specified amount.",
+        "fields": {
+          "address": "_address",
+          "value": "_value"
+        }
+      },
+      "burnSynths": {
+        "description": "Burns a specified amount of synths.",
+        "fields": {
           "amount": "_amount"
         }
       },
-      "increaseAllowance": {
-        "description": "Increases the allowance for a spender.",
+      "burnSynthsOnBehalf": {
+        "description": "Burns synths on behalf of another address.",
         "fields": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
+          "burnForAddress": "_burnForAddress",
+          "amount": "_amount"
+        }
+      },
+      "burnSynthsToTarget": {
+        "description": "Burns synths to reach a target amount.",
+        "fields": {}
+      },
+      "burnSynthsToTargetOnBehalf": {
+        "description": "Burns synths to target amount on behalf of another address.",
+        "fields": {
+          "burnForAddress": "_burnForAddress"
+        }
+      },
+      "mint": {
+        "description": "Mints new tokens.",
+        "fields": {}
+      },
+      "emitAtomicSynthExchange": {
+        "description": "Emits an event for an atomic synth exchange.",
+        "fields": {
+          "account": "_account",
+          "fromCurrencyKey": "_fromCurrencyKey",
+          "fromAmount": "_fromAmount",
+          "toCurrencyKey": "_toCurrencyKey",
+          "toAmount": "_toAmount",
+          "toAddress": "_toAddress"
+        }
+      },
+      "emitExchangeRebate": {
+        "description": "Emits an event for an exchange rebate.",
+        "fields": {
+          "account": "_account",
+          "currencyKey": "_currencyKey",
+          "amount": "_amount"
+        }
+      },
+      "emitExchangeReclaim": {
+        "description": "Emits an event for an exchange reclaim.",
+        "fields": {
+          "account": "_account",
+          "currencyKey": "_currencyKey",
+          "amount": "_amount"
+        }
+      },
+      "emitExchangeTracking": {
+        "description": "Emits an event for exchange tracking.",
+        "fields": {
+          "trackingCode": "_trackingCode",
+          "toCurrencyKey": "_toCurrencyKey",
+          "toAmount": "_toAmount",
+          "fee": "_fee"
+        }
+      },
+      "emitSynthExchange": {
+        "description": "Emits an event for a synth exchange.",
+        "fields": {
+          "account": "_account",
+          "fromCurrencyKey": "_fromCurrencyKey",
+          "fromAmount": "_fromAmount",
+          "toCurrencyKey": "_toCurrencyKey",
+          "toAmount": "_toAmount",
+          "toAddress": "_toAddress"
+        }
+      },
+      "exchange": {
+        "description": "Exchanges a specified amount from one currency to another.",
+        "fields": {
+          "sourceCurrencyKey": "_sourceCurrencyKey",
+          "sourceAmount": "_sourceAmount",
+          "destinationCurrencyKey": "_destinationCurrencyKey"
+        }
+      },
+      "exchangeAtomically": {
+        "description": "Exchanges a specified amount from one currency to another atomically.",
+        "fields": {
+          "sourceCurrencyKey": "_sourceCurrencyKey",
+          "sourceAmount": "_sourceAmount",
+          "destinationCurrencyKey": "_destinationCurrencyKey",
+          "trackingCode": "_trackingCode",
+          "minAmount": "_minAmount"
+        }
+      },
+      "exchangeOnBehalf": {
+        "description": "Exchanges a specified amount from one currency to another on behalf of another address.",
+        "fields": {
+          "exchangeForAddress": "_exchangeForAddress",
+          "sourceCurrencyKey": "_sourceCurrencyKey",
+          "sourceAmount": "_sourceAmount",
+          "destinationCurrencyKey": "_destinationCurrencyKey"
+        }
+      },
+      "exchangeOnBehalfWithTracking": {
+        "description": "Exchanges a specified amount from one currency to another on behalf of another address with tracking.",
+        "fields": {
+          "exchangeForAddress": "_exchangeForAddress",
+          "sourceCurrencyKey": "_sourceCurrencyKey",
+          "sourceAmount": "_sourceAmount",
+          "destinationCurrencyKey": "_destinationCurrencyKey",
+          "rewardAddress": "_rewardAddress",
+          "trackingCode": "_trackingCode"
+        }
+      },
+      "exchangeWithTracking": {
+        "description": "Exchanges a specified amount from one currency to another with tracking.",
+        "fields": {
+          "sourceCurrencyKey": "_sourceCurrencyKey",
+          "sourceAmount": "_sourceAmount",
+          "destinationCurrencyKey": "_destinationCurrencyKey",
+          "rewardAddress": "_rewardAddress",
+          "trackingCode": "_trackingCode"
+        }
+      },
+      "exchangeWithTrackingForInitiator": {
+        "description": "Exchanges a specified amount from one currency to another with tracking for the initiator.",
+        "fields": {
+          "sourceCurrencyKey": "_sourceCurrencyKey",
+          "sourceAmount": "_sourceAmount",
+          "destinationCurrencyKey": "_destinationCurrencyKey",
+          "rewardAddress": "_rewardAddress",
+          "trackingCode": "_trackingCode"
+        }
+      },
+      "exchangeWithVirtual": {
+        "description": "Exchanges a specified amount from one currency to another with virtual synth.",
+        "fields": {
+          "sourceCurrencyKey": "_sourceCurrencyKey",
+          "sourceAmount": "_sourceAmount",
+          "destinationCurrencyKey": "_destinationCurrencyKey",
+          "trackingCode": "_trackingCode"
+        }
+      },
+      "mintSecondary": {
+        "description": "Mints secondary tokens for a specified address.",
+        "fields": {
+          "address": "_address",
+          "value": "_value"
+        }
+      },
+      "mintSecondaryRewards": {
+        "description": "Mints secondary rewards based on the specified amount.",
+        "fields": {
+          "amount": "_amount"
         }
       }
     },
     "other_functions": {
-      "constructor": {
-        "description": "Initializes the contract with the address of the layer zero endpoint.",
-        "fields": {
-          "lzEndpoint": "_lzEndpoint"
-        }
-      },
-      "callOnOFTReceived": {
-        "description": "Handles the receipt of a call on OFT.",
-        "fields": {
-          "srcChainId": "_srcChainId",
-          "srcAddress": "_srcAddress",
-          "nonce": "_nonce",
-          "from": "_from",
-          "to": "_to",
-          "amount": "_amount",
-          "payload": "_payload",
-          "gasForCall": "_gasForCall"
-        }
-      },
-      "estimateSendAndCallFee": {
-        "description": "Estimates the fee for sending and calling on the destination chain.",
-        "fields": {
-          "dstChainId": "_dstChainId",
-          "toAddress": "_toAddress",
-          "amount": "_amount",
-          "payload": "_payload",
-          "dstGasForCall": "_dstGasForCall",
-          "useZro": "_useZro",
-          "adapterParams": "_adapterParams"
-        }
-      },
-      "estimateSendFee": {
-        "description": "Estimates the fee for sending tokens to the destination chain.",
-        "fields": {
-          "dstChainId": "_dstChainId",
-          "toAddress": "_toAddress",
-          "amount": "_amount",
-          "useZro": "_useZro",
-          "adapterParams": "_adapterParams"
-        }
-      },
-      "forceResumeReceive": {
-        "description": "Forces the contract to resume receiving messages from a specific source chain.",
-        "fields": {
-          "srcChainId": "_srcChainId",
-          "srcAddress": "_srcAddress"
-        }
-      },
-      "setPrecrime": {
-        "description": "Sets the precrime address for the contract.",
-        "fields": {
-          "precrime": "_precrime"
-        }
-      },
-      "setReceiveVersion": {
-        "description": "Sets the version for receiving messages.",
-        "fields": {
-          "version": "_version"
-        }
-      },
-      "setSendVersion": {
-        "description": "Sets the version for sending messages.",
-        "fields": {
-          "version": "_version"
-        }
-      },
-      "setTrustedRemote": {
-        "description": "Sets the trusted remote address for a given source chain ID.",
-        "fields": {
-          "srcChainId": "_srcChainId",
-          "path": "_path"
-        }
-      },
-      "setTrustedRemoteAddress": {
-        "description": "Sets the trusted remote address for a given remote chain ID.",
-        "fields": {
-          "remoteChainId": "_remoteChainId",
-          "remoteAddress": "_remoteAddress"
-        }
-      },
-      "setUseCustomAdapterParams": {
-        "description": "Sets whether to use custom adapter parameters.",
-        "fields": {
-          "useCustomAdapterParams": "_useCustomAdapterParams"
-        }
-      },
-      "setWhitelist": {
-        "description": "Sets or unsets a whitelist status for an address.",
-        "fields": {
-          "addr": "_addr",
-          "isWhitelist": "_isWhitelist"
-        }
-      },
-      "setFeeBp": {
-        "description": "Sets the fee basis points for a specific destination chain.",
-        "fields": {
-          "dstChainId": "_dstChainId",
-          "enabled": "_enabled",
-          "feeBp": "_feeBp"
-        }
-      },
-      "setDefaultFeeBp": {
-        "description": "Sets the default fee basis points.",
-        "fields": {
-          "feeBp": "_feeBp"
-        }
-      },
-      "setFeeOwner": {
-        "description": "Sets the address that owns the fee.",
-        "fields": {
-          "feeOwner": "_feeOwner"
-        }
-      },
-      "setInboundCap": {
-        "description": "Sets the inbound cap for a specific chain ID.",
-        "fields": {
-          "chainId": "_chainId",
-          "cap": "_cap"
-        }
-      },
-      "setOutboundCap": {
-        "description": "Sets the outbound cap for a specific chain ID.",
-        "fields": {
-          "chainId": "_chainId",
-          "cap": "_cap"
-        }
-      },
-      "setMinDstGas": {
-        "description": "Sets the minimum gas required for a specific destination chain and packet type.",
-        "fields": {
-          "dstChainId": "_dstChainId",
-          "packetType": "_packetType",
-          "minGas": "_minGas"
-        }
-      },
-      "setOperator": {
-        "description": "Sets the operator address.",
-        "fields": {
-          "newOperator": "_newOperator"
-        }
-      },
-      "pause": {
-        "description": "Pauses the contract, preventing certain actions.",
+      "CONTRACT_NAME": {
+        "description": "Returns the contract name.",
         "fields": {}
       },
-      "unpause": {
-        "description": "Unpauses the contract, resuming normal operations.",
+      "DECIMALS": {
+        "description": "Returns the number of decimals used by the token.",
         "fields": {}
       },
-      "transferOwnership": {
-        "description": "Transfers ownership of the contract to a new address.",
-        "fields": {
-          "newOwner": "_newOwner"
-        }
-      },
-      "circulatingSupply": {
-        "description": "Returns the current circulating supply of tokens.",
+      "TOKEN_NAME": {
+        "description": "Returns the token name.",
         "fields": {}
       },
-      "decimals": {
-        "description": "Returns the number of decimal places used by the token.",
+      "TOKEN_SYMBOL": {
+        "description": "Returns the token symbol.",
         "fields": {}
       },
-      "defaultFeeBp": {
-        "description": "Returns the default fee basis points.",
+      "acceptOwnership": {
+        "description": "Accepts ownership of the contract.",
         "fields": {}
-      },
-      "feeOwner": {
-        "description": "Returns the address that owns the fee.",
-        "fields": {}
-      },
-      "sharedDecimals": {
-        "description": "Returns the number of decimal places used by the token.",
-        "fields": {}
-      },
-      "symbol": {
-        "description": "Returns the symbol of the token.",
-        "fields": {}
-      },
-      "token": {
-        "description": "Returns the token address.",
-        "fields": {}
-      },
-      "totalSupply": {
-        "description": "Returns the total supply of tokens.",
-        "fields": {}
-      },
-      "useCustomAdapterParams": {
-        "description": "Checks if custom adapter parameters are used.",
-        "fields": {}
-      },
-      "whitelist": {
-        "description": "Checks if an address is whitelisted.",
-        "fields": {
-          "address": "_address"
-        }
-      },
-      "supportsInterface": {
-        "description": "Checks if the contract implements a given interface.",
-        "fields": {
-          "interfaceId": "_interfaceId"
-        }
-      },
-      "chainIdToFeeBps": {
-        "description": "Returns the fee basis points for a specific chain ID.",
-        "fields": {
-          "chainId": "_chainId"
-        }
-      },
-      "chainIdToInboundCap": {
-        "description": "Returns the inbound cap for a specific chain ID.",
-        "fields": {
-          "chainId": "_chainId"
-        }
-      },
-      "chainIdToLastReceivedTimestamp": {
-        "description": "Returns the last received timestamp for a specific chain ID.",
-        "fields": {
-          "chainId": "_chainId"
-        }
-      },
-      "chainIdToLastSentTimestamp": {
-        "description": "Returns the last sent timestamp for a specific chain ID.",
-        "fields": {
-          "chainId": "_chainId"
-        }
-      },
-      "chainIdToOutboundCap": {
-        "description": "Returns the outbound cap for a specific chain ID.",
-        "fields": {
-          "chainId": "_chainId"
-        }
-      },
-      "chainIdToReceivedTokenAmount": {
-        "description": "Returns the received token amount for a specific chain ID.",
-        "fields": {
-          "chainId": "_chainId"
-        }
-      },
-      "chainIdToSentTokenAmount": {
-        "description": "Returns the sent token amount for a specific chain ID.",
-        "fields": {
-          "chainId": "_chainId"
-        }
-      },
-      "failedMessages": {
-        "description": "Returns the failed messages for a specific chain ID and bytes.",
-        "fields": {
-          "chainId": "_chainId",
-          "data": "_data",
-          "nonce": "_nonce"
-        }
       },
       "allowance": {
-        "description": "Returns the remaining allowance for a spender.",
+        "description": "Returns the allowance a spender has for a specific owner.",
         "fields": {
           "owner": "_owner",
           "spender": "_spender"
+        }
+      },
+      "anySynthOrSNXRateIsInvalid": {
+        "description": "Checks if any synth or SNX rate is invalid.",
+        "fields": {}
+      },
+      "availableCurrencyKeys": {
+        "description": "Returns the available currency keys.",
+        "fields": {}
+      },
+      "availableSynthCount": {
+        "description": "Returns the count of available synths.",
+        "fields": {}
+      },
+      "availableSynths": {
+        "description": "Returns available synths at a specified index.",
+        "fields": {
+          "index": "_index"
         }
       },
       "balanceOf": {
@@ -297,141 +236,178 @@
           "account": "_account"
         }
       },
-      "decreaseAllowance": {
-        "description": "Decreases the allowance for a spender.",
+      "collateral": {
+        "description": "Returns the collateral amount for a specific address.",
         "fields": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
+          "account": "_account"
         }
       },
-      "amountsForCall": {
-        "description": "Returns amounts for call.",
+      "collateralisationRatio": {
+        "description": "Returns the collateralisation ratio for a specific issuer.",
         "fields": {
-          "chainId": "_chainId",
-          "data": "_data",
-          "nonce": "_nonce"
+          "_issuer": "_issuer"
         }
       },
-      "getConfig": {
-        "description": "Returns the configuration for a given version, chain ID, and config type.",
+      "debtBalanceOf": {
+        "description": "Returns the debt balance for a specific address and currency key.",
         "fields": {
-          "version": "_version",
-          "chainId": "_chainId",
-          "configType": "_configType"
+          "account": "_account",
+          "currencyKey": "_currencyKey"
         }
       },
-      "getTrustedRemoteAddress": {
-        "description": "Returns the trusted remote address for a given remote chain ID.",
-        "fields": {
-          "remoteChainId": "_remoteChainId"
-        }
-      },
-      "isTrustedRemote": {
-        "description": "Checks if a given source chain ID and address are trusted.",
-        "fields": {
-          "srcChainId": "_srcChainId",
-          "srcAddress": "_srcAddress"
-        }
-      },
-      "lzEndpoint": {
-        "description": "Returns the address of the LayerZero endpoint.",
+      "decimals": {
+        "description": "Returns the decimal places used by the token.",
         "fields": {}
       },
-      "lzReceive": {
-        "description": "Handles the receipt of LayerZero messages.",
+      "getFirstNonZeroEscrowIndex": {
+        "description": "Returns the first non-zero escrow index for an account.",
         "fields": {
-          "srcChainId": "_srcChainId",
-          "srcAddress": "_srcAddress",
-          "nonce": "_nonce",
-          "payload": "_payload"
+          "account": "_account"
         }
       },
-      "minDstGasLookup": {
-        "description": "Returns the minimum destination gas for a given source and destination chain IDs.",
+      "isResolverCached": {
+        "description": "Checks if the resolver is cached.",
+        "fields": {}
+      },
+      "isWaitingPeriod": {
+        "description": "Checks if a currency is in a waiting period.",
         "fields": {
-          "srcChainId": "_srcChainId",
-          "dstChainId": "_dstChainId"
+          "currencyKey": "_currencyKey"
+        }
+      },
+      "issueMaxSynths": {
+        "description": "Issues the maximum amount of synths.",
+        "fields": {}
+      },
+      "issueMaxSynthsOnBehalf": {
+        "description": "Issues the maximum amount of synths on behalf of another address.",
+        "fields": {
+          "issueForAddress": "_issueForAddress"
+        }
+      },
+      "mintSecondary": {
+        "description": "Mints secondary tokens for a specified address.",
+        "fields": {
+          "address": "_address",
+          "value": "_value"
+        }
+      },
+      "mintSecondaryRewards": {
+        "description": "Mints secondary rewards for a specified amount.",
+        "fields": {
+          "amount": "_amount"
         }
       },
       "name": {
         "description": "Returns the name of the token.",
         "fields": {}
       },
-      "nonblockingLzReceive": {
-        "description": "Handles the receipt of LayerZero messages without blocking.",
+      "nominateNewOwner": {
+        "description": "Nominates a new owner for the contract.",
         "fields": {
-          "srcChainId": "_srcChainId",
-          "srcAddress": "_srcAddress",
-          "nonce": "_nonce",
-          "payload": "_payload"
+          "owner": "_owner"
         }
+      },
+      "nominatedOwner": {
+        "description": "Returns the nominated owner address.",
+        "fields": {}
       },
       "owner": {
-        "description": "Returns the address of the contract owner.",
+        "description": "Returns the current owner address.",
         "fields": {}
       },
-      "paused": {
-        "description": "Returns the paused status of the contract.",
+      "proxy": {
+        "description": "Returns the address of the proxy contract.",
         "fields": {}
       },
-      "precrime": {
-        "description": "Returns the address of the precrime contract.",
+      "rebuildCache": {
+        "description": "Rebuilds the cache.",
         "fields": {}
       },
-      "quoteOFTFee": {
-        "description": "Quotes the fee for OFT based on destination chain ID and amount.",
+      "remainingIssuableSynths": {
+        "description": "Returns the remaining issuable synths for a specified account.",
         "fields": {
-          "dstChainId": "_dstChainId",
-          "amount": "_amount"
+          "account": "_account"
         }
       },
-      "renounceOwnership": {
-        "description": "Renounces ownership of the contract.",
+      "resolver": {
+        "description": "Returns the address of the address resolver contract.",
         "fields": {}
       },
-      "retryMessage": {
-        "description": "Retries a failed message.",
+      "resolverAddressesRequired": {
+        "description": "Returns the addresses required by the resolver.",
+        "fields": {}
+      },
+      "revokeAllEscrow": {
+        "description": "Revokes all escrow for a specified address.",
         "fields": {
-          "srcChainId": "_srcChainId",
-          "srcAddress": "_srcAddress",
-          "nonce": "_nonce",
-          "payload": "_payload"
+          "account": "_account"
         }
       },
-      "sendAndCall": {
-        "description": "Sends tokens and makes a call on the destination chain.",
+      "sUSD": {
+        "description": "Returns the sUSD currency key.",
+        "fields": {}
+      },
+      "setMessageSender": {
+        "description": "Sets the message sender address.",
         "fields": {
-          "from": "_from",
-          "dstChainId": "_dstChainId",
-          "toAddress": "_toAddress",
-          "amount": "_amount",
-          "minAmount": "_minAmount",
-          "payload": "_payload",
-          "dstGasForCall": "_dstGasForCall",
-          "callParams": "_callParams"
+          "sender": "_sender"
         }
       },
-      "sendFrom": {
-        "description": "Sends tokens from the sender’s address to the destination chain.",
+      "setProxy": {
+        "description": "Sets the address of the proxy contract.",
         "fields": {
-          "from": "_from",
-          "dstChainId": "_dstChainId",
-          "toAddress": "_toAddress",
-          "amount": "_amount",
-          "minAmount": "_minAmount",
-          "callParams": "_callParams"
+          "_proxy": "_proxy"
         }
       },
-      "setConfig": {
-        "description": "Sets the configuration for a given version, chain ID, and config type.",
+      "setTokenState": {
+        "description": "Sets the token state contract address.",
         "fields": {
-          "version": "_version",
-          "chainId": "_chainId",
-          "configType": "_configType",
-          "config": "_config"
+          "_tokenState": "_tokenState"
         }
+      },
+      "settle": {
+        "description": "Settles the specified currency.",
+        "fields": {
+          "currencyKey": "_currencyKey"
+        }
+      },
+      "symbol": {
+        "description": "Returns the symbol of the token.",
+        "fields": {}
+      },
+      "synths": {
+        "description": "Returns the synth contract address for a specified currency key.",
+        "fields": {
+          "currencyKey": "_currencyKey"
+        }
+      },
+      "synthsByAddress": {
+        "description": "Returns the currency key for a specified synth address.",
+        "fields": {
+          "synthAddress": "_synthAddress"
+        }
+      },
+      "tokenState": {
+        "description": "Returns the token state contract address.",
+        "fields": {}
+      },
+      "totalIssuedSynths": {
+        "description": "Returns the total amount of issued synths.",
+        "fields": {
+          "currencyKey": "_currencyKey"
+        }
+      },
+      "totalIssuedSynthsExcludeOtherCollateral": {
+        "description": "Returns the total issued synths excluding other collateral for a specified currency key.",
+        "fields": {
+          "currencyKey": "_currencyKey"
+        }
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of the token.",
+        "fields": {}
       }
-    
     }
   }
   

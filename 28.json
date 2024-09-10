@@ -1,55 +1,136 @@
 {
-    "transfer_functions": {},
-    "other_functions": {
-      "changeAdmin": {
-        "description": "Changes the admin of the contract.",
-        "fields": {
-          "newAdmin": "_newAdmin"
-        }
-      },
-      "implementation": {
-        "description": "Returns the address of the current implementation.",
-        "fields": {}
-      },
-      "initialize": {
-        "description": "Initializes the contract with the logic address, admin address, and initialization data.",
-        "fields": {
-          "_logic": "_logic",
-          "_admin": "_admin",
-          "_data": "_data"
-        }
-      },
-      "upgradeTo": {
-        "description": "Upgrades the contract to a new implementation.",
-        "fields": {
-          "newImplementation": "_newImplementation"
-        }
-      },
-      "upgradeToAndCall": {
-        "description": "Upgrades the contract to a new implementation and calls a function on the new implementation.",
-        "fields": {
-          "newImplementation": "_newImplementation",
-          "data": "_data"
-        }
-      },
-      "fallback": {
-        "description": "Fallback function to receive Ether.",
-        "fields": {}
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers a specified amount of tokens from the caller to a recipient.",
+      "fields": {
+        "to": "_to",
+        "amount": "_amount"
       }
     },
-      "AdminChanged": {
-        "description": "Emitted when the admin of the contract is changed.",
-        "fields": {
-          "previousAdmin": "_previousAdmin",
-          "newAdmin": "_newAdmin"
-        }
-      },
-      "Upgraded": {
-        "description": "Emitted when the contract is upgraded to a new implementation.",
-        "fields": {
-          "implementation": "_implementation"
-        }
+    "transferFrom": {
+      "description": "Transfers a specified amount of tokens from one address to another on behalf of the owner.",
+      "fields": {
+        "sender": "_sender",
+        "recipient": "_recipient",
+        "amount": "_amount"
       }
     }
-  
-  
+  },
+  "other_functions": {
+    "constructor": {
+      "description": "Initializes the contract with the given minter address.",
+      "fields": {
+        "minter": "_minter"
+      }
+    },
+    "DEFAULT_ADMIN_ROLE": {
+      "description": "Returns the default admin role.",
+      "fields": {}
+    },
+    "MINTER_ROLE": {
+      "description": "Returns the minter role.",
+      "fields": {}
+    },
+    "allowance": {
+      "description": "Returns the amount of tokens that a spender is allowed to spend on behalf of an owner.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    "approve": {
+      "description": "Sets the amount of tokens that a spender is allowed to spend on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_amount"
+      }
+    },
+    "balanceOf": {
+      "description": "Returns the token balance of the specified address.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "cap": {
+      "description": "Returns the maximum supply of tokens.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places for token amounts.",
+      "fields": {}
+    },
+    "decreaseAllowance": {
+      "description": "Decreases the amount of tokens that a spender is allowed to spend on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
+    "getRoleAdmin": {
+      "description": "Returns the admin role of the specified role.",
+      "fields": {
+        "role": "_role"
+      }
+    },
+    "grantRole": {
+      "description": "Grants a role to an account.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    "hasRole": {
+      "description": "Checks if an account has a specific role.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    "increaseAllowance": {
+      "description": "Increases the amount of tokens that a spender is allowed to spend on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    "mint": {
+      "description": "Mints a specified amount of new tokens and assigns them to an address.",
+      "fields": {
+        "to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "renounceRole": {
+      "description": "Renounces a role from an account.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    "revokeRole": {
+      "description": "Revokes a role from an account.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    "supportsInterface": {
+      "description": "Checks if the contract supports a specific interface.",
+      "fields": {
+        "interfaceId": "_interfaceId"
+      }
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    }
+  }
+}

@@ -1,153 +1,173 @@
 {
   "transfer_functions": {
-    "approve": {
-      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+    "transfer": {
+      "description": "Transfers a specified amount of tokens to a given address.",
       "fields": {
-        "spender": "_spender",
-        "rawAmount": "_amount"
+        "dst": "_dst",
+        "rawAmount": "_rawAmount"
       }
     },
     "transferFrom": {
-      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "description": "Transfers a specified amount of tokens from one address to another on behalf of the owner.",
       "fields": {
-        "src": "_from",
-        "dst": "_to",
-        "rawAmount": "_amount"
+        "src": "_src",
+        "dst": "_dst",
+        "rawAmount": "_rawAmount"
+      }
+    },
+    "approve": {
+      "description": "Sets the amount of tokens that a spender is allowed to withdraw from the owner's account.",
+      "fields": {
+        "spender": "_spender",
+        "rawAmount": "_rawAmount"
+      }
+    },
+    "permit": {
+      "description": "Allows a spender to withdraw tokens from an owner's account via a signed permit.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "rawAmount": "_rawAmount",
+        "deadline": "_deadline",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
       }
     },
     "mint": {
-      "description": "Generates new tokens and assigns them to the specified address.",
+      "description": "Mints a specified amount of new tokens to a given address.",
       "fields": {
-        "dst": "_owner",
-        "rawAmount": "_amount"
-      }
-    },
-    "destroyTokens": {
-      "description": "Destroys a specified amount of tokens from the caller’s account.",
-      "fields": {
-        "owner": "_owner",
-        "rawAmount": "_amount"
-      }
-    },
-    "approveAndCall": {
-      "description": "Approves a spender and calls a contract with the additional data.",
-      "fields": {
-        "spender": "_spender",
-        "rawAmount": "_amount",
-        "extraData": "_extraData"
-      }
-    },
-    "setMinter": {
-      "description": "Sets a new minter address.",
-      "fields": {
-        "minter_": "_minter"
+        "dst": "_dst",
+        "rawAmount": "_rawAmount"
       }
     }
   },
   "other_functions": {
-    "name": {
-      "description": "Returns the name of the token.",
-      "fields": {}
-    },
-    "symbol": {
-      "description": "Returns the symbol of the token.",
-      "fields": {}
-    },
-    "decimals": {
-      "description": "Returns the number of decimals used to get its user representation.",
-      "fields": {}
-    },
-    "totalSupply": {
-      "description": "Returns the total supply of tokens.",
-      "fields": {}
-    },
-    "balanceOf": {
-      "description": "Returns the balance of an account.",
+    "constructor": {
+      "description": "Initializes the contract with the given parameters.",
       "fields": {
-        "account": "_owner"
+        "account": "_account",
+        "minter_": "_minter_",
+        "mintingAllowedAfter_": "_mintingAllowedAfter_"
       }
     },
+    "DELEGATION_TYPEHASH": {
+      "description": "Returns the type hash for delegations.",
+      "fields": {}
+    },
+    "DOMAIN_TYPEHASH": {
+      "description": "Returns the domain type hash for EIP712.",
+      "fields": {}
+    },
+    "PERMIT_TYPEHASH": {
+      "description": "Returns the type hash for permit.",
+      "fields": {}
+    },
     "allowance": {
-      "description": "Returns the remaining number of tokens that the spender is allowed to spend on behalf of the owner.",
+      "description": "Returns the amount of tokens a spender is allowed to withdraw from an owner's account.",
       "fields": {
-        "owner": "_owner",
+        "account": "_account",
         "spender": "_spender"
       }
     },
-    "minter": {
-      "description": "Returns the address of the minter.",
+    "balanceOf": {
+      "description": "Returns the balance of a given account.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "checkpoints": {
+      "description": "Returns the voting checkpoints for a given account and block number.",
+      "fields": {
+        "account": "_account",
+        "blockNumber": "_blockNumber"
+      }
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places used by the token.",
+      "fields": {}
+    },
+    "delegate": {
+      "description": "Delegates voting power to a specified address.",
+      "fields": {
+        "delegatee": "_delegatee"
+      }
+    },
+    "delegateBySig": {
+      "description": "Delegates voting power to a specified address via a signed message.",
+      "fields": {
+        "delegatee": "_delegatee",
+        "nonce": "_nonce",
+        "expiry": "_expiry",
+        "v": "_v",
+        "r": "_r",
+        "s": "_s"
+      }
+    },
+    "delegates": {
+      "description": "Returns the address to which the voting power is delegated for a given account.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "getCurrentVotes": {
+      "description": "Returns the current voting power of a given account.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "getPriorVotes": {
+      "description": "Returns the voting power of a given account at a specific block number.",
+      "fields": {
+        "account": "_account",
+        "blockNumber": "_blockNumber"
+      }
+    },
+    "minimumTimeBetweenMints": {
+      "description": "Returns the minimum time required between mints.",
       "fields": {}
     },
     "mintCap": {
-      "description": "Returns the mint cap.",
+      "description": "Returns the cap on the number of tokens that can be minted.",
+      "fields": {}
+    },
+    "minter": {
+      "description": "Returns the current minter address.",
       "fields": {}
     },
     "mintingAllowedAfter": {
       "description": "Returns the timestamp after which minting is allowed.",
       "fields": {}
     },
-    "getCurrentVotes": {
-      "description": "Returns the current votes of an account.",
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "nonces": {
+      "description": "Returns the current nonce for a given account.",
       "fields": {
         "account": "_account"
       }
     },
-    "getPriorVotes": {
-      "description": "Returns the prior votes of an account at a specific block number.",
+    "numCheckpoints": {
+      "description": "Returns the number of checkpoints for a given account.",
       "fields": {
-        "account": "_account",
-        "blockNumber": "_blockNumber"
+        "account": "_account"
       }
     },
-    "Approval": {
-      "description": "Triggered when approval is granted to a spender.",
+    "setMinter": {
+      "description": "Sets a new minter address.",
       "fields": {
-        "owner": "_owner",
-        "spender": "_spender",
-        "amount": "_amount"
+        "minter_": "_minter_"
       }
     },
-    "Transfer": {
-      "description": "Triggered when tokens are transferred.",
-      "fields": {
-        "from": "_from",
-        "to": "_to",
-        "amount": "_amount"
-      }
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
     },
-    "MinterChanged": {
-      "description": "Triggered when the minter address is changed.",
-      "fields": {
-        "minter": "_minter",
-        "newMinter": "_newMinter"
-      }
-    },
-    "DelegateChanged": {
-      "description": "Triggered when a delegate is changed.",
-      "fields": {
-        "delegator": "_delegator",
-        "fromDelegate": "_fromDelegate",
-        "toDelegate": "_toDelegate"
-      }
-    },
-    "DelegateVotesChanged": {
-      "description": "Triggered when the votes of a delegate change.",
-      "fields": {
-        "delegate": "_delegate",
-        "previousBalance": "_previousBalance",
-        "newBalance": "_newBalance"
-      }
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
     }
-  },
-  "constructor": {
-    "description": "Constructor for initializing the contract with the token factory and initial owner.",
-    "fields": {
-      "tokenFactory": "_tokenFactory",
-      "initialOwner": "_initialOwner"
-    }
-  },
-  "fallback": {
-    "description": "Fallback function to accept ETH.",
-    "fields": {}
   }
 }

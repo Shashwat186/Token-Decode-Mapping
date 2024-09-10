@@ -1,78 +1,128 @@
 {
-    "transfer_functions": {
-      "approve": {
-        "parameters": {
-          "_spender": "_spender",
-          "_amount": "_amount"
-        },
-        "description": "Approves the passed address to spend the specified amount of tokens on behalf of the owner."
-      },
-      "transferFrom": {
-        "parameters": {
-          "_from": "_from",
-          "_to": "_to",
-          "_amount": "_amount"
-        },
-        "description": "Transfers tokens from one address to another using the allowance mechanism."
-      },
-      "transfer": {
-        "parameters": {
-          "_to": "_to",
-          "_amount": "_amount"
-        },
-        "description": "Transfers tokens to a specified address."
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers tokens from the caller's account to the specified address.",
+      "fields": {
+        "to": "_to",
+        "amount": "_amount"
       }
     },
-    "other_functions": {
-      "setOwner": {
-        "parameters": {
-          "_newOwner": "_newOwner"
-        },
-        "description": "Transfers ownership of the contract to a new owner."
-      },
-      "seal": {
-        "parameters": {},
-        "description": "Seals the contract, disabling certain functions."
-      },
-      "offerBonus": {
-        "parameters": {
-          "_bonus": "_bonus"
-        },
-        "description": "Offers a bonus to specified participants."
-      },
-      "mint": {
-        "parameters": {
-          "_owner": "_owner",
-          "_amount": "_amount",
-          "_isRaw": "_isRaw",
-          "timestamp": "timestamp"
-        },
-        "description": "Mints new tokens and assigns them to an owner."
-      },
-      "approveAndCall": {
-        "parameters": {
-          "_spender": "_spender",
-          "_value": "_value",
-          "_extraData": "_extraData"
-        },
-        "description": "Approves a spender and notifies the contract in a single transaction."
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another using an allowance.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "amount": "_amount"
       }
     },
-      "Transfer": {
-        "indexed_parameters": {
-          "_from": "_from",
-          "_to": "_to",
-          "_value": "_value"
-        },
-        "description": "Emitted when tokens are transferred from one account to another."
-      },
-      "Approval": {
-        "indexed_parameters": {
-          "_owner": "_owner",
-          "_spender": "_spender",
-          "_value": "_value"
-        },
-        "description": "Emitted when an owner approves a spender."
+    "approve": {
+      "description": "Approves a spender to spend a specified amount of tokens on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "amount": "_amount"
       }
+    },
+    "approveAndCall": {
+      "description": "Approves a spender to spend a specified amount of tokens and calls a function on the spender contract.",
+      "fields": {
+        "spender": "_spender",
+        "value": "_value",
+        "extraData": "_extraData"
+      }
+    }
+  },
+  "other_functions": {
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "setOwner": {
+      "description": "Sets a new owner for the contract.",
+      "fields": {
+        "newOwner": "_newOwner"
+      }
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places used by the token.",
+      "fields": {}
+    },
+    "seal": {
+      "description": "Seals the contract, preventing further minting.",
+      "fields": {}
+    },
+    "offerBonus": {
+      "description": "Offers a bonus to the specified amount.",
+      "fields": {
+        "bonus": "_bonus"
+      }
+    },
+    "isSealed": {
+      "description": "Checks if the contract is sealed.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the balance of the specified address.",
+      "fields": {
+        "owner": "_owner"
+      }
+    },
+    "lastMintedTimestamp": {
+      "description": "Returns the timestamp of the last mint operation.",
+      "fields": {
+        "owner": "_owner"
+      }
+    },
+    "owner": {
+      "description": "Returns the current owner of the contract.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "mint": {
+      "description": "Mints new tokens and assigns them to the specified address.",
+      "fields": {
+        "owner": "_owner",
+        "amount": "_amount",
+        "isRaw": "_isRaw",
+        "timestamp": "timestamp"
+      }
+    },
+    "allowance": {
+      "description": "Returns the remaining amount of tokens that a spender is allowed to spend on behalf of the owner.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    },
+    "constructor": {
+      "description": "Initializes the contract.",
+      "fields": {}
+    },
+    "fallback": {
+      "description": "Fallback function to receive Ether.",
+      "fields": {}
+    },
+    "Transfer": {
+      "description": "Emitted when tokens are transferred.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
+      }
+    },
+    "Approval": {
+      "description": "Emitted when an approval is made.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value"
+      }
+    }
+  }
 }
-  

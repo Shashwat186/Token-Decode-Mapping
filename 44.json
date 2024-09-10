@@ -1,114 +1,108 @@
 {
-    "transfer_functions": {
-      "approve": {
-        "parameters": {
-          "_spender": "_spender",
-          "_value": "_value"
-        },
-        "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
-      },
-      "transferFrom": {
-        "parameters": {
-          "_from": "_from",
-          "_to": "_to",
-          "_value": "_value"
-        },
-        "description": "Transfers tokens from one address to another using the allowance mechanism."
-      },
-      "transfer": {
-        "parameters": {
-          "_to": "_to",
-          "_value": "_value"
-        },
-        "description": "Transfers tokens from the caller's account to the specified address."
-      },
-      "mint": {
-        "parameters": {
-          "_address": "_address",
-          "_value": "_value"
-        },
-        "description": "Mints new tokens and adds them to the specified address's balance."
-      },
-      "decreaseApproval": {
-        "parameters": {
-          "_spender": "_spender",
-          "_subtractedValue": "_subtractedValue"
-        },
-        "description": "Decreases the amount of tokens that a spender is allowed to withdraw from the caller's account."
-      },
-      "increaseApproval": {
-        "parameters": {
-          "_spender": "_spender",
-          "_addedValue": "_addedValue"
-        },
-        "description": "Increases the amount of tokens that a spender is allowed to withdraw from the caller's account."
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers tokens to a specified address.",
+      "fields": {
+        "to": "_to",
+        "value": "_value"
       }
     },
-    "other_functions": {
-      "name": {
-        "parameters": {},
-        "description": "Returns the name of the token."
-      },
-      "totalSupply": {
-        "parameters": {},
-        "description": "Returns the total supply of tokens."
-      },
-      "decimals": {
-        "parameters": {},
-        "description": "Returns the number of decimal places used to represent the token."
-      },
-      "DECIMAL_ZEROS": {
-        "parameters": {},
-        "description": "Returns the number of decimal places as a constant value."
-      },
-      "balanceOf": {
-        "parameters": {
-          "_owner": "_owner"
-        },
-        "description": "Returns the balance of tokens held by the specified address."
-      },
-      "symbol": {
-        "parameters": {},
-        "description": "Returns the symbol of the token."
-      },
-      "crowdsale": {
-        "parameters": {},
-        "description": "Returns the address of the crowdsale contract."
-      },
-      "allowance": {
-        "parameters": {
-          "_owner": "_owner",
-          "_spender": "_spender"
-        },
-        "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the owner's account."
+    "transferFrom": {
+      "description": "Transfers tokens on behalf of another address.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
       }
     },
-      "Approval": {
-        "indexed_parameters": {
-          "owner": "owner",
-          "spender": "spender"
-        },
-        "non_indexed_parameters": {
-          "value": "value"
-        },
-        "description": "Emitted when an owner approves a spender."
-      },
-      "Transfer": {
-        "indexed_parameters": {
-          "from": "from",
-          "to": "to"
-        },
-        "non_indexed_parameters": {
-          "value": "value"
-        },
-        "description": "Emitted when tokens are transferred from one address to another."
-      },
-      "constructor": {
-      "parameters": {
-        "_crowdsale": "_crowdsale"
-      },
-      "description": "Initializes the contract with the address of the crowdsale."
+    "approve": {
+      "description": "Approves a spender to withdraw tokens from the owner's account.",
+      "fields": {
+        "spender": "_spender",
+        "value": "_value"
+      }
+    },
+    "increaseApproval": {
+      "description": "Increases the allowance granted to a spender.",
+      "fields": {
+        "spender": "_spender",
+        "addedValue": "_addedValue"
+      }
+    },
+    "decreaseApproval": {
+      "description": "Decreases the allowance granted to a spender.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    },
+    "allowance": {
+      "description": "Returns the amount of tokens a spender is allowed to withdraw from the owner's account.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender"
+      }
+    }
+  },
+  "other_functions": {
+    "mint": {
+      "description": "Mints new tokens and assigns them to the specified address.",
+      "fields": {
+        "address": "_address",
+        "value": "_value"
+      }
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of tokens.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the token balance of a given address.",
+      "fields": {
+        "owner": "_owner"
+      }
+    },
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimals the token uses.",
+      "fields": {}
+    },
+    "DECIMAL_ZEROS": {
+      "description": "Returns the number of zero decimal places of the token.",
+      "fields": {}
+    },
+    "crowdsale": {
+      "description": "Returns the address of the crowdsale contract.",
+      "fields": {}
+    },
+    "constructor": {
+      "description": "Initializes the contract with the given crowdsale address.",
+      "fields": {
+        "crowdsale": "_crowdsale"
+      }
+    },
+    "Approval": {
+      "description": "Emitted when a token approval is granted.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "value"
+      }
+    },
+    "Transfer": {
+      "description": "Emitted when a token transfer occurs.",
+      "fields": {
+        "from": "from",
+        "to": "to",
+        "value": "value"
+      }
     }
   }
-
-  
+}

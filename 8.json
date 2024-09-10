@@ -1,39 +1,43 @@
 {
   "transfer_functions": {
-    "approve": {
-      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-      "fields": {
-        "spender": "_spender",
-        "amount": "_value"
-      }
-    },
     "transfer": {
-      "description": "Transfers tokens directly from the caller’s address to another address.",
+      "description": "Transfers a specified amount of tokens to a given address.",
       "fields": {
-        "transfer_to": "_to",
-        "amount": "_value"
+        "_to": "_to",
+        "_amount": "_amount"
       }
     },
     "transferFrom": {
-      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "description": "Transfers a specified amount of tokens from one address to another, given the spender's allowance.",
       "fields": {
-        "transfer_from": "_from",
-        "transfer_to": "_to",
-        "amount": "_value"
+        "_from": "_from",
+        "_to": "_to",
+        "_value": "_value"
+      }
+    },
+    "approve": {
+      "description": "Approves a spender to withdraw from the caller's account, up to the specified value.",
+      "fields": {
+        "_spender": "_spender",
+        "_value": "_value"
+      }
+    },
+    "increaseApproval": {
+      "description": "Increases the allowance granted to a spender by the caller.",
+      "fields": {
+        "_spender": "_spender",
+        "_addedValue": "_addedValue"
+      }
+    },
+    "decreaseApproval": {
+      "description": "Decreases the allowance granted to a spender by the caller.",
+      "fields": {
+        "_spender": "_spender",
+        "_subtractedValue": "_subtractedValue"
       }
     }
   },
   "other_functions": {
-    "balanceOf": {
-      "description": "Returns the amount of tokens owned by the account.",
-      "fields": {
-        "account": "_owner"
-      }
-    },
-    "decimals": {
-      "description": "Returns the number of decimals used to get its user representation.",
-      "fields": {}
-    },
     "name": {
       "description": "Returns the name of the token.",
       "fields": {}
@@ -42,82 +46,143 @@
       "description": "Returns the symbol of the token.",
       "fields": {}
     },
-    "totalSupply": {
-      "description": "Returns the total supply of tokens.",
+    "decimals": {
+      "description": "Returns the number of decimal places used by the token.",
       "fields": {}
     },
-    "allowance": {
-      "description": "Returns the remaining number of tokens that the spender is allowed to spend on behalf of the owner.",
+    "totalSupply": {
+      "description": "Returns the total supply of the token.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the balance of the specified address.",
       "fields": {
-        "owner": "_owner",
-        "spender": "_spender"
+        "_owner": "_owner"
       }
     },
-    "mintingFinished": {
-      "description": "Returns whether minting has finished.",
+    "mint": {
+      "description": "Mints new tokens and assigns them to the specified address.",
+      "fields": {
+        "_to": "_to",
+        "_amount": "_amount"
+      }
+    },
+    "burn": {
+      "description": "Burns a specified amount of tokens from the caller's account.",
+      "fields": {
+        "value": "value"
+      }
+    },
+    "pause": {
+      "description": "Pauses the contract, preventing all token transfers and minting.",
       "fields": {}
     },
-    "paused": {
-      "description": "Returns whether the contract is paused.",
+    "unpause": {
+      "description": "Unpauses the contract, resuming normal operations.",
+      "fields": {}
+    },
+    "reclaimToken": {
+      "description": "Reclaims any ERC20 tokens that were sent to the contract by mistake.",
+      "fields": {
+        "_token": "_token"
+      }
+    },
+    "finishMinting": {
+      "description": "Ends the minting process, preventing any further minting.",
+      "fields": {}
+    },
+    "claimOwnership": {
+      "description": "Claims ownership of the contract after a transfer.",
+      "fields": {}
+    },
+    "renounceOwnership": {
+      "description": "Renounces ownership of the contract.",
+      "fields": {}
+    },
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to a new address.",
+      "fields": {
+        "newOwner": "newOwner"
+      }
+    },
+    "owner": {
+      "description": "Returns the current owner of the contract.",
       "fields": {}
     },
     "pendingOwner": {
       "description": "Returns the address of the pending owner.",
       "fields": {}
     },
-    "reclaimToken": {
-      "description": "Reclaims tokens sent to the contract address.",
-      "fields": {
-        "token": "_token"
-      }
-    },
-    "unpause": {
-      "description": "Unpauses the contract.",
+    "mintingFinished": {
+      "description": "Returns whether the minting process has been finished.",
       "fields": {}
     },
-    "mint": {
-      "description": "Mints new tokens and sends them to the specified address.",
-      "fields": {
-        "to": "_to",
-        "amount": "_amount"
-      }
-    },
-    "burn": {
-      "description": "Burns tokens from the caller’s account.",
-      "fields": {
-        "value": "_value"
-      }
-    },
-    "claimOwnership": {
-      "description": "Claims ownership of the contract.",
+    "paused": {
+      "description": "Returns whether the contract is currently paused.",
       "fields": {}
     },
-    "finishMinting": {
-      "description": "Finishes minting.",
+    "allowance": {
+      "description": "Returns the amount of tokens that a spender is allowed to spend on behalf of an owner.",
+      "fields": {
+        "_owner": "_owner",
+        "_spender": "_spender"
+      }
+    }
+  },
+  "events": {
+    "Pause": {
+      "description": "Emitted when the contract is paused.",
       "fields": {}
     },
-    "pause": {
-      "description": "Pauses the contract.",
+    "Unpause": {
+      "description": "Emitted when the contract is unpaused.",
       "fields": {}
     },
-    "transferOwnership": {
-      "description": "Transfers ownership of the contract to a new address.",
+    "Burn": {
+      "description": "Emitted when tokens are burned.",
       "fields": {
-        "newOwner": "_newOwner"
+        "burner": "burner",
+        "value": "value"
       }
     },
-    "decreaseApproval": {
-      "description": "Decreases the allowance granted to a spender.",
+    "Mint": {
+      "description": "Emitted when new tokens are minted.",
       "fields": {
-        "spender": "_spender",
-        "subtractedValue": "_subtractedValue"
+        "to": "to",
+        "amount": "amount"
       }
     },
-    "increaseApproval": {
-      "description": "Increases the allowance granted to a spender.",
+    "MintFinished": {
+      "description": "Emitted when minting has been finished.",
+      "fields": {}
+    },
+    "OwnershipRenounced": {
+      "description": "Emitted when ownership of the contract is renounced.",
       "fields": {
-        "spender": "_spender",
-        "addedValue": "_addedValue"
+        "previousOwner": "previousOwner"
+      }
+    },
+    "OwnershipTransferred": {
+      "description": "Emitted when ownership of the contract is transferred.",
+      "fields": {
+        "previousOwner": "previousOwner",
+        "newOwner": "newOwner"
+      }
+    },
+    "Approval": {
+      "description": "Emitted when a spender's allowance is approved.",
+      "fields": {
+        "owner": "owner",
+        "spender": "spender",
+        "value": "value"
+      }
+    },
+    "Transfer": {
+      "description": "Emitted when tokens are transferred.",
+      "fields": {
+        "from": "from",
+        "to": "to",
+        "value": "value"
       }
     }
   }

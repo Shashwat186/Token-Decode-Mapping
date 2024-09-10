@@ -1,62 +1,96 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers a specified amount of tokens to the given recipient.",
         "fields": {
-          "to": "_to",
-          "value": "_value"
+          "recipient": "_recipient",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers a specified amount of tokens from one address to another using an allowance.",
         "fields": {
-          "from": "_from",
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        }
+      },
+      "transferLock": {
+        "description": "Transfers a specified amount of locked tokens to the given address.",
+        "fields": {
+          "lockType": "_lockType",
           "to": "_to",
-          "value": "_value"
+          "amount": "_amount"
         }
       }
     },
     "other_functions": {
-      "acceptOwnership": {
-        "description": "Accepts ownership of the contract from the nominated owner.",
-        "fields": {}
-      },
-      "nominateNewOwner": {
-        "description": "Nominate a new owner for the contract.",
+      "constructor": {
+        "description": "Initializes the contract with the given distributor address.",
         "fields": {
-          "newOwner": "_owner"
+          "_distributor": "_distributor"
         }
       },
-      "setTarget": {
-        "description": "Sets the target address.",
+      "approve": {
+        "description": "Approves the spender to spend a specified amount of tokens on behalf of the owner.",
         "fields": {
-          "target": "_target"
+          "spender": "_spender",
+          "amount": "_amount"
         }
       },
-      "setUseDELEGATECALL": {
-        "description": "Sets whether DELEGATECALL should be used.",
+      "allowance": {
+        "description": "Returns the amount of tokens that the spender is allowed to spend on behalf of the owner.",
         "fields": {
-          "value": "_value"
+          "owner": "_owner",
+          "spender": "_spender"
         }
       },
-      "useDELEGATECALL": {
-        "description": "Checks if DELEGATECALL is used.",
+      "balanceOf": {
+        "description": "Returns the balance of tokens for a specified address.",
+        "fields": {
+          "account": "_account"
+        }
+      },
+      "burn": {
+        "description": "Burns a specified amount of tokens from the caller's account.",
+        "fields": {
+          "amount": "_amount"
+        }
+      },
+      "burnFrom": {
+        "description": "Burns a specified amount of tokens from a specified address using an allowance.",
+        "fields": {
+          "account": "_account",
+          "amount": "_amount"
+        }
+      },
+      "getAllRounds": {
+        "description": "Returns information about all rounds.",
         "fields": {}
       },
-      "totalSupply": {
-        "description": "Returns the total supply of the token.",
-        "fields": {}
+      "getAverageBalance": {
+        "description": "Returns the average balance of a specified holder.",
+        "fields": {
+          "_holder": "_holder"
+        }
       },
-      "decimals": {
-        "description": "Returns the number of decimals used by the token.",
-        "fields": {}
+      "getFullHolderInfo": {
+        "description": "Returns detailed information about a specified holder.",
+        "fields": {
+          "_holder": "_holder"
+        }
+      },
+      "isRoundDepositsEnded": {
+        "description": "Checks if the deposits for a specified round have ended.",
+        "fields": {
+          "_round": "_round"
+        }
+      },
+      "isRoundPrepared": {
+        "description": "Checks if a specified round is prepared.",
+        "fields": {
+          "_round": "_round"
+        }
       },
       "name": {
         "description": "Returns the name of the token.",
@@ -66,74 +100,25 @@
         "description": "Returns the symbol of the token.",
         "fields": {}
       },
-      "balanceOf": {
-        "description": "Returns the balance of a given account.",
-        "fields": {
-          "owner": "_owner"
-        }
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
+      },
+      "updateAndGetCurrentPrice": {
+        "description": "Updates and returns the current price.",
+        "fields": {}
       },
       "owner": {
-        "description": "Returns the address of the contract owner.",
+        "description": "Returns the current owner of the contract.",
         "fields": {}
       },
-      "nominatedOwner": {
-        "description": "Returns the address of the nominated owner.",
+      "renounceOwnership": {
+        "description": "Renounces ownership of the contract.",
         "fields": {}
       },
-      "target": {
-        "description": "Returns the target address.",
-        "fields": {}
-      },
-      "allowance": {
-        "description": "Returns the amount of tokens that a spender is allowed to withdraw from the owner.",
+      "transferOwnership": {
+        "description": "Transfers ownership of the contract to a new address.",
         "fields": {
-          "owner": "_owner",
-          "spender": "_spender"
-        }
-      },
-      "_emit": {
-        "description": "Emits an event with the given call data and topics.",
-        "fields": {
-          "callData": "_callData",
-          "numTopics": "_numTopics",
-          "topic1": "_topic1",
-          "topic2": "_topic2",
-          "topic3": "_topic3",
-          "topic4": "_topic4"
-        }
-      },
-      "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        }
-      },
-      "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
-        }
-      },
-      "TargetUpdated": {
-        "description": "Emitted when the target address is updated.",
-        "fields": {
-          "newTarget": "_newTarget"
-        }
-      },
-      "OwnerNominated": {
-        "description": "Emitted when a new owner is nominated.",
-        "fields": {
-          "newOwner": "_newOwner"
-        }
-      },
-      "OwnerChanged": {
-        "description": "Emitted when the contract ownership is changed.",
-        "fields": {
-          "oldOwner": "_oldOwner",
           "newOwner": "_newOwner"
         }
       }

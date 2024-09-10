@@ -1,122 +1,93 @@
 {
   "transfer_functions": {
     "transfer": {
-      "description": "Transfers `amount` of tokens from the caller's account to `recipient`.",
+      "description": "Transfers a specified amount of tokens to the recipient.",
       "fields": {
         "recipient": "_recipient",
         "amount": "_amount"
       }
     },
     "transferFrom": {
-      "description": "Transfers `amount` of tokens from `sender` to `recipient`.",
+      "description": "Transfers a specified amount of tokens from the sender to the recipient using the sender's allowance.",
       "fields": {
         "sender": "_sender",
         "recipient": "_recipient",
         "amount": "_amount"
       }
-    }
-  },
-  "other_functions": {
+    },
     "approve": {
-      "description": "Allows `spender` to withdraw from the caller's account multiple times, up to the `amount`.",
+      "description": "Sets the allowance of the spender to withdraw tokens from the owner's account.",
       "fields": {
         "spender": "_spender",
         "amount": "_amount"
       }
     },
-    "blacklist": {
-      "description": "Adds or removes an address from the blacklist.",
-      "fields": {
-        "address": "_address",
-        "isBlacklisting": "_isBlacklisting"
-      }
-    },
-    "burn": {
-      "description": "Burns `value` amount of tokens from the caller's account.",
-      "fields": {
-        "value": "_value"
-      }
-    },
-    "decreaseAllowance": {
-      "description": "Decreases the amount of tokens that `spender` is allowed to spend on behalf of the caller.",
-      "fields": {
-        "spender": "_spender",
-        "subtractedValue": "_subtractedValue"
-      }
-    },
     "increaseAllowance": {
-      "description": "Increases the amount of tokens that `spender` is allowed to spend on behalf of the caller.",
+      "description": "Increases the allowance of the spender.",
       "fields": {
         "spender": "_spender",
         "addedValue": "_addedValue"
       }
     },
-    "setRule": {
-      "description": "Sets the rules for token transfers and holdings.",
+    "decreaseAllowance": {
+      "description": "Decreases the allowance of the spender.",
       "fields": {
-        "limited": "_limited",
-        "uniswapV2Pair": "_uniswapV2Pair",
-        "maxHoldingAmount": "_maxHoldingAmount",
-        "minHoldingAmount": "_minHoldingAmount"
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
       }
-    },
-    "renounceOwnership": {
-      "description": "Renounces ownership of the contract.",
-      "fields": {}
-    },
-    "transferOwnership": {
-      "description": "Transfers ownership of the contract to `newOwner`.",
-      "fields": {
-        "newOwner": "_newOwner"
-      }
-    },
+    }
+  },
+  "other_functions": {
     "constructor": {
-      "description": "Initializes the contract with the total supply of tokens.",
+      "description": "Initializes the contract with the given total supply.",
       "fields": {
-        "totalSupply": "_totalSupply"
+        "_totalSupply": "_totalSupply"
+      }
+    },
+    "blacklist": {
+      "description": "Adds or removes an address from the blacklist.",
+      "fields": {
+        "_address": "_address",
+        "_isBlacklisting": "_isBlacklisting"
+      }
+    },
+    "balanceOf": {
+      "description": "Returns the balance of the specified account.",
+      "fields": {
+        "account": "_account"
       }
     },
     "allowance": {
-      "description": "Returns the amount of tokens that `spender` is allowed to spend on behalf of `owner`.",
+      "description": "Returns the remaining number of tokens that the spender is allowed to withdraw from the owner's account.",
       "fields": {
         "owner": "_owner",
         "spender": "_spender"
       }
     },
-    "balanceOf": {
-      "description": "Returns the balance of `account`.",
+    "burn": {
+      "description": "Burns a specified amount of tokens from the caller's account.",
       "fields": {
-        "account": "_account"
-      }
-    },
-    "blacklists": {
-      "description": "Checks if `address` is blacklisted.",
-      "fields": {
-        "address": "_address"
+        "value": "_value"
       }
     },
     "decimals": {
-      "description": "Returns the number of decimal places the token uses.",
+      "description": "Returns the number of decimals used by the token.",
       "fields": {}
     },
     "limited": {
-      "description": "Checks if the token has limited rules.",
+      "description": "Returns whether the token is subject to holding limits.",
       "fields": {}
     },
     "maxHoldingAmount": {
-      "description": "Returns the maximum amount of tokens that can be held.",
+      "description": "Returns the maximum holding amount allowed.",
       "fields": {}
     },
     "minHoldingAmount": {
-      "description": "Returns the minimum amount of tokens that must be held.",
+      "description": "Returns the minimum holding amount required.",
       "fields": {}
     },
     "name": {
       "description": "Returns the name of the token.",
-      "fields": {}
-    },
-    "owner": {
-      "description": "Returns the address of the contract owner.",
       "fields": {}
     },
     "symbol": {
@@ -124,12 +95,60 @@
       "fields": {}
     },
     "totalSupply": {
-      "description": "Returns the total supply of tokens.",
+      "description": "Returns the total supply of the token.",
       "fields": {}
     },
-    "uniswapV2Pair": {
-      "description": "Returns the address of the Uniswap V2 pair.",
+    "owner": {
+      "description": "Returns the address of the current owner of the contract.",
       "fields": {}
+    },
+    "renounceOwnership": {
+      "description": "Renounces ownership of the contract.",
+      "fields": {}
+    },
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to a new address.",
+      "fields": {
+        "newOwner": "_newOwner"
+      }
+    },
+    "setRule": {
+      "description": "Sets rules for token holding limits and Uniswap pair address.",
+      "fields": {
+        "_limited": "_limited",
+        "_uniswapV2Pair": "_uniswapV2Pair",
+        "_maxHoldingAmount": "_maxHoldingAmount",
+        "_minHoldingAmount": "_minHoldingAmount"
+      }
+    },
+    "uniswapV2Pair": {
+      "description": "Returns the address of the Uniswap V2 pair contract.",
+      "fields": {}
+    }
+  },
+  "events": {
+    "Approval": {
+      "description": "Emitted when an approval is made.",
+      "fields": {
+        "owner": "_owner",
+        "spender": "_spender",
+        "value": "_value"
+      }
+    },
+    "OwnershipTransferred": {
+      "description": "Emitted when ownership is transferred.",
+      "fields": {
+        "previousOwner": "_previousOwner",
+        "newOwner": "_newOwner"
+      }
+    },
+    "Transfer": {
+      "description": "Emitted when a transfer of tokens occurs.",
+      "fields": {
+        "from": "_from",
+        "to": "_to",
+        "value": "_value"
+      }
     }
   }
 }

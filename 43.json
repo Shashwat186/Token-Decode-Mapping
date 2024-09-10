@@ -1,108 +1,52 @@
 {
-  "transfer_functions": {
-    "approve": {
-      "parameters": {
-        "_spender": "_spender",
-        "_value": "_value"
-      },
-      "description": "Allows a spender to withdraw a specified amount of tokens from the caller's account."
-    },
-    "transferFrom": {
-      "parameters": {
-        "_from": "_from",
-        "_to": "_to",
-        "_amount": "_amount"
-      },
-      "description": "Transfers tokens from one address to another using the allowance mechanism."
-    },
-    "transfer": {
-      "parameters": {
-        "_to": "_to",
-        "_amount": "_amount"
-      },
-      "description": "Transfers tokens from the caller's account to the specified address."
-    },
-    "mint": {
-      "parameters": {
-        "_owner": "_owner",
-        "_amount": "_amount"
-      },
-      "description": "Mints new tokens and adds them to the specified owner's balance."
-    },
-    "changeUnlockTime": {
-      "parameters": {
-        "_unlockTime": "_unlockTime"
-      },
-      "description": "Sets a new unlock time for the token."
-    },
-    "allowPrecirculation": {
-      "parameters": {
-        "_addr": "_addr"
-      },
-      "description": "Allows the specified address to participate in precirculation."
-    },
-    "disallowPrecirculation": {
-      "parameters": {
-        "_addr": "_addr"
-      },
-      "description": "Disallows the specified address from participating in precirculation."
-    },
-    "changeController": {
-      "parameters": {
-        "_newController": "_newController"
-      },
-      "description": "Changes the controller of the contract to a new address."
-    }
-  },
+  "transfer_functions": {},
   "other_functions": {
-    "name": {
-      "parameters": {},
-      "description": "Returns the name of the token."
+    "implementation": {
+      "description": "Returns the current implementation address.",
+      "fields": {}
     },
-    "totalSupply": {
-      "parameters": {},
-      "description": "Returns the total supply of tokens."
+    "changeAdmin": {
+      "description": "Changes the admin of the contract.",
+      "fields": {
+        "newAdmin": "_newAdmin"
+      }
     },
-    "getController": {
-      "parameters": {},
-      "description": "Returns the current controller address."
-    },
-    "decimals": {
-      "parameters": {},
-      "description": "Returns the number of decimal places used to represent the token."
-    },
-    "getUnlockTime": {
-      "parameters": {},
-      "description": "Returns the current unlock time for the token."
-    },
-    "balanceOf": {
-      "parameters": {
-        "_owner": "_owner"
-      },
-      "description": "Returns the balance of tokens held by the specified address."
-    },
-    "isPrecirculationAllowed": {
-      "parameters": {
-        "_addr": "_addr"
-      },
-      "description": "Checks if the specified address is allowed to participate in precirculation."
-    },
-    "controller": {
-      "parameters": {},
-      "description": "Returns the address of the current controller."
-    },
-    "allowance": {
-      "parameters": {
-        "_owner": "_owner",
-        "_spender": "_spender"
-      },
-      "description": "Returns the remaining amount of tokens that the spender is allowed to spend from the owner's account."
+    "admin": {
+      "description": "Returns the current admin address.",
+      "fields": {}
     },
     "constructor": {
-      "parameters": {
-        "_unlockTime": "_unlockTime"
-      },
-      "description": "Initializes the contract with the specified unlock time."
+      "description": "Initializes the contract with the given implementation address.",
+      "fields": {
+        "_logic": "_logic",
+        "admin_": "_admin",
+        "_data": "_data"
+      }
+    },
+    "fallback": {
+      "description": "Fallback function to receive Ether.",
+      "fields": {}
+    }
+  },
+  "events": {
+    "AdminChanged": {
+      "description": "Emitted when the admin address changes.",
+      "fields": {
+        "previousAdmin": "_previousAdmin",
+        "newAdmin": "_newAdmin"
+      }
+    },
+    "Upgraded": {
+      "description": "Emitted when the contract is upgraded to a new implementation.",
+      "fields": {
+        "implementation": "_implementation"
+      }
+    },
+    "BeaconUpgraded": {
+      "description": "Emitted when the beacon address is upgraded.",
+      "fields": {
+        "beacon": "_beacon"
+      }
     }
   }
 }

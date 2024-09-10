@@ -1,170 +1,171 @@
 {
   "transfer_functions": {
     "transfer": {
-      "description": "Transfers `amount` of tokens from the caller's account to `transfer_to`.",
+      "description": "Transfers tokens from the caller to the specified address.",
       "fields": {
-        "transfer_to": "_recipient",
+        "to": "_to",
         "amount": "_amount"
       }
     },
     "transferFrom": {
-      "description": "Transfers `amount` of tokens from `transfer_from` to `transfer_to`.",
+      "description": "Transfers tokens from one address to another using the allowance mechanism.",
       "fields": {
-        "transfer_from": "_sender",
-        "transfer_to": "_recipient",
+        "from": "_from",
+        "to": "_to",
         "amount": "_amount"
       }
-    }
-  },
-  "other_functions": {
+    },
     "approve": {
-      "description": "Allows `spender` to withdraw from the caller's account multiple times, up to the `amount`.",
+      "description": "Sets the allowance of a spender over the caller's tokens.",
       "fields": {
         "spender": "_spender",
         "amount": "_amount"
-      }
-    },
-    "allowance": {
-      "description": "Returns the amount of tokens that `spender` is allowed to spend on behalf of `owner`.",
-      "fields": {
-        "owner": "_owner",
-        "spender": "_spender"
-      }
-    },
-    "balanceOf": {
-      "description": "Returns the balance of `account`.",
-      "fields": {
-        "account": "_account"
-      }
-    },
-    "burn": {
-      "description": "Burns `amount` of tokens from the caller's account.",
-      "fields": {
-        "amount": "_amount"
-      }
-    },
-    "burnFrom": {
-      "description": "Burns `amount` of tokens from `account`.",
-      "fields": {
-        "account": "_account",
-        "amount": "_amount"
-      }
-    },
-    "decreaseAllowance": {
-      "description": "Decreases the amount of tokens that `spender` is allowed to spend on behalf of the caller.",
-      "fields": {
-        "spender": "_spender",
-        "subtractedValue": "_subtractedValue"
       }
     },
     "increaseAllowance": {
-      "description": "Increases the amount of tokens that `spender` is allowed to spend on behalf of the caller.",
+      "description": "Increases the allowance of a spender over the caller's tokens.",
       "fields": {
         "spender": "_spender",
         "addedValue": "_addedValue"
       }
     },
-    "mint": {
-      "description": "Mints `amount` of tokens to `transfer_to` address.",
+    "decreaseAllowance": {
+      "description": "Decreases the allowance of a spender over the caller's tokens.",
       "fields": {
-        "transfer_to": "_to",
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    }
+  },
+  "other_functions": {
+    "constructor": {
+      "description": "Initializes the contract with the given asset, initialRewarder, and owner addresses.",
+      "fields": {
+        "_asset": "_asset",
+        "initialRewarder": "_initialRewarder",
+        "_owner": "_owner"
+      }
+    },
+    "eip712Domain": {
+      "description": "Returns the EIP712 domain details.",
+      "fields": {}
+    },
+    "setCooldownDuration": {
+      "description": "Sets the cooldown duration for the contract.",
+      "fields": {
+        "duration": "_duration"
+      }
+    },
+    "getUnvestedAmount": {
+      "description": "Returns the amount that is not yet vested.",
+      "fields": {}
+    },
+    "rescueTokens": {
+      "description": "Rescues tokens from the contract to a specified address.",
+      "fields": {
+        "token": "_token",
+        "amount": "_amount",
+        "to": "_to"
+      }
+    },
+    "cooldownAssets": {
+      "description": "Converts a specified amount of assets to shares for cooldown.",
+      "fields": {
+        "assets": "_assets"
+      }
+    },
+    "cooldownShares": {
+      "description": "Converts a specified amount of shares to assets for cooldown.",
+      "fields": {
+        "shares": "_shares"
+      }
+    },
+    "previewDeposit": {
+      "description": "Previews the amount of shares that would be received for a given deposit.",
+      "fields": {
+        "assets": "_assets"
+      }
+    },
+    "previewMint": {
+      "description": "Previews the amount of assets that would be minted for a given amount of shares.",
+      "fields": {
+        "shares": "_shares"
+      }
+    },
+    "previewRedeem": {
+      "description": "Previews the amount of assets that would be received for redeeming a specified amount of shares.",
+      "fields": {
+        "shares": "_shares"
+      }
+    },
+    "previewWithdraw": {
+      "description": "Previews the amount of shares that would be required to withdraw a specified amount of assets.",
+      "fields": {
+        "assets": "_assets"
+      }
+    },
+    "transferAdmin": {
+      "description": "Transfers the admin role to a new address.",
+      "fields": {
+        "newAdmin": "_newAdmin"
+      }
+    },
+    "acceptAdmin": {
+      "description": "Accepts the admin role transfer.",
+      "fields": {}
+    },
+    "addToBlacklist": {
+      "description": "Adds an address to the blacklist.",
+      "fields": {
+        "target": "_target",
+        "isFullBlacklisting": "_isFullBlacklisting"
+      }
+    },
+    "removeFromBlacklist": {
+      "description": "Removes an address from the blacklist.",
+      "fields": {
+        "target": "_target",
+        "isFullBlacklisting": "_isFullBlacklisting"
+      }
+    },
+    "redistributeLockedAmount": {
+      "description": "Redistributes the locked amount from one address to another.",
+      "fields": {
+        "from": "_from",
+        "to": "_to"
+      }
+    },
+    "transferInRewards": {
+      "description": "Transfers rewards into the contract.",
+      "fields": {
         "amount": "_amount"
       }
     },
-    "name": {
-      "description": "Returns the name of the token.",
-      "fields": {}
-    },
-    "symbol": {
-      "description": "Returns the symbol of the token.",
-      "fields": {}
-    },
-    "totalSupply": {
-      "description": "Returns the total supply of tokens.",
-      "fields": {}
-    },
-    "decimals": {
-      "description": "Returns the number of decimal places the token uses.",
-      "fields": {}
-    },
-    "pause": {
-      "description": "Pauses all token transfers.",
-      "fields": {}
-    },
-    "paused": {
-      "description": "Returns true if the token is paused.",
-      "fields": {}
-    },
-    "unpause": {
-      "description": "Unpauses all token transfers.",
-      "fields": {}
-    },
-    "DEFAULT_ADMIN_ROLE": {
-      "description": "Returns the role identifier for the default admin role.",
-      "fields": {}
-    },
-    "MINTER_ROLE": {
-      "description": "Returns the role identifier for the minter role.",
-      "fields": {}
-    },
-    "PAUSER_ROLE": {
-      "description": "Returns the role identifier for the pauser role.",
-      "fields": {}
-    },
-    "getRoleAdmin": {
-      "description": "Returns the admin role for `role`.",
+    "unstake": {
+      "description": "Unstakes assets from the contract.",
       "fields": {
-        "role": "_role"
+        "receiver": "_receiver"
       }
     },
-    "getRoleMember": {
-      "description": "Returns the member address at `index` for `role`.",
+    "withdraw": {
+      "description": "Withdraws a specified amount of assets and returns the amount of shares.",
       "fields": {
-        "role": "_role",
-        "index": "_index"
+        "assets": "_assets",
+        "receiver": "_receiver",
+        "_owner": "_owner"
       }
     },
-    "getRoleMemberCount": {
-      "description": "Returns the number of members in `role`.",
+    "redeem": {
+      "description": "Redeems a specified amount of shares and returns the amount of assets.",
       "fields": {
-        "role": "_role"
+        "shares": "_shares",
+        "receiver": "_receiver",
+        "_owner": "_owner"
       }
     },
-    "grantRole": {
-      "description": "Grants `role` to `account`.",
-      "fields": {
-        "role": "_role",
-        "account": "_account"
-      }
-    },
-    "hasRole": {
-      "description": "Checks if `account` has `role`.",
-      "fields": {
-        "role": "_role",
-        "account": "_account"
-      }
-    },
-    "renounceRole": {
-      "description": "Renounces `role` for `account`.",
-      "fields": {
-        "role": "_role",
-        "account": "_account"
-      }
-    },
-    "revokeRole": {
-      "description": "Revokes `role` from `account`.",
-      "fields": {
-        "role": "_role",
-        "account": "_account"
-      }
-    },
-    "constructor": {
-      "description": "Initializes the contract with `name`, `symbol`, and `_initialSupply`.",
-      "fields": {
-        "name": "_name",
-        "symbol": "_symbol",
-        "initialSupply": "_initialSupply"
-      }
+    "fallback": {
+      "description": "Fallback function to receive Ether.",
+      "fields": {}
     }
   }
 }

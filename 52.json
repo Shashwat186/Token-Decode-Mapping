@@ -1,75 +1,75 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "spender",
-          "amount": "amount"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers `amount` of tokens from the caller to `recipient`.",
         "fields": {
-          "transfer_to": "recipient",
-          "amount": "amount"
+          "recipient": "_recipient",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers `amount` of tokens from `sender` to `recipient`, using the allowance mechanism.",
         "fields": {
-          "transfer_from": "sender",
-          "transfer_to": "recipient",
-          "amount": "amount"
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
+        }
+      },
+      "approve": {
+        "description": "Allows `spender` to withdraw from the caller's account multiple times, up to the `amount`.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the allowance that `spender` has from the caller by `addedValue`.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the allowance that `spender` has from the caller by `subtractedValue`.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
         }
       }
     },
     "other_functions": {
       "constructor": {
-        "description": "Initializes the contract with the specified owner address.",
+        "description": "Initializes the contract with the given owner address.",
         "fields": {
-          "owner": "owner_"
+          "owner_": "_owner"
         }
       },
       "allowance": {
-        "description": "Returns the remaining number of tokens that a spender can spend on behalf of the owner.",
+        "description": "Returns the remaining number of tokens that `spender` is allowed to spend on behalf of `owner`.",
         "fields": {
-          "owner": "owner",
-          "spender": "spender"
+          "owner": "_owner",
+          "spender": "_spender"
         }
       },
       "balanceOf": {
-        "description": "Returns the balance of tokens held by the specified address.",
+        "description": "Returns the token balance of `account`.",
         "fields": {
-          "account": "account"
+          "account": "_account"
         }
       },
       "cap": {
-        "description": "Returns the maximum number of tokens that can be created.",
+        "description": "Returns the maximum number of tokens that can exist.",
         "fields": {}
       },
       "decimals": {
-        "description": "Returns the number of decimals used to define token precision.",
+        "description": "Returns the number of decimals used in the token's representation.",
         "fields": {}
       },
-      "decreaseAllowance": {
-        "description": "Decreases the allowance for a spender by the specified subtracted value.",
-        "fields": {
-          "spender": "spender",
-          "subtractedValue": "subtractedValue"
-        }
-      },
-      "increaseAllowance": {
-        "description": "Increases the allowance for a spender by the specified added value.",
-        "fields": {
-          "spender": "spender",
-          "addedValue": "addedValue"
-        }
-      },
       "mint": {
-        "description": "Mints new tokens to the specified account.",
+        "description": "Mints `amount` of tokens to `account`.",
         "fields": {
-          "account": "account",
-          "amount": "amount"
+          "account": "_account",
+          "amount": "_amount"
         }
       },
       "name": {
@@ -81,7 +81,7 @@
         "fields": {}
       },
       "renounceOwnership": {
-        "description": "Renounces ownership of the contract, leaving the contract without an owner.",
+        "description": "Renounces ownership of the contract.",
         "fields": {}
       },
       "symbol": {
@@ -89,40 +89,38 @@
         "fields": {}
       },
       "totalSupply": {
-        "description": "Returns the total supply of tokens.",
+        "description": "Returns the total number of tokens in existence.",
         "fields": {}
       },
       "transferOwnership": {
-        "description": "Transfers ownership of the contract to a new address.",
+        "description": "Transfers ownership of the contract to `newOwner`.",
         "fields": {
-          "newOwner": "newOwner"
+          "newOwner": "_newOwner"
         }
-      }
-    },
-    "events": {
+      },
       "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+        "description": "Emitted when `spender` is approved by `owner` to spend `value` tokens.",
         "fields": {
-          "owner": "owner",
-          "spender": "spender",
-          "value": "value"
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
         }
       },
       "OwnershipTransferred": {
-        "description": "Emitted when ownership of the contract is transferred.",
+        "description": "Emitted when ownership is transferred from `previousOwner` to `newOwner`.",
         "fields": {
-          "previousOwner": "previousOwner",
-          "newOwner": "newOwner"
+          "previousOwner": "_previousOwner",
+          "newOwner": "_newOwner"
         }
       },
       "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
+        "description": "Emitted when `amount` of tokens are transferred from `from` to `to`.",
         "fields": {
-          "from": "from",
-          "to": "to",
-          "value": "value"
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
         }
       }
     }
-}
+  }
   

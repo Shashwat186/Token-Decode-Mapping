@@ -1,102 +1,102 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_amount"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers `amount` tokens from the caller's account to `dst`.",
         "fields": {
-          "transfer_to": "_dst",
+          "dst": "_dst",
           "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers `amount` tokens from `src` to `dst` using the allowance mechanism.",
         "fields": {
-          "transfer_from": "_src",
-          "transfer_to": "_dst",
+          "src": "_src",
+          "dst": "_dst",
           "amount": "_amount"
         }
       }
     },
     "other_functions": {
       "constructor": {
-        "description": "Initializes the contract with specified addresses.",
+        "description": "Initializes the contract with the given parameters.",
         "fields": {
-          "governance": "_governance",
+          "_governance": "_governance",
           "pendleTeamTokens": "_pendleTeamTokens",
           "pendleEcosystemFund": "_pendleEcosystemFund",
           "salesMultisig": "_salesMultisig",
-          "liquidityIncentivesRecipient": "_liquidityIncentivesRecipient"
+          "_liquidityIncentivesRecipient": "_liquidityIncentivesRecipient"
         }
       },
-      "DELEGATION_TYPEHASH": {
-        "description": "Returns the type hash for delegation.",
-        "fields": {}
-      },
-      "DOMAIN_TYPEHASH": {
-        "description": "Returns the domain type hash.",
-        "fields": {}
-      },
       "allowance": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to spend from the owner's account.",
+        "description": "Returns the amount of tokens that `spender` is allowed to spend on behalf of `account`.",
         "fields": {
           "account": "_account",
           "spender": "_spender"
         }
       },
-      "applyConfigChanges": {
-        "description": "Applies the pending configuration changes.",
-        "fields": {}
+      "approve": {
+        "description": "Sets the amount of tokens that `spender` is allowed to spend on behalf of the caller.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "balanceOf": {
+        "description": "Returns the balance of `account`.",
+        "fields": {
+          "account": "_account"
+        }
       },
       "burn": {
-        "description": "Burns a specified amount of tokens.",
+        "description": "Burns `amount` tokens from the caller's account.",
         "fields": {
           "amount": "_amount"
         }
       },
-      "checkpoints": {
-        "description": "Returns the checkpoint information for a delegate.",
-        "fields": {
-          "address": "_address",
-          "blockNumber": "_blockNumber"
-        }
-      },
       "claimGovernance": {
-        "description": "Claims governance rights for the new governance address.",
+        "description": "Claims the governance role.",
         "fields": {}
       },
       "claimLiquidityEmissions": {
-        "description": "Claims liquidity emissions.",
+        "description": "Claims liquidity emissions and returns the total amount of emissions.",
         "fields": {}
       },
-      "configChangesInitiated": {
-        "description": "Returns the timestamp when configuration changes were initiated.",
+      "applyConfigChanges": {
+        "description": "Applies the pending configuration changes.",
         "fields": {}
       },
-      "decimals": {
-        "description": "Returns the number of decimals used by the token.",
-        "fields": {}
-      },
-      "decreaseAllowance": {
-        "description": "Decreases the allowance for a spender.",
+      "initiateConfigChanges": {
+        "description": "Initiates changes to the configuration parameters.",
         "fields": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
+          "_emissionRateMultiplierNumerator": "_emissionRateMultiplierNumerator",
+          "_terminalInflationRateNumerator": "_terminalInflationRateNumerator",
+          "_liquidityIncentivesRecipient": "_liquidityIncentivesRecipient",
+          "_isBurningAllowed": "_isBurningAllowed"
+        }
+      },
+      "withdrawEther": {
+        "description": "Withdraws `amount` of Ether to the specified address.",
+        "fields": {
+          "amount": "_amount",
+          "sendTo": "_sendTo"
+        }
+      },
+      "withdrawToken": {
+        "description": "Withdraws `amount` of tokens from the contract to the specified address.",
+        "fields": {
+          "token": "_token",
+          "amount": "_amount",
+          "sendTo": "_sendTo"
         }
       },
       "delegate": {
-        "description": "Delegates voting power to another address.",
+        "description": "Delegates voting power to `delegatee`.",
         "fields": {
           "delegatee": "_delegatee"
         }
       },
       "delegateBySig": {
-        "description": "Delegates voting power to another address via signature.",
+        "description": "Delegates voting power to `delegatee` using a signature.",
         "fields": {
           "delegatee": "_delegatee",
           "nonce": "_nonce",
@@ -106,141 +106,64 @@
           "s": "_s"
         }
       },
-      "delegates": {
-        "description": "Returns the delegate address for a given account.",
-        "fields": {
-          "address": "_address"
-        }
-      },
-      "emissionRateMultiplierNumerator": {
-        "description": "Returns the emission rate multiplier numerator.",
-        "fields": {}
-      },
       "getCurrentVotes": {
-        "description": "Returns the current voting power of an account.",
+        "description": "Returns the current voting power of `account`.",
         "fields": {
           "account": "_account"
         }
       },
       "getPriorVotes": {
-        "description": "Returns the prior voting power of an account at a specific block number.",
+        "description": "Returns the voting power of `account` at the specified block number.",
         "fields": {
           "account": "_account",
           "blockNumber": "_blockNumber"
         }
       },
-      "governance": {
-        "description": "Returns the current governance address.",
+      "transferGovernance": {
+        "description": "Transfers governance to a new address.",
+        "fields": {
+          "_governance": "_governance"
+        }
+      },
+      "configChangesInitiated": {
+        "description": "Returns the timestamp of the initiated configuration changes.",
         "fields": {}
       },
-      "increaseAllowance": {
-        "description": "Increases the allowance for a spender.",
-        "fields": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
-        }
-      },
-      "initiateConfigChanges": {
-        "description": "Initiates changes to the configuration parameters.",
-        "fields": {
-          "emissionRateMultiplierNumerator": "_emissionRateMultiplierNumerator",
-          "terminalInflationRateNumerator": "_terminalInflationRateNumerator",
-          "liquidityIncentivesRecipient": "_liquidityIncentivesRecipient",
-          "isBurningAllowed": "_isBurningAllowed"
-        }
-      },
       "isBurningAllowed": {
-        "description": "Checks if burning tokens is allowed.",
+        "description": "Returns whether burning is allowed.",
         "fields": {}
       },
       "isPendleToken": {
-        "description": "Checks if the token is a Pendle token.",
-        "fields": {}
-      },
-      "lastWeekEmissionSent": {
-        "description": "Returns the amount of emission sent in the last week.",
-        "fields": {}
-      },
-      "lastWeeklyEmission": {
-        "description": "Returns the amount of weekly emission.",
-        "fields": {}
-      },
-      "liquidityIncentivesRecipient": {
-        "description": "Returns the address of the liquidity incentives recipient.",
+        "description": "Returns whether the token is a Pendle token.",
         "fields": {}
       },
       "name": {
         "description": "Returns the name of the token.",
         "fields": {}
       },
-      "nonces": {
-        "description": "Returns the nonce for a given address.",
-        "fields": {
-          "address": "_address"
-        }
-      },
-      "numCheckpoints": {
-        "description": "Returns the number of checkpoints for a given address.",
-        "fields": {
-          "address": "_address"
-        }
-      },
-      "pendingEmissionRateMultiplierNumerator": {
-        "description": "Returns the pending emission rate multiplier numerator.",
+      "symbol": {
+        "description": "Returns the symbol of the token.",
         "fields": {}
       },
-      "pendingGovernance": {
-        "description": "Returns the pending governance address.",
+      "decimals": {
+        "description": "Returns the number of decimal places of the token.",
         "fields": {}
       },
-      "pendingIsBurningAllowed": {
-        "description": "Returns the pending status of burning allowance.",
-        "fields": {}
-      },
-      "pendingLiquidityIncentivesRecipient": {
-        "description": "Returns the pending liquidity incentives recipient address.",
-        "fields": {}
-      },
-      "pendingTerminalInflationRateNumerator": {
-        "description": "Returns the pending terminal inflation rate numerator.",
+      "totalSupply": {
+        "description": "Returns the total supply of the token.",
         "fields": {}
       },
       "startTime": {
         "description": "Returns the start time of the contract.",
         "fields": {}
       },
-      "symbol": {
-        "description": "Returns the symbol of the token.",
+      "domainTypehash": {
+        "description": "Returns the domain typehash.",
         "fields": {}
       },
-      "terminalInflationRateNumerator": {
-        "description": "Returns the terminal inflation rate numerator.",
+      "delegationTypehash": {
+        "description": "Returns the delegation typehash.",
         "fields": {}
-      },
-      "totalSupply": {
-        "description": "Returns the total supply of tokens.",
-        "fields": {}
-      },
-      "transferGovernance": {
-        "description": "Transfers governance rights to a new address.",
-        "fields": {
-          "governance": "_governance"
-        }
-      },
-      "withdrawEther": {
-        "description": "Withdraws ether from the contract.",
-        "fields": {
-          "amount": "_amount",
-          "sendTo": "_sendTo"
-        }
-      },
-      "withdrawToken": {
-        "description": "Withdraws ERC20 tokens from the contract.",
-        "fields": {
-          "token": "_token",
-          "amount": "_amount",
-          "sendTo": "_sendTo"
-        }
       }
     }
   }

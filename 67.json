@@ -1,96 +1,61 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+      "transferProxyOwnership": {
+        "description": "Transfers ownership of the proxy to a new address.",
         "fields": {
-          "spender": "_spender",
-          "amount": "_value"
+          "newOwner": "_newOwner"
         }
       },
-      "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
-        "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
-        }
-      },
-      "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
-        "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
-        }
+      "claimProxyOwnership": {
+        "description": "Claims the ownership of the proxy after it has been transferred.",
+        "fields": {}
       }
     },
     "other_functions": {
+      "implementation": {
+        "description": "Returns the current implementation address.",
+        "fields": {}
+      },
+      "proxyOwner": {
+        "description": "Returns the current owner of the proxy.",
+        "fields": {}
+      },
+      "pendingProxyOwner": {
+        "description": "Returns the address of the pending new owner of the proxy.",
+        "fields": {}
+      },
+      "upgradeTo": {
+        "description": "Upgrades the contract to a new implementation.",
+        "fields": {
+          "implementation": "_implementation"
+        }
+      },
       "constructor": {
-        "description": "Initializes the contract with a name, symbol, and total supply.",
-        "fields": {
-          "name": "_name",
-          "symbol": "_symbol",
-          "totalSupply_": "_totalSupply"
-        }
-      },
-      "allowance": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the owner.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender"
-        }
-      },
-      "balanceOf": {
-        "description": "Returns the balance of the specified address.",
-        "fields": {
-          "account": "_account"
-        }
-      },
-      "decimals": {
-        "description": "Returns the number of decimals the token uses.",
+        "description": "Initializes the contract.",
         "fields": {}
       },
-      "decreaseAllowance": {
-        "description": "Decreases the allowance of a spender on behalf of the caller.",
-        "fields": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
-        }
-      },
-      "increaseAllowance": {
-        "description": "Increases the allowance of a spender on behalf of the caller.",
-        "fields": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
-        }
-      },
-      "name": {
-        "description": "Returns the name of the token.",
+      "fallback": {
+        "description": "Fallback function to receive Ether.",
         "fields": {}
       },
-      "symbol": {
-        "description": "Returns the symbol of the token.",
-        "fields": {}
-      },
-      "totalSupply": {
-        "description": "Returns the total supply of tokens.",
-        "fields": {}
-      }
-    },
-    "events": {
-      "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+      "ProxyOwnershipTransferred": {
+        "description": "Emitted when the ownership of the proxy is transferred.",
         "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
+          "previousOwner": "_previousOwner",
+          "newOwner": "_newOwner"
         }
       },
-      "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
+      "NewPendingOwner": {
+        "description": "Emitted when a new pending owner is set for the proxy.",
         "fields": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
+          "currentOwner": "_currentOwner",
+          "pendingOwner": "_pendingOwner"
+        }
+      },
+      "Upgraded": {
+        "description": "Emitted when the contract is upgraded to a new implementation.",
+        "fields": {
+          "implementation": "_implementation"
         }
       }
     }

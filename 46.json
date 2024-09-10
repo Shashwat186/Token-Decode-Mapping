@@ -1,69 +1,165 @@
 {
-    "transfer_functions": {
-      "changeAdmin": {
-        "parameters": {
-          "newAdmin": "newAdmin"
-        },
-        "description": "Changes the admin of the contract to the new address."
-      },
-      "upgradeTo": {
-        "parameters": {
-          "newImplementation": "newImplementation"
-        },
-        "description": "Upgrades the contract to a new implementation address."
-      },
-      "upgradeToAndCall": {
-        "parameters": {
-          "newImplementation": "newImplementation",
-          "data": "data"
-        },
-        "description": "Upgrades the contract to a new implementation address and executes the provided data."
+  "transfer_functions": {
+    "transfer": {
+      "description": "Transfers tokens from the caller's account to the specified address.",
+      "fields": {
+        "dst": "_dst",
+        "rawAmount": "_rawAmount"
       }
     },
-    "other_functions": {
-      "admin": {
-        "parameters": {},
-        "description": "Returns the current admin of the contract."
-      },
-      "implementation": {
-        "parameters": {},
-        "description": "Returns the current implementation address of the contract."
+    "transferFrom": {
+      "description": "Transfers tokens from one address to another, based on the allowance set.",
+      "fields": {
+        "src": "_src",
+        "dst": "_dst",
+        "rawAmount": "_rawAmount"
       }
     },
-      "AdminChanged": {
-        "indexed_parameters": {},
-        "non_indexed_parameters": {
-          "previousAdmin": "previousAdmin",
-          "newAdmin": "newAdmin"
-        },
-        "description": "Emitted when the admin of the contract is changed."
-      },
-      "BeaconUpgraded": {
-        "indexed_parameters": {
-          "beacon": "beacon"
-        },
-        "non_indexed_parameters": {},
-        "description": "Emitted when the beacon address is upgraded."
-      },
-      "Upgraded": {
-        "indexed_parameters": {
-          "implementation": "implementation"
-        },
-        "non_indexed_parameters": {},
-        "description": "Emitted when the implementation address is upgraded."
-      },
+    "approve": {
+      "description": "Approves the specified address to spend a certain amount of tokens on behalf of the caller.",
+      "fields": {
+        "spender": "_spender",
+        "rawAmount": "_rawAmount"
+      }
+    },
+    "enableTransfer": {
+      "description": "Enables token transfers.",
+      "fields": {}
+    }
+  },
+  "other_functions": {
     "constructor": {
-      "parameters": {
-        "_logic": "_logic",
-        "admin_": "admin_",
-        "_data": "_data"
-      },
-      "description": "Initializes the contract with the logic address, admin address, and optional initialization data."
+      "description": "Initializes the contract with the given parameters.",
+      "fields": {
+        "_governance": "_governance",
+        "_cliffTimestamp": "_cliffTimestamp",
+        "_tranche1VestingPeriod": "_tranche1VestingPeriod",
+        "_tranche2VestingPeriod": "_tranche2VestingPeriod",
+        "_seedVestingPeriod": "_seedVestingPeriod"
+      }
+    },
+    "updateCliffTimestamp": {
+      "description": "Updates the cliff timestamp.",
+      "fields": {
+        "newTimestamp": "_newTimestamp"
+      }
+    },
+    "updateTrancheBalance": {
+      "description": "Updates the balance for a specific tranche for a beneficiary.",
+      "fields": {
+        "beneficiary": "_beneficiary",
+        "rawAmount": "_rawAmount",
+        "investorType": "_investorType"
+      }
+    },
+    "mint": {
+      "description": "Mints new tokens to the specified address.",
+      "fields": {
+        "account": "_account",
+        "rawAmount": "_rawAmount"
+      }
+    },
+    "getVestedBalance": {
+      "description": "Returns the vested balance for the specified address.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "getFreedBalance": {
+      "description": "Returns the freed balance for the specified address.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "getCurrentVotes": {
+      "description": "Returns the current voting balance for the specified address.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "getPriorVotes": {
+      "description": "Returns the voting balance at a specific block number for the specified address.",
+      "fields": {
+        "account": "_account",
+        "blockNumber": "_blockNumber"
+      }
+    },
+    "hasRole": {
+      "description": "Checks if the specified address has a particular role.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    "grantRole": {
+      "description": "Grants a specific role to the specified address.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    "revokeRole": {
+      "description": "Revokes a specific role from the specified address.",
+      "fields": {
+        "role": "_role",
+        "account": "_account"
+      }
+    },
+    "renounceRole": {
+      "description": "Renounces a specific role for the caller.",
+      "fields": {
+        "role": "_role"
+      }
     },
     "fallback": {
-      "description": "Fallback function to handle calls that don't match any other function signature."
+      "description": "Fallback function to receive Ether.",
+      "fields": {}
     },
-    "receive": {
-      "description": "Receive function to handle incoming Ether transfers."
+    "supportsInterface": {
+      "description": "Checks if the contract supports a specific interface.",
+      "fields": {
+        "interfaceId": "_interfaceId"
+      }
+    },
+    "name": {
+      "description": "Returns the name of the token.",
+      "fields": {}
+    },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places for the token.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of the token.",
+      "fields": {}
+    },
+    "cliffTimestamp": {
+      "description": "Returns the current cliff timestamp.",
+      "fields": {}
+    },
+    "tranche1VestingPeriod": {
+      "description": "Returns the vesting period for tranche 1.",
+      "fields": {}
+    },
+    "tranche2VestingPeriod": {
+      "description": "Returns the vesting period for tranche 2.",
+      "fields": {}
+    },
+    "seedVestingPeriod": {
+      "description": "Returns the vesting period for seed.",
+      "fields": {}
+    },
+    "passedCliff": {
+      "description": "Checks if the cliff period has passed.",
+      "fields": {}
+    },
+    "passedAllVestingPeriods": {
+      "description": "Checks if all vesting periods have passed.",
+      "fields": {}
+    }
   }
 }

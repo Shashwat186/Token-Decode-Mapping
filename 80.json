@@ -1,55 +1,49 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers `amount` tokens from the caller's account to `recipient`.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
+          "recipient": "_recipient",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers `amount` tokens from `sender` to `recipient` on behalf of the caller.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
-        }
-      },
-      "permit": {
-        "description": "Allows a spender to withdraw from the owner’s account up to the amount specified, using an EIP712 signature.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value",
-          "deadline": "_deadline",
-          "v": "_v",
-          "r": "_r",
-          "s": "_s"
+          "sender": "_sender",
+          "recipient": "_recipient",
+          "amount": "_amount"
         }
       }
     },
     "other_functions": {
-      "acceptOwnership": {
-        "description": "Accepts the ownership of the contract from the pending owner.",
+      "constructor": {
+        "description": "Initializes the contract with the given implementation address.",
         "fields": {}
       },
-      "burn": {
-        "description": "Destroys a specific amount of tokens from the caller’s account.",
+      "allowance": {
+        "description": "Returns the remaining number of tokens that `spender` is allowed to spend on behalf of `owner`.",
         "fields": {
+          "owner": "_owner",
+          "spender": "_spender"
+        }
+      },
+      "approve": {
+        "description": "Sets the allowance of `spender` to `amount` tokens.",
+        "fields": {
+          "spender": "_spender",
           "amount": "_amount"
         }
       },
-      "burnFrom": {
-        "description": "Destroys a specific amount of tokens from a specified account.",
+      "balanceOf": {
+        "description": "Returns the balance of `account`.",
         "fields": {
-          "account": "_account",
+          "account": "_account"
+        }
+      },
+      "burn": {
+        "description": "Burns `amount` tokens from the caller's account.",
+        "fields": {
           "amount": "_amount"
         }
       },
@@ -57,18 +51,24 @@
         "description": "Returns the number of decimal places used by the token.",
         "fields": {}
       },
-      "eip712Domain": {
-        "description": "Returns the EIP712 domain information.",
-        "fields": {}
+      "decreaseAllowance": {
+        "description": "Decreases the allowance of `spender` by `subtractedValue` tokens.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
+        }
       },
-      "lastMintTimestamp": {
-        "description": "Returns the timestamp of the last mint operation.",
-        "fields": {}
+      "increaseAllowance": {
+        "description": "Increases the allowance of `spender` by `addedValue` tokens.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
       },
       "mint": {
-        "description": "Mints new tokens and assigns them to the specified address.",
+        "description": "Mints `amount` new tokens and assigns them to `account`.",
         "fields": {
-          "to": "_to",
+          "account": "_account",
           "amount": "_amount"
         }
       },
@@ -76,18 +76,8 @@
         "description": "Returns the name of the token.",
         "fields": {}
       },
-      "nonces": {
-        "description": "Returns the nonce of the specified account, used for EIP712 signatures.",
-        "fields": {
-          "account": "_account"
-        }
-      },
       "owner": {
-        "description": "Returns the address of the current owner of the contract.",
-        "fields": {}
-      },
-      "pendingOwner": {
-        "description": "Returns the address of the pending owner of the contract.",
+        "description": "Returns the current owner of the contract.",
         "fields": {}
       },
       "renounceOwnership": {
@@ -102,88 +92,36 @@
         "description": "Returns the total supply of tokens.",
         "fields": {}
       },
-      "DOMAIN_SEPARATOR": {
-        "description": "Returns the EIP712 domain separator.",
-        "fields": {}
-      },
-      "MAX_INFLATION": {
-        "description": "Returns the maximum inflation percentage allowed.",
-        "fields": {}
-      },
-      "MINT_WAIT_PERIOD": {
-        "description": "Returns the wait period between mint operations.",
-        "fields": {}
+      "transferOwnership": {
+        "description": "Transfers ownership of the contract to `newOwner`.",
+        "fields": {
+          "newOwner": "_newOwner"
+        }
       }
     },
     "events": {
       "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
+        "description": "Emitted when `spender` is approved to spend `value` tokens on behalf of `owner`.",
         "fields": {
           "owner": "_owner",
           "spender": "_spender",
           "value": "_value"
         }
       },
+      "OwnershipTransferred": {
+        "description": "Emitted when ownership of the contract is transferred from `previousOwner` to `newOwner`.",
+        "fields": {
+          "previousOwner": "_previousOwner",
+          "newOwner": "_newOwner"
+        }
+      },
       "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
+        "description": "Emitted when `amount` tokens are transferred from `from` to `to`.",
         "fields": {
           "from": "_from",
           "to": "_to",
           "value": "_value"
         }
-      },
-      "OwnershipTransferStarted": {
-        "description": "Emitted when the process of transferring ownership is started.",
-        "fields": {
-          "previousOwner": "_previousOwner",
-          "newOwner": "_newOwner"
-        }
-      },
-      "OwnershipTransferred": {
-        "description": "Emitted when ownership of the contract is transferred.",
-        "fields": {
-          "previousOwner": "_previousOwner",
-          "newOwner": "_newOwner"
-        }
-      },
-      "Mint": {
-        "description": "Emitted when new tokens are minted.",
-        "fields": {
-          "to": "_to",
-          "amount": "_amount"
-        }
-      },
-      "EIP712DomainChanged": {
-        "description": "Emitted when the EIP712 domain information changes.",
-        "fields": {}
-      }
-    },
-    "errors": {
-      "CantRenounceOwnership": {
-        "description": "Thrown when an attempt is made to renounce ownership in a contract that does not allow it.",
-        "fields": {}
-      },
-      "InvalidShortString": {
-        "description": "Thrown when a provided string is too short or invalid.",
-        "fields": {}
-      },
-      "MaxInflationExceeded": {
-        "description": "Thrown when an operation would exceed the maximum allowed inflation.",
-        "fields": {}
-      },
-      "MintWaitPeriodInProgress": {
-        "description": "Thrown when an attempt is made to mint tokens before the wait period has elapsed.",
-        "fields": {}
-      },
-      "StringTooLong": {
-        "description": "Thrown when a provided string exceeds the maximum allowed length.",
-        "fields": {
-          "str": "_str"
-        }
-      },
-      "ZeroAddressException": {
-        "description": "Thrown when an operation involves a zero address.",
-        "fields": {}
       }
     }
   }

@@ -1,82 +1,87 @@
 {
     "transfer_functions": {
+      "transfer": {
+        "description": "Transfers a specified amount of tokens to a given address.",
+        "fields": {
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "transferFrom": {
+        "description": "Transfers a specified amount of tokens from one address to another using allowance.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
       "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+        "description": "Approves a specified amount of tokens for another address.",
         "fields": {
           "spender": "_spender",
           "amount": "_amount"
         }
       },
-      "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+      "permit": {
+        "description": "Allows a specified address to spend a certain amount of tokens on behalf of the owner.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_amount"
-        }
-      },
-      "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
-        "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_amount"
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value",
+          "deadline": "_deadline",
+          "v": "_v",
+          "r": "_r",
+          "s": "_s"
         }
       }
     },
     "other_functions": {
       "constructor": {
-        "description": "Initializes the contract with an underlying ERC20 token and rewards cycle length.",
+        "description": "Initializes the contract with the underlying ERC20 token and the rewards cycle length.",
         "fields": {
-          "underlying": "_underlying",
-          "rewardsCycleLength": "_rewardsCycleLength"
+          "_underlying": "_underlying",
+          "_rewardsCycleLength": "_rewardsCycleLength"
         }
       },
       "DOMAIN_SEPARATOR": {
-        "description": "Returns the domain separator for EIP-712 signing.",
+        "description": "Returns the domain separator used in EIP-712.",
         "fields": {}
       },
-      "allowance": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the owner.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender"
-        }
-      },
       "asset": {
-        "description": "Returns the address of the underlying ERC20 token.",
+        "description": "Returns the address of the underlying ERC20 asset.",
         "fields": {}
       },
       "balanceOf": {
-        "description": "Returns the amount of tokens owned by the specified address.",
+        "description": "Returns the balance of a given address.",
         "fields": {
-          "account": "_account"
+          "address": "_address"
         }
       },
       "convertToAssets": {
-        "description": "Converts a given amount of shares to its equivalent in assets.",
+        "description": "Converts a specified amount of shares to assets.",
         "fields": {
           "shares": "_shares"
         }
       },
       "convertToShares": {
-        "description": "Converts a given amount of assets to its equivalent in shares.",
+        "description": "Converts a specified amount of assets to shares.",
         "fields": {
           "assets": "_assets"
         }
       },
       "decimals": {
-        "description": "Returns the number of decimals the token uses.",
+        "description": "Returns the number of decimals used by the token.",
         "fields": {}
       },
       "deposit": {
-        "description": "Deposits a specified amount of assets and returns the corresponding shares.",
+        "description": "Deposits a specified amount of assets and receives shares.",
         "fields": {
           "assets": "_assets",
           "receiver": "_receiver"
         }
       },
       "depositWithSignature": {
-        "description": "Deposits a specified amount of assets with a signed message and returns the corresponding shares.",
+        "description": "Deposits a specified amount of assets with a signature and receives shares.",
         "fields": {
           "assets": "_assets",
           "receiver": "_receiver",
@@ -88,39 +93,39 @@
         }
       },
       "lastRewardAmount": {
-        "description": "Returns the amount of the last reward distributed.",
+        "description": "Returns the last reward amount.",
         "fields": {}
       },
       "lastSync": {
-        "description": "Returns the timestamp of the last synchronization.",
+        "description": "Returns the last synchronization timestamp.",
         "fields": {}
       },
       "maxDeposit": {
-        "description": "Returns the maximum amount of assets that can be deposited by a specific address.",
+        "description": "Returns the maximum amount that can be deposited for a given address.",
         "fields": {
-          "account": "_account"
+          "address": "_address"
         }
       },
       "maxMint": {
-        "description": "Returns the maximum amount of shares that can be minted for a specific address.",
+        "description": "Returns the maximum amount of shares that can be minted for a given address.",
         "fields": {
-          "account": "_account"
+          "address": "_address"
         }
       },
       "maxRedeem": {
-        "description": "Returns the maximum amount of shares that can be redeemed by a specific address.",
+        "description": "Returns the maximum amount of shares that can be redeemed for a given address.",
         "fields": {
-          "owner": "_owner"
+          "address": "_address"
         }
       },
       "maxWithdraw": {
-        "description": "Returns the maximum amount of assets that can be withdrawn by a specific address.",
+        "description": "Returns the maximum amount of assets that can be withdrawn for a given address.",
         "fields": {
-          "owner": "_owner"
+          "address": "_address"
         }
       },
       "mint": {
-        "description": "Mints new shares and returns the equivalent amount of assets.",
+        "description": "Mints a specified amount of assets for a given number of shares.",
         "fields": {
           "shares": "_shares",
           "receiver": "_receiver"
@@ -131,53 +136,41 @@
         "fields": {}
       },
       "nonces": {
-        "description": "Returns the current nonce for a specific address, used for off-chain signed messages.",
+        "description": "Returns the nonce value for a given address.",
         "fields": {
-          "account": "_account"
-        }
-      },
-      "permit": {
-        "description": "Allows a spender to spend tokens on behalf of the owner using EIP-2612 signatures.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value",
-          "deadline": "_deadline",
-          "v": "_v",
-          "r": "_r",
-          "s": "_s"
+          "address": "_address"
         }
       },
       "previewDeposit": {
-        "description": "Returns the number of shares that would be received from a given amount of assets if deposited.",
+        "description": "Returns the amount of shares received for a given amount of assets.",
         "fields": {
           "assets": "_assets"
         }
       },
       "previewMint": {
-        "description": "Returns the number of assets that would be received from a given amount of shares if minted.",
+        "description": "Returns the amount of assets received for a given number of shares.",
         "fields": {
           "shares": "_shares"
         }
       },
       "previewRedeem": {
-        "description": "Returns the number of assets that would be received from a given amount of shares if redeemed.",
+        "description": "Returns the amount of assets received for a given number of shares.",
         "fields": {
           "shares": "_shares"
         }
       },
       "previewWithdraw": {
-        "description": "Returns the number of shares that would be received from a given amount of assets if withdrawn.",
+        "description": "Returns the amount of shares received for a given amount of assets.",
         "fields": {
           "assets": "_assets"
         }
       },
       "pricePerShare": {
-        "description": "Returns the price per share of the token.",
+        "description": "Returns the current price per share.",
         "fields": {}
       },
       "redeem": {
-        "description": "Redeems a specified amount of shares for the corresponding assets.",
+        "description": "Redeems a specified number of shares for assets.",
         "fields": {
           "shares": "_shares",
           "receiver": "_receiver",
@@ -185,7 +178,7 @@
         }
       },
       "rewardsCycleEnd": {
-        "description": "Returns the end timestamp of the current rewards cycle.",
+        "description": "Returns the end of the current rewards cycle.",
         "fields": {}
       },
       "rewardsCycleLength": {
@@ -197,19 +190,19 @@
         "fields": {}
       },
       "syncRewards": {
-        "description": "Synchronizes the rewards.",
+        "description": "Synchronizes rewards to the current cycle.",
         "fields": {}
       },
       "totalAssets": {
-        "description": "Returns the total amount of assets held by the contract.",
+        "description": "Returns the total assets held by the contract.",
         "fields": {}
       },
       "totalSupply": {
-        "description": "Returns the total amount of shares in circulation.",
+        "description": "Returns the total supply of shares.",
         "fields": {}
       },
       "withdraw": {
-        "description": "Withdraws a specified amount of assets and returns the corresponding shares.",
+        "description": "Withdraws a specified amount of assets and receives shares.",
         "fields": {
           "assets": "_assets",
           "receiver": "_receiver",

@@ -1,48 +1,115 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers tokens from the caller to a specified address.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
+          "to": "_to",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers tokens from one address to another on behalf of the owner.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
+          "from": "_from",
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "approve": {
+        "description": "Approves a spender to spend a certain amount of tokens on behalf of the owner.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the allowance granted to a spender.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the allowance granted to a spender.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
         }
       }
     },
     "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract with the given initial owner, treasury, and foundation addresses.",
+        "fields": {
+          "_initialOwner": "_initialOwner",
+          "_treasury": "_treasury",
+          "_foundation": "_foundation"
+        }
+      },
+      "acceptOwnership": {
+        "description": "Accepts the ownership transfer.",
+        "fields": {}
+      },
       "burn": {
-        "description": "Destroys a specific amount of tokens from the caller’s account.",
+        "description": "Burns a specified amount of tokens from the caller.",
         "fields": {
           "amount": "_amount"
         }
       },
-      "mint": {
-        "description": "Mints new tokens and assigns them to the specified address.",
+      "burnFrom": {
+        "description": "Burns a specified amount of tokens from a specified address.",
         "fields": {
           "account": "_account",
           "amount": "_amount"
         }
       },
-      "decimals": {
-        "description": "Returns the number of decimal places used by the token.",
+      "eip712Domain": {
+        "description": "Returns the EIP-712 domain separator and related information.",
         "fields": {}
+      },
+      "lastMintTimestamp": {
+        "description": "Returns the timestamp of the last mint operation.",
+        "fields": {}
+      },
+      "mint": {
+        "description": "Mints a specified amount of tokens to a specified address.",
+        "fields": {
+          "to": "_to",
+          "amount": "_amount"
+        }
       },
       "name": {
         "description": "Returns the name of the token.",
+        "fields": {}
+      },
+      "nonces": {
+        "description": "Returns the nonce for a specified address.",
+        "fields": {
+          "owner": "_owner"
+        }
+      },
+      "owner": {
+        "description": "Returns the current owner of the contract.",
+        "fields": {}
+      },
+      "pendingOwner": {
+        "description": "Returns the address of the pending owner.",
+        "fields": {}
+      },
+      "permit": {
+        "description": "Allows a spender to spend tokens on behalf of the owner using a signed permit.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value",
+          "deadline": "_deadline",
+          "v": "_v",
+          "r": "_r",
+          "s": "_s"
+        }
+      },
+      "renounceOwnership": {
+        "description": "Renounces ownership of the contract.",
         "fields": {}
       },
       "symbol": {
@@ -50,70 +117,9 @@
         "fields": {}
       },
       "totalSupply": {
-        "description": "Returns the total supply of tokens.",
+        "description": "Returns the total supply of the token.",
         "fields": {}
-      },
-      "balanceOf": {
-        "description": "Returns the token balance of a specific account.",
-        "fields": {
-          "account": "_account"
-        }
-      },
-      "allowance": {
-        "description": "Returns the amount of tokens that a spender is allowed to withdraw from the owner’s account.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender"
-        }
-      },
-      "increaseAllowance": {
-        "description": "Increases the allowance granted to a spender by the caller.",
-        "fields": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
-        }
-      },
-      "decreaseAllowance": {
-        "description": "Decreases the allowance granted to a spender by the caller.",
-        "fields": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
-        }
-      },
-      "renounceOwnership": {
-        "description": "Renounces ownership of the contract.",
-        "fields": {}
-      },
-      "transferOwnership": {
-        "description": "Transfers ownership of the contract to a new address.",
-        "fields": {
-          "newOwner": "_newOwner"
-        }
-      }
-    },
-   
-      "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
-        }
-      },
-      "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        }
-      },
-      "OwnershipTransferred": {
-        "description": "Emitted when ownership of the contract is transferred.",
-        "fields": {
-          "previousOwner": "_previousOwner",
-          "newOwner": "_newOwner"
-        }
       }
     }
+  }
   

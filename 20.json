@@ -1,124 +1,134 @@
 {
   "transfer_functions": {
-    "approve": {
-      "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
+    "transfer": {
+      "description": "Transfers tokens to a specified address.",
       "fields": {
-        "spender": "_spender",
+        "to": "_to",
         "amount": "_amount"
       }
     },
     "transferFrom": {
-      "description": "Transfers tokens from one address to another on behalf of the sender.",
+      "description": "Transfers tokens from one address to another on behalf of the token holder.",
       "fields": {
         "from": "_from",
         "to": "_to",
         "amount": "_amount"
       }
     },
-    "transfer": {
-      "description": "Transfers tokens from the caller’s account to the specified recipient.",
+    "approve": {
+      "description": "Approves a spender to withdraw a specified amount of tokens from the caller's account.",
       "fields": {
-        "to": "_to",
+        "spender": "_spender",
         "amount": "_amount"
       }
-    },
-    "mint": {
-      "description": "Mints new tokens and assigns them to the specified address.",
-      "fields": {
-        "to": "_to",
-        "amount": "_amount"
-      }
-    },
-    "burn": {
-      "description": "Burns tokens from the caller’s account.",
-      "fields": {
-        "amount": "_amount"
-      }
-    },
-    "burnFrom": {
-      "description": "Burns tokens from a specified address.",
-      "fields": {
-        "account": "_account",
-        "amount": "_amount"
-      }
-    }
-  },
-  "other_functions": {
-    "DOMAIN_SEPARATOR": {
-      "description": "Returns the EIP712 domain separator.",
-      "fields": {}
-    },
-    "acceptOwnership": {
-      "description": "Accepts ownership of the contract.",
-      "fields": {}
     },
     "allowance": {
-      "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the owner.",
+      "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the token holder.",
       "fields": {
         "owner": "_owner",
         "spender": "_spender"
       }
     },
-    "balanceOf": {
-      "description": "Returns the balance of a specified address.",
-      "fields": {
-        "account": "_account"
-      }
-    },
-    "decimals": {
-      "description": "Returns the number of decimals used to get the user representation of the token.",
-      "fields": {}
-    },
-    "decreaseAllowance": {
-      "description": "Decreases the allowance of a spender.",
-      "fields": {
-        "spender": "_spender",
-        "subtractedValue": "_subtractedValue"
-      }
-    },
-    "eip712Domain": {
-      "description": "Returns the EIP712 domain details.",
-      "fields": {
-        "fields": "_fields",
-        "name": "_name",
-        "version": "_version",
-        "chainId": "_chainId",
-        "verifyingContract": "_verifyingContract",
-        "salt": "_salt",
-        "extensions": "_extensions"
-      }
-    },
     "increaseAllowance": {
-      "description": "Increases the allowance of a spender.",
+      "description": "Increases the allowance granted to a spender by the caller.",
       "fields": {
         "spender": "_spender",
         "addedValue": "_addedValue"
       }
     },
-    "minter": {
-      "description": "Returns the address of the minter.",
+    "decreaseAllowance": {
+      "description": "Decreases the allowance granted to a spender by the caller.",
+      "fields": {
+        "spender": "_spender",
+        "subtractedValue": "_subtractedValue"
+      }
+    }
+  },
+  "other_functions": {
+    "constructor": {
+      "description": "Initializes the contract with the given admin address.",
+      "fields": {
+        "admin": "_admin"
+      }
+    },
+    "acceptOwnership": {
+      "description": "Accepts the transfer of ownership.",
       "fields": {}
+    },
+    "burn": {
+      "description": "Burns a specified amount of tokens from the caller's account.",
+      "fields": {
+        "amount": "_amount"
+      }
+    },
+    "burnFrom": {
+      "description": "Burns a specified amount of tokens from a specified account.",
+      "fields": {
+        "account": "_account",
+        "amount": "_amount"
+      }
+    },
+    "mint": {
+      "description": "Mints a specified amount of tokens to a specified address.",
+      "fields": {
+        "to": "_to",
+        "amount": "_amount"
+      }
+    },
+    "setMinter": {
+      "description": "Sets a new minter address.",
+      "fields": {
+        "newMinter": "_newMinter"
+      }
+    },
+    "renounceOwnership": {
+      "description": "Renounces ownership of the contract.",
+      "fields": {}
+    },
+    "transferOwnership": {
+      "description": "Transfers ownership of the contract to a new address.",
+      "fields": {
+        "newOwner": "_newOwner"
+      }
     },
     "name": {
       "description": "Returns the name of the token.",
       "fields": {}
     },
+    "symbol": {
+      "description": "Returns the symbol of the token.",
+      "fields": {}
+    },
+    "decimals": {
+      "description": "Returns the number of decimal places the token uses.",
+      "fields": {}
+    },
+    "totalSupply": {
+      "description": "Returns the total supply of the token.",
+      "fields": {}
+    },
+    "balanceOf": {
+      "description": "Returns the token balance of a specified address.",
+      "fields": {
+        "account": "_account"
+      }
+    },
+    "eip712Domain": {
+      "description": "Returns the EIP712 domain information.",
+      "fields": {}
+    },
+    "DOMAIN_SEPARATOR": {
+      "description": "Returns the domain separator for EIP712.",
+      "fields": {}
+    },
     "nonces": {
-      "description": "Returns the nonce of the specified address.",
+      "description": "Returns the nonce for a specified address.",
       "fields": {
         "owner": "_owner"
       }
     },
-    "owner": {
-      "description": "Returns the address of the owner.",
-      "fields": {}
-    },
-    "pendingOwner": {
-      "description": "Returns the address of the pending owner.",
-      "fields": {}
-    },
     "permit": {
-      "description": "Allows to permit a spender to spend tokens on behalf of the owner with EIP-2612.",
+      "description": "Allows a spender to spend tokens on behalf of the owner via EIP712.",
       "fields": {
         "owner": "_owner",
         "spender": "_spender",
@@ -129,29 +139,9 @@
         "s": "_s"
       }
     },
-    "renounceOwnership": {
-      "description": "Renounces ownership of the contract.",
+    "pendingOwner": {
+      "description": "Returns the address of the pending owner.",
       "fields": {}
-    },
-    "setMinter": {
-      "description": "Sets the minter address.",
-      "fields": {
-        "newMinter": "_newMinter"
-      }
-    },
-    "symbol": {
-      "description": "Returns the symbol of the token.",
-      "fields": {}
-    },
-    "totalSupply": {
-      "description": "Returns the total supply of tokens.",
-      "fields": {}
-    },
-    "transferOwnership": {
-      "description": "Transfers ownership to a new address.",
-      "fields": {
-        "newOwner": "_newOwner"
-      }
     }
   }
 }

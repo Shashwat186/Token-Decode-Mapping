@@ -32,17 +32,11 @@
       "constructor": {
         "description": "Initializes the contract with the given implementation address.",
         "fields": {
-          "_logic": "_logic",
-          "admin_": "_admin",
-          "_data": "_data"
+          "_implementation": "_implementation"
         }
       },
       "fallback": {
         "description": "Fallback function to receive Ether.",
-        "fields": {}
-      },
-      "receive": {
-        "description": "Receive function to receive Ether.",
         "fields": {}
       },
       "AdminChanged": {
@@ -53,7 +47,7 @@
         }
       },
       "BeaconUpgraded": {
-        "description": "Emitted when the beacon address is upgraded.",
+        "description": "Emitted when the beacon address changes.",
         "fields": {
           "beacon": "_beacon"
         }

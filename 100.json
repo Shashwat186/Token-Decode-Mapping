@@ -1,272 +1,131 @@
 {
-    "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
+    "transfer": {
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers `amount` tokens from the caller's account to the `to` account.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
+          "to": "_to",
+          "amount": "_amount"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers `amount` tokens from `from` to `to` using the allowance mechanism.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
-        }
-      },
-      "transferByPartition": {
-        "description": "Transfers tokens from one address to another by partition.",
-        "fields": {
-          "partition": "_partition",
           "from": "_from",
           "to": "_to",
-          "amount": "_value",
-          "data": "_data",
-          "operatorData": "_operatorData"
+          "amount": "_amount"
+        }
+      },
+      "approve": {
+        "description": "Sets `amount` as the allowance of `spender` over the caller's tokens.",
+        "fields": {
+          "spender": "_spender",
+          "amount": "_amount"
+        }
+      },
+      "increaseAllowance": {
+        "description": "Increases the allowance granted to `spender` by the caller.",
+        "fields": {
+          "spender": "_spender",
+          "addedValue": "_addedValue"
+        }
+      },
+      "decreaseAllowance": {
+        "description": "Decreases the allowance granted to `spender` by the caller.",
+        "fields": {
+          "spender": "_spender",
+          "subtractedValue": "_subtractedValue"
         }
       }
     },
     "other_functions": {
+      "constructor": {
+        "description": "Initializes the contract.",
+        "fields": {}
+      },
       "allowance": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to withdraw from the owner.",
+        "description": "Returns the remaining number of tokens that `spender` is allowed to spend on behalf of `owner`.",
         "fields": {
           "owner": "_owner",
           "spender": "_spender"
         }
-      },
-      "allowanceByPartition": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to withdraw from the owner by partition.",
-        "fields": {
-          "partition": "_partition",
-          "owner": "_owner",
-          "spender": "_spender"
-        }
-      },
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
-      "approveByPartition": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified by partition.",
-        "fields": {
-          "partition": "_partition",
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
-      "assumeOwnership": {
-        "description": "Transfers ownership of the contract to the new owner.",
-        "fields": {}
-      },
-      "authorizeOperator": {
-        "description": "Authorizes an operator to manage tokens on behalf of the caller.",
-        "fields": {
-          "operator": "_operator"
-        }
-      },
-      "authorizeOperatorByPartition": {
-        "description": "Authorizes an operator to manage tokens on behalf of the caller by partition.",
-        "fields": {
-          "partition": "_partition",
-          "operator": "_operator"
-        }
-      },
-      "authorizeOwnershipTransfer": {
-        "description": "Authorizes an address to transfer ownership of the contract.",
-        "fields": {
-          "authorizedAddress": "_authorizedAddress"
-        }
-      },
-      "authorizedNewOwner": {
-        "description": "Returns the address authorized for ownership transfer.",
-        "fields": {}
       },
       "balanceOf": {
-        "description": "Returns the balance of the caller’s account.",
+        "description": "Returns the token balance of `account`.",
         "fields": {
-          "tokenHolder": "_tokenHolder"
+          "account": "_account"
         }
       },
-      "balanceOfByPartition": {
-        "description": "Returns the balance of the caller’s account by partition.",
+      "burn": {
+        "description": "Burns `amount` tokens from the caller's account.",
         "fields": {
-          "partition": "_partition",
-          "tokenHolder": "_tokenHolder"
+          "amount": "_amount"
         }
       },
-      "canImplementInterfaceForAddress": {
-        "description": "Checks if an address can implement a specific interface.",
+      "burnFrom": {
+        "description": "Burns `amount` tokens from `account` using the allowance mechanism.",
         "fields": {
-          "interfaceHash": "_interfaceHash",
-          "address": ""
+          "account": "_account",
+          "amount": "_amount"
         }
-      },
-      "collateralManagers": {
-        "description": "Returns the list of registered collateral managers.",
-        "fields": {}
       },
       "decimals": {
-        "description": "Returns the number of decimals used for token representation.",
+        "description": "Returns the number of decimal places used by the token.",
         "fields": {}
-      },
-      "decreaseAllowance": {
-        "description": "Decreases the allowance of a spender.",
-        "fields": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
-        }
-      },
-      "decreaseAllowanceByPartition": {
-        "description": "Decreases the allowance of a spender by partition.",
-        "fields": {
-          "partition": "_partition",
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
-        }
-      },
-      "defaultPartition": {
-        "description": "Returns the default partition used for the token.",
-        "fields": {}
-      },
-      "granularity": {
-        "description": "Returns the granularity of the token, which is the smallest unit of the token.",
-        "fields": {}
-      },
-      "increaseAllowance": {
-        "description": "Increases the allowance of a spender.",
-        "fields": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
-        }
-      },
-      "increaseAllowanceByPartition": {
-        "description": "Increases the allowance of a spender by partition.",
-        "fields": {
-          "partition": "_partition",
-          "spender": "_spender",
-          "addedValue": "_addedValue"
-        }
-      },
-      "isCollateralManager": {
-        "description": "Checks if an address is a registered collateral manager.",
-        "fields": {
-          "collateralManager": "_collateralManager"
-        }
-      },
-      "isOperator": {
-        "description": "Checks if an address is an operator for the caller.",
-        "fields": {
-          "operator": "_operator",
-          "tokenHolder": "_tokenHolder"
-        }
-      },
-      "isOperatorForCollateralManager": {
-        "description": "Checks if an operator is authorized for a collateral manager by partition.",
-        "fields": {
-          "partition": "_partition",
-          "operator": "_operator",
-          "collateralManager": "_collateralManager"
-        }
-      },
-      "isOperatorForPartition": {
-        "description": "Checks if an operator is authorized for a partition.",
-        "fields": {
-          "partition": "_partition",
-          "operator": "_operator",
-          "tokenHolder": "_tokenHolder"
-        }
-      },
-      "isPartitionStrategy": {
-        "description": "Checks if a given prefix corresponds to a valid partition strategy.",
-        "fields": {
-          "prefix": "_prefix"
-        }
       },
       "name": {
         "description": "Returns the name of the token.",
-        "fields": {}
-      },
-      "owner": {
-        "description": "Returns the address of the current owner of the contract.",
-        "fields": {}
-      },
-      "partitionStrategies": {
-        "description": "Returns the list of partition strategies.",
-        "fields": {}
-      },
-      "partitionsOf": {
-        "description": "Returns the list of partitions for a given token holder.",
-        "fields": {
-          "tokenHolder": "_tokenHolder"
-        }
-      },
-      "registerCollateralManager": {
-        "description": "Registers a new collateral manager.",
-        "fields": {}
-      },
-      "revokeOperator": {
-        "description": "Revokes the authorization of an operator for the caller.",
-        "fields": {
-          "operator": "_operator"
-        }
-      },
-      "revokeOperatorByPartition": {
-        "description": "Revokes the authorization of an operator by partition.",
-        "fields": {
-          "partition": "_partition",
-          "operator": "_operator"
-        }
-      },
-      "setPartitionStrategy": {
-        "description": "Sets a new partition strategy for the token.",
-        "fields": {
-          "prefix": "_prefix",
-          "implementation": "_implementation"
-        }
-      },
-      "swap": {
-        "description": "Executes a swap of tokens.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
-        }
-      },
-      "swapToken": {
-        "description": "Returns the address of the swap token contract.",
-        "fields": {}
-      },
-      "swapTokenGraveyard": {
-        "description": "Returns the address of the swap token graveyard.",
         "fields": {}
       },
       "symbol": {
         "description": "Returns the symbol of the token.",
         "fields": {}
       },
-      "totalPartitions": {
-        "description": "Returns the list of all partitions.",
-        "fields": {}
-      },
       "totalSupply": {
-        "description": "Returns the total supply of the token.",
+        "description": "Returns the total supply of tokens.",
         "fields": {}
       },
-      "totalSupplyByPartition": {
-        "description": "Returns the total supply of tokens by partition.",
+      "mint": {
+        "description": "Mints `amount` new tokens and sends them to `to`.",
         "fields": {
-          "partition": "_partition"
+          "to": "_to",
+          "amount": "_amount"
+        }
+      },
+      "owner": {
+        "description": "Returns the current owner of the contract.",
+        "fields": {}
+      },
+      "renounceOwnership": {
+        "description": "Renounces ownership of the contract.",
+        "fields": {}
+      },
+      "transferOwnership": {
+        "description": "Transfers ownership of the contract to `newOwner`.",
+        "fields": {
+          "newOwner": "_newOwner"
+        }
+      },
+      "Approval": {
+        "description": "Emitted when `spender` is approved to spend `value` tokens on behalf of `owner`.",
+        "fields": {
+          "owner": "_owner",
+          "spender": "_spender",
+          "value": "_value"
+        }
+      },
+      "OwnershipTransferred": {
+        "description": "Emitted when ownership of the contract is transferred from `previousOwner` to `newOwner`.",
+        "fields": {
+          "previousOwner": "_previousOwner",
+          "newOwner": "_newOwner"
+        }
+      },
+      "Transfer": {
+        "description": "Emitted when `value` tokens are transferred from `from` to `to`.",
+        "fields": {
+          "from": "_from",
+          "to": "_to",
+          "value": "_value"
         }
       }
     }

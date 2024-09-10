@@ -1,149 +1,150 @@
 {
     "transfer_functions": {
-      "approve": {
-        "description": "Allows a spender to withdraw from the caller’s account up to the amount specified.",
-        "fields": {
-          "spender": "_spender",
-          "amount": "_value"
-        }
-      },
       "transfer": {
-        "description": "Transfers tokens directly from the caller’s address to another address.",
+        "description": "Transfers a specified amount of tokens to a given address.",
         "fields": {
-          "transfer_to": "_to",
-          "amount": "_value"
+          "_to": "_address",
+          "_value": "_uint256"
         }
       },
       "transferFrom": {
-        "description": "Transfers tokens from one address to another on behalf of the sender.",
+        "description": "Transfers a specified amount of tokens from one address to another on behalf of the token owner.",
         "fields": {
-          "transfer_from": "_from",
-          "transfer_to": "_to",
-          "amount": "_value"
+          "_from": "_address",
+          "_to": "_address",
+          "_value": "_uint256"
+        }
+      },
+      "approve": {
+        "description": "Allows a spender to withdraw tokens from the owner's account multiple times, up to the specified amount.",
+        "fields": {
+          "_spender": "_address",
+          "_value": "_uint256"
+        }
+      },
+      "increaseApproval": {
+        "description": "Increases the allowance granted to a spender by the owner.",
+        "fields": {
+          "_spender": "_address",
+          "_addedValue": "_uint256"
+        }
+      },
+      "decreaseApproval": {
+        "description": "Decreases the allowance granted to a spender by the owner.",
+        "fields": {
+          "_spender": "_address",
+          "_subtractedValue": "_uint256"
+        }
+      },
+      "mint": {
+        "description": "Mints new tokens and assigns them to a specified address.",
+        "fields": {
+          "_to": "_address",
+          "_amount": "_uint256"
+        }
+      },
+      "burn": {
+        "description": "Burns a specified amount of tokens from the caller's account.",
+        "fields": {
+          "_amount": "_uint256"
         }
       }
     },
     "other_functions": {
-      "mintingFinished": {
-        "description": "Returns true if minting is finished, false otherwise.",
-        "fields": {}
-      },
       "name": {
         "description": "Returns the name of the token.",
-        "fields": {}
-      },
-      "totalSupply": {
-        "description": "Returns the total supply of tokens.",
-        "fields": {}
-      },
-      "decimals": {
-        "description": "Returns the number of decimals used for the token.",
-        "fields": {}
-      },
-      "mint": {
-        "description": "Mints new tokens to the specified address.",
-        "fields": {
-          "to": "_to",
-          "amount": "_amount"
-        }
-      },
-      "burn": {
-        "description": "Burns a specified amount of tokens.",
-        "fields": {
-          "amount": "_amount"
-        }
-      },
-      "version": {
-        "description": "Returns the version of the token contract.",
-        "fields": {}
-      },
-      "decreaseApproval": {
-        "description": "Decreases the allowance of a spender.",
-        "fields": {
-          "spender": "_spender",
-          "subtractedValue": "_subtractedValue"
-        }
-      },
-      "balanceOf": {
-        "description": "Returns the balance of a specified address.",
-        "fields": {
-          "owner": "_owner"
-        }
-      },
-      "finishMinting": {
-        "description": "Finishes the minting process.",
-        "fields": {}
-      },
-      "owner": {
-        "description": "Returns the address of the contract owner.",
         "fields": {}
       },
       "symbol": {
         "description": "Returns the symbol of the token.",
         "fields": {}
       },
-      "increaseApproval": {
-        "description": "Increases the allowance of a spender.",
+      "decimals": {
+        "description": "Returns the number of decimals used for token amounts.",
+        "fields": {}
+      },
+      "totalSupply": {
+        "description": "Returns the total supply of tokens.",
+        "fields": {}
+      },
+      "balanceOf": {
+        "description": "Returns the balance of tokens held by a specific address.",
         "fields": {
-          "spender": "_spender",
-          "addedValue": "_addedValue"
+          "_owner": "_address"
         }
       },
       "allowance": {
-        "description": "Returns the remaining number of tokens that a spender is allowed to spend on behalf of the owner.",
+        "description": "Returns the amount of tokens that a spender is allowed to withdraw from an owner's account.",
         "fields": {
-          "owner": "_owner",
-          "spender": "_spender"
+          "_owner": "_address",
+          "_spender": "_address"
         }
+      },
+      "mintingFinished": {
+        "description": "Returns whether minting is finished.",
+        "fields": {}
+      },
+      "finishMinting": {
+        "description": "Ends the minting process and makes the token non-mintable.",
+        "fields": {}
+      },
+      "owner": {
+        "description": "Returns the address of the contract owner.",
+        "fields": {}
+      },
+      "version": {
+        "description": "Returns the version of the contract.",
+        "fields": {}
       },
       "transferOwnership": {
         "description": "Transfers ownership of the contract to a new address.",
         "fields": {
-          "newOwner": "_newOwner"
+          "newOwner": "_address"
         }
       }
     },
-      "Burn": {
-        "description": "Emitted when tokens are burned.",
+    "events": {
+      "Transfer": {
+        "description": "Emitted when tokens are transferred from one address to another.",
         "fields": {
-          "burner": "_burner",
-          "value": "_value"
+          "from": "_address",
+          "to": "_address",
+          "value": "_uint256"
+        }
+      },
+      "Approval": {
+        "description": "Emitted when the allowance of a spender for an owner is set or increased.",
+        "fields": {
+          "owner": "_address",
+          "spender": "_address",
+          "value": "_uint256"
         }
       },
       "Mint": {
         "description": "Emitted when new tokens are minted.",
         "fields": {
-          "to": "_to",
-          "amount": "_amount"
+          "to": "_address",
+          "amount": "_uint256"
+        }
+      },
+      "Burn": {
+        "description": "Emitted when tokens are burned.",
+        "fields": {
+          "burner": "_address",
+          "value": "_uint256"
         }
       },
       "MintFinished": {
-        "description": "Emitted when the minting process is finished.",
+        "description": "Emitted when minting is finished.",
         "fields": {}
       },
       "OwnershipTransferred": {
-        "description": "Emitted when the ownership of the contract is transferred.",
+        "description": "Emitted when ownership of the contract is transferred to a new address.",
         "fields": {
-          "previousOwner": "_previousOwner",
-          "newOwner": "_newOwner"
-        }
-      },
-      "Approval": {
-        "description": "Emitted when an approval is made for a spender to withdraw tokens.",
-        "fields": {
-          "owner": "_owner",
-          "spender": "_spender",
-          "value": "_value"
-        }
-      },
-      "Transfer": {
-        "description": "Emitted when tokens are transferred from one address to another.",
-        "fields": {
-          "from": "_from",
-          "to": "_to",
-          "value": "_value"
+          "previousOwner": "_address",
+          "newOwner": "_address"
         }
       }
     }
-  
+  }
   
